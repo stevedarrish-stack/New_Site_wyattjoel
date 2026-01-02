@@ -19,14 +19,29 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
       z-index: 10;
+    min-height: 100vh;
+    background: #111827;
+  }
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
+    opacity: 0.45;
+    pointer-events: none;
+  }
     }
     .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 1.5rem;
+    background: rgba(255,255,255,0.72);
       display: flex;
       justify-content: space-between;
       align-items: center;
+    backdrop-filter: blur(2px);
       gap: 1rem;
     }
 
@@ -187,7 +202,7 @@
       font-size: 0.95rem;
     }
     .hero-card {
-      background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
+      background: #004c97;
       color: #e5e7eb;
       border-radius: 1.35rem;
       padding: 1.75rem 1.6rem;
@@ -360,9 +375,7 @@
   </style>
 </head>
 <body>
-  <div style="position:fixed;z-index:-1;top:0;left:0;width:100vw;height:100vh;pointer-events:none;">
-    <img src="https://www.transparenttextures.com/patterns/cubes.png" alt="background pattern" style="width:100vw;height:100vh;object-fit:cover;opacity:0.18;" />
-  </div>
+  <div class="background-image"></div>
 <header>
   <div class="nav-inner">
     <div class="brand">
