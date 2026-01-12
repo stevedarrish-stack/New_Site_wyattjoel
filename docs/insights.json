@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "type": "Article",
@@ -12,3 +13,37 @@
     "summary": "Key trends and insights for the coming year."
   }
 ]
+=======
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red193\green193\blue193;\red24\green24\blue24;\red140\green211\blue254;
+\red194\green126\blue101;}
+{\*\expandedcolortbl;;\cssrgb\c80000\c80000\c80000;\cssrgb\c12157\c12157\c12157;\cssrgb\c61176\c86275\c99608;
+\cssrgb\c80784\c56863\c47059;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 [\cb1 \
+\cb3   \{\cb1 \
+\cb3     \cf4 \strokec4 "type"\cf2 \strokec2 : \cf5 \strokec5 "Article"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "category"\cf2 \strokec2 : \cf5 \strokec5 "Operating model"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "title"\cf2 \strokec2 : \cf5 \strokec5 "Five moves to realign your operating model for digital scale"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "summary"\cf2 \strokec2 : \cf5 \strokec5 "How leaders are shifting structures, incentives, and talent to unlock digital value."\cf2 \cb1 \strokec2 \
+\cb3   \},\cb1 \
+\cb3   \{\cb1 \
+\cb3     \cf4 \strokec4 "type"\cf2 \strokec2 : \cf5 \strokec5 "Brief"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "category"\cf2 \strokec2 : \cf5 \strokec5 "Financial services"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "title"\cf2 \strokec2 : \cf5 \strokec5 "Rebuilding trust through transparent risk and control frameworks"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "summary"\cf2 \strokec2 : \cf5 \strokec5 "Why risk, compliance, and transformation leaders need a shared playbook."\cf2 \cb1 \strokec2 \
+\cb3   \},\cb1 \
+\cb3   \{\cb1 \
+\cb3     \cf4 \strokec4 "type"\cf2 \strokec2 : \cf5 \strokec5 "Point of view"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "category"\cf2 \strokec2 : \cf5 \strokec5 "AI"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "title"\cf2 \strokec2 : \cf5 \strokec5 "Moving from AI pilots to industrialized impact in 12 months"\cf2 \strokec2 ,\cb1 \
+\cb3     \cf4 \strokec4 "summary"\cf2 \strokec2 : \cf5 \strokec5 "Design principles for scaling AI responsibly across critical workflows."\cf2 \cb1 \strokec2 \
+\cb3   \}\cb1 \
+\cb3 ]\cb1 \
+}
+>>>>>>> 7ad9151 (Move site files into docs folder for GitHub Pages)

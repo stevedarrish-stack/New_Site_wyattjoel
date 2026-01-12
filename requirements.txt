@@ -1,3 +1,9 @@
 Flask
 flask-cors
+<<<<<<< HEAD
+=======
+=======
+gunicornFlask
+flask-cors
+>>>>>>> 00a102e (Update index.html)
 gunicorn
