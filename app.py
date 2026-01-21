@@ -84,6 +84,9 @@ def inquiry():
 
     return jsonify({'status': 'success'}), 200
 
-if __name__ == '__main__':
+@app.before_first_request
+def initialize_database():
     init_db()
+
+if __name__ == '__main__':
     app.run(debug=True)
