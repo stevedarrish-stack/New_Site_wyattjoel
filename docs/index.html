@@ -515,14 +515,22 @@
       We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
       to move organizations from intent to outcome.
     </p>
-    <!-- Removed unused inquiryForm, only one contact form should exist -->
-      <article class="card">
-        <span>01 · Enterprise strategy</span>
-        <h3>Growth, portfolio, and investment strategy</h3>
-        <p>
-          Clarify where to play and how to win, align leadership on direction, and build
-          executable roadmaps anchored in tangible value.
-        </p>
+      <article class="card" style="display:flex; flex-direction:row; gap:2rem; align-items:flex-start;">
+        <div style="flex:1; position:relative;">
+          <span>01 · Enterprise strategy</span>
+          <h3>Growth, portfolio, and investment strategy</h3>
+          <div class="hover-col" style="cursor:pointer;" onmouseover="this.querySelector('.hover-popup').style.display='block'" onmouseout="this.querySelector('.hover-popup').style.display='none'">
+            <p style="margin-bottom:0;">Clarify where to play and how to win, align leadership on direction, and build executable roadmaps anchored in tangible value.</p>
+            <span class="hover-popup" style="display:none; position:absolute; left:0; top:110%; width:260px; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">We help organizations define their growth strategy, optimize portfolios, and make investment decisions that drive long-term value.</span>
+          </div>
+        </div>
+        <div style="flex:1; position:relative;">
+          <h3>Enterprise Execution</h3>
+          <div class="hover-col" style="cursor:pointer;" onmouseover="this.querySelector('.hover-popup').style.display='block'" onmouseout="this.querySelector('.hover-popup').style.display='none'">
+            <p style="margin-bottom:0;">Drive execution excellence, align teams, and ensure strategic initiatives deliver measurable results.</p>
+            <span class="hover-popup" style="display:none; position:absolute; left:0; top:110%; width:260px; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">Our approach ensures that strategy translates into action, with robust governance and performance tracking.</span>
+          </div>
+        </div>
       </article>
       <article class="card">
         <span>02 · Transformation</span>
