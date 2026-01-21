@@ -4,10 +4,10 @@ from datetime import datetime
 # Email notification imports
 import smtplib
 from email.message import EmailMessage
-from flask_cors import CORS
+from flask_cors import CORS  # <-- Add this import
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)  # <-- Enable CORS for your domain
 DB_PATH = 'inquiries.db'
 
 def init_db():
@@ -27,10 +27,11 @@ def init_db():
     conn.close()
 
 def send_email_notification(name, email, topic, message, submitted_at):
-    SMTP_SERVER = 'smtp.gmail.com'
+    # Configure your SMTP server and credentials here
+    SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
     SMTP_PORT = 587
-    SMTP_USER = 'steve@wyattjoel.com'
-    SMTP_PASS = 'YOUR_APP_PASSWORD'
+    SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
+    SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
     TO_EMAIL = 'steve@wyattjoel.com'
 
     msg = EmailMessage()
@@ -57,8 +58,8 @@ Submitted at: {submitted_at}
 
 @app.route('/inquiry', methods=['POST'])
 def inquiry():
-    print("Headers:", dict(request.headers))
-    print("Raw data:", request.data)
+    print("Headers:", request.headers)
+    print("Data:", request.data)
     print("JSON:", request.get_json())
     data = request.get_json()
     name = data.get('name', '')
@@ -76,6 +77,7 @@ def inquiry():
     conn.commit()
     conn.close()
 
+    # Send email notification
     send_email_notification(name, email, topic, message, submitted_at)
 
     return jsonify({'status': 'success'}), 200
