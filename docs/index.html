@@ -1033,37 +1033,34 @@ if __name__ == '__main__':
   </div>
 </footer>
   <form id="inquiryForm">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <input type="text" name="topic" placeholder="Topic" required />
-  <textarea name="message" placeholder="Message" required></textarea>
-  <button type="submit">Send Inquiry</button>
-</form>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="text" name="topic" placeholder="Topic" required />
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send Inquiry</button>
+  </form>
 
-<script>
-const form = document.getElementById('inquiryForm');
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: form.name.value,
-      email: form.email.value,
-      topic: form.topic.value,
-      message: form.message.value
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    alert('Inquiry sent successfully!');
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('There was an error sending your inquiry.');
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('inquiryForm');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value; });
+
+      const response = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert('Inquiry sent!');
+        form.reset();
+      } else {
+        alert('Error sending inquiry.');
+      }
+    });
   });
-});
-</script>
+  </script>
