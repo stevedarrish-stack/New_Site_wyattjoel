@@ -4,10 +4,10 @@ from datetime import datetime
 # Email notification imports
 import smtplib
 from email.message import EmailMessage
-from flask_cors import CORS  # <-- Add this import
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)  # <-- Enable CORS for your domain
+CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)
 DB_PATH = 'inquiries.db'
 
 def init_db():
@@ -27,11 +27,10 @@ def init_db():
     conn.close()
 
 def send_email_notification(name, email, topic, message, submitted_at):
-    # Configure your SMTP server and credentials here
-    SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
+    SMTP_SERVER = 'smtp.gmail.com'
     SMTP_PORT = 587
-    SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
-    SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
+    SMTP_USER = 'steve@wyattjoel.com'
+    SMTP_PASS = 'YOUR_APP_PASSWORD'
     TO_EMAIL = 'steve@wyattjoel.com'
 
     msg = EmailMessage()
@@ -77,7 +76,6 @@ def inquiry():
     conn.commit()
     conn.close()
 
-    # Send email notification
     send_email_notification(name, email, topic, message, submitted_at)
 
     return jsonify({'status': 'success'}), 200
