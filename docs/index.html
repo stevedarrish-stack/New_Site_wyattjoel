@@ -897,35 +897,173 @@
           // Keep fallback visible on error
         });
     }
-    // Contact form AJAX submit
+    // Contact form AJAX submit (Flask-compatible JSON)
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.onsubmit = async function(e) {
         e.preventDefault();
         const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
         try {
           const res = await fetch('https://new-site-wyattjoel-1.onrender.com/inquiry', {
             method: 'POST',
-            body: formData
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
           });
           if (res.ok) {
             alert('Thank you! We received your inquiry.');
             contactForm.reset();
           } else {
-            alert('There was an error. Please try again.');
+            const errorText = await res.text();
+            alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
           }
         } catch (err) {
-          alert('There was an error. Please try again.');
+          alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
         }
       };
     }
   })();
 </script>
 
+<!--
+================ Flask Backend Example for Inquiry Form ================
+
+Save this as app.py and run with: python app.py
+
+
+from flask import Flask, request, jsonify
+import sqlite3
+from datetime import datetime
+# Email notification imports
+import smtplib
+from email.message import EmailMessage
+from flask_cors import CORS  # <-- Add this import
+
+
+app = Flask(__name__)
+CORS(app, origins=["https://wyattjoel.com"])  # <-- Enable CORS for your domain
+DB_PATH = 'inquiries.db'
+
+def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS inquiries (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            topic TEXT,
+            message TEXT,
+            submitted_at TEXT
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+def send_email_notification(name, email, topic, message, submitted_at):
+    # Configure your SMTP server and credentials here
+    SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
+    SMTP_PORT = 587
+    SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
+    SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
+    TO_EMAIL = 'steve@wyattjoel.com'
+
+    msg = EmailMessage()
+    msg['Subject'] = f'New Inquiry from {name} ({email})'
+    msg['From'] = SMTP_USER
+    msg['To'] = TO_EMAIL
+    msg.set_content(f'''
+New inquiry received:
+
+Name: {name}
+Email: {email}
+Topic: {topic}
+Message: {message}
+Submitted at: {submitted_at}
+''')
+
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.send_message(msg)
+    except Exception as e:
+        print('Failed to send email:', e)
+
+@app.route('/inquiry', methods=['POST'])
+def inquiry():
+    data = request.get_json()
+    name = data.get('name', '')
+    email = data.get('email', '')
+    topic = data.get('topic', '')
+    message = data.get('message', '')
+    submitted_at = datetime.utcnow().isoformat()
+
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO inquiries (name, email, topic, message, submitted_at)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (name, email, topic, message, submitted_at))
+    conn.commit()
+    conn.close()
+
+    # Send email notification
+    send_email_notification(name, email, topic, message, submitted_at)
+
+    return jsonify({'status': 'success'}), 200
+
+if __name__ == '__main__':
+    init_db()
+    app.run(debug=True)
+
+# ===================
+# Instructions:
+# 1. Replace SMTP_USER and SMTP_PASS with your Gmail address and app password.
+#    (For Gmail, you may need to enable 2FA and create an app password.)
+# 2. If not using Gmail, update SMTP_SERVER, SMTP_PORT, and credentials for your provider.
+# 3. The notification will be sent to steve@wyattjoel.com on every inquiry.
+# ===================
+=======================================================================
+-->
 <footer>
   <div class="footer-inner">
     <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
     <div>Strategy · Transformation · Digital & AI · Risk</div>
   </div>
 </footer>
-  
+  <form id="inquiryForm">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <input type="text" name="topic" placeholder="Topic" required />
+  <textarea name="message" placeholder="Message" required></textarea>
+  <button type="submit">Send Inquiry</button>
+</form>
+
+<script>
+const form = document.getElementById('inquiryForm');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: form.name.value,
+      email: form.email.value,
+      topic: form.topic.value,
+      message: form.message.value
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    alert('Inquiry sent successfully!');
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('There was an error sending your inquiry.');
+  });
+});
+</script>
