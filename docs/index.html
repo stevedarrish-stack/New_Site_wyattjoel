@@ -466,7 +466,7 @@
         </div>
       </div>
     </div>
-    <div class="client-impact-card" style="background: radial-gradient(circle at top, #004c97 0, #17305c 100%); color: #f9fafb; border-radius: 1.35rem; padding: 1.75rem 1.6rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center;">
+    <div class="client-impact-card" style="background: radial-gradient(circle at top, #004c97 0, #17305c 100%); color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto;">
       <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#f3f4f6;">Client Impact Snapshot</h2>
       <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
         <div>
@@ -482,7 +482,7 @@
           <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
         </div>
       </div>
-      <div class="pill-row" style="display:flex; gap:5rem; margin-bottom:1.25rem; justify-content:space-between; max-width:700px; margin-left:auto; margin-right:auto;">
+      <div class="pill-row" style="display:flex; gap:1.5rem; margin-bottom:0.7rem; justify-content:center;">
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.25rem 0.75rem; font-size:0.78rem; background:rgba(15,23,42,0.8); cursor:pointer;" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'">
           Financial services
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; width:220px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
@@ -491,14 +491,15 @@
           Healthcare
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; width:220px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
         </div>
-        <div style="flex-basis:100%; height:0;"></div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.25rem 0.75rem; font-size:0.78rem; background:rgba(15,23,42,0.8); cursor:pointer; margin-left:auto; margin-right:auto;" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'">
-          Technology
-          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; width:220px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
-        </div>
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.25rem 0.75rem; font-size:0.78rem; background:rgba(15,23,42,0.8); cursor:pointer;" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'">
           Public sector
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; width:220px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+        </div>
+      </div>
+      <div class="pill-row" style="display:flex; justify-content:center; margin-bottom:1.25rem;">
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.25rem 0.75rem; font-size:0.78rem; background:rgba(15,23,42,0.8); cursor:pointer; margin-left:auto; margin-right:auto;" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'">
+          Technology
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; width:220px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
         </div>
       </div>
       <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
@@ -517,19 +518,19 @@
       to move organizations from intent to outcome.
     </p>
       <article class="card" style="display:flex; flex-direction:row; gap:2rem; align-items:flex-start;">
-        <div style="flex:1; position:relative;">
+        <div style="flex:1; position:relative; display:flex; flex-direction:column; align-items:flex-start;">
           <span>01 · Enterprise strategy</span>
-          <h3>Growth, portfolio, and investment strategy</h3>
+          <h3 style="margin-top:0;">Growth, portfolio, and investment strategy</h3>
           <div class="hover-col" style="cursor:pointer; max-width:320px; margin:0 auto;" onmouseover="this.querySelector('.hover-popup').style.display='block'" onmouseout="this.querySelector('.hover-popup').style.display='none'">
-            <p style="margin-bottom:0; font-size:0.85rem; max-width:320px; white-space:normal; overflow:hidden; text-overflow:ellipsis;">Clarify where to play and how to win.</p>
-            <span class="hover-popup" style="display:none; position:absolute; left:0; top:110%; width:260px; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
+            <p style="margin-bottom:0; font-size:0.85rem; max-width:320px; white-space:normal; overflow-wrap:break-word;">Clarify where to play and how to win.</p>
+            <span class="hover-popup" style="display:none; position:absolute; left:0; top:110%; width:320px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem; text-transform:none;">align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
           </div>
         </div>
-        <div style="flex:1; position:relative;">
-          <h3>Enterprise Execution</h3>
+        <div style="flex:1; position:relative; display:flex; flex-direction:column; align-items:flex-start;">
+          <h3 style="margin-top:0;">Enterprise Execution</h3>
           <div class="hover-col" style="cursor:pointer; max-width:320px; margin:0 auto;" onmouseover="this.querySelector('.hover-popup').style.display='block'" onmouseout="this.querySelector('.hover-popup').style.display='none'">
-            <p style="margin-bottom:0; font-size:0.85rem; max-width:320px; white-space:normal; overflow:hidden; text-overflow:ellipsis;">Drive execution excellence.</p>
-            <span class="hover-popup" style="display:none; position:absolute; left:0; top:110%; width=260px; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem;">Align teams and ensure strategic initiatives deliver measurable results.</span>
+            <p style="margin-bottom:0; font-size:0.85rem; max-width:320px; white-space:normal; overflow-wrap:break-word;">Drive execution excellence.</p>
+            <span class="hover-popup" style="display:none; position:absolute; left:0; top:110%; width=260px; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:2; margin-top:0.3rem; text-transform:none;">align teams and ensure strategic initiatives deliver measurable results.</span>
           </div>
         </div>
       </article>
