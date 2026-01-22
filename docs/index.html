@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
           /* Isolated WHAT WE DO hover style */
+          /* Isolated WHAT WE DO hover style - matches INSIGHTS descriptor */
           .whatwedo-hover-popup {
             display: none;
             position: absolute;
@@ -15,6 +16,8 @@
             background: #e1effa;
             color: #17305c;
             font-size: 0.95rem;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-weight: 400;
             padding: 0.7rem 1rem;
             border-radius: 0.7rem;
             box-shadow: 0 4px 16px rgba(15,23,42,0.10);
@@ -23,7 +26,8 @@
             white-space: normal;
             word-break: break-word;
             text-align: left;
-            text-transform: none;
+            /* Force sentence case, override all-caps from global styles */
+            text-transform: none !important;
           }
           .hover-col:hover .whatwedo-hover-popup,
           .hover-col:focus-within .whatwedo-hover-popup {
@@ -386,25 +390,29 @@
     .insight-item:focus-within .insight-hover-desc {
       display: block;
     }
-    .industry-card {
-      position: relative;
-    }
-    .industry-hover-desc {
-      display: none;
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
-      background: #e1effa;
-      color: #17305c;
-      font-size: 0.85rem;
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-      z-index: 2;
-      margin-top: 0.3rem;
-      white-space: normal;
-      word-break: break-word;
+          .whatwedo-hover-popup {
+            display: none !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 100% !important;
+            width: 100% !important;
+            background: #e1effa !important;
+            color: #17305c !important;
+            font-size: 0.85rem !important;
+            padding: 0.7rem 1rem !important;
+            border-radius: 0.7rem !important;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+            z-index: 2 !important;
+            margin-top: 0.3rem !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            text-align: left !important;
+            text-transform: none !important;
+        }
+        .hover-col:hover .whatwedo-hover-popup,
+        .hover-col:focus-within .whatwedo-hover-popup {
+            display: block !important;
+        }
       text-align: left;
     }
     .industry-card:hover .industry-hover-desc,
@@ -550,9 +558,11 @@
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.7rem; display:block;">01 · Enterprise strategy</span>
           <h3 style="margin-top:0; margin-bottom:0.7rem;">Growth, portfolio, and investment strategy</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;" onmouseover="this.querySelector('.whatwedo-hover-popup').style.display='block'" onmouseout="this.querySelector('.whatwedo-hover-popup').style.display='none'">
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
             <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
+              <h3 style="margin-top:0; margin-bottom:0.7rem;">Growth, portfolio, and investment strategy</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
@@ -560,9 +570,11 @@
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.7rem; display:block;">02 · Transformation</span>
           <h3 style="margin-top:0; margin-bottom:0.7rem;">Operating model & transformation offices</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;" onmouseover="this.querySelector('.whatwedo-hover-popup').style.display='block'" onmouseout="this.querySelector('.whatwedo-hover-popup').style.display='none'">
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Transformation offices help sustain impact and unblock progress.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
+              <h3 style="margin-top:0; margin-bottom:0.7rem;">Operating model & transformation offices</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
@@ -570,9 +582,11 @@
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.5rem; display:block;">03 · Digital & AI</span>
           <h3 style="margin-top:0; margin-bottom:0.5rem;">Digital journeys, automation, and analytics</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;" onmouseover="this.querySelector('.whatwedo-hover-popup').style.display='block'" onmouseout="this.querySelector('.whatwedo-hover-popup').style.display='none'">
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Digital transformation enables better decisions and improved performance.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Digital journeys, automation, and analytics</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
@@ -580,9 +594,11 @@
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.5rem; display:block;">04 · Risk & resilience</span>
           <h3 style="margin-top:0; margin-bottom:0.5rem;">Regulatory, operational, and cyber resilience</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;" onmouseover="this.querySelector('.whatwedo-hover-popup').style.display='block'" onmouseout="this.querySelector('.whatwedo-hover-popup').style.display='none'">
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Resilience is built through strong frameworks and stakeholder alignment.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Regulatory, operational, and cyber resilience</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
@@ -590,9 +606,11 @@
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.5rem; display:block;">05 · AI-Driven Acceleration</span>
           <h3 style="margin-top:0; margin-bottom:0.5rem;">Accelerating Product & Process Development</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;" onmouseover="this.querySelector('.whatwedo-hover-popup').style.display='block'" onmouseout="this.querySelector('.whatwedo-hover-popup').style.display='none'">
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Accelerating Product & Process Development</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
@@ -600,9 +618,11 @@
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.5rem; display:block;">06 · M&A Excellence</span>
           <h3 style="margin-top:0; margin-bottom:0.5rem;">Executing Behemoth Financial Services Deals</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;" onmouseover="this.querySelector('.whatwedo-hover-popup').style.display='block'" onmouseout="this.querySelector('.whatwedo-hover-popup').style.display='none'">
-            <span class="whatwedo-hover-popup">Our proven M&A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Executing Behemoth Financial Services Deals</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
