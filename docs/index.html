@@ -129,23 +129,27 @@
       margin: 0 auto;
       padding: 2.5rem 1.5rem 0.9rem;
     }
-    .hover-popup {
-      display: none;
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
-      background: #e1effa;
-      color: #17305c;
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
+      gap: 3rem;
+      align-items: center;
+      margin-top: 1.5rem;
+      margin-bottom: 0.06rem;
+    }
+    .eyebrow {
       font-size: 0.85rem;
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-      z-index: 2;
-      margin-top: 0.3rem;
-      white-space: normal;
-      word-break: break-word;
-      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 1rem;
     }
     h1 span {
       color: #004c97;
