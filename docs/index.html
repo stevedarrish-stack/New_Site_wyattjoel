@@ -41,8 +41,7 @@
                   font-size: 0.95rem !important;
                 }
               }
-          /* Isolated WHAT WE DO hover style */
-          /* Isolated WHAT WE DO hover style - matches INSIGHTS descriptor */
+          /* WHAT WE DO hover popup: match INSIGHTS style exactly */
           .whatwedo-hover-popup {
             display: none;
             position: absolute;
@@ -51,7 +50,7 @@
             width: 100%;
             background: #e1effa;
             color: #17305c;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             font-weight: 400;
             padding: 0.7rem 1rem;
@@ -62,8 +61,9 @@
             white-space: normal;
             word-break: break-word;
             text-align: left;
-            /* Force sentence case, override all-caps from global styles */
             text-transform: none !important;
+            /* Remove all-caps, force sentence case */
+            letter-spacing: normal !important;
           }
           .hover-col:hover .whatwedo-hover-popup,
           .hover-col:focus-within .whatwedo-hover-popup {
@@ -700,6 +700,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Operating Model Illustration -->
+    <div style="width:100%; display:flex; justify-content:flex-start; margin:2.5rem 0 0 0;">
+      <img src="brainstorm_Website.png" alt="Operating Model Illustration" style="max-width:100%; height:auto; border-radius: 0.7rem; box-shadow: 0 4px 24px rgba(15,23,42,0.10); object-fit:contain;" />
+    </div>
+    <!-- End Operating Model Illustration -->
+
   </section>
 
   <section id="industries" style="margin-top:3.5rem;">
