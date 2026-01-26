@@ -5,19 +5,6 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* Article hyperlink hover effect for Insights section */
-    .insight-item a {
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      border-radius: 0.5rem;
-      padding: 0.1rem 0.3rem;
-    }
-    .insight-item a:hover, .insight-item a:focus {
-      background: #e1effa;
-      color: #004c97;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,76,151,0.10);
-      outline: none;
-    }
               /* Mobile improvements for Client Impact Snapshot */
               @media (max-width: 600px) {
                 .client-impact-card {
@@ -421,6 +408,28 @@
       border-bottom: 1px solid #e5e7eb;
       position: relative;
     }
+    .insight-hover-desc {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      background: #e1effa;
+      color: #17305c;
+      font-size: 0.85rem;
+      padding: 0.7rem 1rem;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+      z-index: 2;
+      margin-top: 0.3rem;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+    .insight-item:hover .insight-hover-desc,
+    .insight-item:focus-within .insight-hover-desc {
+      display: block;
+    }
           .whatwedo-hover-popup {
             display: none !important;
             position: absolute !important;
@@ -495,13 +504,6 @@
       }
     }
   </style>
-    <style>
-      .insight-item { position: relative; }
-      .insight-item:hover .insight-summary,
-      .insight-item:focus-within .insight-summary {
-        display: block !important;
-      }
-    </style>
 </head>
 <body>
   <!-- Background banner: image.png, 4in from top, 5in tall, full width, less vivid -->
@@ -605,6 +607,7 @@
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
             <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
@@ -681,32 +684,22 @@
           <div id="insights-list"></div>
           <div id="insights-fallback">
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Highlights Operating model</div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
               <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-              <div class="insight-summary" style="margin-top:0.1rem; font-size:0.85rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; z-index:10; max-width:420px; box-shadow:0 4px 16px rgba(15,23,42,0.10);">
-                To realign for digital scale, organizations should assess current strengths, set clear digital goals, and invest in enabling technologies. Building a digital-first culture and adapting strategies based on performance data are key. These steps help leaders unlock value, stay competitive, and prepare for ongoing digital disruption and transformation.
-              </div>
-              </div>
+              <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Rebuilding trust through transparent risk and control frameworks</h4>
               <p style="margin-bottom:0.7rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
-              <div class="insight-summary" style="margin-top:0.1rem; font-size:0.85rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; z-index:10; max-width:420px; box-shadow:0 4px 16px rgba(15,23,42,0.10);">
-                Rebuilding trust requires transparent risk and control frameworks, clear governance, and open communication. Integrating risk management into daily operations and leveraging technology for real-time monitoring are essential. Regularly updating frameworks to address new threats helps organizations build resilience, reduce vulnerabilities, and strengthen stakeholder confidence for long-term success.
-              </div>
-              </div>
+              <div class="insight-hover-desc">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
               <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
-              <div class="insight-summary" style="margin-top:0.1rem; font-size:0.85rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; z-index:10; max-width:420px; box-shadow:0 4px 16px rgba(15,23,42,0.10);">
-                Moving from AI pilots to industrialized impact requires clear objectives, cross-functional teams, and strong data governance. Responsible AI practices, change management, and continuous learning are vital for ethical deployment. These principles help organizations accelerate AI adoption, drive measurable value, and maintain a competitive edge in a rapidly evolving digital world.
-              </div>
-              </div>
-
+              <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
             </div>
           </div>
         </div>
@@ -868,7 +861,7 @@
             <strong>Action:</strong> Designed and deployed an enterprise-level “Selling the Bank of America Way” playbook, engineered customer experience, deployed needs-based selling tools across 5700 branches, developed market capability algorithms, leveraged market demand models for goal setting, and customized product mix and sales targets by region.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> Moved the Bank from under $15B to $22B gross profit. Standardized selling routines, increased customer satisfaction, and reduced defections. Aggregate sales up 23% over 3 years, cross-sales ratio from 2.1 to 
+            <strong>Impact:</strong> Moved the Bank from under $15B to $22B gross profit. Standardized selling routines, increased customer satisfaction, and reduced defections. Aggregate sales up 23% over 3 years, cross-sales ratio from 2.1 to 3.6, aggregate sales up 16%. Modeled store performance for higher market penetration and optimized leadership time allocation.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1004,6 +997,11 @@
             wrap.appendChild(p);
             // Add hover description
             const hoverDesc = document.createElement('div');
+            hoverDesc.className = 'insight-hover-desc';
+            hoverDesc.textContent =
+              item.hoverDesc ||
+              'Read more for actionable insights and practical steps to address this topic.';
+            wrap.appendChild(hoverDesc);
             frag.appendChild(wrap);
           });
           listEl.appendChild(frag);
