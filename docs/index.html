@@ -5,6 +5,19 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* Article hyperlink hover effect for Insights section */
+    .insight-item a {
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      border-radius: 0.5rem;
+      padding: 0.1rem 0.3rem;
+    }
+    .insight-item a:hover, .insight-item a:focus {
+      background: #e1effa;
+      color: #004c97;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,76,151,0.10);
+      outline: none;
+    }
               /* Mobile improvements for Client Impact Snapshot */
               @media (max-width: 600px) {
                 .client-impact-card {
@@ -684,22 +697,52 @@
           <div id="insights-list"></div>
           <div id="insights-fallback">
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Operating model</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
               <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
               <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
+              <div class="insight-summary" style="margin-top:0.7rem; font-size:0.95rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; z-index:10; max-width:420px; box-shadow:0 4px 16px rgba(15,23,42,0.10);">
+                This outlines five essential moves for organizations seeking to realign their operating models for digital scale. It emphasizes the importance of assessing current capabilities, setting clear digital objectives, and investing in the right technologies to drive efficiency. The summary also highlights the need to foster a digital-first culture among employees and to continuously measure and adapt strategies based on performance data. By following these steps, leaders can unlock new value, remain competitive, and ensure their organizations are prepared for ongoing digital disruption.
+              </div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Rebuilding trust through transparent risk and control frameworks</h4>
               <p style="margin-bottom:0.7rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
               <div class="insight-hover-desc">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
+              <div class="insight-summary" style="margin-top:0.7rem; font-size:0.95rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; z-index:10; max-width:420px; box-shadow:0 4px 16px rgba(15,23,42,0.10);">
+                This explores how organizations can rebuild trust by establishing transparent risk and control frameworks. It discusses the importance of clear governance, open communication, and integrating risk management into daily operations. Leveraging technology for real-time monitoring and regularly updating frameworks to address evolving threats are also emphasized. By prioritizing transparency and continuous improvement, organizations can enhance stakeholder confidence, reduce vulnerabilities, and create a resilient foundation for long-term success.
+              </div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
               <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
               <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
+              <div class="insight-summary" style="margin-top:0.7rem; font-size:0.95rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; z-index:10; max-width:420px; box-shadow:0 4px 16px rgba(15,23,42,0.10);">
+                This examines how organizations can move from isolated AI pilot projects to achieving large-scale, sustainable impact within a year. It highlights the importance of setting clear objectives, building cross-functional teams, and establishing robust data governance. The summary also discusses the need for responsible AI practices, change management, and continuous learning to ensure ethical and effective deployment. By following these principles, companies can accelerate AI adoption, drive measurable business value, and maintain a competitive edge in a rapidly evolving digital landscape.
+              </div>
+                <script>
+                  // Show summary on hover for all .insight-item
+                  document.querySelectorAll('.insight-item').forEach(function(item) {
+                    item.addEventListener('mouseenter', function() {
+                      var summary = item.querySelector('.insight-summary');
+                      if (summary) summary.style.display = 'block';
+                    });
+                    item.addEventListener('mouseleave', function() {
+                      var summary = item.querySelector('.insight-summary');
+                      if (summary) summary.style.display = 'none';
+                    });
+                    item.addEventListener('focusin', function() {
+                      var summary = item.querySelector('.insight-summary');
+                      if (summary) summary.style.display = 'block';
+                    });
+                    item.addEventListener('focusout', function() {
+                      var summary = item.querySelector('.insight-summary');
+                      if (summary) summary.style.display = 'none';
+                    });
+                  });
+                </script>
             </div>
           </div>
         </div>
