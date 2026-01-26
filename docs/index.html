@@ -1,3 +1,5 @@
+  /* Ensure .insight-item is relative for hover popups */
+  .insight-item { position: relative; }
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -696,7 +698,7 @@
         <div>
           <div id="insights-list"></div>
           <div id="insights-fallback">
-            <div class="insight-item" style="margin-bottom:1.2rem;">
+              <div class="insight-item" style="margin-bottom:1.2rem; position:relative;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Operating model</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
               <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
@@ -716,7 +718,7 @@
               <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
               <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
               <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
-              <div class="insight-hover-desc ai-hover-summary" style="margin-top:0.7rem; font-size:0.95rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; left:0; right:0; min-width:320px; max-width:700px; box-shadow:0 4px 24px rgba(15,23,42,0.15); z-index:100; white-space:normal;">
+              <div class="insight-hover-desc ai-hover-summary" style="margin-top:0.7rem; font-size:0.95rem; color:#17305c; background:#f3f7fa; border-radius:0.5rem; padding:0.8rem 1rem; display:none; position:absolute; left:0; right:0; min-width:320px; max-width:700px; box-shadow:0 8px 32px rgba(15,23,42,0.25); z-index:9999; white-space:normal;">
                 This examines how organizations can move from isolated AI pilot projects to achieving large-scale, sustainable impact within a year. It highlights the importance of setting clear objectives, building cross-functional teams, and establishing robust data governance. The summary also discusses the need for responsible AI practices, change management, and continuous learning to ensure ethical and effective deployment. By following these principles, companies can accelerate AI adoption, drive measurable business value, and maintain a competitive edge in a rapidly evolving digital landscape.
               </div>
                 <script>
