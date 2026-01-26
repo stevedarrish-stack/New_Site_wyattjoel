@@ -5,6 +5,24 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                  /* INSIGHTS Pers image mobile placement and wrapping */
+                  @media (max-width: 600px) {
+                    .insights-pers-img {
+                      display: block !important;
+                      float: none !important;
+                      margin: 1.2rem auto 1.2rem auto !important;
+                      width: 90vw !important;
+                      max-width: 350px !important;
+                      height: auto !important;
+                    }
+                    .insights .section-title {
+                      margin-bottom: 0.7rem !important;
+                    }
+                    .insights .section-lead {
+                      clear: both !important;
+                      margin-top: 0 !important;
+                    }
+                  }
               /* Mobile improvements for Client Impact Snapshot */
               @media (max-width: 600px) {
                 .client-impact-card {
@@ -674,11 +692,11 @@
         <div>
           <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
-                    <p class="section-lead">
-                      Short, practicable viewpoints on the trends reshaping industries—from generative AI
-                      to evolving regulatory expectations.
-                    </p>
-                    <img class="insights-pers-img" src="Pers.jpg" alt="Perspective" style="display:block; float:left; width:5in; height:3.5in; object-fit:cover; margin: 1.2rem 1.5rem 1.2rem 0; border-radius:0.5rem; box-shadow:0 4px 16px rgba(15,23,42,0.10);" />
+          <img class="insights-pers-img" src="Pers.jpg" alt="Perspective" style="display:block; float:left; width:5in; height:3.5in; object-fit:cover; margin: 1.2rem 1.5rem 1.2rem 0; border-radius:0.5rem; box-shadow:0 4px 16px rgba(15,23,42,0.10);" />
+          <p class="section-lead">
+            Short, practicable viewpoints on the trends reshaping industries—from generative AI
+            to evolving regulatory expectations.
+          </p>
               /* Hide INSIGHTS Pers image on mobile */
               @media (max-width: 600px) {
                 .insights-pers-img {
