@@ -713,7 +713,33 @@
             Short, practicable viewpoints on the trends reshaping industries—from generative AI
             to evolving regulatory expectations.
           </p>
-          <img src="Pers.jpg" alt="Perspective" style="display:block; float:left; width:5in; height:3.5in; object-fit:cover; margin: 1.2rem 1.5rem 1.2rem 0; border-radius:0.5rem; box-shadow:0 4px 16px rgba(15,23,42,0.10);" />
+          <img src="Pers.jpg" alt="Perspective" class="insights-perspective-img" />
+            .insights-perspective-img {
+              display: block;
+              float: left;
+              width: 5in;
+              height: 3.5in;
+              object-fit: cover;
+              margin: 1.2rem 1.5rem 1.2rem 0;
+              border-radius: 0.5rem;
+              box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+            }
+            @media (max-width: 800px) {
+              .insights-perspective-img {
+                float: none !important;
+                display: block !important;
+                margin: 0 auto 1.2rem auto !important;
+                width: 98vw !important;
+                max-width: 98vw !important;
+                height: auto !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                box-sizing: border-box !important;
+                position: static !important;
+                clear: both !important;
+                border-radius: 0 !important;
+              }
+            }
         </div>
         <div>
           <div id="insights-list"></div>
