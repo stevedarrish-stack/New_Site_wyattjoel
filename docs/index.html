@@ -1,31 +1,3 @@
-    @media (max-width: 600px) {
-      #insights .insights-grid {
-        display: block !important;
-        flex-direction: column !important;
-        width: 100% !important;
-      }
-      #insights .insights-grid > div {
-        width: 100% !important;
-        max-width: 100vw !important;
-        display: block !important;
-        float: none !important;
-        margin: 0 !important;
-      }
-      #insights img[alt="Perspective"] {
-        float: none !important;
-        display: block !important;
-        margin: 0 auto 1.2rem auto !important;
-        width: 100vw !important;
-        max-width: 100vw !important;
-        height: auto !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-        box-sizing: border-box !important;
-        position: static !important;
-        clear: both !important;
-        border-radius: 0 !important;
-      }
-    }
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -530,23 +502,6 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
-      #insights img[alt="Perspective"] {
-        float: none !important;
-        display: block !important;
-        margin: 0 auto 1.2rem auto !important;
-        width: 98vw !important;
-        max-width: 98vw !important;
-        height: auto !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-        box-sizing: border-box !important;
-        position: static !important;
-        clear: both !important;
-      }
-        height: auto !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-      }
     }
   </style>
 </head>
@@ -567,6 +522,16 @@
       <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Strategy · Transformation · Performance</div>
+      <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
+      <p>
         We partner with senior leaders to redesign operating models, unlock digital value,
         and deliver measurable impact across growth, cost, and risk.
       </p>
@@ -713,56 +678,28 @@
             Short, practicable viewpoints on the trends reshaping industries—from generative AI
             to evolving regulatory expectations.
           </p>
-          <img src="Pers.jpg" alt="Perspective" class="insights-perspective-img" />
-            .insights-perspective-img {
-              display: block;
-              float: left;
-              width: 5in;
-              height: 3.5in;
-              object-fit: cover;
-              margin: 1.2rem 1.5rem 1.2rem 0;
-              border-radius: 0.5rem;
-              box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-            }
-            @media (max-width: 800px) {
-              .insights-perspective-img {
-                float: none !important;
-                display: block !important;
-                margin: 0 !important;
-                width: 100vw !important;
-                max-width: 100vw !important;
-                height: auto !important;
-                min-width: 0 !important;
-                min-height: 0 !important;
-                box-sizing: border-box !important;
-                position: static !important;
-                clear: both !important;
-                border-radius: 0 !important;
-                z-index: 1 !important;
-              }
-            }
         </div>
         <div>
           <div id="insights-list"></div>
           <div id="insights-fallback">
             <div class="insight-item" style="margin-bottom:1.2rem;">
-                <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
-                <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
-                <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-                <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
-              </div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
+              <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+              <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
+            </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
-                <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
-                <h4 style="margin-top:0; margin-bottom:0.7rem;">Rebuilding trust through transparent risk and control frameworks</h4>
-                <p style="margin-bottom:0.7rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
-                <div class="insight-hover-desc">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
-              </div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem;">Rebuilding trust through transparent risk and control frameworks</h4>
+              <p style="margin-bottom:0.7rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
+              <div class="insight-hover-desc">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
+            </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
-                <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
-                <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
-                <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
-                <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
-              </div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
+              <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
+              <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
+            </div>
           </div>
         </div>
       </div>
