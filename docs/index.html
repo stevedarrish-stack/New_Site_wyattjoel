@@ -5,6 +5,19 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                      /* INSIGHTS: On mobile, stack image above insight items */
+                      @media (max-width: 600px) {
+                        .insights-grid {
+                          display: flex;
+                          flex-direction: column !important;
+                        }
+                        .insights-grid > div:first-child {
+                          order: 1;
+                        }
+                        .insights-grid > div:last-child {
+                          order: 2;
+                        }
+                      }
                   /* INSIGHTS Pers image mobile placement and wrapping */
                   @media (max-width: 600px) {
                     .insights-pers-img {
