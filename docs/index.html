@@ -48,7 +48,7 @@
             left: 0;
             top: 100%;
             width: 100%;
-            background: #e1effa;
+            background: transparent;
             color: #17305c;
             font-size: 0.85rem;
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -255,7 +255,7 @@
       background: #00376f;
     }
     .btn-outline {
-      background: #ffffff;
+      background: transparent;
       border: 1px solid #cbd5e1;
       color: #111827;
     }
@@ -288,7 +288,7 @@
       margin-bottom: 0.5rem;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: #9ca3af;
+      color: #0f172a;
     }
     .hero-card-main {
       margin-bottom: 1rem;
@@ -334,6 +334,8 @@
       font-size: 1.4rem;
       margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
+      color: #004c97;
+      font-weight: bold;
     }
     .section-lead {
       font-size: 0.98rem;
@@ -345,7 +347,7 @@
       border-radius: 1.1rem;
       border: 1px solid #e5e7eb;
       padding: 1.3rem 1.35rem;
-      background: #ffffff;
+      background: transparent;
       box-shadow: 0 10px 24px rgba(15,23,42,0.04);
     }
     .card.case-study {
@@ -376,6 +378,7 @@
     .card h3 {
       font-size: 1.05rem;
       margin-bottom: 0.4rem;
+      color: #0f172a;
     }
     .card p {
       font-size: 0.9rem;
@@ -391,7 +394,7 @@
     .insights {
       margin-top: 3.75rem;
       border-radius: 1.35rem;
-      background: #f4f6f8;
+      background: transparent;
       padding: 2rem 1.8rem;
     }
     .insights-grid {
@@ -469,6 +472,7 @@
     .insight-item h4 {
       font-size: 0.95rem;
       margin: 0 0 0.15rem;
+      color: #0f172a;
     }
     .insight-item p {
       font-size: 0.85rem;
@@ -502,9 +506,10 @@
   </style>
 </head>
 <body>
-  <!-- Background image: image.png, fixed, full width, behind all content -->
-  <div style="position:fixed; top:0; left:0; width:100vw; height:100vh; overflow:hidden; z-index:-1;">
-    <img src="../image.png" alt="Background" style="width:100vw; height:100vh; object-fit:cover; display:block;">
+  <!-- Background banner: image.png, 4in from top, 5in tall, full width, less vivid -->
+  <div style="position:fixed; top:4in; left:0; width:100vw; height:5in; overflow:hidden; z-index:-1;">
+    <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block; opacity:0.21;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; opacity:0.18;"></div>
   </div>
 <header>
   <div class="nav-inner">
@@ -513,10 +518,10 @@
       WyattJoel Advisory Partners
     </div>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#insights">Insights</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
+      <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
+      <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
+      <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
+      <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
     </nav>
   </div>
 </header>
@@ -588,7 +593,7 @@
   </section>
 
   <section id="services" style="margin-top:1.6rem;">
-    <div class="section-label" style="margin-bottom:0.7rem;">What we do</div>
+    <div class="section-label" style="margin-bottom:0.7rem; color:#004c97; font-weight:bold;">WHAT WE DO</div>
     <div class="section-title" style="margin-bottom:0.7rem;">End‑to‑end support from strategy to sustained delivery.</div>
     <p class="section-lead" style="margin-bottom:1.2rem;">
       We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
@@ -667,7 +672,7 @@
   <section id="insights" class="insights" style="position:relative; overflow:hidden;">
       <div class="insights-grid" style="position:relative; z-index:1;">
         <div>
-          <div class="section-label">Insights</div>
+          <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
           <p class="section-lead">
             Short, practicable viewpoints on the trends reshaping industries—from generative AI
@@ -702,7 +707,7 @@
   </section>
 
   <section id="industries" style="margin-top:3.5rem;">
-    <div class="section-label">Industries</div>
+    <div class="section-label" style="color:#004c97; font-weight:bold;">Industries</div>
     <div class="section-title">We work where the stakes are high.</div>
     <p class="section-lead">
       Our teams bring specialized experience in highly regulated, complex environments where
@@ -740,7 +745,7 @@
   </section>
 
   <section id="case-studies" style="margin-top:3.5rem;">
-    <div class="section-label">Case Studies</div>
+    <div class="section-label" style="color:#004c97; font-weight:bold;">Case Studies</div>
     <div class="section-title">Real-world impact in action.</div>
     <p class="section-lead">
       Explore how we’ve partnered with organizations to deliver measurable results across industries.
@@ -921,7 +926,7 @@
   </section>
 
   <section id="contact" style="margin-top:3.5rem;">
-    <div class="section-label" style="text-align:left;">Contact</div>
+    <div class="section-label" style="text-align:left; color:#004c97; font-weight:bold;">Contact</div>
     <div class="section-title" style="text-align:left;">Start a conversation.</div>
     <p class="section-lead" style="text-align:left;">
       Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
