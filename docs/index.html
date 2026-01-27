@@ -1,10 +1,74 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
  <head>
  <meta charset="UTF-8" />
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+              /* Mobile improvements for Client Impact Snapshot */
+              @media (max-width: 600px) {
+                .client-impact-card {
+                  max-width: 380px !important;
+                  min-width: 260px !important;
+                  width: 90vw !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+                  padding: 0.8rem 0.5rem !important;
+                  box-sizing: border-box !important;
+                  border-radius: 1.35rem !important;
+                }
+                .client-impact-card h2 {
+                  font-size: 1.3rem !important;
+                  padding: 0 0.2rem !important;
+                }
+                .impact-stats {
+                  flex-direction: column !important;
+                  gap: 1rem !important;
+                }
+                .pill-row {
+                  flex-wrap: wrap !important;
+                  gap: 0.3rem !important;
+                }
+                .pill {
+                  min-width: 70px !important;
+                  max-width: 100px !important;
+                  font-size: 0.7rem !important;
+                  padding: 0.15rem 0.5rem !important;
+                }
+                .client-impact-card p,
+                .client-impact-card .impact-label,
+                .client-impact-card .impact-number {
+                  font-size: 0.95rem !important;
+                }
+              }
+          /* Isolated WHAT WE DO hover style */
+          /* Isolated WHAT WE DO hover style - matches INSIGHTS descriptor */
+          .whatwedo-hover-popup {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            background: #e1effa;
+            color: #17305c;
+            font-size: 0.95rem;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-weight: 400;
+            padding: 0.7rem 1rem;
+            border-radius: 0.7rem;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+            z-index: 2;
+            margin-top: 0.3rem;
+            white-space: normal;
+            word-break: break-word;
+            text-align: left;
+            /* Force sentence case, override all-caps from global styles */
+            text-transform: none !important;
+          }
+          .hover-col:hover .whatwedo-hover-popup,
+          .hover-col:focus-within .whatwedo-hover-popup {
+            display: block;
+          }
       </footer>
           margin-top: 0.2rem;
         }
@@ -36,10 +100,11 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #ffffff;
+      background: transparent;
       color: #111827;
       -webkit-font-smoothing: antialiased;
     }
+    /* Removed animated gradient background */
     header {
       position: sticky;
       top: 0;
@@ -354,28 +419,38 @@
       box-shadow: 0 4px 16px rgba(15,23,42,0.10);
       z-index: 2;
       margin-top: 0.3rem;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
     }
     .insight-item:hover .insight-hover-desc,
     .insight-item:focus-within .insight-hover-desc {
       display: block;
     }
-    .industry-card {
-      position: relative;
-    }
-    .industry-hover-desc {
-      display: none;
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
-      background: #e1effa;
-      color: #17305c;
-      font-size: 0.85rem;
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-      z-index: 2;
-      margin-top: 0.3rem;
+          .whatwedo-hover-popup {
+            display: none !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 100% !important;
+            width: 100% !important;
+            background: #e1effa !important;
+            color: #17305c !important;
+            font-size: 0.85rem !important;
+            padding: 0.7rem 1rem !important;
+            border-radius: 0.7rem !important;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+            z-index: 2 !important;
+            margin-top: 0.3rem !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            text-align: left !important;
+            text-transform: none !important;
+        }
+        .hover-col:hover .whatwedo-hover-popup,
+        .hover-col:focus-within .whatwedo-hover-popup {
+            display: block !important;
+        }
+      text-align: left;
     }
     .industry-card:hover .industry-hover-desc,
     .industry-card:focus-within .industry-hover-desc {
@@ -466,68 +541,128 @@
         </div>
       </div>
     </div>
-    <div class="client-impact-card">
-      <h2>Client Impact Snapshot</h2>
-      <div class="impact-stats">
+    <div class="client-impact-card" style="background: radial-gradient(circle at top, #004c97 0, #17305c 100%); color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto;">
+      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#e5e7eb; font-weight:700; background:transparent; letter-spacing:0.01em; filter:brightness(2.2);">Client Impact Snapshot</h2>
+      <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
         <div>
-          <span class="impact-number">120</span>
-          <span class="impact-label">Clients Served</span>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">120</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Clients Served</span>
         </div>
         <div>
-          <span class="impact-number">98%</span>
-          <span class="impact-label">Satisfaction</span>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">98%</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Satisfaction</span>
         </div>
         <div>
-          <span class="impact-number">5</span>
-          <span class="impact-label">Years Running</span>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">17</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
         </div>
       </div>
-      <p style="color:#f9fafb;"><strong>WyattJoel</strong> continues to make a difference. Our customers report that our solutions have made a difference and that operating performance dramatically improved as the result of the collaboration between us.</p>
+      <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:nowrap; margin-bottom:0.7rem;">
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Financial services
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Healthcare
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Public sector
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Technology
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+        </div>
+      </div>
+      <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
+        <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
+      </p>
 </div>
       </p>
     </aside>
   </section>
 
   <section id="services" style="margin-top:1.6rem;">
-    <div class="section-label">What we do</div>
-    <div class="section-title">End‑to‑end support from strategy to sustained delivery.</div>
-    <p class="section-lead">
+    <div class="section-label" style="margin-bottom:0.7rem;">What we do</div>
+    <div class="section-title" style="margin-bottom:0.7rem;">End‑to‑end support from strategy to sustained delivery.</div>
+    <p class="section-lead" style="margin-bottom:1.2rem;">
       We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
       to move organizations from intent to outcome.
     </p>
-    <div class="card-grid">
-      <article class="card">
-        <span>01 · Enterprise strategy</span>
-        <h3>Growth, portfolio, and investment strategy</h3>
-        <p>
-          Clarify where to play and how to win, align leadership on direction, and build
-          executable roadmaps anchored in tangible value.
-        </p>
-      </article>
-      <article class="card">
-        <span>02 · Transformation</span>
-        <h3>Operating model & transformation offices</h3>
-        <p>
-          Redesign structures, roles, and ways of working while establishing transformation
-          offices that track, unblock, and sustain impact.
-        </p>
-      </article>
-      <article class="card">
-        <span>03 · Digital & AI</span>
-        <h3>Digital journeys, automation, and analytics</h3>
-        <p>
-          Modernize customer and employee journeys, embed automation, and leverage data and AI
-          to inform mission‑critical decisions.
-        </p>
-      </article>
-      <article class="card">
-        <span>04 · Risk & resilience</span>
-        <h3>Regulatory, operational, and cyber resilience</h3>
-        <p>
-          Strengthen risk frameworks, streamline controls, and align stakeholders around a
-          pragmatic path to compliance and resilience.
-        </p>
-      </article>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:2.2rem;">
+      <div style="flex:1; min-width:280px; max-width:400px;">
+        <article class="card" style="height:100%; margin-bottom:1.2rem;">
+          <span style="margin-bottom:0.7rem; display:block;">01 · Enterprise strategy</span>
+          <h3 style="margin-top:0; margin-bottom:0.7rem;">Growth, portfolio, and investment strategy</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
+            <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
+              <h3 style="margin-top:0; margin-bottom:0.7rem;">Growth, portfolio, and investment strategy</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+          </div>
+        </article>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px;">
+        <article class="card" style="height:100%; margin-bottom:1.2rem;">
+          <span style="margin-bottom:0.7rem; display:block;">02 · Transformation</span>
+          <h3 style="margin-top:0; margin-bottom:0.7rem;">Operating model & transformation offices</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">Transformation offices help sustain impact and unblock progress.</span>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
+              <h3 style="margin-top:0; margin-bottom:0.7rem;">Operating model & transformation offices</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+          </div>
+        </article>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px;">
+        <article class="card" style="height:100%; margin-bottom:1.2rem;">
+          <span style="margin-bottom:0.5rem; display:block;">03 · Digital & AI</span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem;">Digital journeys, automation, and analytics</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">Digital transformation enables better decisions and improved performance.</span>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Digital journeys, automation, and analytics</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+          </div>
+        </article>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px;">
+        <article class="card" style="height:100%; margin-bottom:1.2rem;">
+          <span style="margin-bottom:0.5rem; display:block;">04 · Risk & resilience</span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem;">Regulatory, operational, and cyber resilience</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">Resilience is built through strong frameworks and stakeholder alignment.</span>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Regulatory, operational, and cyber resilience</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+          </div>
+        </article>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px;">
+        <article class="card" style="height:100%; margin-bottom:1.2rem;">
+          <span style="margin-bottom:0.5rem; display:block;">05 · AI-Driven Acceleration</span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem;">Accelerating Product & Process Development</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Accelerating Product & Process Development</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+          </div>
+        </article>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px;">
+        <article class="card" style="height:100%; margin-bottom:1.2rem;">
+          <span style="margin-bottom:0.5rem; display:block;">06 · M&A Excellence</span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem;">Executing Behemoth Financial Services Deals</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup">Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
+              <h3 style="margin-top:0; margin-bottom:0.5rem;">Executing Behemoth Financial Services Deals</h3>
+            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -544,22 +679,22 @@
       <div>
         <div id="insights-list"></div>
         <div id="insights-fallback">
-          <div class="insight-item">
-            <div class="insight-tag">Article · Operating model</div>
-            <h4>Five moves to realign your operating model for digital scale</h4>
-            <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-            <div class="insight-hover-desc">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
+          <div class="insight-item" style="margin-bottom:1.2rem;">
+            <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
+            <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
+            <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+            <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
           </div>
-          <div class="insight-item">
-            <div class="insight-tag">Brief · Financial services</div>
-            <h4>Rebuilding trust through transparent risk and control frameworks</h4>
-            <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
+          <div class="insight-item" style="margin-bottom:1.2rem;">
+            <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
+            <h4 style="margin-top:0; margin-bottom:0.7rem;">Rebuilding trust through transparent risk and control frameworks</h4>
+            <p style="margin-bottom:0.7rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
             <div class="insight-hover-desc">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
           </div>
-          <div class="insight-item">
-            <div class="insight-tag">Point of view · AI</div>
-            <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
-            <p>Design principles for scaling AI responsibly across critical workflows.</p>
+          <div class="insight-item" style="margin-bottom:1.2rem;">
+            <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
+            <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
+            <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
             <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
           </div>
         </div>
@@ -787,26 +922,31 @@
   </section>
 
   <section id="contact" style="margin-top:3.5rem;">
-    <div class="section-label">Contact</div>
-    <div class="section-title">Start a conversation.</div>
-    <p class="section-lead">
+    <div class="section-label" style="text-align:left;">Contact</div>
+    <div class="section-title" style="text-align:left;">Start a conversation.</div>
+    <p class="section-lead" style="text-align:left;">
       Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
       on where we might help.
     </p>
+    <div class="card" style="max-width:480px; margin:1rem 0; text-align:left;">
+      <p style="margin-bottom:0.2rem;"><strong>Steve Darrish</strong></p>
+      <p style="margin-bottom:0.2rem;">Phone: <a href="tel:3143591367">314-359-1367</a></p>
+      <p>Email: <a href="mailto:steve@wyattjoel.com">steve@wyattjoel.com</a></p>
+    </div>
     <form id="contact-form" style="max-width:480px;">
       <div style="margin-bottom:0.9rem;">
         <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-        <input id="name" type="text" required
+        <input id="name" name="name" type="text" required
                style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
       </div>
       <div style="margin-bottom:0.9rem;">
         <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-        <input id="email" type="email" required
+        <input id="email" name="email" type="email" required
                style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
       </div>
       <div style="margin-bottom:0.9rem;">
         <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-        <select id="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
+        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
           <option>Enterprise transformation</option>
           <option>Digital & AI</option>
           <option>Risk, compliance, and controls</option>
@@ -816,7 +956,7 @@
       </div>
       <div style="margin-bottom:1rem;">
         <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-        <textarea id="message" rows="4"
+        <textarea id="message" name="message" rows="4"
                   style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit inquiry →</button>
@@ -953,38 +1093,38 @@ Submitted at: {submitted_at}
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.send_message(msg)
+            server.starttls();
+            server.login(SMTP_USER, SMTP_PASS);
+            server.send_message(msg);
     except Exception as e:
-        print('Failed to send email:', e)
+        print('Failed to send email:', e);
 
 @app.route('/inquiry', methods=['POST'])
 def inquiry():
-    data = request.get_json()
-    name = data.get('name', '')
-    email = data.get('email', '')
-    topic = data.get('topic', '')
-    message = data.get('message', '')
-    submitted_at = datetime.utcnow().isoformat()
+    data = request.get_json();
+    name = data.get('name', '');
+    email = data.get('email', '');
+    topic = data.get('topic', '');
+    message = data.get('message', '');
+    submitted_at = datetime.utcnow().isoformat();
 
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
+    conn = sqlite3.connect(DB_PATH);
+    c = conn.cursor();
     c.execute('''
         INSERT INTO inquiries (name, email, topic, message, submitted_at)
         VALUES (?, ?, ?, ?, ?)
-    ''', (name, email, topic, message, submitted_at))
-    conn.commit()
-    conn.close()
+    ''', (name, email, topic, message, submitted_at));
+    conn.commit();
+    conn.close();
 
     # Send email notification
-    send_email_notification(name, email, topic, message, submitted_at)
+    send_email_notification(name, email, topic, message, submitted_at);
 
-    return jsonify({'status': 'success'}), 200
+    return jsonify({'status': 'success'}), 200;
 
 if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
+    init_db();
+    app.run(debug=True);
 
 # ===================
 # Instructions:
@@ -1001,35 +1141,3 @@ if __name__ == '__main__':
     <div>Strategy · Transformation · Digital & AI · Risk</div>
   </div>
 </footer>
-  <form id="inquiryForm">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <input type="text" name="topic" placeholder="Topic" required />
-    <textarea name="message" placeholder="Message" required></textarea>
-    <button type="submit">Send Inquiry</button>
-  </form>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('inquiryForm');
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => { data[key] = value; });
-
-      const response = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        alert('Inquiry sent!');
-        form.reset();
-      } else {
-        alert('Error sending inquiry.');
-      }
-    });
-  });
-  </script>
