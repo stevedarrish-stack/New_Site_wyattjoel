@@ -22,8 +22,10 @@
                   padding: 0 0.2rem !important;
                 }
                 .impact-stats {
-                  flex-direction: column !important;
+                  flex-direction: row !important;
                   gap: 1rem !important;
+                  justify-content: center !important;
+                  align-items: flex-start !important;
                 }
                 .pill-row {
                   flex-wrap: wrap !important;
@@ -671,13 +673,14 @@
 
   <section id="insights" class="insights" style="position:relative; overflow:hidden;">
       <div class="insights-grid" style="position:relative; z-index:1;">
-        <div>
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
           <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
           <p class="section-lead">
             Short, practicable viewpoints on the trends reshaping industries—from generative AI
             to evolving regulatory expectations.
           </p>
+          <img src="Pers.jpg" alt="WyattJoel Partner" style="width:141px; max-width:100%; height:auto; border-radius:1.1rem; margin-top:1.1rem; margin-bottom:0.7rem; box-shadow:0 4px 18px rgba(15,23,42,0.13); display:block;" />
         </div>
         <div>
           <div id="insights-list"></div>
