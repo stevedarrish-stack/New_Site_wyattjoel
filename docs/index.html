@@ -618,7 +618,17 @@
           <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
           <p class="section-lead">Short, practicable viewpoints on the trends reshaping industries—from generative AI to evolving regulatory expectations.</p>
+          <img src="Pers.jpg" alt="Perspectives" class="insights-pers-img snapshot-img" style="width:325px;height:325px;object-fit:cover;display:block;margin:1.2rem 0 1.2rem 0;border-radius:1.1rem;box-shadow:0 4px 16px rgba(15,23,42,0.10);">
         </div>
+            /* Shrink snapshot image by 70% on mobile */
+            @media (max-width: 600px) {
+              .snapshot-img {
+                transform: scale(0.7);
+                transform-origin: top left;
+                width: unset !important;
+                height: unset !important;
+              }
+            }
         <div>
           <div id="insights-list"></div>
           <div id="insights-fallback">
