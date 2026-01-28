@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-    /* Decorative background image layer */
-    .background-image {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.18;
-      pointer-events: none;
-      user-select: none;
-    }
-    @media (max-width: 600px) {
-      .background-image {
-        opacity: 0.13;
-      }
-    }
  <meta charset="UTF-8" />
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* Shrink Client Impact Snapshot card by 70% on mobile */
-    @media (max-width: 600px) {
-      .client-impact-card {
-        transform: scale(0.7);
-        transform-origin: top left;
-        width: unset !important;
-        height: unset !important;
-      }
-    }
-
-    .insights-pers-img {
-      width: 325px;
-      height: 325px;
-      object-fit: cover;
-      display: block;
-      margin: 1.2rem 0 1.2rem 0;
-      border-radius: 1.1rem;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-    }
-    @media (max-width: 600px) {
-      .insights-pers-img {
-        width: 141px !important;
-        height: 141px !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-      .insights-hide-mobile {
-        display: none !important;
-      }
-    }
-
+              /* Mobile improvements for Client Impact Snapshot */
+              @media (max-width: 600px) {
+                .client-impact-card {
+                  max-width: 380px !important;
+                  min-width: 260px !important;
+                  width: 90vw !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+                  padding: 0.8rem 0.5rem !important;
+                  box-sizing: border-box !important;
+                  border-radius: 1.35rem !important;
+                }
+                .client-impact-card h2 {
+                  font-size: 1.3rem !important;
+                  padding: 0 0.2rem !important;
+                }
+                .impact-stats {
+                  flex-direction: column !important;
+                  gap: 1rem !important;
+                }
+                .pill-row {
+                  flex-wrap: wrap !important;
+                  gap: 0.3rem !important;
+                }
+                .pill {
+                  min-width: 70px !important;
+                  max-width: 100px !important;
+                  font-size: 0.7rem !important;
+                  padding: 0.15rem 0.5rem !important;
+                }
+                .client-impact-card p,
+                .client-impact-card .impact-label,
+                .client-impact-card .impact-number {
+                  font-size: 0.95rem !important;
+                }
+              }
           /* WHAT WE DO hover popup: match INSIGHTS style exactly */
           .whatwedo-hover-popup {
             display: none;
@@ -117,26 +104,7 @@
       color: #111827;
       -webkit-font-smoothing: antialiased;
     }
-    /* Restored animated gradient background */
-    .background-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      background: linear-gradient(120deg, #e1effa 0%, #f9fafb 100%);
-      animation: gradientMove 12s ease-in-out infinite alternate;
-    }
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
-    }
+    /* Removed animated gradient background */
     header {
       position: sticky;
       top: 0;
@@ -538,8 +506,11 @@
   </style>
 </head>
 <body>
-  <div class="background-gradient"></div>
-  <img src="Image.png" alt="Decorative background" class="background-image" aria-hidden="true" />
+  <!-- Background banner: image.png, 4in from top, 5in tall, full width, less vivid -->
+  <div style="position:fixed; top:4in; left:0; width:100vw; height:5in; overflow:hidden; z-index:-1;">
+    <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block; opacity:0.21;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; opacity:0.18;"></div>
+  </div>
 <header>
   <div class="nav-inner">
     <div class="brand">
@@ -555,23 +526,8 @@
   </div>
 </header>
 
-<main class="shell" style="position:relative; z-index:1;">
+<main class="shell">
   <section class="hero">
-    <!-- Client Impact Snapshot Card (restored original) -->
-    <div class="client-impact-card" style="max-width: 540px; margin: 2.5rem auto 2.2rem auto; background: #17305c; color: #e5e7eb; border-radius: 1.35rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); padding: 1.75rem 1.6rem; position: relative; z-index: 2;">
-      <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: .18em; color: #b6d0f7; font-weight: 600; margin-bottom: 0.7rem;">Client Impact Snapshot</div>
-      <div style="font-size: 1.25rem; font-weight: bold; color: #fff; margin-bottom: 0.7rem;">Delivering measurable results at scale</div>
-      <div class="pill-row" style="margin-bottom: 1.1rem;">
-        <span class="pill">$4.5M equipment savings</span>
-        <span class="pill">33% MRI/CT throughput</span>
-        <span class="pill">30% patient satisfaction</span>
-        <span class="pill">23% physician satisfaction</span>
-      </div>
-      <p style="font-size: 1rem; color: #e0eaff; margin-bottom: 0.7rem;">A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.</p>
-      <div class="impact-actions" style="margin-top: 1.1rem;">
-        <a href="#case-studies" class="impact-btn" style="background:#004c97; color:#f9fafb;">See case studies</a>
-      </div>
-    </div>
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
       <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
@@ -594,23 +550,46 @@
         </div>
       </div>
     </div>
-
-  </section>
-
-  <!-- Client Impact Snapshot Card (Desktop only) -->
-  <section class="client-impact-card" style="max-width: 540px; margin: 2.5rem auto 2.2rem auto; background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #17305c; color: #e5e7eb; border-radius: 1.35rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); padding: 1.75rem 1.6rem; position: relative; z-index: 2;">
-    <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: .18em; color: #b6d0f7; font-weight: 600; margin-bottom: 0.7rem;">Client Impact Snapshot</div>
-    <div style="font-size: 1.25rem; font-weight: bold; color: #fff; margin-bottom: 0.7rem;">Delivering measurable results at scale</div>
-    <div class="pill-row" style="margin-bottom: 1.1rem;">
-      <span class="pill">$4.5M equipment savings</span>
-      <span class="pill">33% MRI/CT throughput ↑</span>
-      <span class="pill">30% patient satisfaction ↑</span>
-      <span class="pill">23% physician satisfaction ↑</span>
-    </div>
-    <p style="font-size: 1rem; color: #e0eaff; margin-bottom: 0.7rem;">A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.</p>
-    <div class="impact-actions">
-      <a href="#case-studies" class="impact-btn" style="text-decoration:none;">See case studies</a>
-    </div>
+    <div class="client-impact-card" style="background: #17305c; color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto; opacity:1;">
+      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#e5e7eb; font-weight:700; background:transparent; letter-spacing:0.01em; filter:brightness(2.2);">Client Impact Snapshot</h2>
+      <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
+        <div>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">120</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Clients Served</span>
+        </div>
+        <div>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">98%</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Satisfaction</span>
+        </div>
+        <div>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">17</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
+        </div>
+      </div>
+      <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:nowrap; margin-bottom:0.7rem;">
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Financial services
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Healthcare
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Public sector
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">
+          Technology
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+        </div>
+      </div>
+      <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
+        <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
+      </p>
+</div>
+      </p>
+    </aside>
   </section>
 
   <section id="services" style="margin-top:1.6rem;">
@@ -693,10 +672,12 @@
   <section id="insights" class="insights" style="position:relative; overflow:hidden;">
       <div class="insights-grid" style="position:relative; z-index:1;">
         <div>
-          <img src="Pers.jpg" alt="Steve Darrish, WyAttJoel Advisory Partners" class="insights-pers-img" style="margin-bottom:1.2rem;" />
           <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
-          <p class="section-lead">Short, practicable viewpoints on the trends reshaping industries—from generative AI to evolving regulatory expectations.</p>
+          <p class="section-lead">
+            Short, practicable viewpoints on the trends reshaping industries—from generative AI
+            to evolving regulatory expectations.
+          </p>
         </div>
         <div>
           <div id="insights-list"></div>
@@ -715,6 +696,22 @@
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
+              <p style="margin-bottom:0.7rem;">Design principles for scaling AI responsibly across critical workflows.</p>
+              <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <section id="industries" style="margin-top:3.5rem;">
+    <div class="section-label" style="color:#004c97; font-weight:bold;">Industries</div>
+    <div class="section-title">We work where the stakes are high.</div>
+    <p class="section-lead">
+      Our teams bring specialized experience in highly regulated, complex environments where
+      execution risk is material.
     </p>
     <div class="card-grid">
       <article class="card industry-card">
