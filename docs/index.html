@@ -741,6 +741,33 @@
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
         </div>
       </div>
+
+      <script>
+        // Enable pill content to show on tap for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+          var pills = document.querySelectorAll('.pill');
+          pills.forEach(function(pill) {
+            pill.addEventListener('touchstart', function(e) {
+              e.stopPropagation();
+              var hover = pill.querySelector('.pill-hover');
+              // Hide all other pill hovers
+              document.querySelectorAll('.pill-hover').forEach(function(h) {
+                if (h !== hover) h.style.display = 'none';
+              });
+              if (hover) {
+                hover.style.display = (hover.style.display === 'block') ? 'none' : 'block';
+              }
+            });
+            // Optional: hide on outside tap
+            document.body.addEventListener('touchstart', function(e) {
+              if (!pill.contains(e.target)) {
+                var hover = pill.querySelector('.pill-hover');
+                if (hover) hover.style.display = 'none';
+              }
+            });
+          });
+        });
+      </script>
       <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
       </p>
