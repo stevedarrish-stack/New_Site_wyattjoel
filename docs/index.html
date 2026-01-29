@@ -5,6 +5,62 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                          /* Mobile nav: always visible, single line, no wrap, below brand */
+                          @media (max-width: 800px) {
+                            .nav-inner {
+                              display: block !important;
+                              position: relative !important;
+                              width: 100vw !important;
+                              padding: 0 !important;
+                              margin: 0 !important;
+                            }
+                            .brand {
+                              display: block !important;
+                              width: 100vw !important;
+                              margin: 0 0 0.5rem 0 !important;
+                              padding: 0.5rem 0.7rem 0.2rem 0.7rem !important;
+                              box-sizing: border-box !important;
+                            }
+                            .nav-inner > nav {
+                              position: static !important;
+                              display: flex !important;
+                              flex-direction: row !important;
+                              flex-wrap: nowrap !important;
+                              width: 100vw !important;
+                              min-width: 0 !important;
+                              max-width: 100vw !important;
+                              justify-content: flex-start !important;
+                              align-items: center !important;
+                              margin: 0 !important;
+                              padding: 0 0.5rem !important;
+                              background: none !important;
+                              border: none !important;
+                              box-shadow: none !important;
+                              overflow-x: auto !important;
+                              overflow-y: hidden !important;
+                              white-space: nowrap !important;
+                              font-size: 0.7rem !important;
+                              scrollbar-width: thin;
+                              z-index: 1000 !important;
+                            }
+                            .nav-inner > nav a {
+                              display: inline-block !important;
+                              white-space: nowrap !important;
+                              margin-right: 0.7rem !important;
+                              margin-bottom: 0 !important;
+                              font-size: inherit !important;
+                              min-width: 0 !important;
+                              overflow: hidden !important;
+                              text-overflow: ellipsis !important;
+                              padding: 0.5rem 0 !important;
+                            }
+                            .nav-inner > nav a:last-child {
+                              margin-right: 0 !important;
+                            }
+                            .mobile-nav-btn, .mobile-nav {
+                              display: none !important;
+                            }
+                          }
                       /* Hamburger and mobile nav styles */
                       @media (max-width: 800px) {
                         .mobile-nav-btn {
@@ -623,18 +679,6 @@
       <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
-    </nav>
-    <button class="mobile-nav-btn" aria-label="Open navigation" onclick="document.querySelector('.mobile-nav').classList.add('open');this.style.display='none';">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="mobile-nav" style="flex-direction:column;">
-      <button class="mobile-nav-close" aria-label="Close navigation" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">&times;</button>
-      <a href="#services" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Services</a>
-      <a href="#insights" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Insights</a>
-      <a href="#industries" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Industries</a>
-      <a href="#contact" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Contact</a>
     </nav>
   </div>
 </header>
