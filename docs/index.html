@@ -5,6 +5,86 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                      /* Hamburger and mobile nav styles */
+                      @media (max-width: 800px) {
+                        .mobile-nav-btn {
+                          display: flex;
+                        }
+                        .mobile-nav {
+                          display: none;
+                        }
+                        .mobile-nav.open {
+                          display: flex;
+                        }
+                      }
+                      @media (min-width: 801px) {
+                        .mobile-nav-btn,
+                        .mobile-nav {
+                          display: none !important;
+                        }
+                      }
+                      .mobile-nav-btn {
+                        display: none;
+                        background: none;
+                        border: none;
+                        position: absolute;
+                        right: 1.5rem;
+                        top: 1.2rem;
+                        z-index: 20;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 38px;
+                        height: 38px;
+                        cursor: pointer;
+                      }
+                      .mobile-nav-btn span {
+                        display: block;
+                        width: 26px;
+                        height: 3px;
+                        margin: 4px 0;
+                        background: #004c97;
+                        border-radius: 2px;
+                        transition: 0.2s;
+                      }
+                      .mobile-nav {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        width: 80vw;
+                        max-width: 320px;
+                        height: 100vh;
+                        background: #fff;
+                        box-shadow: -2px 0 18px rgba(15,23,42,0.13);
+                        z-index: 100;
+                        padding: 2.5rem 1.5rem 1.5rem 2rem;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        animation: slideInNav 0.22s cubic-bezier(.4,0,.2,1);
+                      }
+                      .mobile-nav a {
+                        color: #004c97;
+                        font-size: 1.15rem;
+                        font-weight: 600;
+                        text-decoration: none;
+                        margin-bottom: 1.2rem;
+                        display: block;
+                      }
+                      .mobile-nav-close {
+                        position: absolute;
+                        top: 1.1rem;
+                        right: 1.2rem;
+                        background: none;
+                        border: none;
+                        font-size: 2rem;
+                        color: #004c97;
+                        cursor: pointer;
+                      }
+                      @keyframes slideInNav {
+                        from { right: -100vw; opacity: 0; }
+                        to { right: 0; opacity: 1; }
+                      }
                   /* Desktop: Set Pers.jpg to 3.5in x 3.5in in INSIGHTS */
                   @media (min-width: 601px) {
                     .insights-pers-img {
@@ -536,7 +616,7 @@
     <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; opacity:0.18;"></div>
   </div>
 <header>
-  <div class="nav-inner">
+  <div class="nav-inner" style="position:relative;">
     <div class="brand">
       <div class="brand-mark">WJ</div>
       WyattJoel Advisory Partners
@@ -546,6 +626,18 @@
       <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
+    </nav>
+    <button class="mobile-nav-btn" aria-label="Open navigation" onclick="document.querySelector('.mobile-nav').classList.add('open');this.style.display='none';">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="mobile-nav" style="flex-direction:column;">
+      <button class="mobile-nav-close" aria-label="Close navigation" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">&times;</button>
+      <a href="#services" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Services</a>
+      <a href="#insights" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Insights</a>
+      <a href="#industries" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Industries</a>
+      <a href="#contact" onclick="document.querySelector('.mobile-nav').classList.remove('open');document.querySelector('.mobile-nav-btn').style.display='flex';">Contact</a>
     </nav>
   </div>
 </header>
