@@ -5,7 +5,6 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-        /* Removed mobile override for .pill-hover so desktop logic applies on all devices */
     .insight-lead-match {
       font-size: 0.95rem;
       font-family: inherit;
@@ -202,6 +201,7 @@
                   flex-wrap: nowrap !important;
                   gap: 0.18rem !important;
                   justify-content: center !important;
+                  overflow-x: auto !important;
                 }
                 .pill {
                   min-width: 60px !important;
@@ -706,10 +706,7 @@
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
-      <h1>
-        <span style="background: linear-gradient(90deg, #004c97 0%, #0f172a 40%, #17305c 70%, #111 100%); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-weight: 700;">Transforming</span>
-        <span style="color:#004c97;"> complexity</span> into sustainable advantage.
-      </h1>
+      <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
       <p>
         We partner with senior leaders to redesign operating models, unlock digital value,
         and deliver measurable impact across growth, cost, and risk.
@@ -746,62 +743,49 @@
         </div>
       </div>
       <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:nowrap; margin-bottom:0.7rem;">
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3; margin-bottom:0.5rem;" tabindex="0">
-            Financial services
-            <span class="pill-hover">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'" ontouchstart="event.stopPropagation(); var el=this.querySelector('.pill-hover'); el.style.display=(el.style.display==='block')?'none':'block';">
+          Financial services
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
         </div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3; margin-bottom:0.5rem;" tabindex="0">
-            Healthcare
-            <span class="pill-hover">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'" ontouchstart="event.stopPropagation(); var el=this.querySelector('.pill-hover'); el.style.display=(el.style.display==='block')?'none':'block';">
+          Healthcare
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
         </div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3; margin-bottom:0.5rem;" tabindex="0">
-            Public sector
-            <span class="pill-hover">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'" ontouchstart="event.stopPropagation(); var el=this.querySelector('.pill-hover'); el.style.display=(el.style.display==='block')?'none':'block';">
+          Public sector
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
         </div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3; margin-bottom:0.5rem;" tabindex="0">
-            Technology
-            <span class="pill-hover">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
-        /* Desktop: pill popups are absolutely positioned under the pill */
-        .pill-hover {
-          position: absolute;
-          left: 50%;
-          top: 100%;
-          transform: translateX(-50%);
-          min-width: 140px;
-          max-width: 320px;
-          width: auto;
-          z-index: 1001;
-          margin-top: 0.4rem;
-          box-shadow: 0 4px 16px rgba(15,23,42,0.13);
-          white-space: normal;
-          word-break: break-word;
-        }
-        @media (max-width: 600px) {
-          .pill-hover {
-            max-width: 92vw !important;
-            min-width: 140px !important;
-            width: auto !important;
-            left: 0 !important;
-            top: 0 !important;
-            transform: none !important;
-            z-index: 2100 !important;
-            margin: 0 auto !important;
-            box-shadow: 0 8px 32px rgba(15,23,42,0.25) !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            border-radius: 0.7rem !important;
-            right: 0 !important;
-            padding: 0.7rem 1rem !important;
-            background: #e1effa !important;
-            color: #17305c !important;
-            font-size: 0.95rem !important;
-          }
-        }
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'" ontouchstart="event.stopPropagation(); var el=this.querySelector('.pill-hover'); el.style.display=(el.style.display==='block')?'none':'block';">
+          Technology
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
         </div>
       </div>
 
       <script>
-        // (Moved to end of body for both desktop and mobile)
+        // Enable pill content to show on tap for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+          var pills = document.querySelectorAll('.pill');
+          pills.forEach(function(pill) {
+            pill.addEventListener('touchstart', function(e) {
+              e.stopPropagation();
+              var hover = pill.querySelector('.pill-hover');
+              // Hide all other pill hovers
+              document.querySelectorAll('.pill-hover').forEach(function(h) {
+                if (h !== hover) h.style.display = 'none';
+              });
+              if (hover) {
+                hover.style.display = (hover.style.display === 'block') ? 'none' : 'block';
+              }
+            });
+            // Optional: hide on outside tap
+            document.body.addEventListener('touchstart', function(e) {
+              if (!pill.contains(e.target)) {
+                var hover = pill.querySelector('.pill-hover');
+                if (hover) hover.style.display = 'none';
+              }
+            });
+          });
+        });
       </script>
       <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
@@ -1259,6 +1243,39 @@
     }
   })();
 </script>
+  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
+  // Enable pill popups on tap/click for mobile
+  document.addEventListener('DOMContentLoaded', function() {
+    var pills = document.querySelectorAll('.pill');
+    pills.forEach(function(pill) {
+      pill.addEventListener('click', function(e) {
+        // Only trigger on touch/click, not on desktop hover
+        var popup = pill.querySelector('.pill-hover');
+        if (!popup) return;
+        // If already visible, hide it
+        var isVisible = popup.style.display === 'block';
+        // Hide all other pill popups
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+        // Toggle this one
+        popup.style.display = isVisible ? 'none' : 'block';
+        // Prevent scrolling on mobile when popup is open
+        if (!isVisible && window.innerWidth <= 600) {
+          e.stopPropagation();
+        }
+      });
+    });
+    // Hide pill popups when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('pill')) {
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+      }
+    });
+  });
+  </div>
 
 <!--
 ================ Flask Backend Example for Inquiry Form ================
@@ -1367,197 +1384,3 @@ if __name__ == '__main__':
     <div>Strategy · Transformation · Digital & AI · Risk</div>
   </div>
 </footer>
-</body>
-<script>
-// Enable pill popups on hover/focus (desktop) and tap/click (mobile)
-document.addEventListener('DOMContentLoaded', function() {
-  var pills = document.querySelectorAll('.pill');
-  var activeMobilePopup = null;
-  var originalParent = null;
-  function hideAllPopups(except) {
-    document.querySelectorAll('.pill-hover').forEach(function(ph) {
-      if (ph !== except) ph.style.display = 'none';
-      var closeBtn = ph.querySelector('.pill-close');
-      if (closeBtn) closeBtn.style.display = 'none';
-    });
-    if (activeMobilePopup && except !== activeMobilePopup) {
-      if (originalParent) originalParent.appendChild(activeMobilePopup);
-      activeMobilePopup = null;
-      originalParent = null;
-    }
-  }
-  pills.forEach(function(pill) {
-    var popup = pill.querySelector('.pill-hover');
-    if (!popup) return;
-    // Add close button for mobile if not present
-    if (!popup.querySelector('.pill-close')) {
-      var closeBtn = document.createElement('button');
-      closeBtn.textContent = '×';
-      closeBtn.className = 'pill-close';
-      closeBtn.setAttribute('aria-label', 'Close');
-      closeBtn.style.cssText = 'display:none; position:absolute; top:0.2rem; right:0.5rem; background:none; border:none; font-size:1.5rem; color:#17305c; cursor:pointer; z-index:2100;';
-      closeBtn.onclick = function(e) {
-        e.stopPropagation();
-        popup.style.display = 'none';
-        closeBtn.style.display = 'none';
-        if (activeMobilePopup && originalParent) {
-          originalParent.appendChild(activeMobilePopup);
-          activeMobilePopup = null;
-          originalParent = null;
-        }
-      };
-      popup.insertBefore(closeBtn, popup.firstChild);
-    }
-    var closeBtn = popup.querySelector('.pill-close');
-    // Desktop: hover/focus
-    pill.addEventListener('mouseover', function() {
-      if (window.innerWidth > 600) {
-        hideAllPopups(popup);
-        popup.style.display = 'block';
-        if (closeBtn) closeBtn.style.display = 'none';
-      }
-    });
-    pill.addEventListener('mouseout', function() {
-      if (window.innerWidth > 600) {
-        popup.style.display = 'none';
-        if (closeBtn) closeBtn.style.display = 'none';
-      }
-    });
-    pill.addEventListener('focus', function() {
-      if (window.innerWidth > 600) {
-        hideAllPopups(popup);
-        popup.style.display = 'block';
-        if (closeBtn) closeBtn.style.display = 'none';
-      } else {
-        hideAllPopups(popup);
-        // Move popup to end of body and position it under the pill
-        var pillRect = pill.getBoundingClientRect();
-        var scrollY = window.scrollY || window.pageYOffset;
-        var scrollX = window.scrollX || window.pageXOffset;
-        originalParent = popup.parentNode;
-        document.body.appendChild(popup);
-        activeMobilePopup = popup;
-        popup.style.display = 'block';
-        popup.style.position = 'fixed';
-        popup.style.left = (pillRect.left + pillRect.width/2 + scrollX) + 'px';
-        popup.style.top = (pillRect.bottom + scrollY + 8) + 'px';
-        popup.style.transform = 'translateX(-50%)';
-        popup.style.zIndex = 2100;
-        if (closeBtn) closeBtn.style.display = 'block';
-      }
-    });
-    pill.addEventListener('blur', function() {
-      popup.style.display = 'none';
-      if (closeBtn) closeBtn.style.display = 'none';
-      if (activeMobilePopup && originalParent) {
-        originalParent.appendChild(activeMobilePopup);
-        activeMobilePopup = null;
-        originalParent = null;
-      }
-    });
-    // Mobile: tap/click
-    function showMobilePopup() {
-      hideAllPopups(popup);
-      var pillRect = pill.getBoundingClientRect();
-      var popupWidth = Math.min(window.innerWidth * 0.92, 340); // match max-width
-      var left = pillRect.left + pillRect.width/2 - popupWidth/2;
-      // Clamp left to viewport
-      left = Math.max(8, Math.min(left, window.innerWidth - popupWidth - 8));
-      var scrollY = window.scrollY || window.pageYOffset;
-      var top = pillRect.bottom + scrollY + 8;
-      originalParent = popup.parentNode;
-      document.body.appendChild(popup);
-      activeMobilePopup = popup;
-      popup.style.display = 'block';
-      popup.style.position = 'fixed';
-      popup.style.left = left + 'px';
-      popup.style.top = top + 'px';
-      popup.style.width = popupWidth + 'px';
-      popup.style.transform = 'none';
-      popup.style.zIndex = 2100;
-      if (closeBtn) closeBtn.style.display = 'block';
-    }
-    pill.addEventListener('touchstart', function(e) {
-      if (window.innerWidth <= 600) {
-        e.stopPropagation();
-        var isVisible = popup && popup.style.display === 'block';
-        if (isVisible) {
-          popup.style.display = 'none';
-          if (closeBtn) closeBtn.style.display = 'none';
-          if (activeMobilePopup && originalParent) {
-            originalParent.appendChild(activeMobilePopup);
-            activeMobilePopup = null;
-            originalParent = null;
-          }
-        } else {
-          showMobilePopup();
-        }
-      }
-    });
-    pill.addEventListener('click', function(e) {
-      if (window.innerWidth <= 600) {
-        e.stopPropagation();
-        var isVisible = popup && popup.style.display === 'block';
-        if (isVisible) {
-          popup.style.display = 'none';
-          if (closeBtn) closeBtn.style.display = 'none';
-          if (activeMobilePopup && originalParent) {
-            originalParent.appendChild(activeMobilePopup);
-            activeMobilePopup = null;
-            originalParent = null;
-          }
-        } else {
-          showMobilePopup();
-        }
-      }
-    });
-  });
-  // Hide pill popups when clicking/tapping elsewhere
-  document.body.addEventListener('touchstart', function(e) {
-    if (window.innerWidth <= 600) {
-      if (activeMobilePopup && !activeMobilePopup.contains(e.target)) {
-        activeMobilePopup.style.display = 'none';
-        var closeBtn = activeMobilePopup.querySelector('.pill-close');
-        if (closeBtn) closeBtn.style.display = 'none';
-        if (originalParent) {
-          originalParent.appendChild(activeMobilePopup);
-          activeMobilePopup = null;
-          originalParent = null;
-        }
-      }
-    } else {
-      pills.forEach(function(pill) {
-        if (!pill.contains(e.target)) {
-          var popup = pill.querySelector('.pill-hover');
-          if (popup) popup.style.display = 'none';
-          var closeBtn = popup ? popup.querySelector('.pill-close') : null;
-          if (closeBtn) closeBtn.style.display = 'none';
-        }
-      });
-    }
-  });
-  document.body.addEventListener('click', function(e) {
-    if (window.innerWidth <= 600) {
-      if (activeMobilePopup && !activeMobilePopup.contains(e.target)) {
-        activeMobilePopup.style.display = 'none';
-        var closeBtn = activeMobilePopup.querySelector('.pill-close');
-        if (closeBtn) closeBtn.style.display = 'none';
-        if (originalParent) {
-          originalParent.appendChild(activeMobilePopup);
-          activeMobilePopup = null;
-          originalParent = null;
-        }
-      }
-    } else {
-      pills.forEach(function(pill) {
-        if (!pill.contains(e.target)) {
-          var popup = pill.querySelector('.pill-hover');
-          if (popup) popup.style.display = 'none';
-          var closeBtn = popup ? popup.querySelector('.pill-close') : null;
-          if (closeBtn) closeBtn.style.display = 'none';
-        }
-      });
-    }
-  });
-});
-</script>
