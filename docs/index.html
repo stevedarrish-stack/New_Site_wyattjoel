@@ -1271,34 +1271,50 @@
   })();
 </script>
   <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
-  // Enable pill popups on tap/click for mobile
+  // Robust pill popup logic for mobile and desktop
   document.addEventListener('DOMContentLoaded', function() {
     var pills = document.querySelectorAll('.pill');
-    pills.forEach(function(pill) {
-      pill.addEventListener('click', function(e) {
-        // Only trigger on touch/click, not on desktop hover
-        var popup = pill.querySelector('.pill-hover');
-        if (!popup) return;
-        // If already visible, hide it
-        var isVisible = popup.style.display === 'block';
-        // Hide all other pill popups
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
-          ph.style.display = 'none';
-        });
-        // Toggle this one
-        popup.style.display = isVisible ? 'none' : 'block';
-        // Prevent scrolling on mobile when popup is open
-        if (!isVisible && window.innerWidth <= 600) {
-          e.stopPropagation();
-        }
+    function closeAllPopups(except) {
+      document.querySelectorAll('.pill-hover').forEach(function(ph) {
+        if (ph !== except) ph.style.display = 'none';
       });
+    }
+    pills.forEach(function(pill) {
+      var popup = pill.querySelector('.pill-hover');
+      // Desktop: hover/focus
+      pill.addEventListener('mouseover', function() {
+        closeAllPopups(popup);
+        if (popup) popup.style.display = 'block';
+      });
+      pill.addEventListener('mouseout', function() {
+        if (popup) popup.style.display = 'none';
+      });
+      pill.addEventListener('focus', function() {
+        closeAllPopups(popup);
+        if (popup) popup.style.display = 'block';
+      });
+      pill.addEventListener('blur', function() {
+        if (popup) popup.style.display = 'none';
+      });
+      // Mobile: tap/click/touch
+      function togglePopup(e) {
+        e.stopPropagation();
+        var isVisible = popup && popup.style.display === 'block';
+        closeAllPopups(isVisible ? null : popup);
+        if (popup) popup.style.display = isVisible ? 'none' : 'block';
+      }
+      pill.addEventListener('click', togglePopup);
+      pill.addEventListener('touchstart', togglePopup);
     });
-    // Hide pill popups when clicking elsewhere
+    // Hide all popups when clicking/tapping outside
     document.addEventListener('click', function(e) {
-      if (!e.target.classList.contains('pill')) {
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
-          ph.style.display = 'none';
-        });
+      if (![...pills].some(pill => pill.contains(e.target))) {
+        closeAllPopups();
+      }
+    });
+    document.addEventListener('touchstart', function(e) {
+      if (![...pills].some(pill => pill.contains(e.target))) {
+        closeAllPopups();
       }
     });
   });
