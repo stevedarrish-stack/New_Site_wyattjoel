@@ -765,26 +765,65 @@
       </div>
 
       <script>
-        // Enable pill content to show on tap for mobile
+        // Enable pill popups on both hover and tap for mobile and desktop
         document.addEventListener('DOMContentLoaded', function() {
           var pills = document.querySelectorAll('.pill');
           pills.forEach(function(pill) {
+            // Desktop: hover/focus
+            pill.addEventListener('mouseover', function() {
+              var popup = pill.querySelector('.pill-hover');
+              if (popup) popup.style.display = 'block';
+            });
+            pill.addEventListener('mouseout', function() {
+              var popup = pill.querySelector('.pill-hover');
+              if (popup) popup.style.display = 'none';
+            });
+            pill.addEventListener('focus', function() {
+              var popup = pill.querySelector('.pill-hover');
+              if (popup) popup.style.display = 'block';
+            });
+            pill.addEventListener('blur', function() {
+              var popup = pill.querySelector('.pill-hover');
+              if (popup) popup.style.display = 'none';
+            });
+            // Mobile: tap/click
             pill.addEventListener('touchstart', function(e) {
               e.stopPropagation();
-              var hover = pill.querySelector('.pill-hover');
-              // Hide all other pill hovers
-              document.querySelectorAll('.pill-hover').forEach(function(h) {
-                if (h !== hover) h.style.display = 'none';
+              var popup = pill.querySelector('.pill-hover');
+              // Hide all other pill popups
+              document.querySelectorAll('.pill-hover').forEach(function(ph) {
+                if (ph !== popup) ph.style.display = 'none';
               });
-              if (hover) {
-                hover.style.display = (hover.style.display === 'block') ? 'none' : 'block';
+              if (popup) {
+                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
               }
             });
-            // Optional: hide on outside tap
-            document.body.addEventListener('touchstart', function(e) {
+            pill.addEventListener('click', function(e) {
+              // For mobile browsers that treat click as tap
+              var popup = pill.querySelector('.pill-hover');
+              // Hide all other pill popups
+              document.querySelectorAll('.pill-hover').forEach(function(ph) {
+                if (ph !== popup) ph.style.display = 'none';
+              });
+              if (popup) {
+                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+              }
+            });
+          });
+          // Hide pill popups when clicking/tapping elsewhere
+          document.body.addEventListener('touchstart', function(e) {
+            pills.forEach(function(pill) {
               if (!pill.contains(e.target)) {
-                var hover = pill.querySelector('.pill-hover');
-                if (hover) hover.style.display = 'none';
+                var popup = pill.querySelector('.pill-hover');
+                if (popup) popup.style.display = 'none';
+              }
+            });
+          });
+          document.body.addEventListener('click', function(e) {
+            pills.forEach(function(pill) {
+              if (!pill.contains(e.target)) {
+                var popup = pill.querySelector('.pill-hover');
+                if (popup) popup.style.display = 'none';
               }
             });
           });
