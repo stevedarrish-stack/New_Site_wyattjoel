@@ -5,6 +5,53 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+        /* Unique mobile pill modal overlay */
+        @media (max-width: 800px) {
+          .pill-modal-overlay {
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background: rgba(15,23,42,0.32);
+            z-index: 9999;
+            justify-content: flex-end;
+            align-items: flex-end;
+            transition: background 0.2s;
+          }
+          .pill-modal-overlay.active {
+            display: flex;
+          }
+          .pill-modal-content {
+            background: #e1effa;
+            color: #17305c;
+            border-radius: 1.1rem 1.1rem 0 0;
+            box-shadow: 0 -4px 24px rgba(15,23,42,0.18);
+            width: 100vw;
+            max-width: 100vw;
+            min-height: 120px;
+            padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+            font-size: 0.98rem;
+            word-break: break-word;
+            position: relative;
+            animation: pillModalIn 0.22s cubic-bezier(.4,0,.2,1);
+          }
+          .pill-modal-close {
+            position: absolute;
+            top: 0.7rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #004c97;
+            cursor: pointer;
+          }
+          @keyframes pillModalIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+        }
     .insight-lead-match {
       font-size: 0.95rem;
       font-family: inherit;
@@ -760,84 +807,88 @@
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
           Financial services
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+          <span class="pill-modal-content-text" style="display:none;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
         </div>
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
           Healthcare
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+          <span class="pill-modal-content-text" style="display:none;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
         </div>
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
           Public sector
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+          <span class="pill-modal-content-text" style="display:none;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
         </div>
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
           Technology
           <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+          <span class="pill-modal-content-text" style="display:none;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
         </div>
       </div>
 
       <script>
-        // Pill popup logic for both mobile and desktop
+        // Unique mobile pill modal overlay logic
         document.addEventListener('DOMContentLoaded', function() {
           var pills = document.querySelectorAll('.pill');
-          var isTouch = false;
-          // Detect touch device
-          window.addEventListener('touchstart', function onFirstTouch() {
-            isTouch = true;
-            window.removeEventListener('touchstart', onFirstTouch, false);
-          }, false);
+          var isMobile = window.matchMedia('(max-width: 800px)').matches;
+          // Create modal overlay element
+          var overlay = document.createElement('div');
+          overlay.className = 'pill-modal-overlay';
+          overlay.innerHTML = '<div class="pill-modal-content"><button class="pill-modal-close" aria-label="Close">&times;</button><div class="pill-modal-content-inner"></div></div>';
+          document.body.appendChild(overlay);
+          var contentInner = overlay.querySelector('.pill-modal-content-inner');
+          var closeBtn = overlay.querySelector('.pill-modal-close');
+
+          function showModal(content) {
+            contentInner.textContent = content;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+          function hideModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+          closeBtn.addEventListener('click', hideModal);
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) hideModal();
+          });
 
           pills.forEach(function(pill) {
             var popup = pill.querySelector('.pill-hover');
+            var modalText = pill.querySelector('.pill-modal-content-text');
             // Desktop: hover/focus
             pill.addEventListener('mouseover', function() {
-              if (!isTouch && popup) popup.style.display = 'block';
+              if (!isMobile && popup) popup.style.display = 'block';
             });
             pill.addEventListener('mouseout', function() {
-              if (!isTouch && popup) popup.style.display = 'none';
+              if (!isMobile && popup) popup.style.display = 'none';
             });
             pill.addEventListener('focus', function() {
-              if (popup) popup.style.display = 'block';
+              if (!isMobile && popup) popup.style.display = 'block';
             });
             pill.addEventListener('blur', function() {
-              if (popup) popup.style.display = 'none';
+              if (!isMobile && popup) popup.style.display = 'none';
             });
             // Mobile: tap/click
             pill.addEventListener('touchend', function(e) {
-              isTouch = true;
-              e.stopPropagation();
-              // Hide all other popups
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.style.display = 'none';
-              });
-              if (popup) {
-                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+              if (isMobile && modalText) {
+                e.preventDefault();
+                e.stopPropagation();
+                showModal(modalText.textContent);
               }
             });
             pill.addEventListener('click', function(e) {
-              if (!isTouch) return;
-              e.stopPropagation();
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.style.display = 'none';
-              });
-              if (popup) {
-                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+              if (isMobile && modalText) {
+                e.preventDefault();
+                e.stopPropagation();
+                showModal(modalText.textContent);
               }
             });
           });
-          // Hide all popups when tapping/clicking elsewhere
-          document.addEventListener('touchend', function(e) {
-            if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-hover')) {
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.style.display = 'none';
-              });
-            }
-          });
-          document.addEventListener('click', function(e) {
-            if (!isTouch) {
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.style.display = 'none';
-              });
-            }
+          // Hide modal on resize to desktop
+          window.addEventListener('resize', function() {
+            isMobile = window.matchMedia('(max-width: 800px)').matches;
+            if (!isMobile) hideModal();
           });
         });
       </script>
@@ -845,6 +896,8 @@
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
       </p>
 </div>
+
+        <!-- Modal overlay for mobile pill popups will be injected by JS -->
       </p>
     </aside>
   </section>
