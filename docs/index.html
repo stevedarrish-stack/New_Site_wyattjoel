@@ -781,14 +781,16 @@
             max-width: 96vw !important;
             min-width: 140px !important;
             width: auto !important;
-            left: 50% !important;
-            top: 100% !important;
-            transform: translateX(-50%) !important;
-            z-index: 2000 !important;
-            margin-top: 0.4rem !important;
+            left: 0 !important;
+            top: 0 !important;
+            transform: none !important;
+            z-index: 2100 !important;
+            margin: 0 auto !important;
             box-shadow: 0 8px 32px rgba(15,23,42,0.25) !important;
             white-space: normal !important;
             word-break: break-word !important;
+            border-radius: 0.7rem !important;
+            right: 0 !important;
           }
         }
         </div>
@@ -1366,12 +1368,19 @@ if __name__ == '__main__':
 // Enable pill popups on hover/focus (desktop) and tap/click (mobile)
 document.addEventListener('DOMContentLoaded', function() {
   var pills = document.querySelectorAll('.pill');
+  var activeMobilePopup = null;
+  var originalParent = null;
   function hideAllPopups(except) {
     document.querySelectorAll('.pill-hover').forEach(function(ph) {
       if (ph !== except) ph.style.display = 'none';
       var closeBtn = ph.querySelector('.pill-close');
       if (closeBtn) closeBtn.style.display = 'none';
     });
+    if (activeMobilePopup && except !== activeMobilePopup) {
+      if (originalParent) originalParent.appendChild(activeMobilePopup);
+      activeMobilePopup = null;
+      originalParent = null;
+    }
   }
   pills.forEach(function(pill) {
     var popup = pill.querySelector('.pill-hover');
@@ -1387,6 +1396,11 @@ document.addEventListener('DOMContentLoaded', function() {
         e.stopPropagation();
         popup.style.display = 'none';
         closeBtn.style.display = 'none';
+        if (activeMobilePopup && originalParent) {
+          originalParent.appendChild(activeMobilePopup);
+          activeMobilePopup = null;
+          originalParent = null;
+        }
       };
       popup.insertBefore(closeBtn, popup.firstChild);
     }
@@ -1412,54 +1426,129 @@ document.addEventListener('DOMContentLoaded', function() {
         if (closeBtn) closeBtn.style.display = 'none';
       } else {
         hideAllPopups(popup);
+        // Move popup to end of body and position it under the pill
+        var pillRect = pill.getBoundingClientRect();
+        var scrollY = window.scrollY || window.pageYOffset;
+        var scrollX = window.scrollX || window.pageXOffset;
+        originalParent = popup.parentNode;
+        document.body.appendChild(popup);
+        activeMobilePopup = popup;
         popup.style.display = 'block';
+        popup.style.position = 'fixed';
+        popup.style.left = (pillRect.left + pillRect.width/2 + scrollX) + 'px';
+        popup.style.top = (pillRect.bottom + scrollY + 8) + 'px';
+        popup.style.transform = 'translateX(-50%)';
+        popup.style.zIndex = 2100;
         if (closeBtn) closeBtn.style.display = 'block';
       }
     });
     pill.addEventListener('blur', function() {
       popup.style.display = 'none';
       if (closeBtn) closeBtn.style.display = 'none';
+      if (activeMobilePopup && originalParent) {
+        originalParent.appendChild(activeMobilePopup);
+        activeMobilePopup = null;
+        originalParent = null;
+      }
     });
     // Mobile: tap/click
+    function showMobilePopup() {
+      hideAllPopups(popup);
+      var pillRect = pill.getBoundingClientRect();
+      var scrollY = window.scrollY || window.pageYOffset;
+      var scrollX = window.scrollX || window.pageXOffset;
+      originalParent = popup.parentNode;
+      document.body.appendChild(popup);
+      activeMobilePopup = popup;
+      popup.style.display = 'block';
+      popup.style.position = 'fixed';
+      popup.style.left = (pillRect.left + pillRect.width/2 + scrollX) + 'px';
+      popup.style.top = (pillRect.bottom + scrollY + 8) + 'px';
+      popup.style.transform = 'translateX(-50%)';
+      popup.style.zIndex = 2100;
+      if (closeBtn) closeBtn.style.display = 'block';
+    }
     pill.addEventListener('touchstart', function(e) {
       if (window.innerWidth <= 600) {
         e.stopPropagation();
         var isVisible = popup && popup.style.display === 'block';
-        hideAllPopups(isVisible ? null : popup);
-        if (popup) popup.style.display = isVisible ? 'none' : 'block';
-        if (closeBtn) closeBtn.style.display = isVisible ? 'none' : 'block';
+        if (isVisible) {
+          popup.style.display = 'none';
+          if (closeBtn) closeBtn.style.display = 'none';
+          if (activeMobilePopup && originalParent) {
+            originalParent.appendChild(activeMobilePopup);
+            activeMobilePopup = null;
+            originalParent = null;
+          }
+        } else {
+          showMobilePopup();
+        }
       }
     });
     pill.addEventListener('click', function(e) {
       if (window.innerWidth <= 600) {
         e.stopPropagation();
         var isVisible = popup && popup.style.display === 'block';
-        hideAllPopups(isVisible ? null : popup);
-        if (popup) popup.style.display = isVisible ? 'none' : 'block';
-        if (closeBtn) closeBtn.style.display = isVisible ? 'none' : 'block';
+        if (isVisible) {
+          popup.style.display = 'none';
+          if (closeBtn) closeBtn.style.display = 'none';
+          if (activeMobilePopup && originalParent) {
+            originalParent.appendChild(activeMobilePopup);
+            activeMobilePopup = null;
+            originalParent = null;
+          }
+        } else {
+          showMobilePopup();
+        }
       }
     });
   });
   // Hide pill popups when clicking/tapping elsewhere
   document.body.addEventListener('touchstart', function(e) {
-    pills.forEach(function(pill) {
-      if (!pill.contains(e.target)) {
-        var popup = pill.querySelector('.pill-hover');
-        if (popup) popup.style.display = 'none';
-        var closeBtn = popup ? popup.querySelector('.pill-close') : null;
+    if (window.innerWidth <= 600) {
+      if (activeMobilePopup && !activeMobilePopup.contains(e.target)) {
+        activeMobilePopup.style.display = 'none';
+        var closeBtn = activeMobilePopup.querySelector('.pill-close');
         if (closeBtn) closeBtn.style.display = 'none';
+        if (originalParent) {
+          originalParent.appendChild(activeMobilePopup);
+          activeMobilePopup = null;
+          originalParent = null;
+        }
       }
-    });
+    } else {
+      pills.forEach(function(pill) {
+        if (!pill.contains(e.target)) {
+          var popup = pill.querySelector('.pill-hover');
+          if (popup) popup.style.display = 'none';
+          var closeBtn = popup ? popup.querySelector('.pill-close') : null;
+          if (closeBtn) closeBtn.style.display = 'none';
+        }
+      });
+    }
   });
   document.body.addEventListener('click', function(e) {
-    pills.forEach(function(pill) {
-      if (!pill.contains(e.target)) {
-        var popup = pill.querySelector('.pill-hover');
-        if (popup) popup.style.display = 'none';
-        var closeBtn = popup ? popup.querySelector('.pill-close') : null;
+    if (window.innerWidth <= 600) {
+      if (activeMobilePopup && !activeMobilePopup.contains(e.target)) {
+        activeMobilePopup.style.display = 'none';
+        var closeBtn = activeMobilePopup.querySelector('.pill-close');
         if (closeBtn) closeBtn.style.display = 'none';
+        if (originalParent) {
+          originalParent.appendChild(activeMobilePopup);
+          activeMobilePopup = null;
+          originalParent = null;
+        }
       }
-    });
+    } else {
+      pills.forEach(function(pill) {
+        if (!pill.contains(e.target)) {
+          var popup = pill.querySelector('.pill-hover');
+          if (popup) popup.style.display = 'none';
+          var closeBtn = popup ? popup.querySelector('.pill-close') : null;
+          if (closeBtn) closeBtn.style.display = 'none';
+        }
+      });
+    }
   });
 });
 </script>
