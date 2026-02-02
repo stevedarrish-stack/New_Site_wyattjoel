@@ -222,10 +222,6 @@
                    white-space: normal !important;
                    word-break: break-word !important;
                    box-sizing: border-box !important;
-                   display: none !important;
-                 }
-                 .pill-hover.active {
-                   display: block !important;
                  }
                 .client-impact-card p,
                 .client-impact-card .impact-label,
@@ -266,7 +262,9 @@
           .hover-col:focus-within .whatwedo-hover-popup {
             display: block;
           }
-        /* Removed stray closing tag and misplaced margin-top */
+      </footer>
+          margin-top: 0.2rem;
+        }
         .impact-actions {
           display: flex;
           gap: 1rem;
@@ -619,7 +617,8 @@
       margin-top: 0.3rem;
       white-space: normal;
       word-break: break-word;
-    /* Removed stray text-align and closing brace */
+      text-align: left;
+    }
     .insight-item:hover .insight-hover-desc,
     .insight-item:focus-within .insight-hover-desc {
       display: block;
@@ -777,7 +776,7 @@
       </div>
 
       <script>
-        // Pill popup logic for both desktop and mobile
+        // Pill popup logic for both mobile and desktop
         document.addEventListener('DOMContentLoaded', function() {
           var pills = document.querySelectorAll('.pill');
           var isTouch = false;
@@ -791,16 +790,16 @@
             var popup = pill.querySelector('.pill-hover');
             // Desktop: hover/focus
             pill.addEventListener('mouseover', function() {
-              if (!isTouch && popup) popup.classList.add('active');
+              if (!isTouch && popup) popup.style.display = 'block';
             });
             pill.addEventListener('mouseout', function() {
-              if (!isTouch && popup) popup.classList.remove('active');
+              if (!isTouch && popup) popup.style.display = 'none';
             });
             pill.addEventListener('focus', function() {
-              if (popup) popup.classList.add('active');
+              if (popup) popup.style.display = 'block';
             });
             pill.addEventListener('blur', function() {
-              if (popup) popup.classList.remove('active');
+              if (popup) popup.style.display = 'none';
             });
             // Mobile: tap/click
             pill.addEventListener('touchend', function(e) {
@@ -808,34 +807,20 @@
               e.stopPropagation();
               // Hide all other popups
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.classList.remove('active');
+                if (ph !== popup) ph.style.display = 'none';
               });
               if (popup) {
-                popup.classList.toggle('active');
-                // Scroll popup into view if needed
-                if (popup.classList.contains('active')) {
-                  var rect = popup.getBoundingClientRect();
-                  if (rect.bottom > window.innerHeight) {
-                    window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
-                  }
-                }
+                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
               }
             });
             pill.addEventListener('click', function(e) {
               if (!isTouch) return;
               e.stopPropagation();
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.classList.remove('active');
+                if (ph !== popup) ph.style.display = 'none';
               });
               if (popup) {
-                popup.classList.toggle('active');
-                // Scroll popup into view if needed
-                if (popup.classList.contains('active')) {
-                  var rect = popup.getBoundingClientRect();
-                  if (rect.bottom > window.innerHeight) {
-                    window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
-                  }
-                }
+                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
               }
             });
           });
@@ -843,14 +828,14 @@
           document.addEventListener('touchend', function(e) {
             if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-hover')) {
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.classList.remove('active');
+                ph.style.display = 'none';
               });
             }
           });
           document.addEventListener('click', function(e) {
             if (!isTouch) {
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.classList.remove('active');
+                ph.style.display = 'none';
               });
             }
           });
@@ -1312,7 +1297,39 @@
     }
   })();
 </script>
-
+  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
+  // Enable pill popups on tap/click for mobile
+  document.addEventListener('DOMContentLoaded', function() {
+    var pills = document.querySelectorAll('.pill');
+    pills.forEach(function(pill) {
+      pill.addEventListener('click', function(e) {
+        // Only trigger on touch/click, not on desktop hover
+        var popup = pill.querySelector('.pill-hover');
+        if (!popup) return;
+        // If already visible, hide it
+        var isVisible = popup.style.display === 'block';
+        // Hide all other pill popups
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+        // Toggle this one
+        popup.style.display = isVisible ? 'none' : 'block';
+        // Prevent scrolling on mobile when popup is open
+        if (!isVisible && window.innerWidth <= 600) {
+          e.stopPropagation();
+        }
+      });
+    });
+    // Hide pill popups when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('pill')) {
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+      }
+    });
+  });
+  </div>
 
 <!--
 ================ Flask Backend Example for Inquiry Form ================
