@@ -984,3 +984,65 @@
     <div>Strategy · Transformation · Digital & AI · Risk</div>
   </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var pills = document.querySelectorAll('.pill');
+      function hideAllPopups(except) {
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          if (ph !== except) ph.style.display = 'none';
+        });
+      }
+      pills.forEach(function(pill) {
+        // Desktop: hover/focus
+        pill.addEventListener('mouseover', function() {
+          var popup = pill.querySelector('.pill-hover');
+          hideAllPopups(popup);
+          if (popup) popup.style.display = 'block';
+        });
+        pill.addEventListener('mouseout', function() {
+          var popup = pill.querySelector('.pill-hover');
+          if (popup) popup.style.display = 'none';
+        });
+        pill.addEventListener('focus', function() {
+          var popup = pill.querySelector('.pill-hover');
+          hideAllPopups(popup);
+          if (popup) popup.style.display = 'block';
+        });
+        pill.addEventListener('blur', function() {
+          var popup = pill.querySelector('.pill-hover');
+          if (popup) popup.style.display = 'none';
+        });
+        // Mobile: tap/click
+        pill.addEventListener('touchstart', function(e) {
+          e.stopPropagation();
+          var popup = pill.querySelector('.pill-hover');
+          var isVisible = popup && popup.style.display === 'block';
+          hideAllPopups(isVisible ? null : popup);
+          if (popup) popup.style.display = isVisible ? 'none' : 'block';
+        });
+        pill.addEventListener('click', function(e) {
+          var popup = pill.querySelector('.pill-hover');
+          var isVisible = popup && popup.style.display === 'block';
+          hideAllPopups(isVisible ? null : popup);
+          if (popup) popup.style.display = isVisible ? 'none' : 'block';
+        });
+      });
+      // Hide pill popups when clicking/tapping elsewhere
+      document.body.addEventListener('touchstart', function(e) {
+        pills.forEach(function(pill) {
+          if (!pill.contains(e.target)) {
+            var popup = pill.querySelector('.pill-hover');
+            if (popup) popup.style.display = 'none';
+          }
+        });
+      });
+      document.body.addEventListener('click', function(e) {
+        pills.forEach(function(pill) {
+          if (!pill.contains(e.target)) {
+            var popup = pill.querySelector('.pill-hover');
+            if (popup) popup.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
