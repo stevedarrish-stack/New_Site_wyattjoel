@@ -1,723 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
- <meta charset="UTF-8" />
-  <title>WyAttJoel Advisory Partners</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    .insight-lead-match {
-      font-size: 0.95rem;
-      font-family: inherit;
-      font-weight: 400;
-      color: inherit;
-    }
-                          /* Mobile nav: always visible, single line, no wrap, below brand */
-                          @media (max-width: 800px) {
-                            .nav-inner {
-                              display: block !important;
-                              position: relative !important;
-                              width: 100vw !important;
-                              padding: 0 !important;
-                              margin: 0 !important;
-                            }
-                            .brand {
-                                display: flex !important;
-                                flex-direction: row !important;
-                                align-items: center !important;
-                                gap: 0.55rem !important;
-                                width: 100vw !important;
-                                margin: 0 0 0.5rem 0 !important;
-                                padding: 0.5rem 0.7rem 0.2rem 0.7rem !important;
-                                box-sizing: border-box !important;
-                                font-size: 1.1rem !important;
-                              }
-                              .brand-mark {
-                                width: 26px !important;
-                                height: 26px !important;
-                                margin-bottom: 0 !important;
-                                margin-right: 0.3rem !important;
-                                display: flex !important;
-                                align-items: center !important;
-                                justify-content: center !important;
-                              }
-                            .nav-inner > nav {
-                              position: static !important;
-                              display: flex !important;
-                              flex-direction: row !important;
-                              flex-wrap: nowrap !important;
-                              width: 100vw !important;
-                              min-width: 0 !important;
-                              max-width: 100vw !important;
-                              justify-content: flex-start !important;
-                              align-items: center !important;
-                              margin: 0 !important;
-                              padding: 0 0.5rem !important;
-                              background: none !important;
-                              border: none !important;
-                              box-shadow: none !important;
-                              overflow-x: auto !important;
-                              overflow-y: hidden !important;
-                              white-space: nowrap !important;
-                              font-size: 0.7rem !important;
-                              scrollbar-width: thin;
-                              z-index: 1000 !important;
-                            }
-                            .nav-inner > nav a {
-                              display: inline-block !important;
-                              white-space: nowrap !important;
-                              margin-right: 0.7rem !important;
-                              margin-bottom: 0 !important;
-                              font-size: inherit !important;
-                              min-width: 0 !important;
-                              overflow: hidden !important;
-                              text-overflow: ellipsis !important;
-                              padding: 0.5rem 0 !important;
-                            }
-                            .nav-inner > nav a:last-child {
-                              margin-right: 0 !important;
-                            }
-                            .mobile-nav-btn, .mobile-nav {
-                              display: none !important;
-                            }
-                          }
-                      /* Hamburger and mobile nav styles */
-                      @media (max-width: 800px) {
-                        .mobile-nav-btn {
-                          display: flex;
-                        }
-                        .mobile-nav {
-                          display: none;
-                        }
-                        .mobile-nav.open {
-                          display: flex;
-                        }
-                      }
-                      @media (min-width: 801px) {
-                        .mobile-nav-btn,
-                        .mobile-nav {
-                          display: none !important;
-                        }
-                      }
-                      .mobile-nav-btn {
-                        display: none;
-                        background: none;
-                        border: none;
-                        position: absolute;
-                        right: 1.5rem;
-                        top: 1.2rem;
-                        z-index: 20;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        width: 38px;
-                        height: 38px;
-                        cursor: pointer;
-                      }
-                      .mobile-nav-btn span {
-                        display: block;
-                        width: 26px;
-                        height: 3px;
-                        margin: 4px 0;
-                        background: #004c97;
-                        border-radius: 2px;
-                        transition: 0.2s;
-                      }
-                      .mobile-nav {
-                        display: none;
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        width: 80vw;
-                        max-width: 320px;
-                        height: 100vh;
-                        background: #fff;
-                        box-shadow: -2px 0 18px rgba(15,23,42,0.13);
-                        z-index: 100;
-                        padding: 2.5rem 1.5rem 1.5rem 2rem;
-                        flex-direction: column;
-                        gap: 1.5rem;
-                        animation: slideInNav 0.22s cubic-bezier(.4,0,.2,1);
-                      }
-                      .mobile-nav a {
-                        color: #004c97;
-                        font-size: 1.15rem;
-                        font-weight: 600;
-                        text-decoration: none;
-                        margin-bottom: 1.2rem;
-                        display: block;
-                      }
-                      .mobile-nav-close {
-                        position: absolute;
-                        top: 1.1rem;
-                        right: 1.2rem;
-                        background: none;
-                        border: none;
-                        font-size: 2rem;
-                        color: #004c97;
-                        cursor: pointer;
-                      }
-                      @keyframes slideInNav {
-                        from { right: -100vw; opacity: 0; }
-                        to { right: 0; opacity: 1; }
-                      }
-                  /* Desktop: Set Pers.jpg to 3.5in x 3.5in in INSIGHTS */
-                  @media (min-width: 601px) {
-                    .insights-pers-img {
-                      width: 3.5in !important;
-                      height: 3.5in !important;
-                      max-width: 100%;
-                      max-height: 100%;
-                      border-radius: 1.1rem;
-                      object-fit: cover;
-                      box-shadow: 0 4px 18px rgba(15,23,42,0.13);
-                      display: block;
-                      margin-top: 1.1rem;
-                      margin-bottom: 0.7rem;
-                    }
-                  }
-              /* Mobile improvements for Client Impact Snapshot */
-              @media (max-width: 600px) {
-                .client-impact-card {
-                  max-width: 380px !important;
-                  min-width: 260px !important;
-                  width: 90vw !important;
-                  margin-left: auto !important;
-                  margin-right: auto !important;
-                  padding: 0.8rem 0.5rem !important;
-                  box-sizing: border-box !important;
-                  border-radius: 1.35rem !important;
-                }
-                .client-impact-card h2 {
-                  font-size: 1.3rem !important;
-                  padding: 0 0.2rem !important;
-                }
-                .impact-stats {
-                  flex-direction: row !important;
-                  gap: 1rem !important;
-                  justify-content: center !important;
-                  align-items: flex-start !important;
-                }
-                .pill-row {
-                  flex-wrap: nowrap !important;
-                  gap: 0.18rem !important;
-                  justify-content: center !important;
-                  overflow-x: auto !important;
-                }
-                .pill {
-                  min-width: 60px !important;
-                  max-width: 90px !important;
-                  font-size: 0.62rem !important;
-                  padding: 0.11rem 0.32rem !important;
-                   position: relative !important;
-                }
-
-                 .pill-hover {
-                   left: 50% !important;
-                   transform: translateX(-50%) !important;
-                   top: 100% !important;
-                   min-width: 140px !important;
-                   max-width: 90vw !important;
-                   width: auto !important;
-                   z-index: 100 !important;
-                   white-space: normal !important;
-                   word-break: break-word !important;
-                   box-sizing: border-box !important;
-                   display: none !important;
-                 }
-                 .pill-hover.active {
-                   display: block !important;
-                 }
-                .client-impact-card p,
-                .client-impact-card .impact-label,
-                .client-impact-card .impact-number {
-                  font-size: 0.95rem !important;
-                }
-                .client-impact-card p:last-child {
-                  font-size: 0.68rem !important;
-                  line-height: 1.2 !important;
-                  margin-top: 0.5rem !important;
-                }
-              }
-          /* WHAT WE DO hover popup: match INSIGHTS style exactly */
-          .whatwedo-hover-popup {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 100%;
-            width: 100%;
-            background: transparent;
-            color: #17305c;
-            font-size: 0.85rem;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            font-weight: 400;
-            padding: 0.7rem 1rem;
-            border-radius: 0.7rem;
-            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-            z-index: 2;
-            margin-top: 0.3rem;
-            white-space: normal;
-            word-break: break-word;
-            text-align: left;
-            text-transform: none !important;
-            /* Remove all-caps, force sentence case */
-            letter-spacing: normal !important;
+<head>
+  <meta charset="UTF-8" />
+    <title>WyattJoel Advisory Partners</title>
+    
+      <style>
+          .client-impact-card {
+            background: #17305c;
+            color: #f9fafb;
+            border-radius: 1.2rem;
+            padding: 1.7rem 1.5rem;
+            box-shadow: none;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
           }
-          .hover-col:hover .whatwedo-hover-popup,
-          .hover-col:focus-within .whatwedo-hover-popup {
+          .client-impact-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #b6c6e3;
+          }
+          .impact-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+          }
+          .impact-number {
+            font-size: 1.5rem;
+            font-weight: 700;
             display: block;
+            color: #e0eaff;
           }
-        /* Removed stray closing tag and misplaced margin-top */
-        .impact-actions {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 1.1rem;
-        }
-        .impact-btn {
-          background: #17305c;
-          color: #f9fafb;
-          border: none;
-          border-radius: 0.7rem;
-          padding: 0.6rem 1.2rem;
-          font-size: 1rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: background 0.15s;
-          white-space: nowrap;
-        }
-        .impact-btn:hover, .impact-btn:focus {
-          background: #25447a;
-        }
-        .client-impact-card p {
-          font-size: 1rem;
-          margin: 0.5rem 0 0 0;
-          color: #e0eaff;
-        }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: transparent;
-      color: #111827;
-      -webkit-font-smoothing: antialiased;
+          .impact-label {
+            font-size: 1rem;
+            color: #b6c6e3;
+            display: block;
+            margin-top: 0.2rem;
+          }
+          .impact-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.1rem;
+          }
+          .impact-btn {
+            background: #17305c;
+            color: #f9fafb;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+          }
+          .impact-btn:hover, .impact-btn:focus {
+            background: #25447a;
+          }
+          .client-impact-card p {
+            font-size: 1rem;
+            margin: 0.5rem 0 0 0;
+            color: #e0eaff;
+          }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #ffffff;
+        color: #111827;
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e5e7eb;
+        z-index: 10;
+      }
+      .nav-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+      .brand-mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 30% 70% 55% 45%;
+        background: linear-gradient(135deg, #004c97, #0f172a);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f9fafb;
+        font-size: 0.75rem;
+        font-weight: 700;
+        box-shadow: 0 8px 18px rgba(15,23,42,0.35);
+      }
+      nav a {
+        margin-left: 1.5rem;
+        font-size: 0.95rem;
+        color: #6b7280;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 0.15rem;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        height: 2px;
+        border-radius: 999px;
+        background: #004c97;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.18s ease-out;
+      }
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
+      .shell {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 0.9rem;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
+        gap: 3rem;
+        align-items: center;
+        margin-top: 1.5rem;
+        margin-bottom: 0.06rem;
+      }
+      .eyebrow {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: .18em;
+        color: #6b7280;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: clamp(2.3rem, 4vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        margin: 0 0 1rem;
+      }
+      h1 span {
+        color: #004c97;
+      }
+      .hero p {
+        color: #4b5563;
+        font-size: 1.02rem;
+        max-width: 36rem;
+        margin-bottom: 1.75rem;
+      }
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      .btn {
+        border-radius: 999px;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: #004c97;
+        color: #f9fafb;
+        box-shadow: 0 12px 22px rgba(15,23,42,0.25);
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 30px rgba(15,23,42,0.3);
+        background: #00376f;
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1px solid #cbd5e1;
+        color: #111827;
+      }
+      .btn-outline:hover {
+        background: #e5f0ff;
+        border-color: #93c5fd;
+        transform: translateY(-1px);
+      }
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+      .hero-meta strong {
+        display: block;
+        color: #111827;
+        font-size: 0.95rem;
+      }
+      .hero-card {
+        background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
+        color: #e5e7eb;
+        border-radius: 1.35rem;
+        padding: 1.75rem 1.6rem;
+        box-shadow: 0 18px 35px rgba(15,23,42,0.35);
+      }
+      .hero-card h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: #0f172a;
+      }
+      .hero-card-main {
+        margin-bottom: 1rem;
+      }
+      .hero-card-main strong {
+        font-size: 1.9rem;
+        display: block;
+        letter-spacing: -0.03em;
+      }
+      .hero-card-main span {
+        font-size: 0.9rem;
+        color: #9ca3af;
+      }
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin: 0.75rem 0 1.25rem;
+      }
+      .pill {
+        border-radius: 999px;
+        border: 1px solid rgba(148,163,184,0.6);
+        padding: 0.25rem 0.75rem;
+        font-size: 0.78rem;
+        color: #e5e7eb;
+        background: rgba(15,23,42,0.8);
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3.25rem;
+      }
+      .section-label {
+        font-size: 0.8rem;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: #6b7280;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+      .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.01em;
+        color: #004c97;
+        font-weight: bold;
+      }
+      .section-lead {
+        font-size: 0.98rem;
+        color: #4b5563;
+        max-width: 40rem;
+        margin-bottom: 1.4rem;
+      }
+      .card {
+        border-radius: 1.1rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.3rem 1.35rem;
+        background: transparent;
+        box-shadow: 0 10px 24px rgba(15,23,42,0.04);
+      }
+      .card.case-study {
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+      }
+      .card.case-study .case-body {
+        max-height: 7.5rem;
+        overflow: hidden;
+        transition: max-height 0.2s ease;
+        -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+      }
+      .card.case-study:hover .case-body,
+      .card.case-study:focus-within .case-body {
+        max-height: none;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+      .card.case-study .hover-indicator {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        font-size: 0.75rem;
+        color: #6b7280;
+      }
+      .card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.4rem;
+        color: #0f172a;
+      }
+      .card p {
+        font-size: 0.9rem;
+        color: #4b5563;
+        margin-bottom: 0.5rem;
+      }
+      .card span {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: .13em;
+        color: #6b7280;
+      }
+      .insights {
+        margin-top: 3.75rem;
+        border-radius: 1.35rem;
+        background: transparent;
+        padding: 2rem 1.8rem;
+      }
+      .insights-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
+        gap: 2rem;
+        align-items: flex-start;
+      }
+      .insight-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        position: relative;
+      }
+      .insight-hover-desc {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background: #e1effa;
+        color: #17305c;
+        font-size: 0.85rem;
+        padding: 0.7rem 1rem;
+        border-radius: 0.7rem;
+        box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+        z-index: 2;
+        margin-top: 0.3rem;
+        white-space: normal;
+        word-break: break-word;
+      }
+      .insight-item:hover .insight-hover-desc,
+      .insight-item:focus-within .insight-hover-desc {
+        display: block;
+      }
+      .whatwedo-hover-popup {
+        display: none !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 100% !important;
+        width: 100% !important;
+        background: #e1effa !important;
+        color: #17305c !important;
+        font-size: 0.85rem !important;
+        padding: 0.7rem 1rem !important;
+        border-radius: 0.7rem !important;
+        box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+        z-index: 2 !important;
+        margin-top: 0.3rem !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        text-align: left !important;
+        text-transform: none !important;
+      }
+      .hover-col:hover .whatwedo-hover-popup,
+      .hover-col:focus-within .whatwedo-hover-popup {
+        display: block !important;
+      }
+    /* --- Restored Client Impact Snapshot styles from original --- */
+    .client-impact-card {
+      background: #17305c;
+      color: #f9fafb;
+      border-radius: 1.2rem;
+      padding: 1.7rem 1.5rem;
+      box-shadow: none;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
     }
-    /* Removed animated gradient background */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e5e7eb;
-      z-index: 10;
+    .client-impact-card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #b6c6e3;
     }
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.75rem 1.5rem;
+    .impact-stats {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .brand-mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 30% 70% 55% 45%;
-      background: linear-gradient(135deg, #004c97, #0f172a);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #f9fafb;
-      font-size: 0.75rem;
+    .impact-number {
+      font-size: 1.5rem;
       font-weight: 700;
-      box-shadow: 0 8px 18px rgba(15,23,42,0.35);
+      display: block;
+      color: #e0eaff;
     }
-    nav a {
-      margin-left: 1.5rem;
-      font-size: 0.95rem;
-      color: #6b7280;
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 0.15rem;
+    .impact-label {
+      font-size: 1rem;
+      color: #b6c6e3;
+      display: block;
+      margin-top: 0.2rem;
     }
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: #004c97;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.18s ease-out;
-    }
-    nav a:hover::after {
-      transform: scaleX(1);
-    }
-    .shell {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 0.9rem;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
-      gap: 3rem;
-      align-items: center;
-      margin-top: 1.5rem;
-      margin-bottom: 0.06rem;
-    }
-    .eyebrow {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: #6b7280;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    h1 {
-      font-size: clamp(2.3rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin: 0 0 1rem;
-    }
-    h1 span {
-      color: #004c97;
-    }
-    .hero p {
-      color: #4b5563;
-      font-size: 1.02rem;
-      max-width: 36rem;
-      margin-bottom: 1.75rem;
-    }
-    .btn-row {
+    .impact-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
     }
-    .btn {
-      border-radius: 999px;
+    .impact-btn {
+      background: #17305c;
+      color: #f9fafb;
       border: none;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.9rem;
+      border-radius: 0.7rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
       font-weight: 500;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
-      text-decoration: none;
-    }
-    .btn-primary {
-      background: #004c97;
-      color: #f9fafb;
-      box-shadow: 0 12px 22px rgba(15,23,42,0.25);
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 30px rgba(15,23,42,0.3);
-      background: #00376f;
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #cbd5e1;
-      color: #111827;
-    }
-    .btn-outline:hover {
-      background: #e5f0ff;
-      border-color: #93c5fd;
-      transform: translateY(-1px);
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      color: #6b7280;
-    }
-    .hero-meta strong {
-      display: block;
-      color: #111827;
-      font-size: 0.95rem;
-    }
-    .hero-card {
-      background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
-      color: #e5e7eb;
-      border-radius: 1.35rem;
-      padding: 1.75rem 1.6rem;
-      box-shadow: 0 18px 35px rgba(15,23,42,0.35);
-    }
-    .hero-card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: #0f172a;
-    }
-    .hero-card-main {
-      margin-bottom: 1rem;
-    }
-    .hero-card-main strong {
-      font-size: 1.9rem;
-      display: block;
-      letter-spacing: -0.03em;
-    }
-    .hero-card-main span {
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin: 0.75rem 0 1.25rem;
-    }
-    .pill {
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.78rem;
-      color: #e5e7eb;
-      background: rgba(15,23,42,0.8);
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.25rem;
-    }
-    .section-label {
-      font-size: 0.8rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-      color: #004c97;
-      font-weight: bold;
-    }
-    .section-lead {
-      font-size: 0.98rem;
-      color: #4b5563;
-      max-width: 40rem;
-      margin-bottom: 1.4rem;
-    }
-    .card {
-      border-radius: 1.1rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.3rem 1.35rem;
-      background: transparent;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
-    }
-    .card.case-study {
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-    }
-    .card.case-study .case-body {
-      max-height: 7.5rem;
-      overflow: hidden;
-      transition: max-height 0.2s ease;
-      -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-    }
-    .card.case-study:hover .case-body,
-    .card.case-study:focus-within .case-body {
-      max-height: none;
-      -webkit-mask-image: none;
-      mask-image: none;
-    }
-    .card.case-study .hover-indicator {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-      font-size: 0.75rem;
-      color: #6b7280;
-    }
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
-      color: #0f172a;
-    }
-    .card p {
-      font-size: 0.9rem;
-      color: #4b5563;
-      margin-bottom: 0.5rem;
-    }
-    .card span {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      color: #6b7280;
-    }
-    .insights {
-      margin-top: 3.75rem;
-      border-radius: 1.35rem;
-      background: transparent;
-      padding: 2rem 1.8rem;
-    }
-    .insights-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
-      gap: 2rem;
-      align-items: flex-start;
-    }
-    .insight-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #e5e7eb;
+      transition: background 0.15s;
+      white-space: nowrap;
       position: relative;
     }
-    .insight-hover-desc {
-      display: none;
+    .impact-btn:hover, .impact-btn:focus {
+      background: #25447a;
+    }
+    .client-impact-card p {
+      font-size: 1rem;
+      margin: 0.5rem 0 0 0;
+      color: #e0eaff;
+    }
+    .impact-tooltip {
+      position: relative;
+    }
+    .impact-tooltip::after {
+      content: attr(data-tooltip);
+      visibility: hidden;
+      opacity: 0;
       position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
-      background: #e1effa;
-      color: #17305c;
-      font-size: 0.85rem;
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-      z-index: 2;
-      margin-top: 0.3rem;
-      white-space: normal;
-      word-break: break-word;
-    /* Removed stray text-align and closing brace */
-    .insight-item:hover .insight-hover-desc,
-    .insight-item:focus-within .insight-hover-desc {
-      display: block;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #25447a;
+      color: #fff;
+      padding: 0.4em 0.7em;
+      border-radius: 0.5em;
+      font-size: 0.95em;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      z-index: 10;
+      pointer-events: none;
     }
-          .whatwedo-hover-popup {
-            display: none !important;
-            position: absolute !important;
-            left: 0 !important;
-            top: 100% !important;
-            width: 100% !important;
-            background: #e1effa !important;
-            color: #17305c !important;
-            font-size: 0.85rem !important;
-            padding: 0.7rem 1rem !important;
-            border-radius: 0.7rem !important;
-            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
-            z-index: 2 !important;
-            margin-top: 0.3rem !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            text-align: left !important;
-            text-transform: none !important;
-        }
-        .hover-col:hover .whatwedo-hover-popup,
-        .hover-col:focus-within .whatwedo-hover-popup {
-            display: block !important;
-        }
-      text-align: left;
+    .impact-tooltip:hover::after,
+    .impact-tooltip:focus::after {
+      visibility: visible;
+      opacity: 1;
     }
-    .industry-card:hover .industry-hover-desc,
-    .industry-card:focus-within .industry-hover-desc {
-      display: block;
-    }
-    .insight-item:last-child {
-      border-bottom: none;
-    }
-    .insight-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #6b7280;
-      margin-bottom: 0.2rem;
-    }
-    .insight-item h4 {
-      font-size: 0.95rem;
-      margin: 0 0 0.15rem;
-      color: #0f172a;
-    }
-    .insight-item p {
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin: 0;
-    }
-    footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 1.5rem 1.5rem 2rem;
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 3rem;
-    }
-    footer .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-    }
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <!-- Background banner: image.png, 4in from top, 5in tall, full width, less vivid -->
-  <div style="position:fixed; top:4in; left:0; width:100vw; height:5in; overflow:hidden; z-index:-1;">
-    <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block; opacity:0.21;">
-    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; opacity:0.18;"></div>
-  </div>
 <header>
-  <div class="nav-inner" style="position:relative;">
+  <div class="nav-inner">
     <div class="brand">
       <div class="brand-mark">WJ</div>
-      WyattJoel Advisory Partners
+      WyAttJoel Advisory Partners
     </div>
     <nav>
-      <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
-      <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
-      <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
-      <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
+      <a href="#services">Services</a>
+      <a href="#insights">Insights</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="shell">
+  <!-- Fully restored Client Impact Snapshot section -->
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
@@ -727,8 +511,8 @@
         and deliver measurable impact across growth, cost, and risk.
       </p>
       <div class="btn-row">
-        <a href="#contact" class="btn btn-primary" style="background:#004c97; color:#f9fafb; border:none;">Schedule a conversation →</a>
-        <a href="#insights" class="btn btn-outline" style="background:#e5e7eb; color:#004c97; border:none;">Browse recent insights</a>
+        <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
+        <a href="#insights" class="btn btn-outline">Browse recent insights</a>
       </div>
       <div class="hero-meta">
         <div>
@@ -741,129 +525,45 @@
         </div>
       </div>
     </div>
-    <div class="client-impact-card" style="background: #17305c; color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto; opacity:1;">
-      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#e5e7eb; font-weight:700; background:transparent; letter-spacing:0.01em; filter:brightness(2.2);">Client Impact Snapshot</h2>
-      <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
+    <div class="client-impact-card">
+      <h2>Client Impact Snapshot</h2>
+      <div class="impact-stats">
         <div>
-          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">120</span>
-          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Clients Served</span>
+          <span class="impact-number">$2.1B</span>
+          <span class="impact-label">Value Delivered</span>
         </div>
         <div>
-          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">98%</span>
-          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Satisfaction</span>
+          <span class="impact-number">15–30%</span>
+          <span class="impact-label">Efficiency Gains</span>
         </div>
         <div>
-          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">17</span>
-          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
+          <span class="impact-number">500+</span>
+          <span class="impact-label">Programs Led</span>
         </div>
       </div>
-      <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:nowrap; margin-bottom:0.7rem;">
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
-          Financial services
-          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
-        </div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
-          Healthcare
-          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
-        </div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
-          Public sector
-          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
-        </div>
-        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0">
-          Technology
-          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; background:#e1effa; color:#17305c; font-size:0.82rem; padding:0.65rem 0.8rem; border-radius:0.8rem; box-shadow:0 4px 16px rgba(15,23,42,0.13); z-index:10; margin-top:0.4rem; white-space:normal; word-break:break-word; text-align:left; min-width:140px; max-width:260px; width:auto;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
-        </div>
+      <div class="impact-actions">
+        <button class="impact-btn impact-tooltip" data-tooltip="Total dollar value delivered to clients through transformation and advisory projects.">Value delivered to clients through all projects</button>
+        <button class="impact-btn impact-tooltip" data-tooltip="Average efficiency improvement range achieved for clients via process redesign and automation.">Typical efficiency improvement range for clients</button>
+        <button class="impact-btn impact-tooltip" data-tooltip="Number of transformation and advisory programs successfully led by our team.">Total programs led by WyattJoel</button>
       </div>
-
-      <script>
-        // Pill popup logic for both desktop and mobile
-        document.addEventListener('DOMContentLoaded', function() {
-          var pills = document.querySelectorAll('.pill');
-          var isTouch = false;
-          // Detect touch device
-          window.addEventListener('touchstart', function onFirstTouch() {
-            isTouch = true;
-            window.removeEventListener('touchstart', onFirstTouch, false);
-          }, false);
-
-          pills.forEach(function(pill) {
-            var popup = pill.querySelector('.pill-hover');
-            // Desktop: hover/focus
-            pill.addEventListener('mouseover', function() {
-              if (!isTouch && popup) popup.classList.add('active');
-            });
-            pill.addEventListener('mouseout', function() {
-              if (!isTouch && popup) popup.classList.remove('active');
-            });
-            pill.addEventListener('focus', function() {
-              if (popup) popup.classList.add('active');
-            });
-            pill.addEventListener('blur', function() {
-              if (popup) popup.classList.remove('active');
-            });
-            // Mobile: tap/click
-            pill.addEventListener('touchend', function(e) {
-              isTouch = true;
-              e.stopPropagation();
-              // Hide all other popups
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.classList.remove('active');
-              });
-              if (popup) {
-                popup.classList.toggle('active');
-                // Scroll popup into view if needed
-                if (popup.classList.contains('active')) {
-                  var rect = popup.getBoundingClientRect();
-                  if (rect.bottom > window.innerHeight) {
-                    window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
-                  }
-                }
-              }
-            });
-            pill.addEventListener('click', function(e) {
-              if (!isTouch) return;
-              e.stopPropagation();
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.classList.remove('active');
-              });
-              if (popup) {
-                popup.classList.toggle('active');
-                // Scroll popup into view if needed
-                if (popup.classList.contains('active')) {
-                  var rect = popup.getBoundingClientRect();
-                  if (rect.bottom > window.innerHeight) {
-                    window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
-                  }
-                }
-              }
-            });
-          });
-          // Hide all popups when tapping/clicking elsewhere
-          document.addEventListener('touchend', function(e) {
-            if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-hover')) {
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.classList.remove('active');
-              });
-            }
-          });
-          document.addEventListener('click', function(e) {
-            if (!isTouch) {
-              document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.classList.remove('active');
-              });
-            }
-          });
-        });
-      </script>
-      <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
-        <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
-      </p>
-</div>
-      </p>
-    </aside>
+      <p style="color:#ffffff; font-weight: 600;"><strong>WyattJoel</strong> continues to make a difference in the community.</p>
+    </div>
   </section>
-
+  <script>
+    // Pill pull-down panel logic
+    document.querySelectorAll('.impact-btn').forEach(function(btn, idx, btns) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        btns.forEach(function(b) { if (b !== btn) b.classList.remove('active'); });
+        btn.classList.toggle('active');
+      });
+    });
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.impact-btn.active').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+    });
+  </script>
   <section id="services" style="margin-top:1.6rem;">
     <div class="section-label" style="margin-bottom:0.7rem; color:#004c97; font-weight:bold;">WHAT WE DO</div>
     <div class="section-title" style="margin-bottom:0.7rem;">End‑to‑end support from strategy to sustained delivery.</div>
@@ -1242,179 +942,42 @@
     </form>
   </section>
 </main>
-
 <script>
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
-    if (listEl) {
-      fetch('insights.json', { cache: 'no-store' })
-        .then(r => {
-          if (!r.ok) throw new Error('Failed to load insights');
-          return r.json();
-        })
-        .then(items => {
-          if (!Array.isArray(items) || items.length === 0) return;
-          const frag = document.createDocumentFragment();
-          items.forEach(item => {
-            const wrap = document.createElement('div');
-            wrap.className = 'insight-item';
-            const tag = document.createElement('div');
-            tag.className = 'insight-tag';
-            tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
-            const h4 = document.createElement('h4');
-            h4.textContent = item.title || '';
-            const p = document.createElement('p');
-            p.textContent = item.summary || '';
-            wrap.appendChild(tag);
-            wrap.appendChild(h4);
-            wrap.appendChild(p);
-            // Add hover description
-            const hoverDesc = document.createElement('div');
-            hoverDesc.className = 'insight-hover-desc';
-            hoverDesc.textContent =
-              item.hoverDesc ||
-              'Read more for actionable insights and practical steps to address this topic.';
-            wrap.appendChild(hoverDesc);
-            frag.appendChild(wrap);
-          });
-          listEl.appendChild(frag);
-          if (fallbackEl) fallbackEl.style.display = 'none';
-        })
-        .catch(() => {
-          // Keep fallback visible on error
+    if (!listEl) return;
+    fetch('insights.json', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('Failed to load insights');
+        return r.json();
+      })
+      .then(items => {
+        if (!Array.isArray(items) || items.length === 0) return;
+        const frag = document.createDocumentFragment();
+        items.forEach(item => {
+          const wrap = document.createElement('div');
+          wrap.className = 'insight-item';
+          const tag = document.createElement('div');
+          tag.className = 'insight-tag';
+          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
+          const h4 = document.createElement('h4');
+          h4.textContent = item.title || '';
+          const p = document.createElement('p');
+          p.textContent = item.summary || '';
+          wrap.appendChild(tag);
+          wrap.appendChild(h4);
+          wrap.appendChild(p);
+          frag.appendChild(wrap);
         });
-    }
-    // Contact form AJAX submit (Flask-compatible JSON)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.onsubmit = async function(e) {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-        try {
-          const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-          if (res.ok) {
-            alert('Thank you! We received your inquiry.');
-            contactForm.reset();
-          } else {
-            const errorText = await res.text();
-            alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
-          }
-        } catch (err) {
-          alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
-        }
-      };
-    }
+        listEl.appendChild(frag);
+        if (fallbackEl) fallbackEl.style.display = 'none';
+      })
+      .catch(() => {
+        // Keep fallback visible on error
+      });
   })();
 </script>
-
-
-<!--
-================ Flask Backend Example for Inquiry Form ================
-
-Save this as app.py and run with: python app.py
-
-
-from flask import Flask, request, jsonify
-import sqlite3
-from datetime import datetime
-# Email notification imports
-import smtplib
-from email.message import EmailMessage
-from flask_cors import CORS  # <-- Add this import
-
-
-app = Flask(__name__)
-CORS(app, origins=["https://wyattjoel.com"])  # <-- Enable CORS for your domain
-DB_PATH = 'inquiries.db'
-
-def init_db():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS inquiries (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            email TEXT,
-            topic TEXT,
-            message TEXT,
-            submitted_at TEXT
-        )
-    ''')
-    conn.commit()
-    conn.close()
-
-def send_email_notification(name, email, topic, message, submitted_at):
-    # Configure your SMTP server and credentials here
-    SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
-    SMTP_PORT = 587
-    SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
-    SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
-    TO_EMAIL = 'steve@wyattjoel.com'
-
-    msg = EmailMessage()
-    msg['Subject'] = f'New Inquiry from {name} ({email})'
-    msg['From'] = SMTP_USER
-    msg['To'] = TO_EMAIL
-    msg.set_content(f'''
-New inquiry received:
-
-Name: {name}
-Email: {email}
-Topic: {topic}
-Message: {message}
-Submitted at: {submitted_at}
-''')
-
-    try:
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls();
-            server.login(SMTP_USER, SMTP_PASS);
-            server.send_message(msg);
-    except Exception as e:
-        print('Failed to send email:', e);
-
-@app.route('/inquiry', methods=['POST'])
-def inquiry():
-    data = request.get_json();
-    name = data.get('name', '');
-    email = data.get('email', '');
-    topic = data.get('topic', '');
-    message = data.get('message', '');
-    submitted_at = datetime.utcnow().isoformat();
-
-    conn = sqlite3.connect(DB_PATH);
-    c = conn.cursor();
-    c.execute('''
-        INSERT INTO inquiries (name, email, topic, message, submitted_at)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (name, email, topic, message, submitted_at));
-    conn.commit();
-    conn.close();
-
-    # Send email notification
-    send_email_notification(name, email, topic, message, submitted_at);
-
-    return jsonify({'status': 'success'}), 200;
-
-if __name__ == '__main__':
-    init_db();
-    app.run(debug=True);
-
-# ===================
-# Instructions:
-# 1. Replace SMTP_USER and SMTP_PASS with your Gmail address and app password.
-#    (For Gmail, you may need to enable 2FA and create an app password.)
-# 2. If not using Gmail, update SMTP_SERVER, SMTP_PORT, and credentials for your provider.
-# 3. The notification will be sent to steve@wyattjoel.com on every inquiry.
-# ===================
-=======================================================================
--->
 <footer>
   <div class="footer-inner">
     <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
