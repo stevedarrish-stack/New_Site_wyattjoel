@@ -222,6 +222,10 @@
                    white-space: normal !important;
                    word-break: break-word !important;
                    box-sizing: border-box !important;
+                   display: none !important;
+                 }
+                 .pill-hover.active {
+                   display: block !important;
                  }
                 .client-impact-card p,
                 .client-impact-card .impact-label,
@@ -787,16 +791,16 @@
             var popup = pill.querySelector('.pill-hover');
             // Desktop: hover/focus
             pill.addEventListener('mouseover', function() {
-              if (!isTouch && popup) popup.style.display = 'block';
+              if (!isTouch && popup) popup.classList.add('active');
             });
             pill.addEventListener('mouseout', function() {
-              if (!isTouch && popup) popup.style.display = 'none';
+              if (!isTouch && popup) popup.classList.remove('active');
             });
             pill.addEventListener('focus', function() {
-              if (popup) popup.style.display = 'block';
+              if (popup) popup.classList.add('active');
             });
             pill.addEventListener('blur', function() {
-              if (popup) popup.style.display = 'none';
+              if (popup) popup.classList.remove('active');
             });
             // Mobile: tap/click
             pill.addEventListener('touchend', function(e) {
@@ -804,12 +808,12 @@
               e.stopPropagation();
               // Hide all other popups
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.style.display = 'none';
+                if (ph !== popup) ph.classList.remove('active');
               });
               if (popup) {
-                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                popup.classList.toggle('active');
                 // Scroll popup into view if needed
-                if (popup.style.display === 'block') {
+                if (popup.classList.contains('active')) {
                   var rect = popup.getBoundingClientRect();
                   if (rect.bottom > window.innerHeight) {
                     window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
@@ -821,12 +825,12 @@
               if (!isTouch) return;
               e.stopPropagation();
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                if (ph !== popup) ph.style.display = 'none';
+                if (ph !== popup) ph.classList.remove('active');
               });
               if (popup) {
-                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                popup.classList.toggle('active');
                 // Scroll popup into view if needed
-                if (popup.style.display === 'block') {
+                if (popup.classList.contains('active')) {
                   var rect = popup.getBoundingClientRect();
                   if (rect.bottom > window.innerHeight) {
                     window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
@@ -839,14 +843,14 @@
           document.addEventListener('touchend', function(e) {
             if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-hover')) {
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.style.display = 'none';
+                ph.classList.remove('active');
               });
             }
           });
           document.addEventListener('click', function(e) {
             if (!isTouch) {
               document.querySelectorAll('.pill-hover').forEach(function(ph) {
-                ph.style.display = 'none';
+                ph.classList.remove('active');
               });
             }
           });
