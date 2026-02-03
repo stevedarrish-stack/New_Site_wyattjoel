@@ -865,19 +865,23 @@
           <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
         </div>
       </div>
-        <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:nowrap; margin-bottom:0.7rem; position:relative;">
-          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services
-            <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
-          </button>
-          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare
-            <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
-          </button>
-          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector
-            <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
-          </button>
-          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology
-            <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
-          </button>
+        <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:flex-start; flex-wrap:nowrap; margin-bottom:0.7rem; position:relative;">
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
+            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
+          </div>
+          <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details" style="display:none; position:absolute; left:calc(12.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
+            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
+          </div>
+          <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details" style="display:none; position:absolute; left:calc(37.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
+            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
+          </div>
+          <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details" style="display:none; position:absolute; left:calc(62.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
+            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology</button>
+          </div>
+          <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details" style="display:none; position:absolute; left:calc(87.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
         </div>
       <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
@@ -1338,6 +1342,7 @@
             const errorText = await res.text();
             alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
           }
+        }
         } catch (err) {
           alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
         }
@@ -1523,13 +1528,15 @@ if __name__ == '__main__':
     });
     // Mobile: show on tap/click
     pill.addEventListener('click', function(e) {
-      var isVisible = menu.style.display === 'block';
-      hideAllMenus();
-      if (!isVisible) {
+      e.stopPropagation();
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        pill.setAttribute('aria-expanded', 'false');
+      } else {
+        hideAllMenus();
         menu.style.display = 'block';
         pill.setAttribute('aria-expanded', 'true');
       }
-      e.stopPropagation();
     });
   });
   // Hide menus when clicking elsewhere
