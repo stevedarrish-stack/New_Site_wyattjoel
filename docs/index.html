@@ -1494,6 +1494,7 @@ if __name__ == '__main__':
 
 <script>
 // Pill hover/tap/focus popup for Client Impact Snapshot
+// Pill hover/tap/focus popup for Client Impact Snapshot
 (function(){
   var pills = document.querySelectorAll('.pill');
   var menus = document.querySelectorAll('.pill-menu');
@@ -1505,8 +1506,8 @@ if __name__ == '__main__':
       pill.setAttribute('aria-expanded', 'false');
     });
   }
-  pills.forEach(function(pill) {
-    var menu = pill.querySelector('.pill-menu');
+  pills.forEach(function(pill, idx) {
+    var menu = menus[idx];
     // Desktop: show on hover/focus
     pill.addEventListener('mouseenter', function() {
       hideAllMenus();
