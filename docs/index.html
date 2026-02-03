@@ -626,14 +626,16 @@
       margin-bottom: 0.7rem;
       position: relative;
       width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     .pill {
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.78rem;
-      color: #e5e7eb;
-      background: rgba(15,23,42,0.8);
+      white-space: nowrap;
+      min-width: 0;
+      max-width: 140px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-size: 0.95rem;
     }
     .card-grid {
       display: grid;
@@ -1440,6 +1442,7 @@ def send_email_notification(name, email, topic, message, submitted_at):
     # Configure your SMTP server and credentials here
     SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
     SMTP_PORT = 587
+
     SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
     SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
     TO_EMAIL = 'steve@wyattjoel.com'
