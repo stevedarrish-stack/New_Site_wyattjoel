@@ -6,25 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
                                                                                           .pill-menu {
+                                                                                            display: none;
                                                                                             position: absolute;
-                                                                                            left: 50%;
-                                                                                            transform: translateX(-50%);
+                                                                                            left: 0;
                                                                                             top: 110%;
-                                                                                            min-width: 160px;
-                                                                                            max-width: 220px;
-                                                                                            width: auto;
-                                                                                            background: #e1effa;
+                                                                                            min-width: 180px;
+                                                                                            background: #fff;
                                                                                             color: #17305c;
-                                                                                            font-size: 0.62rem !important;
-                                                                                            padding: 0.6rem 0.8rem;
-                                                                                            border-radius: 0.7rem;
-                                                                                            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+                                                                                            font-size: 0.95rem;
+                                                                                            padding: 0.8rem 1.1rem;
+                                                                                            border-radius: 1rem;
+                                                                                            box-shadow: 0 4px 16px rgba(15,23,42,0.13);
                                                                                             z-index: 100;
-                                                                                            margin-top: 0.3rem;
                                                                                             white-space: normal;
                                                                                             word-break: break-word;
                                                                                             text-align: left;
-                                                                                            display: none;
+                                                                                          }
+                                                                                          .pill-row > div:hover > .pill-menu,
+                                                                                          .pill-row > div:focus-within > .pill-menu {
+                                                                                            display: block !important;
                                                                                           }
                                                                                       .pill-row {
                                                                                         display: flex;
@@ -642,6 +642,47 @@
       position: relative;
       width: 100%;
       white-space: nowrap;
+    }
+    .pill-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 110%;
+      min-width: 180px;
+      background: #fff;
+      color: #17305c;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.13);
+      z-index: 100;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+    @media (max-width: 600px) {
+      .pill-menu {
+        position: fixed !important;
+        left: 5vw !important;
+        right: 5vw !important;
+        top: 18vh !important;
+        min-width: 0 !important;
+        max-width: 90vw !important;
+        width: auto !important;
+        font-size: 1.05rem !important;
+        padding: 1.1rem 1.2rem !important;
+        z-index: 9999 !important;
+        border-radius: 1.1rem !important;
+        box-shadow: 0 8px 32px rgba(15,23,42,0.18) !important;
+        background: #fff !important;
+        color: #17305c !important;
+        display: none;
+      }
+      .pill-row {
+        overflow-x: auto !important;
+        position: relative !important;
+        z-index: 1;
+      }
     }
     .pill {
       background: #111;
@@ -1394,6 +1435,7 @@
         }
       };
     }
+ }
   })();
 </script>
   <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
@@ -1535,60 +1577,93 @@ if __name__ == '__main__':
 </footer>
 
 <script>
-// Pill hover/tap/focus popup for Client Impact Snapshot
-// Pill hover/tap/focus popup for Client Impact Snapshot
+// Floating pill popup: clone menu, append to body, position near pill
 (function(){
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var pills = document.querySelectorAll('.pill');
-    var menus = document.querySelectorAll('.pill-menu');
-    function hideAllMenus() {
-      menus.forEach(function(menu) {
-        menu.style.display = 'none';
-      });
-      pills.forEach(function(pill) {
-        pill.setAttribute('aria-expanded', 'false');
-      });
+  var pills = document.querySelectorAll('.pill');
+  var menus = document.querySelectorAll('.pill-menu');
+  var activePopup = null;
+  function removePopup() {
+    if (activePopup && activePopup.parentNode) {
+      activePopup.parentNode.removeChild(activePopup);
+      activePopup = null;
     }
-    // Use nextElementSibling for menu selection (pill-menu should be next sibling)
-    pills.forEach(function(pill) {
-      var menu = pill.nextElementSibling;
-      if (!menu || !menu.classList.contains('pill-menu')) return;
-      pill.addEventListener('mouseenter', function() {
-        hideAllMenus();
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
-      });
-      pill.addEventListener('mouseleave', function() {
-        menu.style.display = 'none';
-        pill.setAttribute('aria-expanded', 'false');
-      });
-      pill.addEventListener('focus', function() {
-        hideAllMenus();
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
-      });
-      pill.addEventListener('blur', function() {
-        menu.style.display = 'none';
-        pill.setAttribute('aria-expanded', 'false');
-      });
-      pill.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (menu.style.display === 'block') {
-          menu.style.display = 'none';
-          pill.setAttribute('aria-expanded', 'false');
-        } else {
-          hideAllMenus();
-          menu.style.display = 'block';
-          pill.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-    document.addEventListener('click', function(e) {
-      // Only hide popups if click is outside both pill and popup
-      if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu')) {
-        hideAllMenus();
+    pills.forEach(function(pill){ pill.setAttribute('aria-expanded','false'); });
+  }
+  function showPopup(pill, menu) {
+    removePopup();
+    var rect = pill.getBoundingClientRect();
+    var popup = menu.cloneNode(true);
+    popup.style.display = 'block';
+    popup.style.position = 'fixed';
+    popup.style.left = (rect.left + window.scrollX) + 'px';
+    popup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
+    popup.style.zIndex = 99999;
+    popup.style.minWidth = rect.width + 'px';
+    popup.classList.add('pill-popup-floating');
+    document.body.appendChild(popup);
+    activePopup = popup;
+    pill.setAttribute('aria-expanded','true');
+  }
+  pills.forEach(function(pill) {
+    var menu = pill.parentElement.querySelector('.pill-menu');
+    if (!menu) return;
+    pill.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (activePopup) {
+        removePopup();
+        return;
       }
+      showPopup(pill, menu);
+    });
+    pill.addEventListener('focus', function(e) {
+      showPopup(pill, menu);
+    });
+    pill.addEventListener('blur', function(e) {
+      setTimeout(removePopup, 100);
     });
   });
+  document.addEventListener('click', function(e) {
+    if (activePopup && !e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu') && !e.target.classList.contains('pill-popup-floating')) {
+      removePopup();
+    }
+  });
+  window.addEventListener('scroll', removePopup, true);
+  window.addEventListener('resize', removePopup, true);
+})();
+</script>
+
+<div id="pill-global-popup" style="display:none;position:absolute;min-width:180px;background:#fff;color:#17305c;font-size:0.95rem;padding:0.8rem 1.1rem;border-radius:1rem;box-shadow:0 4px 16px rgba(15,23,42,0.13);z-index:100;white-space:normal;word-break:break-word;text-align:left;"></div>
+
+<script>
+  // Global pill popup logic
+  (function() {
+    var globalPopup = document.getElementById('pill-global-popup');
+    document.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('pill')) {
+        globalPopup.style.display = 'none';
+        return;
+      }
+      var pill = e.target;
+      var menu = pill.parentElement.querySelector('.pill-menu');
+      if (!menu) return;
+      var isVisible = globalPopup.style.display === 'block' && globalPopup.previousPill === pill;
+      globalPopup.style.display = isVisible ? 'none' : 'block';
+      globalPopup.innerHTML = menu.innerHTML;
+      var rect = pill.getBoundingClientRect();
+      globalPopup.style.left = (rect.left + window.scrollX) + 'px';
+      globalPopup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
+      globalPopup.previousPill = isVisible ? null : pill;
+    });
+    window.addEventListener('scroll', function() {
+      globalPopup.style.display = 'none';
+    });
+    window.addEventListener('resize', function() {
+      if (globalPopup.style.display === 'block') {
+        var pill = globalPopup.previousPill;
+        var rect = pill.getBoundingClientRect();
+        globalPopup.style.left = (rect.left + window.scrollX) + 'px';
+        globalPopup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
+      }
+    });
+  })();
 </script>
