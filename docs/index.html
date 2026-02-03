@@ -1588,7 +1588,8 @@ if __name__ == '__main__':
   setupPills();
   window.addEventListener('resize', setupPills);
   document.addEventListener('click', function(e) {
-    if (!e.target.classList.contains('pill')) {
+    // Only hide popups if click is outside both pill and popup
+    if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu')) {
       hideAllMenus();
     }
   });
