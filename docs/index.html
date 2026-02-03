@@ -1549,8 +1549,9 @@ if __name__ == '__main__':
     });
   }
   // Use same code for desktop and mobile: show popup on hover, focus, and click/tap
-  pills.forEach(function(pill, idx) {
-    var menu = menus[idx];
+  pills.forEach(function(pill) {
+    var menu = pill.parentElement.querySelector('.pill-menu');
+    if (!menu) return;
     pill.addEventListener('mouseenter', function() {
       hideAllMenus();
       menu.style.display = 'block';
@@ -1587,5 +1588,5 @@ if __name__ == '__main__':
       hideAllMenus();
     }
   });
-})();
+  })();
 </script>
