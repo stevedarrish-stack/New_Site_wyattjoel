@@ -1538,55 +1538,57 @@ if __name__ == '__main__':
 // Pill hover/tap/focus popup for Client Impact Snapshot
 // Pill hover/tap/focus popup for Client Impact Snapshot
 (function(){
-  var pills = document.querySelectorAll('.pill');
-  var menus = document.querySelectorAll('.pill-menu');
-  function hideAllMenus() {
-    menus.forEach(function(menu) {
-      menu.style.display = 'none';
-    });
-    pills.forEach(function(pill) {
-      pill.setAttribute('aria-expanded', 'false');
-    });
-  }
-  // Use same code for desktop and mobile: show popup on hover, focus, and click/tap
-  pills.forEach(function(pill) {
-    var menu = pill.parentElement.querySelector('.pill-menu');
-    if (!menu) return;
-    pill.addEventListener('mouseenter', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-    pill.addEventListener('mouseleave', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
-    });
-    pill.addEventListener('focus', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-    pill.addEventListener('blur', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
-    });
-    pill.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (menu.style.display === 'block') {
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var pills = document.querySelectorAll('.pill');
+    var menus = document.querySelectorAll('.pill-menu');
+    function hideAllMenus() {
+      menus.forEach(function(menu) {
         menu.style.display = 'none';
+      });
+      pills.forEach(function(pill) {
         pill.setAttribute('aria-expanded', 'false');
-      } else {
+      });
+    }
+    // Use nextElementSibling for menu selection (pill-menu should be next sibling)
+    pills.forEach(function(pill) {
+      var menu = pill.nextElementSibling;
+      if (!menu || !menu.classList.contains('pill-menu')) return;
+      pill.addEventListener('mouseenter', function() {
         hideAllMenus();
         menu.style.display = 'block';
         pill.setAttribute('aria-expanded', 'true');
+      });
+      pill.addEventListener('mouseleave', function() {
+        menu.style.display = 'none';
+        pill.setAttribute('aria-expanded', 'false');
+      });
+      pill.addEventListener('focus', function() {
+        hideAllMenus();
+        menu.style.display = 'block';
+        pill.setAttribute('aria-expanded', 'true');
+      });
+      pill.addEventListener('blur', function() {
+        menu.style.display = 'none';
+        pill.setAttribute('aria-expanded', 'false');
+      });
+      pill.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (menu.style.display === 'block') {
+          menu.style.display = 'none';
+          pill.setAttribute('aria-expanded', 'false');
+        } else {
+          hideAllMenus();
+          menu.style.display = 'block';
+          pill.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', function(e) {
+      // Only hide popups if click is outside both pill and popup
+      if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu')) {
+        hideAllMenus();
       }
     });
   });
-  document.addEventListener('click', function(e) {
-    // Only hide popups if click is outside both pill and popup
-    if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu')) {
-      hideAllMenus();
-    }
-  });
-  })();
 </script>
