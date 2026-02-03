@@ -10,16 +10,16 @@
                                                                                             left: 50%;
                                                                                             transform: translateX(-50%);
                                                                                             top: 110%;
-                                                                                            min-width: 180px;
+                                                                                            min-width: 160px;
                                                                                             max-width: 220px;
                                                                                             width: auto;
                                                                                             background: #e1effa;
                                                                                             color: #17305c;
-                                                                                            font-size: 0.85rem;
-                                                                                            padding: 0.7rem 1rem;
+                                                                                            font-size: 0.8rem;
+                                                                                            padding: 0.6rem 0.8rem;
                                                                                             border-radius: 0.7rem;
                                                                                             box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-                                                                                            z-index: 20;
+                                                                                            z-index: 100;
                                                                                             margin-top: 0.3rem;
                                                                                             white-space: normal;
                                                                                             word-break: break-word;
@@ -31,6 +31,7 @@
                                                                                         display: flex;
                                                                                         flex-direction: column;
                                                                                         align-items: center;
+                                                                                        overflow: visible !important;
                                                                                       }
                                           @media (max-width: 800px) {
                                             .client-impact-card {
@@ -629,28 +630,29 @@
       margin-bottom: 0.7rem;
       position: relative;
       width: 100%;
-      overflow-x: visible;
-      overflow-y: visible;
+      overflow: visible !important;
       white-space: nowrap;
     }
     .pill {
       white-space: nowrap;
-      min-width: 0;
-      max-width: 120px;
+      min-width: 100px;
+      max-width: 100px;
+      width: 100px;
       text-overflow: ellipsis;
       overflow: hidden;
       font-size: 0.85rem;
       border-radius: 2rem;
-      background: #e1effa;
-      color: #17305c;
+      background: #111;
+      color: #fff;
       border: none;
       padding: 0.45rem 0.7rem;
       box-shadow: 0 2px 8px rgba(15,23,42,0.10);
       cursor: pointer;
       transition: background 0.2s;
+      text-align: center;
     }
     .pill:focus, .pill:hover {
-      background: #cbe3f7;
+      background: #333;
       outline: none;
     }
     .card-grid {
@@ -1399,6 +1401,7 @@
           ph.style.display = 'none';
         });
         popup.style.display = isVisible ? 'none' : 'block';
+        popup.style.zIndex = '100';
         if (!isVisible && window.innerWidth <= 600) {
           e.stopPropagation();
         }
