@@ -1,507 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-    <title>WyattJoel Advisory Partners</title>
-    
-      <style>
-          .client-impact-card {
-            background: #17305c;
-            color: #f9fafb;
-            border-radius: 1.2rem;
-            padding: 1.7rem 1.5rem;
-            box-shadow: none;
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-          }
-          .client-impact-card h2 {
-            font-size: 1.15rem;
-            margin-bottom: 0.7rem;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: #b6c6e3;
-          }
-          .impact-stats {
-            display: flex;
-            justify-content: space-between;
-            gap: 1.5rem;
-            margin-bottom: 1.2rem;
-          }
-          .impact-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: block;
-            color: #e0eaff;
-          }
-          .impact-label {
-            font-size: 1rem;
-            color: #b6c6e3;
-            display: block;
-            margin-top: 0.2rem;
-          }
-          .impact-actions {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.1rem;
-          }
-          .impact-btn {
-            background: #17305c;
-            color: #f9fafb;
-            border: none;
+ <head>
+ <meta charset="UTF-8" />
+  <title>WyAttJoel Advisory Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+                                          @media (max-width: 800px) {
+                                            .client-impact-card {
+                                              padding: 0.7rem 0.4rem !important;
+                                              max-width: 98vw !important;
+                                              font-size: 0.95rem !important;
+                                            }
+                                            .client-impact-card h2 {
+                                              font-size: 1.3rem !important;
+                                              margin-bottom: 0.3rem !important;
+                                            }
+                                            .impact-stats {
+                                              gap: 1rem !important;
+                                            }
+                                            .impact-number {
+                                              font-size: 1.3rem !important;
+                                            }
+                                            .impact-label {
+                                              font-size: 0.85rem !important;
+                                            }
+                                            .pill-row {
+                                              gap: 0.3rem !important;
+                                              margin-bottom: 0.4rem !important;
+                                              flex-wrap: wrap !important;
+                                            }
+                                            .pill {
+                                              min-width: 70px !important;
+                                              max-width: 90px !important;
+                                              font-size: 0.65rem !important;
+                                              padding: 0.12rem 0.4rem !important;
+                                            }
+                                            .client-impact-card p {
+                                              font-size: 0.68rem !important;
+                                              padding: 0.5rem 0.7rem !important;
+                                            }
+                                          }
+                                      @media (max-width: 800px) {
+                                        .nav-inner {
+                                          flex-direction: column !important;
+                                          align-items: flex-start !important;
+                                        }
+                                        .brand {
+                                          margin-bottom: 0.5rem !important;
+                                        }
+                                        nav:not(.mobile-nav) {
+                                          display: flex !important;
+                                          flex-direction: row !important;
+                                          width: 100vw !important;
+                                          justify-content: flex-start !important;
+                                          align-items: center !important;
+                                          margin-bottom: 0.5rem !important;
+                                          overflow-x: auto !important;
+                                          white-space: nowrap !important;
+                                          font-size: 0.85rem !important;
+                                          padding: 0 0.2rem !important;
+                                        }
+                                        nav:not(.mobile-nav) a {
+                                          display: inline-block !important;
+                                          white-space: nowrap !important;
+                                          margin-right: 1.1rem !important;
+                                          margin-bottom: 0 !important;
+                                          font-size: 0.95em !important;
+                                        }
+                                        nav:not(.mobile-nav) a:last-child {
+                                          margin-right: 0 !important;
+                                        }
+                                        .mobile-nav-btn, .mobile-nav {
+                                          display: none !important;
+                                        }
+                                      }
+                                  @media (max-width: 800px) {
+                                    .nav-inner {
+                                      flex-direction: column !important;
+                                      align-items: flex-start !important;
+                                    }
+                                    .brand {
+                                      margin-bottom: 0.5rem !important;
+                                    }
+                                    .mobile-nav-btn {
+                                      display: flex !important;
+                                      margin-top: 0.2rem !important;
+                                      margin-bottom: 0.7rem !important;
+                                      align-self: flex-start !important;
+                                      position: relative !important;
+                                      z-index: 1101 !important;
+                                    }
+                                    .nav-inner > nav:not(.mobile-nav) {
+                                      display: none !important;
+                                    }
+                                    .mobile-nav {
+                                      display: none !important;
+                                      flex-direction: column !important;
+                                      width: 100vw !important;
+                                      position: absolute !important;
+                                      top: 100% !important;
+                                      left: 0 !important;
+                                      background: #fff !important;
+                                      z-index: 1100 !important;
+                                      box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+                                      padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
+                                    }
+                                    .mobile-nav.open {
+                                      display: flex !important;
+                                    }
+                                    .mobile-nav a {
+                                      white-space: nowrap !important;
+                                      display: block !important;
+                                      margin-bottom: 1rem !important;
+                                      font-size: 1.1rem !important;
+                                    }
+                                    .mobile-nav a:last-child {
+                                      margin-bottom: 0 !important;
+                                    }
+                                    .mobile-nav-close {
+                                      align-self: flex-end !important;
+                                      margin-bottom: 1rem !important;
+                                      font-size: 2rem !important;
+                                      background: none !important;
+                                      border: none !important;
+                                      color: #004c97 !important;
+                                      cursor: pointer !important;
+                                    }
+                                  }
+                              @media (max-width: 800px) {
+                                .nav-inner {
+                                  flex-direction: column !important;
+                                  align-items: flex-start !important;
+                                }
+                                .brand {
+                                  margin-bottom: 0.5rem;
+                                }
+                                .mobile-nav-btn {
+                                  display: flex !important;
+                                  margin-top: 0.2rem;
+                                  margin-bottom: 0.7rem;
+                                  align-self: flex-start;
+                                }
+                                nav:not(.mobile-nav) {
+                                  display: none !important;
+                                }
+                                .mobile-nav {
+                                  display: flex !important;
+                                  flex-direction: column;
+                                  width: 100vw;
+                                  position: absolute;
+                                  top: 100%;
+                                  left: 0;
+                                  background: #fff;
+                                  z-index: 1000;
+                                  box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+                                  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+                                }
+                                .mobile-nav a {
+                                  white-space: nowrap;
+                                  display: block;
+                                  margin-bottom: 1rem;
+                                  font-size: 1.1rem;
+                                }
+                                .mobile-nav a:last-child {
+                                  margin-bottom: 0;
+                                }
+                                .mobile-nav-close {
+                                  align-self: flex-end;
+                                  margin-bottom: 1rem;
+                                  font-size: 2rem;
+                                  background: none;
+                                  border: none;
+                                  color: #004c97;
+                                  cursor: pointer;
+                                }
+                              }
+                          @media (max-width: 800px) {
+                            .nav-inner {
+                              flex-direction: column !important;
+                              align-items: flex-start !important;
+                            }
+                            .brand {
+                              margin-bottom: 0.5rem;
+                            }
+                            .mobile-nav-btn {
+                              display: flex !important;
+                              margin-top: 0.2rem;
+                              margin-bottom: 0.7rem;
+                              align-self: flex-start;
+                            }
+                            nav:not(.mobile-nav) {
+                              width: 100%;
+                              margin-bottom: 0.5rem;
+                            }
+                            nav:not(.mobile-nav) a {
+                              white-space: nowrap;
+                              display: inline-block;
+                              margin-right: 1.2rem;
+                              margin-bottom: 0;
+                            }
+                            nav:not(.mobile-nav) a:last-child {
+                              margin-right: 0;
+                            }
+                          }
+                      /* Hamburger and mobile nav styles */
+                      @media (max-width: 800px) {
+                        .mobile-nav-btn {
+                          display: flex;
+                        }
+                        .mobile-nav {
+                          display: none;
+                        }
+                        .mobile-nav.open {
+                          display: flex;
+                        }
+                      }
+                      @media (min-width: 801px) {
+                        .mobile-nav-btn,
+                        .mobile-nav {
+                          display: none !important;
+                        }
+                      }
+                      .mobile-nav-btn {
+                        display: none;
+                        background: none;
+                        border: none;
+                        position: absolute;
+                        right: 1.5rem;
+                        top: 1.2rem;
+                        z-index: 20;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 38px;
+                        height: 38px;
+                        cursor: pointer;
+                      }
+                      .mobile-nav-btn span {
+                        display: block;
+                        width: 26px;
+                        height: 3px;
+                        margin: 4px 0;
+                        background: #004c97;
+                        border-radius: 2px;
+                        transition: 0.2s;
+                      }
+                      .mobile-nav {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        width: 80vw;
+                        max-width: 320px;
+                        height: 100vh;
+                        background: #fff;
+                        box-shadow: -2px 0 18px rgba(15,23,42,0.13);
+                        z-index: 100;
+                        padding: 2.5rem 1.5rem 1.5rem 2rem;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        animation: slideInNav 0.22s cubic-bezier(.4,0,.2,1);
+                      }
+                      .mobile-nav a {
+                        color: #004c97;
+                        font-size: 1.15rem;
+                        font-weight: 600;
+                        text-decoration: none;
+                        margin-bottom: 1.2rem;
+                        display: block;
+                      }
+                      .mobile-nav-close {
+                        position: absolute;
+                        top: 1.1rem;
+                        right: 1.2rem;
+                        background: none;
+                        border: none;
+                        font-size: 2rem;
+                        color: #004c97;
+                        cursor: pointer;
+                      }
+                      @keyframes slideInNav {
+                        from { right: -100vw; opacity: 0; }
+                        to { right: 0; opacity: 1; }
+                      }
+                  /* Desktop: Set Pers.jpg to 3.5in x 3.5in in INSIGHTS */
+                  @media (min-width: 601px) {
+                    .insights-pers-img {
+                      width: 3.5in !important;
+                      height: 3.5in !important;
+                      max-width: 100%;
+                      max-height: 100%;
+                      border-radius: 1.1rem;
+                      object-fit: cover;
+                      box-shadow: 0 4px 18px rgba(15,23,42,0.13);
+                      display: block;
+                      margin-top: 1.1rem;
+                      margin-bottom: 0.7rem;
+                    }
+                  }
+              /* Mobile improvements for Client Impact Snapshot */
+              @media (max-width: 600px) {
+                .client-impact-card {
+                  max-width: 380px !important;
+                  min-width: 260px !important;
+                  width: 90vw !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+                  padding: 0.8rem 0.5rem !important;
+                  box-sizing: border-box !important;
+                  border-radius: 1.35rem !important;
+                }
+                .client-impact-card h2 {
+                  font-size: 1.3rem !important;
+                  padding: 0 0.2rem !important;
+                }
+                .impact-stats {
+                  flex-direction: row !important;
+                  gap: 1rem !important;
+                  justify-content: center !important;
+                  align-items: flex-start !important;
+                }
+                .pill-row {
+                  flex-wrap: nowrap !important;
+                  gap: 0.18rem !important;
+                  justify-content: center !important;
+                  overflow-x: auto !important;
+                }
+                .pill {
+                  min-width: 60px !important;
+                  max-width: 90px !important;
+                  font-size: 0.62rem !important;
+                  padding: 0.11rem 0.32rem !important;
+                }
+                .client-impact-card p,
+                .client-impact-card .impact-label,
+                .client-impact-card .impact-number {
+                  font-size: 0.95rem !important;
+                }
+                .client-impact-card p:last-child {
+                  font-size: 0.68rem !important;
+                  line-height: 1.2 !important;
+                  margin-top: 0.5rem !important;
+                }
+              }
+          /* WHAT WE DO hover popup: match INSIGHTS style exactly */
+          .whatwedo-hover-popup {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            background: transparent;
+            color: #17305c;
+            font-size: 0.85rem;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-weight: 400;
+            padding: 0.7rem 1rem;
             border-radius: 0.7rem;
-            padding: 0.6rem 1.2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.15s;
-            white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+            z-index: 2;
+            margin-top: 0.3rem;
+            white-space: normal;
+            word-break: break-word;
+            text-align: left;
+            text-transform: none !important;
+            /* Remove all-caps, force sentence case */
+            letter-spacing: normal !important;
           }
-          .impact-btn:hover, .impact-btn:focus {
-            background: #25447a;
+          .hover-col:hover .whatwedo-hover-popup,
+          .hover-col:focus-within .whatwedo-hover-popup {
+            display: block;
           }
-          .client-impact-card p {
-            font-size: 1rem;
-            margin: 0.5rem 0 0 0;
-            color: #e0eaff;
-          }
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #ffffff;
-        color: #111827;
-        -webkit-font-smoothing: antialiased;
-      }
-      header {
-        position: sticky;
-        top: 0;
-        background: rgba(255,255,255,0.96);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid #e5e7eb;
-        z-index: 10;
-      }
-      .nav-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0.75rem 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.55rem;
-        font-size: 0.9rem;
-        font-weight: 600;
-        letter-spacing: .16em;
-        text-transform: uppercase;
-      }
-      .brand-mark {
-        width: 26px;
-        height: 26px;
-        border-radius: 30% 70% 55% 45%;
-        background: linear-gradient(135deg, #004c97, #0f172a);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #f9fafb;
-        font-size: 0.75rem;
-        font-weight: 700;
-        box-shadow: 0 8px 18px rgba(15,23,42,0.35);
-      }
-      nav a {
-        margin-left: 1.5rem;
-        font-size: 0.95rem;
-        color: #6b7280;
-        text-decoration: none;
-        position: relative;
-        padding-bottom: 0.15rem;
-      }
-      nav a::after {
-        content: "";
-        position: absolute;
-        left: 0; right: 0; bottom: 0;
-        height: 2px;
-        border-radius: 999px;
-        background: #004c97;
-        transform: scaleX(0);
-        transform-origin: center;
-        transition: transform 0.18s ease-out;
-      }
-      nav a:hover::after {
-        transform: scaleX(1);
-      }
-      .shell {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 2.5rem 1.5rem 0.9rem;
-      }
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
-        gap: 3rem;
-        align-items: center;
-        margin-top: 1.5rem;
-        margin-bottom: 0.06rem;
-      }
-      .eyebrow {
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: .18em;
-        color: #6b7280;
-        margin-bottom: 0.75rem;
-        font-weight: 600;
-      }
-      h1 {
-        font-size: clamp(2.3rem, 4vw, 3rem);
-        line-height: 1.05;
-        letter-spacing: -0.04em;
-        margin: 0 0 1rem;
-      }
-      h1 span {
-        color: #004c97;
-      }
-      .hero p {
-        color: #4b5563;
-        font-size: 1.02rem;
-        max-width: 36rem;
-        margin-bottom: 1.75rem;
-      }
-      .btn-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-bottom: 1.25rem;
-      }
-      .btn {
-        border-radius: 999px;
-        border: none;
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-        font-weight: 500;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
-        text-decoration: none;
-      }
-      .btn-primary {
-        background: #004c97;
-        color: #f9fafb;
-        box-shadow: 0 12px 22px rgba(15,23,42,0.25);
-      }
-      .btn-primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 18px 30px rgba(15,23,42,0.3);
-        background: #00376f;
-      }
-      .btn-outline {
-        background: transparent;
-        border: 1px solid #cbd5e1;
-        color: #111827;
-      }
-      .btn-outline:hover {
-        background: #e5f0ff;
-        border-color: #93c5fd;
-        transform: translateY(-1px);
-      }
-      .hero-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        font-size: 0.85rem;
-        color: #6b7280;
-      }
-      .hero-meta strong {
-        display: block;
-        color: #111827;
-        font-size: 0.95rem;
-      }
-      .hero-card {
-        background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
-        color: #e5e7eb;
-        border-radius: 1.35rem;
-        padding: 1.75rem 1.6rem;
-        box-shadow: 0 18px 35px rgba(15,23,42,0.35);
-      }
-      .hero-card h2 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        letter-spacing: .16em;
-        text-transform: uppercase;
-        color: #0f172a;
-      }
-      .hero-card-main {
-        margin-bottom: 1rem;
-      }
-      .hero-card-main strong {
-        font-size: 1.9rem;
-        display: block;
-        letter-spacing: -0.03em;
-      }
-      .hero-card-main span {
-        font-size: 0.9rem;
-        color: #9ca3af;
-      }
-      .pill-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-        margin: 0.75rem 0 1.25rem;
-      }
-      .pill {
-        border-radius: 999px;
-        border: 1px solid rgba(148,163,184,0.6);
-        padding: 0.25rem 0.75rem;
-        font-size: 0.78rem;
-        color: #e5e7eb;
-        background: rgba(15,23,42,0.8);
-      }
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        gap: 1.5rem;
-        margin-top: 3.25rem;
-      }
-      .section-label {
-        font-size: 0.8rem;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        color: #6b7280;
-        margin-bottom: 0.75rem;
-        font-weight: 600;
-      }
-      .section-title {
-        font-size: 1.4rem;
-        margin-bottom: 0.75rem;
-        letter-spacing: -0.01em;
-        color: #004c97;
-        font-weight: bold;
-      }
-      .section-lead {
-        font-size: 0.98rem;
-        color: #4b5563;
-        max-width: 40rem;
-        margin-bottom: 1.4rem;
-      }
-      .card {
-        border-radius: 1.1rem;
-        border: 1px solid #e5e7eb;
-        padding: 1.3rem 1.35rem;
-        background: transparent;
-        box-shadow: 0 10px 24px rgba(15,23,42,0.04);
-      }
-      .card.case-study {
-        position: relative;
-        overflow: hidden;
-        cursor: default;
-      }
-      .card.case-study .case-body {
-        max-height: 7.5rem;
-        overflow: hidden;
-        transition: max-height 0.2s ease;
-        -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-      }
-      .card.case-study:hover .case-body,
-      .card.case-study:focus-within .case-body {
-        max-height: none;
-        -webkit-mask-image: none;
-        mask-image: none;
-      }
-      .card.case-study .hover-indicator {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
-        font-size: 0.75rem;
-        color: #6b7280;
-      }
-      .card h3 {
-        font-size: 1.05rem;
-        margin-bottom: 0.4rem;
-        color: #0f172a;
-      }
-      .card p {
-        font-size: 0.9rem;
-        color: #4b5563;
-        margin-bottom: 0.5rem;
-      }
-      .card span {
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: .13em;
-        color: #6b7280;
-      }
-      .insights {
-        margin-top: 3.75rem;
-        border-radius: 1.35rem;
-        background: transparent;
-        padding: 2rem 1.8rem;
-      }
-      .insights-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
-        gap: 2rem;
-        align-items: flex-start;
-      }
-      .insight-item {
-        padding: 0.75rem 0;
-        border-bottom: 1px solid #e5e7eb;
-        position: relative;
-      }
-      .insight-hover-desc {
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        width: 100%;
-        background: #e1effa;
-        color: #17305c;
-        font-size: 0.85rem;
-        padding: 0.7rem 1rem;
-        border-radius: 0.7rem;
-        box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-        z-index: 2;
-        margin-top: 0.3rem;
-        white-space: normal;
-        word-break: break-word;
-      }
-      .insight-item:hover .insight-hover-desc,
-      .insight-item:focus-within .insight-hover-desc {
-        display: block;
-      }
-      .whatwedo-hover-popup {
-        display: none !important;
-        position: absolute !important;
-        left: 0 !important;
-        top: 100% !important;
-        width: 100% !important;
-        background: #e1effa !important;
-        color: #17305c !important;
-        font-size: 0.85rem !important;
-        padding: 0.7rem 1rem !important;
-        border-radius: 0.7rem !important;
-        box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
-        z-index: 2 !important;
-        margin-top: 0.3rem !important;
-        white-space: normal !important;
-        word-break: break-word !important;
-        text-align: left !important;
-        text-transform: none !important;
-      }
-      .hover-col:hover .whatwedo-hover-popup,
-      .hover-col:focus-within .whatwedo-hover-popup {
-        display: block !important;
-      }
-    /* --- Restored Client Impact Snapshot styles from original --- */
-    .client-impact-card {
-      background: #17305c;
-      color: #f9fafb;
-      border-radius: 1.2rem;
-      padding: 1.7rem 1.5rem;
-      box-shadow: none;
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
+      </footer>
+          margin-top: 0.2rem;
+        }
+        .impact-actions {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 1.1rem;
+        }
+        .impact-btn {
+          background: #17305c;
+          color: #f9fafb;
+          border: none;
+          border-radius: 0.7rem;
+          padding: 0.6rem 1.2rem;
+          font-size: 1rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background 0.15s;
+          white-space: nowrap;
+        }
+        .impact-btn:hover, .impact-btn:focus {
+          background: #25447a;
+        }
+        .client-impact-card p {
+          font-size: 1rem;
+          margin: 0.5rem 0 0 0;
+          color: #e0eaff;
+        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: transparent;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
     }
-    .client-impact-card h2 {
-      font-size: 1.15rem;
-      margin-bottom: 0.7rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: #b6c6e3;
+    /* Removed animated gradient background */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 10;
     }
-    .impact-stats {
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
       display: flex;
       justify-content: space-between;
-      gap: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-    .impact-number {
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: block;
-      color: #e0eaff;
-    }
-    .impact-label {
-      font-size: 1rem;
-      color: #b6c6e3;
-      display: block;
-      margin-top: 0.2rem;
-    }
-    .impact-actions {
-      display: flex;
+      align-items: center;
       gap: 1rem;
-      margin-bottom: 1.1rem;
     }
-    .impact-btn {
-      background: #17305c;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 30% 70% 55% 45%;
+      background: linear-gradient(135deg, #004c97, #0f172a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: #f9fafb;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.35);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      color: #6b7280;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #004c97;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.18s ease-out;
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 0.9rem;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
+      gap: 3rem;
+      align-items: center;
+      margin-top: 1.5rem;
+      margin-bottom: 0.06rem;
+    }
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 1rem;
+    }
+    h1 span {
+      color: #004c97;
+    }
+    .hero p {
+      color: #4b5563;
+      font-size: 1.02rem;
+      max-width: 36rem;
+      margin-bottom: 1.75rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .btn {
+      border-radius: 999px;
       border: none;
-      border-radius: 0.7rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
       font-weight: 500;
       cursor: pointer;
-      transition: background 0.15s;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #004c97;
+      color: #f9fafb;
+      box-shadow: 0 12px 22px rgba(15,23,42,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(15,23,42,0.3);
+      background: #00376f;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: #111827;
+    }
+    .btn-outline:hover {
+      background: #e5f0ff;
+      border-color: #93c5fd;
+      transform: translateY(-1px);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+    .hero-meta strong {
+      display: block;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+    .hero-card {
+      background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
+      color: #e5e7eb;
+      border-radius: 1.35rem;
+      padding: 1.75rem 1.6rem;
+      box-shadow: 0 18px 35px rgba(15,23,42,0.35);
+    }
+    .hero-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+    .hero-card-main {
+      margin-bottom: 1rem;
+    }
+    .hero-card-main strong {
+      font-size: 1.9rem;
+      display: block;
+      letter-spacing: -0.03em;
+    }
+    .hero-card-main span {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.8);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.25rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+      color: #004c97;
+      font-weight: bold;
+    }
+    .section-lead {
+      font-size: 0.98rem;
+      color: #4b5563;
+      max-width: 40rem;
+      margin-bottom: 1.4rem;
+    }
+    .card {
+      border-radius: 1.1rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.3rem 1.35rem;
+      background: transparent;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
+    }
+    .card.case-study {
       position: relative;
+      overflow: hidden;
+      cursor: default;
     }
-    .impact-btn:hover, .impact-btn:focus {
-      background: #25447a;
+    .card.case-study .case-body {
+      max-height: 7.5rem;
+      overflow: hidden;
+      transition: max-height 0.2s ease;
+      -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
     }
-    .client-impact-card p {
-      font-size: 1rem;
-      margin: 0.5rem 0 0 0;
-      color: #e0eaff;
+    .card.case-study:hover .case-body,
+    .card.case-study:focus-within .case-body {
+      max-height: none;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
-    .impact-tooltip {
-      position: relative;
-    }
-    .impact-tooltip::after {
-      content: attr(data-tooltip);
-      visibility: hidden;
-      opacity: 0;
+    .card.case-study .hover-indicator {
       position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #25447a;
-      color: #fff;
-      padding: 0.4em 0.7em;
-      border-radius: 0.5em;
-      font-size: 0.95em;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-      z-index: 10;
-      pointer-events: none;
+      right: 1rem;
+      bottom: 1rem;
+      font-size: 0.75rem;
+      color: #6b7280;
     }
-    .impact-tooltip:hover::after,
-    .impact-tooltip:focus::after {
-      visibility: visible;
-      opacity: 1;
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: #0f172a;
     }
-    </style>
+    .card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+    .card span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: #6b7280;
+    }
+    .insights {
+      margin-top: 3.75rem;
+      border-radius: 1.35rem;
+      background: transparent;
+      padding: 2rem 1.8rem;
+    }
+    .insights-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .insight-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+    }
+    .insight-hover-desc {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      background: #e1effa;
+      color: #17305c;
+      font-size: 0.85rem;
+      padding: 0.7rem 1rem;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+      z-index: 2;
+      margin-top: 0.3rem;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
+    }
+    .insight-item:hover .insight-hover-desc,
+    .insight-item:focus-within .insight-hover-desc {
+      display: block;
+    }
+          .whatwedo-hover-popup {
+            display: none !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 100% !important;
+            width: 100% !important;
+            background: #e1effa !important;
+            color: #17305c !important;
+            font-size: 0.85rem !important;
+            padding: 0.7rem 1rem !important;
+            border-radius: 0.7rem !important;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+            z-index: 2 !important;
+            margin-top: 0.3rem !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            text-align: left !important;
+            text-transform: none !important;
+        }
+        .hover-col:hover .whatwedo-hover-popup,
+        .hover-col:focus-within .whatwedo-hover-popup {
+            display: block !important;
+        }
+      text-align: left;
+    }
+    .industry-card:hover .industry-hover-desc,
+    .industry-card:focus-within .industry-hover-desc {
+      display: block;
+    }
+    .insight-item:last-child {
+      border-bottom: none;
+    }
+    .insight-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #6b7280;
+      margin-bottom: 0.2rem;
+    }
+    .insight-item h4 {
+      font-size: 0.95rem;
+      margin: 0 0 0.15rem;
+      color: #0f172a;
+    }
+    .insight-item p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem 1.5rem 2rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 3rem;
+    }
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Background banner: image.png, 4in from top, 5in tall, full width, less vivid -->
+  <div style="position:fixed; top:4in; left:0; width:100vw; height:5in; overflow:hidden; z-index:-1;">
+    <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block; opacity:0.21;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; opacity:0.18;"></div>
+  </div>
 <header>
-  <div class="nav-inner">
+  <div class="nav-inner" style="position:relative;">
     <div class="brand">
       <div class="brand-mark">WJ</div>
-      WyAttJoel Advisory Partners
+      WyattJoel Advisory Partners
     </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#insights">Insights</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
+    <nav class="main-nav">
+      <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
+      <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
+      <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
+      <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="shell">
-  <!-- Fully restored Client Impact Snapshot section -->
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
@@ -511,8 +835,8 @@
         and deliver measurable impact across growth, cost, and risk.
       </p>
       <div class="btn-row">
-        <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
-        <a href="#insights" class="btn btn-outline">Browse recent insights</a>
+        <a href="#contact" class="btn btn-primary" style="background:#004c97; color:#f9fafb; border:none;">Schedule a conversation →</a>
+        <a href="#insights" class="btn btn-outline" style="background:#e5e7eb; color:#004c97; border:none;">Browse recent insights</a>
       </div>
       <div class="hero-meta">
         <div>
@@ -525,45 +849,44 @@
         </div>
       </div>
     </div>
-    <div class="client-impact-card">
-      <h2>Client Impact Snapshot</h2>
-      <div class="impact-stats">
+    <div class="client-impact-card" style="background: #17305c; color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto; opacity:1;">
+      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#e5e7eb; font-weight:700; background:transparent; letter-spacing:0.01em; filter:brightness(2.2);">Client Impact Snapshot</h2>
+      <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
         <div>
-          <span class="impact-number">$2.1B</span>
-          <span class="impact-label">Value Delivered</span>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">120</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Clients Served</span>
         </div>
         <div>
-          <span class="impact-number">15–30%</span>
-          <span class="impact-label">Efficiency Gains</span>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">98%</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Satisfaction</span>
         </div>
         <div>
-          <span class="impact-number">500+</span>
-          <span class="impact-label">Programs Led</span>
+          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">17</span>
+          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
         </div>
       </div>
-      <div class="impact-actions">
-        <button class="impact-btn impact-tooltip" data-tooltip="Total dollar value delivered to clients through transformation and advisory projects.">Value delivered to clients through all projects</button>
-        <button class="impact-btn impact-tooltip" data-tooltip="Average efficiency improvement range achieved for clients via process redesign and automation.">Typical efficiency improvement range for clients</button>
-        <button class="impact-btn impact-tooltip" data-tooltip="Number of transformation and advisory programs successfully led by our team.">Total programs led by WyattJoel</button>
-      </div>
-      <p style="color:#ffffff; font-weight: 600;"><strong>WyattJoel</strong> continues to make a difference in the community.</p>
-    </div>
+        <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:nowrap; margin-bottom:0.7rem; position:relative;">
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services
+            <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+          </button>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare
+            <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+          </button>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector
+            <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+          </button>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology
+            <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+          </button>
+        </div>
+      <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
+        <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
+      </p>
+</div>
+      </p>
+    </aside>
   </section>
-  <script>
-    // Pill pull-down panel logic
-    document.querySelectorAll('.impact-btn').forEach(function(btn, idx, btns) {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        btns.forEach(function(b) { if (b !== btn) b.classList.remove('active'); });
-        btn.classList.toggle('active');
-      });
-    });
-    document.addEventListener('click', function() {
-      document.querySelectorAll('.impact-btn.active').forEach(function(btn) {
-        btn.classList.remove('active');
-      });
-    });
-  </script>
+
   <section id="services" style="margin-top:1.6rem;">
     <div class="section-label" style="margin-bottom:0.7rem; color:#004c97; font-weight:bold;">WHAT WE DO</div>
     <div class="section-title" style="margin-bottom:0.7rem;">End‑to‑end support from strategy to sustained delivery.</div>
@@ -574,8 +897,8 @@
     <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:2.2rem;">
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97;">01 · Enterprise strategy</span>
-          <h3 style="margin-top:0; margin-bottom:0.7rem;">Growth, portfolio, and investment strategy</h3>
+          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">01 · <span style="color:#004c97; font-weight:normal;">Enterprise strategy</span></span>
+          <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Growth, portfolio, and investment strategy</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
             <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
@@ -585,8 +908,8 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97;">02 · Transformation</span>
-          <h3 style="margin-top:0; margin-bottom:0.7rem;">Operating model & transformation offices</h3>
+          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">02 · <span style="color:#004c97; font-weight:normal;">Transformation</span></span>
+          <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Operating model & transformation offices</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Transformation offices help sustain impact and unblock progress.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
@@ -596,8 +919,8 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97;">03 · Digital & AI</span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem;">Digital journeys, automation, and analytics</h3>
+          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">03 · <span style="color:#004c97; font-weight:normal;">Digital & AI</span></span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Digital journeys, automation, and analytics</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Digital transformation enables better decisions and improved performance.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
@@ -607,8 +930,8 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97;">04 · Risk & resilience</span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem;">Regulatory, operational, and cyber resilience</h3>
+          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">04 · <span style="color:#004c97; font-weight:normal;">Risk & resilience</span></span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Regulatory, operational, and cyber resilience</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Resilience is built through strong frameworks and stakeholder alignment.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
@@ -618,8 +941,8 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97;">05 · AI-Driven Acceleration</span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem;">Accelerating Product & Process Development</h3>
+          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">05 · <span style="color:#004c97; font-weight:normal;">AI-Driven Acceleration</span></span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Accelerating Product & Process Development</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
@@ -629,8 +952,8 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97;">06 · M&A Excellence</span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem;">Executing Behemoth Financial Services Deals</h3>
+          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">06 · <span style="color:#004c97; font-weight:normal;">M&A Excellence</span></span>
+          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Executing Behemoth Financial Services Deals</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
@@ -656,22 +979,22 @@
           <div id="insights-list"></div>
           <div id="insights-fallback">
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem; color:#004c97; font-size:0.85rem;">Article · Operating model</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem;">Five moves to realign your operating model for digital scale</h4>
-              <p style="margin-bottom:0.7rem; font-size:0.95rem;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-              <div class="insight-hover-desc insight-lead-match">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Five moves to realign your operating model for digital scale</h4>
+              <p style="margin-bottom:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:bold;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+              <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:normal;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem; color:#004c97; font-size:0.85rem;">Brief · Financial services</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem;">Rebuilding trust through transparent risk and control frameworks</h4>
-              <p style="margin-bottom:0.7rem; font-size:0.95rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
-              <div class="insight-hover-desc insight-lead-match" style="margin-top:0.7rem;">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Rebuilding trust through transparent risk and control frameworks</h4>
+              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
+              <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem; color:#004c97; font-size:0.85rem;">Point of view · AI</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
-              <p style="margin-bottom:0.7rem; font-size:0.95rem;">Design principles for scaling AI responsibly across critical workflows.</p>
-              <div class="insight-hover-desc insight-lead-match" style="margin-top:0.7rem;">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
+              <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Moving from AI pilots to industrialized impact in 12 months</h4>
+              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Design principles for scaling AI responsibly across critical workflows.</p>
+              <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
             </div>
           </div>
         </div>
@@ -687,35 +1010,32 @@
       execution risk is material.
     </p>
     <div class="card-grid">
-      <article class="card industry-card" style="position:relative;">
-        <span style="color:#004c97;">Financial services</span>
+      <article class="card industry-card">
+        <span>Financial services</span>
         <h3>Banking, payments, and capital markets</h3>
         <p>
           From core banking modernization to third‑party risk and AML/KYC remediation,
           we help institutions navigate change at scale.
         </p>
-        <div class="industry-hover-desc" style="display:none; position:absolute; left:0; top:100%; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; min-width:220px; max-width:320px;">We provide tailored solutions for financial institutions to manage regulatory change and drive sustainable growth.</div>
-        <script>const card1=document.currentScript.parentElement;card1.onmouseover=function(){this.querySelector('.industry-hover-desc').style.display='block'};card1.onmouseout=function(){this.querySelector('.industry-hover-desc').style.display='none'};</script>
+        <div class="industry-hover-desc">We provide tailored solutions for financial institutions to manage regulatory change and drive sustainable growth.</div>
       </article>
-      <article class="card industry-card" style="position:relative;">
-        <span style="color:#004c97;">Healthcare</span>
+      <article class="card industry-card">
+        <span>Healthcare</span>
         <h3>Payers, providers, and services</h3>
         <p>
           Improve access, experience, and economics by rethinking care models,
           digital front doors, and analytics foundations.
         </p>
-        <div class="industry-hover-desc" style="display:none; position:absolute; left:0; top:100%; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; min-width:220px; max-width:320px;">Our healthcare strategies focus on patient outcomes, operational efficiency, and digital transformation for providers.</div>
-        <script>const card2=document.currentScript.parentElement;card2.onmouseover=function(){this.querySelector('.industry-hover-desc').style.display='block'};card2.onmouseout=function(){this.querySelector('.industry-hover-desc').style.display='none'};</script>
+        <div class="industry-hover-desc">Our healthcare strategies focus on patient outcomes, operational efficiency, and digital transformation for providers.</div>
       </article>
-      <article class="card industry-card" style="position:relative;">
-        <span style="color:#004c97;">Public & social sector</span>
+      <article class="card industry-card">
+        <span>Public & social sector</span>
         <h3>Government, education, and nonprofits</h3>
         <p>
           Support agencies and institutions in delivering better outcomes for citizens,
           students, and communities.
         </p>
-        <div class="industry-hover-desc" style="display:none; position:absolute; left:0; top:100%; background:#e1effa; color:#17305c; font-size:0.95rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; min-width:220px; max-width:320px;">We help public sector organizations innovate, improve service delivery, and achieve measurable community impact.</div>
-        <script>const card3=document.currentScript.parentElement;card3.onmouseover=function(){this.querySelector('.industry-hover-desc').style.display='block'};card3.onmouseout=function(){this.querySelector('.industry-hover-desc').style.display='none'};</script>
+        <div class="industry-hover-desc">We help public sector organizations innovate, improve service delivery, and achieve measurable community impact.</div>
       </article>
     </div>
   </section>
@@ -728,7 +1048,7 @@
     </p>
     <div class="card-grid">
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Healthcare Case Study</span>
+        <span>Healthcare Case Study</span>
         <h3>Optimizing Patient & Physician Satisfaction in Large Hospital System</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.
@@ -747,7 +1067,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Software Development Case Study</span>
+        <span>Software Development Case Study</span>
         <h3>Transforming Product Development from Internally-Driven to Customer-Focused</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A software organization shifted to customer‑centric, Agile and Lean delivery, aligning teams to real market needs, cutting defects, and improving release predictability.
@@ -766,7 +1086,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">IT System Development Case Study</span>
+        <span>IT System Development Case Study</span>
         <h3>Business-Driven IT Architecture & System Design</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           IT architecture was reoriented around business priorities, reducing critical errors, simplifying implementations, and elevating customer and associate experiences.
@@ -785,7 +1105,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Petro-Chemical Product Development Case Study</span>
+        <span>Petro-Chemical Product Development Case Study</span>
         <h3>Accelerating Product Development & Market Success</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A petro‑chemical leader used concurrent engineering and rigorous experimental design to halve time‑to‑market and drive portfolio growth and profitability.
@@ -804,7 +1124,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Lean Six Sigma & Continuous Improvement</span>
+        <span>Lean Six Sigma & Continuous Improvement</span>
         <h3>Enterprise-Wide Lean Six Sigma Deployment & Excellence</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           Enterprises aligned strategy, governance, and the right improvement methods to deliver sustained, enterprise‑wide performance gains and market leadership.
@@ -823,7 +1143,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Retail Bank Optimization</span>
+        <span>Retail Bank Optimization</span>
         <h3>Transforming Retail Bank Franchise Performance</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A national bank standardized customer experience and deployed needs‑based selling and market analytics to unlock growth, raise satisfaction, and improve profitability.
@@ -842,7 +1162,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Credit Card Direct Mail Campaign Optimization</span>
+        <span>Credit Card Direct Mail Campaign Optimization</span>
         <h3>Transforming Direct Mail Efficiency & Customer Capture</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A credit card issuer modernized campaigns using data‑driven, relationship‑aware offers to cut costs, increase capture and conversion, and lift enterprise ROE.
@@ -861,7 +1181,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Financial Services M&A Optimization</span>
+        <span>Financial Services M&A Optimization</span>
         <h3>Optimizing Behemoth Financial Services Environments M&A</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A complex merger integration delivered on‑time, low‑risk Day One and go‑live, protecting customers and performance while setting a new execution standard.
@@ -880,7 +1200,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span style="color:#004c97;">Manufacturing Supply Chain Optimization</span>
+        <span>Manufacturing Supply Chain Optimization</span>
         <h3>Stabilizing Global Supply Chains for Resilience & Cost</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A global manufacturer redesigned planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience across suppliers and regions.
@@ -908,9 +1228,10 @@
       Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
       on where we might help.
     </p>
-    <div style="margin-bottom:0.7rem; text-align:left; font-size:1rem;">
-      <span style="display:block; margin-bottom:0.2rem;">Phone: <a href="tel:3143591367" style="color:#004c97;">314-359-1367</a></span>
-      <span style="display:block;">Email: <a href="mailto:steve@wyattjoel.com" style="color:#004c97;">steve@wyattjoel.com</a></span>
+    <div class="card" style="max-width:480px; margin:1rem 0; text-align:left;">
+      <p style="margin-bottom:0.2rem;"><strong>Steve Darrish</strong></p>
+      <p style="margin-bottom:0.2rem;">Phone: <a href="tel:3143591367">314-359-1367</a></p>
+      <p>Email: <a href="mailto:steve@wyattjoel.com">steve@wyattjoel.com</a></p>
     </div>
     <form id="contact-form" style="max-width:480px;">
       <div style="margin-bottom:0.9rem;">
@@ -937,109 +1258,285 @@
         <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
         <textarea id="message" name="message" rows="4"
                   style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
+        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
+          <option>Enterprise transformation</option>
+          <option>Digital & AI</option>
+          <option>Risk, compliance, and controls</option>
+          <option>Cost and productivity</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
+        <textarea id="message" name="message" rows="4"
+                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit inquiry →</button>
     </form>
   </section>
 </main>
+
 <script>
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
-    if (!listEl) return;
-    fetch('insights.json', { cache: 'no-store' })
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load insights');
-        return r.json();
-      })
-      .then(items => {
-        if (!Array.isArray(items) || items.length === 0) return;
-        const frag = document.createDocumentFragment();
-        items.forEach(item => {
-          const wrap = document.createElement('div');
-          wrap.className = 'insight-item';
-          const tag = document.createElement('div');
-          tag.className = 'insight-tag';
-          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
-          const h4 = document.createElement('h4');
-          h4.textContent = item.title || '';
-          const p = document.createElement('p');
-          p.textContent = item.summary || '';
-          wrap.appendChild(tag);
-          wrap.appendChild(h4);
-          wrap.appendChild(p);
-          frag.appendChild(wrap);
+    if (listEl) {
+      fetch('insights.json', { cache: 'no-store' })
+        .then(r => {
+          if (!r.ok) throw new Error('Failed to load insights');
+          return r.json();
+        })
+        .then(items => {
+          if (!Array.isArray(items) || items.length === 0) return;
+          const frag = document.createDocumentFragment();
+          items.forEach(item => {
+            const wrap = document.createElement('div');
+            wrap.className = 'insight-item';
+            const tag = document.createElement('div');
+            tag.className = 'insight-tag';
+            tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
+            const h4 = document.createElement('h4');
+            h4.textContent = item.title || '';
+            const p = document.createElement('p');
+            p.textContent = item.summary || '';
+            wrap.appendChild(tag);
+            wrap.appendChild(h4);
+            wrap.appendChild(p);
+            // Add hover description
+            const hoverDesc = document.createElement('div');
+            hoverDesc.className = 'insight-hover-desc';
+            hoverDesc.textContent =
+              item.hoverDesc ||
+              'Read more for actionable insights and practical steps to address this topic.';
+            wrap.appendChild(hoverDesc);
+            frag.appendChild(wrap);
+          });
+          listEl.appendChild(frag);
+          if (fallbackEl) fallbackEl.style.display = 'none';
+        })
+        .catch(() => {
+          // Keep fallback visible on error
         });
-        listEl.appendChild(frag);
-        if (fallbackEl) fallbackEl.style.display = 'none';
-      })
-      .catch(() => {
-        // Keep fallback visible on error
-      });
+    }
+    // Contact form AJAX submit (Flask-compatible JSON)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.onsubmit = async function(e) {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+        try {
+          const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (res.ok) {
+            alert('Thank you! We received your inquiry.');
+            contactForm.reset();
+          } else {
+            const errorText = await res.text();
+            alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
+          }
+        } catch (err) {
+          alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
+        }
+      };
+    }
   })();
 </script>
-<footer>
-  <div>Strategy · Transformation · Digital & AI · Risk</div>
-</footer>
-<script>
+  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
+  // Enable pill popups on tap/click for mobile
   document.addEventListener('DOMContentLoaded', function() {
     var pills = document.querySelectorAll('.pill');
-    function hideAllPopups(except) {
-      document.querySelectorAll('.pill-hover').forEach(function(ph) {
-        if (ph !== except) ph.style.display = 'none';
-      });
-    }
     pills.forEach(function(pill) {
-      // Desktop: hover/focus
-      pill.addEventListener('mouseover', function() {
-        var popup = pill.querySelector('.pill-hover');
-        hideAllPopups(popup);
-        if (popup) popup.style.display = 'block';
-      });
-      pill.addEventListener('mouseout', function() {
-        var popup = pill.querySelector('.pill-hover');
-        if (popup) popup.style.display = 'none';
-      });
-      pill.addEventListener('focus', function() {
-        var popup = pill.querySelector('.pill-hover');
-        hideAllPopups(popup);
-        if (popup) popup.style.display = 'block';
-      });
-      pill.addEventListener('blur', function() {
-        var popup = pill.querySelector('.pill-hover');
-        if (popup) popup.style.display = 'none';
-      });
-      // Mobile: tap/click
-      pill.addEventListener('touchstart', function(e) {
-        e.stopPropagation();
-        var popup = pill.querySelector('.pill-hover');
-        var isVisible = popup && popup.style.display === 'block';
-        hideAllPopups(isVisible ? null : popup);
-        if (popup) popup.style.display = isVisible ? 'none' : 'block';
-      });
       pill.addEventListener('click', function(e) {
+        // Only trigger on touch/click, not on desktop hover
         var popup = pill.querySelector('.pill-hover');
-        var isVisible = popup && popup.style.display === 'block';
-        hideAllPopups(isVisible ? null : popup);
-        if (popup) popup.style.display = isVisible ? 'none' : 'block';
-      });
-    });
-    // Hide pill popups when clicking/tapping elsewhere
-    document.body.addEventListener('touchstart', function(e) {
-      pills.forEach(function(pill) {
-        if (!pill.contains(e.target)) {
-          var popup = pill.querySelector('.pill-hover');
-          if (popup) popup.style.display = 'none';
+        if (!popup) return;
+        // If already visible, hide it
+        var isVisible = popup.style.display === 'block';
+        // Hide all other pill popups
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+        // Toggle this one
+        popup.style.display = isVisible ? 'none' : 'block';
+        // Prevent scrolling on mobile when popup is open
+        if (!isVisible && window.innerWidth <= 600) {
+          e.stopPropagation();
         }
       });
     });
-    document.body.addEventListener('click', function(e) {
-      pills.forEach(function(pill) {
-        if (!pill.contains(e.target)) {
-          var popup = pill.querySelector('.pill-hover');
-          if (popup) popup.style.display = 'none';
-        }
-      });
+    // Hide pill popups when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('pill')) {
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+      }
     });
   });
+  </div>
+
+<!--
+================ Flask Backend Example for Inquiry Form ================
+
+Save this as app.py and run with: python app.py
+
+
+from flask import Flask, request, jsonify
+import sqlite3
+from datetime import datetime
+# Email notification imports
+import smtplib
+from email.message import EmailMessage
+from flask_cors import CORS  # <-- Add this import
+
+
+app = Flask(__name__)
+CORS(app, origins=["https://wyattjoel.com"])  # <-- Enable CORS for your domain
+DB_PATH = 'inquiries.db'
+
+def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS inquiries (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            topic TEXT,
+            message TEXT,
+            submitted_at TEXT
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+def send_email_notification(name, email, topic, message, submitted_at):
+    # Configure your SMTP server and credentials here
+    SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
+    SMTP_PORT = 587
+    SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
+    SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
+    TO_EMAIL = 'steve@wyattjoel.com'
+
+    msg = EmailMessage()
+    msg['Subject'] = f'New Inquiry from {name} ({email})'
+    msg['From'] = SMTP_USER
+    msg['To'] = TO_EMAIL
+    msg.set_content(f'''
+New inquiry received:
+
+Name: {name}
+Email: {email}
+Topic: {topic}
+Message: {message}
+Submitted at: {submitted_at}
+''')
+
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls();
+            server.login(SMTP_USER, SMTP_PASS);
+            server.send_message(msg);
+    except Exception as e:
+        print('Failed to send email:', e);
+
+@app.route('/inquiry', methods=['POST'])
+def inquiry():
+    data = request.get_json();
+    name = data.get('name', '');
+    email = data.get('email', '');
+    topic = data.get('topic', '');
+    message = data.get('message', '');
+    submitted_at = datetime.utcnow().isoformat();
+
+    conn = sqlite3.connect(DB_PATH);
+    c = conn.cursor();
+    c.execute('''
+        INSERT INTO inquiries (name, email, topic, message, submitted_at)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (name, email, topic, message, submitted_at));
+    conn.commit();
+    conn.close();
+
+    # Send email notification
+    send_email_notification(name, email, topic, message, submitted_at);
+
+    return jsonify({'status': 'success'}), 200;
+
+if __name__ == '__main__':
+    init_db();
+    app.run(debug=True);
+
+# ===================
+# Instructions:
+# 1. Replace SMTP_USER and SMTP_PASS with your Gmail address and app password.
+#    (For Gmail, you may need to enable 2FA and create an app password.)
+# 2. If not using Gmail, update SMTP_SERVER, SMTP_PORT, and credentials for your provider.
+# 3. The notification will be sent to steve@wyattjoel.com on every inquiry.
+# ===================
+=======================================================================
+-->
+<footer>
+  <div class="footer-inner">
+    <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
+    <div>Strategy · Transformation · Digital & AI · Risk</div>
+  </div>
+</footer>
+
+<script>
+// Pill hover/tap/focus popup for Client Impact Snapshot
+(function(){
+  var pills = document.querySelectorAll('.pill');
+  var menus = document.querySelectorAll('.pill-menu');
+  function hideAllMenus() {
+    menus.forEach(function(menu) {
+      menu.style.display = 'none';
+    });
+    pills.forEach(function(pill) {
+      pill.setAttribute('aria-expanded', 'false');
+    });
+  }
+  pills.forEach(function(pill) {
+    var menu = pill.querySelector('.pill-menu');
+    // Desktop: show on hover/focus
+    pill.addEventListener('mouseenter', function() {
+      hideAllMenus();
+      menu.style.display = 'block';
+      pill.setAttribute('aria-expanded', 'true');
+    });
+    pill.addEventListener('mouseleave', function() {
+      menu.style.display = 'none';
+      pill.setAttribute('aria-expanded', 'false');
+    });
+    pill.addEventListener('focus', function() {
+      hideAllMenus();
+      menu.style.display = 'block';
+      pill.setAttribute('aria-expanded', 'true');
+    });
+    pill.addEventListener('blur', function() {
+      menu.style.display = 'none';
+      pill.setAttribute('aria-expanded', 'false');
+    });
+    // Mobile: show on tap/click
+    pill.addEventListener('click', function(e) {
+      var isVisible = menu.style.display === 'block';
+      hideAllMenus();
+      if (!isVisible) {
+        menu.style.display = 'block';
+        pill.setAttribute('aria-expanded', 'true');
+      }
+      e.stopPropagation();
+    });
+  });
+  // Hide menus when clicking elsewhere
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('pill')) {
+      hideAllMenus();
+    }
+  });
+})();
 </script>
