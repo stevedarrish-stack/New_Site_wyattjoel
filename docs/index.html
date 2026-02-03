@@ -1508,15 +1508,19 @@ if __name__ == '__main__':
   }
   pills.forEach(function(pill, idx) {
     var menu = menus[idx];
-    // Desktop: show on hover/focus
+    // Show on hover/focus (desktop) and tap/click (mobile)
     pill.addEventListener('mouseenter', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
+      if (window.innerWidth > 800) {
+        hideAllMenus();
+        menu.style.display = 'block';
+        pill.setAttribute('aria-expanded', 'true');
+      }
     });
     pill.addEventListener('mouseleave', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
+      if (window.innerWidth > 800) {
+        menu.style.display = 'none';
+        pill.setAttribute('aria-expanded', 'false');
+      }
     });
     pill.addEventListener('focus', function() {
       hideAllMenus();
@@ -1527,17 +1531,11 @@ if __name__ == '__main__':
       menu.style.display = 'none';
       pill.setAttribute('aria-expanded', 'false');
     });
-    // Mobile: show on tap/click
     pill.addEventListener('click', function(e) {
       e.stopPropagation();
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        pill.setAttribute('aria-expanded', 'false');
-      } else {
-        hideAllMenus();
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
-      }
+      hideAllMenus();
+      menu.style.display = 'block';
+      pill.setAttribute('aria-expanded', 'true');
     });
   });
   // Hide menus when clicking elsewhere
