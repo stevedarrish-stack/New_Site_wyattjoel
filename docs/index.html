@@ -598,24 +598,27 @@
       border-color: #93c5fd;
       transform: translateY(-1px);
     }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      color: #6b7280;
+    .pill-menu {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 110%;
+      min-width: 160px;
+      max-width: 220px;
+      width: auto;
+      background: #e1effa;
+      color: #17305c;
+      font-size: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+      z-index: 100;
+      margin-top: 0.3rem;
+      white-space: normal;
+      word-break: break-word;
+      text-align: left;
     }
-    .hero-meta strong {
-      display: block;
-      color: #111827;
-      font-size: 0.95rem;
-    }
-    .hero-card {
-      background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
-      color: #e5e7eb;
-      border-radius: 1.35rem;
-      padding: 1.75rem 1.6rem;
-      box-shadow: 0 18px 35px rgba(15,23,42,0.35);
     }
     .hero-card h2 {
       font-size: 1.1rem;
@@ -693,11 +696,11 @@
       color: #fff;
       border-radius: 2rem;
       border: none;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.68rem;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.75rem;
       min-width: 0;
-      max-width: 70px;
-      width: 70px;
+      max-width: 90px;
+      width: 90px;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
@@ -1007,66 +1010,66 @@
     <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:2.2rem;">
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">01 · <span style="color:#004c97; font-weight:normal;">Enterprise strategy</span></span>
+          <span style="margin-bottom:0.7rem; display:block; color:#111; font-weight:bold;">01 · <span style="color:#111; font-weight:bold;">Enterprise strategy</span></span>
           <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Growth, portfolio, and investment strategy</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
-            <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
+            <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left; color:#111; font-weight:normal;">Clarify where to play and how to win.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">02 · <span style="color:#004c97; font-weight:normal;">Transformation</span></span>
+          <span style="margin-bottom:0.7rem; display:block; color:#111; font-weight:bold;">02 · <span style="color:#111; font-weight:bold;">Transformation</span></span>
           <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Operating model & transformation offices</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Transformation offices help sustain impact and unblock progress.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left; color:#111; font-weight:normal;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">03 · <span style="color:#004c97; font-weight:normal;">Digital & AI</span></span>
+          <span style="margin-bottom:0.5rem; display:block; color:#111; font-weight:bold;">03 · <span style="color:#111; font-weight:bold;">Digital & AI</span></span>
           <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Digital journeys, automation, and analytics</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Digital transformation enables better decisions and improved performance.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left; color:#111; font-weight:normal;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">04 · <span style="color:#004c97; font-weight:normal;">Risk & resilience</span></span>
+          <span style="margin-bottom:0.5rem; display:block; color:#111; font-weight:bold;">04 · <span style="color:#111; font-weight:bold;">Risk & resilience</span></span>
           <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Regulatory, operational, and cyber resilience</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Resilience is built through strong frameworks and stakeholder alignment.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left; color:#111; font-weight:normal;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">05 · <span style="color:#004c97; font-weight:normal;">AI-Driven Acceleration</span></span>
+          <span style="margin-bottom:0.5rem; display:block; color:#111; font-weight:bold;">05 · <span style="color:#111; font-weight:bold;">AI-Driven Acceleration</span></span>
           <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Accelerating Product & Process Development</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left; color:#111; font-weight:normal;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">06 · <span style="color:#004c97; font-weight:normal;">M&A Excellence</span></span>
+          <span style="margin-bottom:0.5rem; display:block; color:#111; font-weight:bold;">06 · <span style="color:#111; font-weight:bold;">M&A Excellence</span></span>
           <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Executing Behemoth Financial Services Deals</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
             <span class="whatwedo-hover-popup">Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left; color:#111; font-weight:normal;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
@@ -1090,21 +1093,21 @@
           <div id="insights-fallback">
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Five moves to realign your operating model for digital scale</h4>
-              <p style="margin-bottom:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:bold;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-              <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:normal;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal; font-size:1.95rem;">Five moves to realign your operating model for digital scale</h4>
+              <p style="margin-bottom:0.7rem; font-size:1.95rem; color:#111; font-weight:bold;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+              <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:1.95rem; color:#111; font-weight:normal;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Rebuilding trust through transparent risk and control frameworks</h4>
-              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
-              <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal; font-size:1.95rem;">Rebuilding trust through transparent risk and control frameworks</h4>
+              <p style="margin-bottom:0.7rem; color:#111; font-weight:bold; font-size:1.95rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
+              <div class="insight-hover-desc" style="color:#111; font-weight:normal; font-size:1.95rem;">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
               <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Moving from AI pilots to industrialized impact in 12 months</h4>le business outcomes quickly and responsibly.</div>
-              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Design principles for scaling AI responsibly across critical workflows.</p>
-              <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
+              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal; font-size:1.95rem;">Moving from AI pilots to industrialized impact in 12 months</h4>
+              <p style="margin-bottom:0.7rem; color:#111; font-weight:bold; font-size:1.95rem;">Design principles for scaling AI responsibly across critical workflows.</p>
+              <div class="insight-hover-desc" style="color:#111; font-weight:normal; font-size:1.95rem;">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
             </div>
           </div>
         </div>
@@ -1337,8 +1340,9 @@
       on where we might help.
     </p>
     <div class="card" style="max-width:480px; margin:1rem 0; text-align:left; align-items:flex-start;">
-      <p style="margin-bottom:0.2rem; color:#004c97; font-weight:bold; text-align:left;">Phone: <a href="tel:3143591367" style="color:#004c97; font-weight:bold; text-decoration:none; text-align:left;">314-359-1367</a></p>
-      <p style="margin-bottom:0.2rem; color:#004c97; font-weight:bold; text-align:left;">Email: <a href="mailto:steve@wyattjoel.com" style="color:#004c97; font-weight:bold; text-decoration:none; text-align:left;">steve@wyattjoel.com</a></p>
+      <p style="margin-bottom:0.2rem;"><strong>Steve Darrish</strong></p>
+      <p style="margin-bottom:0.2rem;">Phone: <a href="tel:3143591367">314-359-1367</a></p>
+      <p>Email: <a href="mailto:steve@wyattjoel.com">steve@wyattjoel.com</a></p>
     </div>
     <form id="contact-form" style="max-width:480px;">
       <div style="margin-bottom:0.9rem;">
