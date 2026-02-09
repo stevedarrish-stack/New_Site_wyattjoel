@@ -1,274 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>WyAttJoel Advisory Partners</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
-  <style>
-    body { margin: 0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #111827; }
-    header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #e5e7eb; z-index: 10; }
-    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .brand { display: flex; align-items: center; gap: 0.55rem; font-size: 0.9rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-    .brand-mark { width: 26px; height: 26px; border-radius: 30% 70% 55% 45%; background: linear-gradient(135deg, #004c97, #0f172a); display: flex; justify-content: center; align-items: center; color: #f9fafb; font-size: 0.75rem; font-weight: 700; box-shadow: 0 8px 18px rgba(15,23,42,0.35); }
-    nav a { margin-left: 1.5rem; font-size: 0.95rem; color: #6b7280; text-decoration: none; position: relative; padding-bottom: 0.15rem; }
-    nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 999px; background: #004c97; transform: scaleX(0); transform-origin: center; transition: transform 0.18s ease-out; }
-    nav a:hover::after { transform: scaleX(1); }
-    .shell { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 3.5rem; }
-    .hero { display: grid; grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr); gap: 3rem; align-items: center; margin-top: 1.5rem; }
-    .eyebrow { font-size: 0.85rem; text-transform: uppercase; letter-spacing: .18em; color: #6b7280; margin-bottom: 0.75rem; font-weight: 600; }
-    h1 { font-size: clamp(2.3rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.04em; margin: 0 0 1rem; }
-    h1 span { color: #004c97; }
-    .hero p { color: #4b5563; font-size: 1.02rem; max-width: 36rem; margin-bottom: 1.75rem; }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .btn { border-radius: 999px; border: none; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; transition: transform 0.12s, box-shadow 0.12s, background 0.12s; text-decoration: none; }
-    .btn-primary { background: #004c97; color: #f9fafb; box-shadow: 0 12px 22px rgba(15,23,42,0.25); }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 30px rgba(15,23,42,0.3); background: #00376f; }
-    .btn-outline { background: #fff; border: 1px solid #cbd5e1; color: #111827; }
-    .btn-outline:hover { background: #e5f0ff; border-color: #93c5fd; transform: translateY(-1px); }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.85rem; color: #6b7280; }
-    .hero-meta strong { display: block; color: #111827; font-size: 0.95rem; }
-    .hero-card { background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617; color: #e5e7eb; border-radius: 1.35rem; padding: 1.75rem 1.6rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); }
-    .hero-card h2 { font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: .16em; text-transform: uppercase; color: #9ca3af; }
-    .hero-card-main { margin-bottom: 1rem; }
-    .hero-card-main strong { font-size: 1.9rem; display: block; letter-spacing: -0.03em; }
-    .hero-card-main span { font-size: 0.9rem; color: #9ca3af; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0.75rem 0 1.25rem; }
-    .pill { border-radius: 999px; border: 1px solid rgba(148,163,184,0.6); padding: 0.25rem 0.75rem; font-size: 0.78rem; color: #e5e7eb; background: rgba(15,23,42,0.8); }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; margin-top: 3.25rem; }
-    .section-label { font-size: 0.8rem; letter-spacing: .18em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.75rem; font-weight: 600; }
-    .section-title { font-size: 1.4rem; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-    .section-lead { font-size: 0.98rem; color: #4b5563; max-width: 40rem; margin-bottom: 1.4rem; }
-    .card { border-radius: 1.1rem; border: 1px solid #e5e7eb; padding: 1.3rem 1.35rem; background: #fff; box-shadow: 0 10px 24px rgba(15,23,42,0.04); }
-    .card.case-study { position: relative; overflow: hidden; cursor: default; }
-    .card.case-study .case-body { max-height: 7.5rem; overflow: hidden; transition: max-height 0.2s; -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%); mask-image: linear-gradient(to bottom, black 75%, transparent 100%); }
-    .card.case-study:hover .case-body, .card.case-study:focus-within .case-body { max-height: none; -webkit-mask-image: none; mask-image: none; }
-    .card.case-study .hover-indicator { position: absolute; right: 1rem; bottom: 1rem; font-size: 0.75rem; color: #6b7280; }
-    .card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
-    .card p { font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem; }
-    .card span { font-size: 0.78rem; text-transform: uppercase; letter-spacing: .13em; color: #6b7280; }
-    .insights { margin-top: 3.75rem; border-radius: 1.35rem; background: #f4f6f8; padding: 2rem 1.8rem; }
-    .insights-grid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr); gap: 2rem; align-items: flex-start; }
-    .insight-item { padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
-    .insight-item:last-child { border-bottom: none; }
-    .insight-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .14em; color: #6b7280; margin-bottom: 0.2rem; }
-    .insight-item h4 { font-size: 0.95rem; margin: 0 0 0.15rem; }
-    .insight-item p { font-size: 0.85rem; color: #6b7280; margin: 0; }
-    footer { border-top: 1px solid #e5e7eb; padding: 1.5rem 1.5rem 2rem; font-size: 0.8rem; color: #6b7280; margin-top: 3rem; }
-    footer .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
-    @media (max-width: 800px) { nav { display: none; } .hero { grid-template-columns: minmax(0, 1fr); } }
-  </style>
-</head>
-<body>
-<header>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="brand-mark">WJ</div>
-      WyAttJoel Advisory Partners
-    </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#insights">Insights</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-<main class="shell">
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Strategy · Transformation · Performance</div>
-      <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
-      <p>We partner with senior leaders to redesign operating models, unlock digital value, and deliver measurable impact across growth, cost, and risk.</p>
-      <div class="btn-row">
-        <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
-        <a href="#insights" class="btn btn-outline">Browse recent insights</a>
-      </div>
-      <div class="hero-meta">
-        <div><strong>500+ transformation programs</strong>Across financial services, healthcare, public sector, and technology.</div>
-        <div><strong>Average 15–30% efficiency gains</strong>Through process redesign, automation, and data-driven decisioning.</div>
-      </div>
-    </div>
-    <aside class="hero-card">
-      <h2>Client impact snapshot</h2>
-      <div class="hero-card-main">
-        <strong>$240M</strong>
-        <span>Net value delivered over 24 months for a global financial institution.</span>
-      </div>
-      <div class="pill-row">
-        <span class="pill">Operating model redesign</span>
-        <span class="pill">Digital & AI at scale</span>
-        <span class="pill">Risk & compliance uplift</span>
-      </div>
-      <p style="font-size:0.83rem; color:#9ca3af;">“Advisory Partners helped us move from slideware to execution. Their team blended strategy, data, and frontline engagement to deliver results that stuck.”</p>
-    </aside>
-  </section>
-  <section id="services" style="margin-top:3.25rem;">
-    <div class="section-label">What we do</div>
-    <div class="section-title">End‑to‑end support from strategy to sustained delivery.</div>
-    <p class="section-lead">We combine deep industry expertise, rigorous analytics, and hands‑on change leadership to move organizations from intent to outcome.</p>
-    <div class="card-grid">
-      <article class="card">
-        <span>01 · Enterprise strategy</span>
-        <h3>Growth, portfolio, and investment strategy</h3>
-        <p>Clarify where to play and how to win, align leadership on direction, and build executable roadmaps anchored in tangible value.</p>
-      </article>
-      <article class="card">
-        <span>02 · Transformation</span>
-        <h3>Operating model & transformation offices</h3>
-        <p>Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
-      </article>
-      <article class="card">
-        <span>03 · Digital & AI</span>
-        <h3>Digital journeys, automation, and analytics</h3>
-        <p>Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
-      </article>
-      <article class="card">
-        <span>04 · Risk & resilience</span>
-        <h3>Regulatory, operational, and cyber resilience</h3>
-        <p>Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
-      </article>
-    </div>
-  </section>
-  <section id="insights" class="insights">
-    <div class="insights-grid">
-      <div>
-        <div class="section-label">Insights</div>
-        <div class="section-title">Perspectives on what’s next.</div>
-        <p class="section-lead">Short, practicable viewpoints on the trends reshaping industries—from generative AI to evolving regulatory expectations.</p>
-      </div>
-      <div>
-        <div id="insights-list"></div>
-        <div id="insights-fallback">
-          <div class="insight-item">
-            <div class="insight-tag">Article · Operating model</div>
-            <h4>Five moves to realign your operating model for digital scale</h4>
-            <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-          </div>
-          <div class="insight-item">
-            <div class="insight-tag">Brief · Financial services</div>
-            <h4>Rebuilding trust through transparent risk and control frameworks</h4>
-            <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
-          </div>
-          <div class="insight-item">
-            <div class="insight-tag">Point of view · AI</div>
-            <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
-            <p>Design principles for scaling AI responsibly across critical workflows.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="industries" style="margin-top:3.5rem;">
-    <div class="section-label">Industries</div>
-    <div class="section-title">We work where the stakes are high.</div>
-    <p class="section-lead">Our teams bring specialized experience in highly regulated, complex environments where execution risk is material.</p>
-    <div class="card-grid">
-      <article class="card">
-        <span>Financial services</span>
-        <h3>Banking, payments, and capital markets</h3>
-        <p>From core banking modernization to third‑party risk and AML/KYC remediation, we help institutions navigate change at scale.</p>
-      </article>
-      <article class="card">
-        <span>Healthcare</span>
-        <h3>Payers, providers, and services</h3>
-        <p>Improve access, experience, and economics by rethinking care models, digital front doors, and analytics foundations.</p>
-      </article>
-      <article class="card">
-        <span>Public & social sector</span>
-        <h3>Government, education, and nonprofits</h3>
-        <p>Support agencies and institutions in delivering better outcomes for citizens, students, and communities.</p>
-      </article>
-    </div>
-  </section>
-  <section id="contact" style="margin-top:3.5rem;">
-    <div class="section-label">Contact</div>
-    <div class="section-title">Start a conversation.</div>
-    <p class="section-lead">Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion on where we might help.</p>
-    <form onsubmit="event.preventDefault(); alert('Form submission is not wired to a backend yet.');" style="max-width:480px;">
-      <div style="margin-bottom:0.9rem;">
-        <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-        <input id="name" type="text" required style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-      </div>
-      <div style="margin-bottom:0.9rem;">
-        <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-        <input id="email" type="email" required style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-      </div>
-      <div style="margin-bottom:0.9rem;">
-        <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-        <select id="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
-          <option>Enterprise transformation</option>
-          <option>Digital & AI</option>
-          <option>Risk, compliance, and controls</option>
-          <option>Cost and productivity</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-        <textarea id="message" rows="4" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit inquiry →</button>
-    </form>
-  </section>
-</main>
-<script>
-  (function(){
-    const listEl = document.getElementById('insights-list');
-    const fallbackEl = document.getElementById('insights-fallback');
-    if (!listEl) return;
-    fetch('insights.json', { cache: 'no-store' })
-      .then(r => { if (!r.ok) throw new Error('Failed to load insights'); return r.json(); })
-      .then(items => {
-        if (!Array.isArray(items) || items.length === 0) return;
-        const frag = document.createDocumentFragment();
-        items.forEach(item => {
-          const wrap = document.createElement('div');
-          wrap.className = 'insight-item';
-          const tag = document.createElement('div');
-          tag.className = 'insight-tag';
-          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
-          const h4 = document.createElement('h4');
-          h4.textContent = item.title || '';
-          const p = document.createElement('p');
-          p.textContent = item.summary || '';
-          wrap.appendChild(tag);
-          wrap.appendChild(h4);
-          wrap.appendChild(p);
-          frag.appendChild(wrap);
-        });
-        listEl.appendChild(frag);
-        if (fallbackEl) fallbackEl.style.display = 'none';
-      })
-      .catch(() => { /* Keep fallback visible on error */ });
-  })();
-</script>
-<footer>
-  <div class="footer-inner">
-    <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
-    <div>Strategy · Transformation · Digital & AI · Risk</div>
-  </div>
-</footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>WyAttJoel Advisory Partners</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #ffffff;
-      color: #111827;
-      -webkit-font-smoothing: antialiased;
-    }
-=======
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -276,33 +5,170 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-                                                                                          .pill-menu {
-                                                                                            position: absolute;
-                                                                                            left: 50%;
-                                                                                            transform: translateX(-50%);
-                                                                                            top: 110%;
-                                                                                            min-width: 180px;
-                                                                                            max-width: 220px;
-                                                                                            width: auto;
-                                                                                            background: #e1effa;
-                                                                                            color: #17305c;
-                                                                                            font-size: 0.85rem;
-                                                                                            padding: 0.7rem 1rem;
-                                                                                            border-radius: 0.7rem;
-                                                                                            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-                                                                                            z-index: 20;
-                                                                                            margin-top: 0.3rem;
-                                                                                            white-space: normal;
-                                                                                            word-break: break-word;
-                                                                                            text-align: left;
-                                                                                            display: none;
-                                                                                          }
-                                                                                      .pill-row > div {
-                                                                                        position: relative;
-                                                                                        display: flex;
-                                                                                        flex-direction: column;
-                                                                                        align-items: center;
-                                                                                      }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #17305c 0%, #25447a 100%);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+...rest of index-gold-2.html content...
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+  <title>WyAttJoel Advisory Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #17305c 0%, #25447a 100%);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+.client-impact-card {
+  /* Removed animated gradient background */
+  /* New styles from index-gold-2.html */
+  body {
+    background: transparent;
+  }
+  footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 1.5rem 1.5rem 2rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 3rem;
+  }
+  footer .footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+  }
+  @media (max-width: 800px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  color: #f9fafb;
+  border-radius: 1.35rem;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 18px 35px rgba(15,23,42,0.35);
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .client-impact-card {
+    padding: 0.7rem 0.4rem !important;
+    max-width: 98vw !important;
+    font-size: 0.95rem !important;
+    z-index: 1000 !important;
+    position: relative !important;
+    background: none !important;
+  }
+  .client-impact-card h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .impact-stats {
+    gap: 1rem !important;
+  }
+  .impact-number {
+    font-size: 1.3rem !important;
+  }
+  .impact-label {
+    font-size: 0.85rem !important;
+  }
+  .pill-row {
+    gap: 0.3rem !important;
+    margin-bottom: 0.4rem !important;
+    flex-wrap: wrap !important;
+    z-index: 200 !important;
+    position: relative !important;
+  }
+  .pill {
+    min-width: 70px !important;
+    max-width: 90px !important;
+    font-size: 0.65rem !important;
+    padding: 0.12rem 0.4rem !important;
+  }
+  .pill-menu {
+    position: absolute !important;
+    left: 50% !important;
+    top: 110% !important;
+    transform: translateX(-50%) !important;
+    min-width: 180px !important;
+    max-width: 90vw !important;
+    width: auto !important;
+    z-index: 1100 !important;
+    background: #e1effa !important;
+    color: #17305c !important;
+    font-size: 0.85rem !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 0.7rem !important;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+    margin-top: 0.3rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: left !important;
+  }
+  .client-impact-card p {
+    font-size: 0.68rem !important;
+    background: none !important;
+    padding: 0.2rem 0.2rem !important;
+    z-index: 100 !important;
+    position: relative !important;
+  }
+  .nav-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .brand {
+    margin-bottom: 0.5rem !important;
+  }
+  nav:not(.mobile-nav) {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100vw !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    margin-bottom: 0.5rem !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    font-size: 0.85rem !important;
+    padding: 0 0.2rem !important;
+  }
+  nav:not(.mobile-nav) a {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-right: 1.1rem !important;
+    font-size: 0.95em !important;
+  }
+  nav:not(.mobile-nav) a:last-child {
+    margin-right: 0 !important;
+  }
+  .mobile-nav-btn {
+    display: flex !important;
+    z-index: 1201 !important;
+  }
+  .mobile-nav {
+    display: none !important;
+    z-index: 1200 !important;
+  }
+  .mobile-nav.open {
+    display: flex !important;
+  }
+}
                                           @media (max-width: 800px) {
                                             .client-impact-card {
                                               padding: 0.7rem 0.4rem !important;
@@ -322,10 +188,18 @@
                                             .impact-label {
                                               font-size: 0.85rem !important;
                                             }
-                                            .client-impact-card p {
-                                              font-size: 0.68rem !important;
-                                              padding: 0.5rem 0.7rem !important;
+                                            .pill-row {
+                                              gap: 0.3rem !important;
+                                              margin-bottom: 0.4rem !important;
+                                              flex-wrap: wrap !important;
                                             }
+                                            .pill {
+                                              min-width: 70px !important;
+                                              max-width: 90px !important;
+                                              font-size: 0.65rem !important;
+                                              padding: 0.12rem 0.4rem !important;
+                                            }
+                                            /* Removed duplicate padding rule for .client-impact-card p */
                                           }
                                       @media (max-width: 800px) {
                                         .nav-inner {
@@ -351,7 +225,28 @@
                                           display: inline-block !important;
                                           white-space: nowrap !important;
                                           margin-right: 1.1rem !important;
-                                          margin-bottom: 0 !important;
+                                        @media (max-width: 800px) {
+                                          .pill-menu {
+                                            position: absolute !important;
+                                            left: 50% !important;
+                                            top: 110% !important;
+                                            transform: translateX(-50%) !important;
+                                            min-width: 180px !important;
+                                            max-width: 90vw !important;
+                                            width: auto !important;
+                                            z-index: 1000 !important;
+                                            background: #e1effa !important;
+                                            color: #17305c !important;
+                                            font-size: 0.85rem !important;
+                                            padding: 0.7rem 1rem !important;
+                                            border-radius: 0.7rem !important;
+                                            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+                                            margin-top: 0.3rem !important;
+                                            white-space: normal !important;
+                                            word-break: break-word !important;
+                                            text-align: left !important;
+                                          }
+                                        }
                                           font-size: 0.95em !important;
                                         }
                                         nav:not(.mobile-nav) a:last-child {
@@ -367,7 +262,7 @@
                                       align-items: flex-start !important;
                                     }
                                     .brand {
-                                      margin-bottom: 0.5rem !important;
+                                      margin-bottom: 0.5rem;
                                     }
                                     .mobile-nav-btn {
                                       display: flex !important;
@@ -605,13 +500,6 @@
                   flex-direction: row !important;
                   gap: 1rem !important;
                   justify-content: center !important;
-                  align-items: flex-start !important;
-                }
-                .pill-row {
-                  flex-wrap: nowrap !important;
-                  gap: 0.18rem !important;
-                  justify-content: center !important;
-                  overflow-x: auto !important;
                 }
                 .pill {
                   min-width: 60px !important;
@@ -694,7 +582,6 @@
       -webkit-font-smoothing: antialiased;
     }
     /* Removed animated gradient background */
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     header {
       position: sticky;
       top: 0;
@@ -719,27 +606,35 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.9rem;
+        .pill-menu {
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 100%;
+          width: 100%;
+          background: #e1effa;
+          color: #17305c;
+          font-size: 0.85rem;
+          font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+          font-weight: 400;
+          padding: 0.7rem 1rem;
+          border-radius: 0.7rem;
+          box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+          z-index: 100;
+          margin-top: 0.3rem;
+          white-space: normal;
+          word-break: break-word;
+          text-align: left;
+          text-transform: none !important;
+          letter-spacing: normal !important;
+        }
+        @media (max-width: 800px) {
+          .pill-menu {
+            z-index: 1000 !important;
+            background: #e1effa !important;
+            box-shadow: 0 8px 24px rgba(15,23,42,0.18) !important;
+          }
+        }
       font-weight: 600;
       letter-spacing: .16em;
       text-transform: uppercase;
@@ -782,11 +677,7 @@
     .shell {
       max-width: 1120px;
       margin: 0 auto;
-<<<<<<< HEAD
-      padding: 2.5rem 1.5rem 3.5rem;
-=======
       padding: 2.5rem 1.5rem 0.9rem;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     }
     .hero {
       display: grid;
@@ -794,10 +685,7 @@
       gap: 3rem;
       align-items: center;
       margin-top: 1.5rem;
-<<<<<<< HEAD
-=======
       margin-bottom: 0.06rem;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     }
     .eyebrow {
       font-size: 0.85rem;
@@ -852,11 +740,7 @@
       background: #00376f;
     }
     .btn-outline {
-<<<<<<< HEAD
-      background: #ffffff;
-=======
       background: transparent;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       border: 1px solid #cbd5e1;
       color: #111827;
     }
@@ -889,11 +773,7 @@
       margin-bottom: 0.5rem;
       letter-spacing: .16em;
       text-transform: uppercase;
-<<<<<<< HEAD
-      color: #9ca3af;
-=======
       color: #0f172a;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     }
     .hero-card-main {
       margin-bottom: 1rem;
@@ -909,50 +789,20 @@
     }
     .pill-row {
       display: flex;
-<<<<<<< HEAD
       flex-wrap: wrap;
       gap: 0.55rem;
       margin: 0.75rem 0 1.25rem;
+      justify-content: space-evenly;
     }
     .pill {
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.6);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.78rem;
+      padding: 0.35rem 1.2rem;
+      font-size: 0.92rem;
+      min-width: 110px;
+      max-width: 180px;
       color: #e5e7eb;
       background: rgba(15,23,42,0.8);
-=======
-      gap: 0.5rem;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: nowrap;
-      margin-bottom: 0.7rem;
-      position: relative;
-      width: 100%;
-      overflow-x: visible;
-      overflow-y: visible;
-      white-space: nowrap;
-    }
-    .pill {
-      white-space: nowrap;
-      min-width: 0;
-      max-width: 120px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      font-size: 0.85rem;
-      border-radius: 2rem;
-      background: #e1effa;
-      color: #17305c;
-      border: none;
-      padding: 0.45rem 0.7rem;
-      box-shadow: 0 2px 8px rgba(15,23,42,0.10);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .pill:focus, .pill:hover {
-      background: #cbe3f7;
-      outline: none;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     }
     .card-grid {
       display: grid;
@@ -968,15 +818,16 @@
       margin-bottom: 0.75rem;
       font-weight: 600;
     }
+    .section-title, .card h3, .insight-item h4 {
+      color: #000000 !important;
+      font-weight: bold !important;
+      /* Only this rule sets color and font-weight for all section, card, and insight titles */
+    }
     .section-title {
       font-size: 1.4rem;
       margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
-<<<<<<< HEAD
-=======
-      color: #004c97;
-      font-weight: bold;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
+      /* color and font-weight are set globally above */
     }
     .section-lead {
       font-size: 0.98rem;
@@ -988,11 +839,7 @@
       border-radius: 1.1rem;
       border: 1px solid #e5e7eb;
       padding: 1.3rem 1.35rem;
-<<<<<<< HEAD
-      background: #ffffff;
-=======
       background: transparent;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       box-shadow: 0 10px 24px rgba(15,23,42,0.04);
     }
     .card.case-study {
@@ -1023,10 +870,7 @@
     .card h3 {
       font-size: 1.05rem;
       margin-bottom: 0.4rem;
-<<<<<<< HEAD
-=======
-      color: #0f172a;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
+      /* color and font-weight are set globally above */
     }
     .card p {
       font-size: 0.9rem;
@@ -1042,11 +886,7 @@
     .insights {
       margin-top: 3.75rem;
       border-radius: 1.35rem;
-<<<<<<< HEAD
-      background: #f4f6f8;
-=======
       background: transparent;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       padding: 2rem 1.8rem;
     }
     .insights-grid {
@@ -1058,8 +898,6 @@
     .insight-item {
       padding: 0.75rem 0;
       border-bottom: 1px solid #e5e7eb;
-<<<<<<< HEAD
-=======
       position: relative;
     }
     .insight-hover-desc {
@@ -1095,7 +933,6 @@
             font-size: 0.85rem !important;
             padding: 0.7rem 1rem !important;
             border-radius: 0.7rem !important;
-            border-radius: 0.7rem !important;
             box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
             z-index: 2 !important;
             margin-top: 0.3rem !important;
@@ -1113,7 +950,6 @@
     .industry-card:hover .industry-hover-desc,
     .industry-card:focus-within .industry-hover-desc {
       display: block;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     }
     .insight-item:last-child {
       border-bottom: none;
@@ -1128,10 +964,7 @@
     .insight-item h4 {
       font-size: 0.95rem;
       margin: 0 0 0.15rem;
-<<<<<<< HEAD
-=======
-      color: #0f172a;
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
+      /* color and font-weight are set globally above */
     }
     .insight-item p {
       font-size: 0.85rem;
@@ -1155,12 +988,6 @@
       align-items: center;
     }
     @media (max-width: 800px) {
-<<<<<<< HEAD
-      nav {
-        display: none;
-      }
-=======
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -1168,19 +995,6 @@
   </style>
 </head>
 <body>
-<<<<<<< HEAD
-<header>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="brand-mark">WJ</div>
-      WyAttJoel Advisory Partners
-    </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#insights">Insights</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
-=======
   <!-- Background banner: image.png, 4in from top, 5in tall, full width, less vivid -->
   <div style="position:fixed; top:4in; left:0; width:100vw; height:5in; overflow:hidden; z-index:-1;">
     <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block; opacity:0.21;">
@@ -1197,12 +1011,17 @@
       <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     </nav>
   </div>
 </header>
 
 <main class="shell">
+<style>
+.section-title, .card h3, .insight-item h4 {
+  color: #000000;
+  font-weight: bold;
+}
+</style>
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
@@ -1212,13 +1031,8 @@
         and deliver measurable impact across growth, cost, and risk.
       </p>
       <div class="btn-row">
-<<<<<<< HEAD
-        <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
-        <a href="#insights" class="btn btn-outline">Browse recent insights</a>
-=======
         <a href="#contact" class="btn btn-primary" style="background:#004c97; color:#f9fafb; border:none;">Schedule a conversation →</a>
         <a href="#insights" class="btn btn-outline" style="background:#e5e7eb; color:#004c97; border:none;">Browse recent insights</a>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       </div>
       <div class="hero-meta">
         <div>
@@ -1231,23 +1045,7 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    <aside class="hero-card">
-      <h2>Client impact snapshot</h2>
-      <div class="hero-card-main">
-        <strong>$240M</strong>
-        <span>Net value delivered over 24 months for a global financial institution.</span>
-      </div>
-      <div class="pill-row">
-        <span class="pill">Operating model redesign</span>
-        <span class="pill">Digital & AI at scale</span>
-        <span class="pill">Risk & compliance uplift</span>
-      </div>
-      <p style="font-size:0.83rem; color:#9ca3af;">
-        “Advisory Partners helped us move from slideware to execution. Their team blended
-        strategy, data, and frontline engagement to deliver results that stuck.”
-=======
-    <div class="client-impact-card" style="background: #17305c; color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto; opacity:1;">
+    <div class="client-impact-card">
       <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#e5e7eb; font-weight:700; background:transparent; letter-spacing:0.01em; filter:brightness(2.2);">Client Impact Snapshot</h2>
       <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
         <div>
@@ -1264,19 +1062,19 @@
         </div>
       </div>
         <div class="pill-row">
-          <div>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
             <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
             <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
           </div>
-          <div>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
             <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
             <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
           </div>
-          <div>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
             <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
             <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
           </div>
-          <div>
+          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
             <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology</button>
             <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
           </div>
@@ -1285,105 +1083,24 @@
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
       </p>
 </div>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       </p>
     </aside>
   </section>
 
-<<<<<<< HEAD
-  <section id="services" style="margin-top:3.25rem;">
-    <div class="section-label">What we do</div>
-    <div class="section-title">End‑to‑end support from strategy to sustained delivery.</div>
-    <p class="section-lead">
-      We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
-      to move organizations from intent to outcome.
-    </p>
-    <div class="card-grid">
-      <article class="card">
-        <span>01 · Enterprise strategy</span>
-        <h3>Growth, portfolio, and investment strategy</h3>
-        <p>
-          Clarify where to play and how to win, align leadership on direction, and build
-          executable roadmaps anchored in tangible value.
-        </p>
-      </article>
-      <article class="card">
-        <span>02 · Transformation</span>
-        <h3>Operating model & transformation offices</h3>
-        <p>
-          Redesign structures, roles, and ways of working while establishing transformation
-          offices that track, unblock, and sustain impact.
-        </p>
-      </article>
-      <article class="card">
-        <span>03 · Digital & AI</span>
-        <h3>Digital journeys, automation, and analytics</h3>
-        <p>
-          Modernize customer and employee journeys, embed automation, and leverage data and AI
-          to inform mission‑critical decisions.
-        </p>
-      </article>
-      <article class="card">
-        <span>04 · Risk & resilience</span>
-        <h3>Regulatory, operational, and cyber resilience</h3>
-        <p>
-          Strengthen risk frameworks, streamline controls, and align stakeholders around a
-          pragmatic path to compliance and resilience.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section id="insights" class="insights">
-    <div class="insights-grid">
-      <div>
-        <div class="section-label">Insights</div>
-        <div class="section-title">Perspectives on what’s next.</div>
-        <p class="section-lead">
-          Short, practicable viewpoints on the trends reshaping industries—from generative AI
-          to evolving regulatory expectations.
-        </p>
-      </div>
-      <div>
-        <div id="insights-list"></div>
-        <div id="insights-fallback">
-          <div class="insight-item">
-            <div class="insight-tag">Article · Operating model</div>
-            <h4>Five moves to realign your operating model for digital scale</h4>
-            <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-          </div>
-          <div class="insight-item">
-            <div class="insight-tag">Brief · Financial services</div>
-            <h4>Rebuilding trust through transparent risk and control frameworks</h4>
-            <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
-          </div>
-          <div class="insight-item">
-            <div class="insight-tag">Point of view · AI</div>
-            <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
-            <p>Design principles for scaling AI responsibly across critical workflows.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="industries" style="margin-top:3.5rem;">
-    <div class="section-label">Industries</div>
-=======
   <section id="services" style="margin-top:1.6rem;">
-    <div class="section-label" style="margin-bottom:0.7rem; color:#004c97; font-weight:bold;">WHAT WE DO</div>
-    <div class="section-title" style="margin-bottom:0.7rem;">End‑to‑end support from strategy to sustained delivery.</div>
-    <p class="section-lead" style="margin-bottom:1.2rem;">
+    <div class="section-label">WHAT WE DO</div>
+    <div class="section-title">End‑to‑end support from strategy to sustained delivery.</div>
+    <p class="section-lead" style="margin-bottom:1.2rem; color:#0f172a; font-weight:bold;">
       We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
       to move organizations from intent to outcome.
     </p>
     <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:2.2rem;">
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">01 · <span style="color:#004c97; font-weight:normal;">Enterprise strategy</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Growth, portfolio, and investment strategy</h3>
+            <span>01 · <span>Enterprise strategy</span></span>
+            <h3 class="section-title">Growth, portfolio, and investment strategy</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Growth, portfolio, and investment strategy;</span> Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
             <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
@@ -1391,10 +1108,10 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">02 · <span style="color:#004c97; font-weight:normal;">Transformation</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Operating model & transformation offices</h3>
+          <span>02 · <span>Transformation</span></span>
+            <h3 class="section-title">Operating model & transformation offices</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Transformation offices help sustain impact and unblock progress.</span>
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Operating model & transformation offices;</span> Transformation offices help sustain impact and unblock progress.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
@@ -1402,10 +1119,10 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">03 · <span style="color:#004c97; font-weight:normal;">Digital & AI</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Digital journeys, automation, and analytics</h3>
+          <span>03 · <span>Digital & AI</span></span>
+            <h3 class="section-title">Digital journeys, automation, and analytics</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Digital transformation enables better decisions and improved performance.</span>
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Digital journeys, automation, and analytics;</span> Digital transformation enables better decisions and improved performance.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
@@ -1413,10 +1130,15 @@
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">04 · <span style="color:#004c97; font-weight:normal;">Risk & resilience</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Regulatory, operational, and cyber resilience</h3>
+          <span>04 · <span>Risk & resilience</span></span>
+            <h3 style="color:#0f172a !important; font-weight:bold !important;">Regulatory, operational, and cyber resilience</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Resilience is built through strong frameworks and stakeholder alignment.</span>
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Regulatory, operational, and cyber resilience;</span> Resilience is built through strong frameworks and stakeholder alignment.</span>
+            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
+          <span>04 · <span>Risk & resilience</span></span>
+            <h3 class="section-title">Regulatory, operational, and cyber resilience</h3>
+          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Regulatory, operational, and cyber resilience;</span> Resilience is built through strong frameworks and stakeholder alignment.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
@@ -1425,9 +1147,9 @@
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">05 · <span style="color:#004c97; font-weight:normal;">AI-Driven Acceleration</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Accelerating Product & Process Development</h3>
+            <h3 class="section-title">Accelerating Product & Process Development</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Accelerating Product & Process Development;</span> AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
@@ -1436,9 +1158,9 @@
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
           <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">06 · <span style="color:#004c97; font-weight:normal;">M&A Excellence</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Executing Behemoth Financial Services Deals</h3>
+            <h3 class="section-title">Executing Behemoth Financial Services Deals</h3>
           <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
+            <span class="whatwedo-hover-popup"><span style="color:#0f172a;">Executing Behemoth Financial Services Deals;</span> Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
             <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
@@ -1452,7 +1174,7 @@
         <div style="display:flex; flex-direction:column; align-items:flex-start;">
           <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
-          <p class="section-lead">
+          <p class="section-lead" style="color:#0f172a; font-weight:bold;">
             Short, practicable viewpoints on the trends reshaping industries—from generative AI
             to evolving regulatory expectations.
           </p>
@@ -1462,21 +1184,22 @@
           <div id="insights-list"></div>
           <div id="insights-fallback">
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Five moves to realign your operating model for digital scale</h4>
-              <p style="margin-bottom:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:bold;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+              <div class="insight-tag" style="margin-bottom:0.5rem; display:block; color:#004c97; font-size:1rem; font-weight:normal;">ARTICLE · OPERATING MODEL</div>
+              <h4 class="insight-item">Five moves to realign your operating model for digital scale</h4>
+              <p style="margin-bottom:0.7rem; font-size:1.05rem; color:#0f172a; font-weight:normal;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
               <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:normal;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Rebuilding trust through transparent risk and control frameworks</h4>
-              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
+              <div class="insight-tag" style="margin-bottom:0.5rem; display:block; color:#004c97; font-size:1rem; font-weight:normal;">BRIEF · FINANCIAL SERVICES</div>
+              <h4 class="insight-item">Rebuilding trust through transparent risk and control frameworks</h4>
+              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:normal; font-size:1.05rem;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
               <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
             </div>
             <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Moving from AI pilots to industrialized impact in 12 months</h4>
-              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Design principles for scaling AI responsibly across critical workflows.</p>
+              <div class="insight-tag" style="margin-bottom:0.5rem; display:block; color:#004c97; font-size:1rem; font-weight:normal;">POINT OF VIEW · AI</div>
+              <h4 class="insight-item">Moving from AI pilots to industrialized impact in 12 months</h4>
+              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:normal; font-size:1.05rem;">Design principles for scaling AI responsibly across critical workflows.</p>
+                            <!-- To revert, change h4 font-weight:bold to normal and color:#0f172a to #004c97; set p font-weight:normal to bold -->
               <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
             </div>
           </div>
@@ -1487,73 +1210,51 @@
 
   <section id="industries" style="margin-top:3.5rem;">
     <div class="section-label" style="color:#004c97; font-weight:bold;">Industries</div>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     <div class="section-title">We work where the stakes are high.</div>
-    <p class="section-lead">
+    <p class="section-lead" style="color:#0f172a; font-weight:bold;">
       Our teams bring specialized experience in highly regulated, complex environments where
       execution risk is material.
     </p>
     <div class="card-grid">
-<<<<<<< HEAD
-      <article class="card">
-=======
       <article class="card industry-card">
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
         <span>Financial services</span>
         <h3>Banking, payments, and capital markets</h3>
         <p>
           From core banking modernization to third‑party risk and AML/KYC remediation,
           we help institutions navigate change at scale.
         </p>
-<<<<<<< HEAD
-      </article>
-      <article class="card">
-=======
         <div class="industry-hover-desc">We provide tailored solutions for financial institutions to manage regulatory change and drive sustainable growth.</div>
       </article>
       <article class="card industry-card">
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
         <span>Healthcare</span>
         <h3>Payers, providers, and services</h3>
         <p>
           Improve access, experience, and economics by rethinking care models,
           digital front doors, and analytics foundations.
         </p>
-<<<<<<< HEAD
-      </article>
-      <article class="card">
-=======
         <div class="industry-hover-desc">Our healthcare strategies focus on patient outcomes, operational efficiency, and digital transformation for providers.</div>
       </article>
       <article class="card industry-card">
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
         <span>Public & social sector</span>
         <h3>Government, education, and nonprofits</h3>
         <p>
           Support agencies and institutions in delivering better outcomes for citizens,
           students, and communities.
         </p>
-<<<<<<< HEAD
-=======
         <div class="industry-hover-desc">We help public sector organizations innovate, improve service delivery, and achieve measurable community impact.</div>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
       </article>
     </div>
   </section>
 
   <section id="case-studies" style="margin-top:3.5rem;">
-<<<<<<< HEAD
     <div class="section-label">Case Studies</div>
-=======
-    <div class="section-label" style="color:#004c97; font-weight:bold;">Case Studies</div>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
     <div class="section-title">Real-world impact in action.</div>
-    <p class="section-lead">
+    <p class="section-lead" style="color:#0f172a; font-weight:bold;">
       Explore how we’ve partnered with organizations to deliver measurable results across industries.
     </p>
     <div class="card-grid">
       <article class="card case-study" tabindex="0">
-        <span>Healthcare Case Study</span>
+        <span style="color:#004c97;">Healthcare Case Study</span>
         <h3>Optimizing Patient & Physician Satisfaction in Large Hospital System</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.
@@ -1572,7 +1273,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Software Development Case Study</span>
+        <span style="color:#004c97;">Software Development Case Study</span>
         <h3>Transforming Product Development from Internally-Driven to Customer-Focused</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A software organization shifted to customer‑centric, Agile and Lean delivery, aligning teams to real market needs, cutting defects, and improving release predictability.
@@ -1591,7 +1292,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>IT System Development Case Study</span>
+        <span style="color:#004c97;">IT System Development Case Study</span>
         <h3>Business-Driven IT Architecture & System Design</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           IT architecture was reoriented around business priorities, reducing critical errors, simplifying implementations, and elevating customer and associate experiences.
@@ -1610,7 +1311,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Petro-Chemical Product Development Case Study</span>
+        <span style="color:#004c97;">Petro-Chemical Product Development Case Study</span>
         <h3>Accelerating Product Development & Market Success</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A petro‑chemical leader used concurrent engineering and rigorous experimental design to halve time‑to‑market and drive portfolio growth and profitability.
@@ -1629,7 +1330,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Lean Six Sigma & Continuous Improvement</span>
+        <span style="color:#004c97;">Lean Six Sigma & Continuous Improvement</span>
         <h3>Enterprise-Wide Lean Six Sigma Deployment & Excellence</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           Enterprises aligned strategy, governance, and the right improvement methods to deliver sustained, enterprise‑wide performance gains and market leadership.
@@ -1648,7 +1349,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Retail Bank Optimization</span>
+        <span style="color:#004c97;">Retail Bank Optimization</span>
         <h3>Transforming Retail Bank Franchise Performance</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A national bank standardized customer experience and deployed needs‑based selling and market analytics to unlock growth, raise satisfaction, and improve profitability.
@@ -1667,7 +1368,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Credit Card Direct Mail Campaign Optimization</span>
+        <span style="color:#004c97;">Credit Card Direct Mail Campaign Optimization</span>
         <h3>Transforming Direct Mail Efficiency & Customer Capture</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A credit card issuer modernized campaigns using data‑driven, relationship‑aware offers to cut costs, increase capture and conversion, and lift enterprise ROE.
@@ -1686,7 +1387,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Financial Services M&A Optimization</span>
+        <span style="color:#004c97;">Financial Services M&A Optimization</span>
         <h3>Optimizing Behemoth Financial Services Environments M&A</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A complex merger integration delivered on‑time, low‑risk Day One and go‑live, protecting customers and performance while setting a new execution standard.
@@ -1705,7 +1406,7 @@
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0">
-        <span>Manufacturing Supply Chain Optimization</span>
+        <span style="color:#004c97;">Manufacturing Supply Chain Optimization</span>
         <h3>Stabilizing Global Supply Chains for Resilience & Cost</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
           A global manufacturer redesigned planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience across suppliers and regions.
@@ -1727,52 +1428,30 @@
   </section>
 
   <section id="contact" style="margin-top:3.5rem;">
-<<<<<<< HEAD
     <div class="section-label">Contact</div>
     <div class="section-title">Start a conversation.</div>
-    <p class="section-lead">
-      Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
-      on where we might help.
-    </p>
-    <form onsubmit="event.preventDefault(); alert('Form submission is not wired to a backend yet.');" style="max-width:480px;">
-      <div style="margin-bottom:0.9rem;">
-        <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-        <input id="name" type="text" required
-=======
-    <div class="section-label" style="text-align:left; color:#004c97; font-weight:bold;">Contact</div>
-    <div class="section-title" style="text-align:left;">Start a conversation.</div>
     <p class="section-lead" style="text-align:left;">
       Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
       on where we might help.
     </p>
     <div class="card" style="max-width:480px; margin:1rem 0; text-align:left;">
-      <p style="margin-bottom:0.2rem;"><strong>Steve Darrish</strong></p>
-      <p style="margin-bottom:0.2rem;">Phone: <a href="tel:3143591367">314-359-1367</a></p>
-      <p>Email: <a href="mailto:steve@wyattjoel.com">steve@wyattjoel.com</a></p>
+      <p style="margin-bottom:0.2rem; text-align:left; color:#004c97;">Phone: <a href="tel:3143591367" style="color:#004c97;">314-359-1367</a></p>
+      <p style="text-align:left; color:#004c97;">Email: <a href="mailto:steve@wyattjoel.com" style="color:#004c97;">steve@wyattjoel.com</a></p>
     </div>
     <form id="contact-form" style="max-width:480px;">
       <div style="margin-bottom:0.9rem;">
         <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
         <input id="name" name="name" type="text" required
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
                style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
       </div>
       <div style="margin-bottom:0.9rem;">
         <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-<<<<<<< HEAD
-        <input id="email" type="email" required
-=======
         <input id="email" name="email" type="email" required
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
                style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
       </div>
       <div style="margin-bottom:0.9rem;">
         <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-<<<<<<< HEAD
-        <select id="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
-=======
         <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
           <option>Enterprise transformation</option>
           <option>Digital & AI</option>
           <option>Risk, compliance, and controls</option>
@@ -1782,9 +1461,6 @@
       </div>
       <div style="margin-bottom:1rem;">
         <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-<<<<<<< HEAD
-        <textarea id="message" rows="4"
-=======
         <textarea id="message" name="message" rows="4"
                   style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
         <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
@@ -1798,7 +1474,6 @@
       <div style="margin-bottom:1rem;">
         <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
         <textarea id="message" name="message" rows="4"
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
                   style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit inquiry →</button>
@@ -1810,41 +1485,6 @@
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
-<<<<<<< HEAD
-    if (!listEl) return;
-    fetch('insights.json', { cache: 'no-store' })
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load insights');
-        return r.json();
-      })
-      .then(items => {
-        if (!Array.isArray(items) || items.length === 0) return;
-        const frag = document.createDocumentFragment();
-        items.forEach(item => {
-          const wrap = document.createElement('div');
-          wrap.className = 'insight-item';
-          const tag = document.createElement('div');
-          tag.className = 'insight-tag';
-          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
-          const h4 = document.createElement('h4');
-          h4.textContent = item.title || '';
-          const p = document.createElement('p');
-          p.textContent = item.summary || '';
-          wrap.appendChild(tag);
-          wrap.appendChild(h4);
-          wrap.appendChild(p);
-          frag.appendChild(wrap);
-        });
-        listEl.appendChild(frag);
-        if (fallbackEl) fallbackEl.style.display = 'none';
-      })
-      .catch(() => {
-        // Keep fallback visible on error
-      });
-  })();
-</script>
-
-=======
     if (listEl) {
       fetch('insights.json', { cache: 'no-store' })
         .then(r => {
@@ -1911,39 +1551,31 @@
     }
   })();
 </script>
-  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
   // Enable pill popups on tap/click for mobile
   document.addEventListener('DOMContentLoaded', function() {
     var pills = document.querySelectorAll('.pill');
     pills.forEach(function(pill) {
       pill.addEventListener('click', function(e) {
-        // Only trigger on touch/click, not on desktop hover
-        var popup = pill.querySelector('.pill-hover');
-        if (!popup) return;
-        // If already visible, hide it
+        var popup = pill.nextElementSibling;
+        if (!popup || !popup.classList.contains('pill-menu')) return;
         var isVisible = popup.style.display === 'block';
-        // Hide all other pill popups
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+        document.querySelectorAll('.pill-menu').forEach(function(ph) {
           ph.style.display = 'none';
         });
-        // Toggle this one
         popup.style.display = isVisible ? 'none' : 'block';
-        // Prevent scrolling on mobile when popup is open
-        if (!isVisible && window.innerWidth <= 600) {
+        if (!isVisible && window.innerWidth <= 800) {
           e.stopPropagation();
         }
       });
     });
-    // Hide pill popups when clicking elsewhere
     document.addEventListener('click', function(e) {
       if (!e.target.classList.contains('pill')) {
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+        document.querySelectorAll('.pill-menu').forEach(function(ph) {
           ph.style.display = 'none';
         });
       }
     });
   });
-  </div>
 
 <!--
 ================ Flask Backend Example for Inquiry Form ================
@@ -1961,7 +1593,7 @@ from flask_cors import CORS  # <-- Add this import
 
 
 app = Flask(__name__)
-CORS(app, origins=["https://wyattjoel.com"])   # <-- Enable CORS for your domain
+CORS(app, origins=["https://wyattjoel.com"])  # <-- Enable CORS for your domain
 DB_PATH = 'inquiries.db'
 
 def init_db():
@@ -1984,7 +1616,6 @@ def send_email_notification(name, email, topic, message, submitted_at):
     # Configure your SMTP server and credentials here
     SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
     SMTP_PORT = 587
-
     SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
     SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
     TO_EMAIL = 'steve@wyattjoel.com'
@@ -2047,19 +1678,12 @@ if __name__ == '__main__':
 # ===================
 =======================================================================
 -->
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e
 <footer>
   <div class="footer-inner">
     <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
     <div>Strategy · Transformation · Digital & AI · Risk</div>
   </div>
 </footer>
-<<<<<<< HEAD
-git add index.html
-git commit -m "Update contact form"
-  
->>>>>>> 81d4585 (Save local changes before pulling)
-=======
 
 <script>
 // Pill hover/tap/focus popup for Client Impact Snapshot
@@ -2075,17 +1699,21 @@ git commit -m "Update contact form"
       pill.setAttribute('aria-expanded', 'false');
     });
   }
-  // Use same code for desktop and mobile: show popup on hover, focus, and click/tap
   pills.forEach(function(pill, idx) {
     var menu = menus[idx];
+    // Show on hover/focus (desktop) and tap/click (mobile)
     pill.addEventListener('mouseenter', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
+      if (window.innerWidth > 800) {
+        hideAllMenus();
+        menu.style.display = 'block';
+        pill.setAttribute('aria-expanded', 'true');
+      }
     });
     pill.addEventListener('mouseleave', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
+      if (window.innerWidth > 800) {
+        menu.style.display = 'none';
+        pill.setAttribute('aria-expanded', 'false');
+      }
     });
     pill.addEventListener('focus', function() {
       hideAllMenus();
@@ -2098,22 +1726,16 @@ git commit -m "Update contact form"
     });
     pill.addEventListener('click', function(e) {
       e.stopPropagation();
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        pill.setAttribute('aria-expanded', 'false');
-      } else {
-        hideAllMenus();
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
-      }
+      hideAllMenus();
+      menu.style.display = 'block';
+      pill.setAttribute('aria-expanded', 'true');
     });
   });
+  // Hide menus when clicking elsewhere
   document.addEventListener('click', function(e) {
-    // Only hide popups if click is outside both pill and popup
-    if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu')) {
+    if (!e.target.classList.contains('pill')) {
       hideAllMenus();
     }
   });
 })();
 </script>
->>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e

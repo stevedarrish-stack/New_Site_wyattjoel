@@ -3,6 +3,7 @@ Flask
 flask-cors
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 gunicornFlask
 flask-cors
@@ -18,3 +19,6 @@ flask-cors
 gunicorn
 >>>>>>> 79c0d7c (Add requirements.txt to repo root)
 >>>>>>> 781ec0a (Save local changes before rebase)
+=======
+gunicorn
+>>>>>>> bcb0512f3b37cbb03f9885bd614d4a80e37ca64e

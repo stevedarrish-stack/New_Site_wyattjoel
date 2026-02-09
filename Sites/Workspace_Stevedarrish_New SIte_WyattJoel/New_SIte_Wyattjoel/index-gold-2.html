@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+  <title>WyAttJoel Advisory Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #17305c 0%, #25447a 100%);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+.client-impact-card {
+  background: #17305c;
+  color: #f9fafb;
+  border-radius: 1.35rem;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 18px 35px rgba(15,23,42,0.35);
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .client-impact-card {
+    padding: 0.7rem 0.4rem !important;
+    max-width: 98vw !important;
+    font-size: 0.95rem !important;
+    z-index: 1000 !important;
+    position: relative !important;
+    background: none !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .client-impact-card h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .impact-stats {
+    gap: 1rem !important;
+  }
+  .impact-number {
+    font-size: 1.3rem !important;
+  }
+  .impact-label {
+    font-size: 0.85rem !important;
+  }
+  .pill-row {
+    gap: 0.3rem !important;
+    margin-bottom: 0.4rem !important;
+    flex-wrap: wrap !important;
+    z-index: 200 !important;
+    position: relative !important;
+  }
+  .pill {
+    min-width: 70px !important;
+    max-width: 90px !important;
+    font-size: 0.65rem !important;
+    padding: 0.12rem 0.4rem !important;
+  }
+  .pill-menu {
+    position: absolute !important;
+    left: 50% !important;
+    top: 110% !important;
+    transform: translateX(-50%) !important;
+    min-width: 180px !important;
+    max-width: 90vw !important;
+    width: auto !important;
+    z-index: 1100 !important;
+    background: #e1effa !important;
+    color: #17305c !important;
+    font-size: 0.85rem !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 0.7rem !important;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+    margin-top: 0.3rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: left !important;
+  }
+  .client-impact-card p {
+    font-size: 0.68rem !important;
+    background: none !important;
+    padding: 0.2rem 0.2rem !important;
+    z-index: 100 !important;
+    position: relative !important;
+  }
+  .client-impact-summary {
+    order: 99;
+    margin-top: 1.2rem !important;
+  }
+  .nav-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .brand {
+    margin-bottom: 0.5rem !important;
+  }
+  nav:not(.mobile-nav) {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100vw !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    margin-bottom: 0.5rem !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    font-size: 0.85rem !important;
+    padding: 0 0.2rem !important;
+  }
+  nav:not(.mobile-nav) a {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin-right: 1.1rem !important;
+    font-size: 0.95em !important;
+  }
+  nav:not(.mobile-nav) a:last-child {
+    margin-right: 0 !important;
+  }
+  .mobile-nav-btn {
+    display: flex !important;
+    z-index: 1201 !important;
+  }
+  .mobile-nav {
+    display: none !important;
+    z-index: 1200 !important;
+  }
+  .mobile-nav.open {
+    display: flex !important;
+  }
+}
+                                          @media (max-width: 800px) {
+                                            .client-impact-card {
+                                              padding: 0.7rem 0.4rem !important;
+                                              max-width: 98vw !important;
+                                              font-size: 0.95rem !important;
+                                            }
+                                            .client-impact-card h2 {
+                                              font-size: 1.3rem !important;
+                                              margin-bottom: 0.3rem !important;
+                                            }
+                                            .impact-stats {
+                                              gap: 1rem !important;
+                                            }
+                                            .impact-number {
+                                              font-size: 1.3rem !important;
+                                            }
+                                            .impact-label {
+                                              font-size: 0.85rem !important;
+                                            }
+                                            .pill-row {
+                                              gap: 0.3rem !important;
+                                              margin-bottom: 0.4rem !important;
+                                              flex-wrap: wrap !important;
+                                            }
+                                            .pill {
+                                              min-width: 70px !important;
+                                              max-width: 90px !important;
+                                              font-size: 0.65rem !important;
+                                              padding: 0.12rem 0.4rem !important;
+                                            }
+                                            /* Removed duplicate padding rule for .client-impact-card p */
+                                          }
+                                      @media (max-width: 800px) {
+                                        .nav-inner {
+                                          flex-direction: column !important;
+                                          align-items: flex-start !important;
+                                        }
+                                        .brand {
+                                          margin-bottom: 0.5rem !important;
+                                        }
+                                        nav:not(.mobile-nav) {
+                                          display: flex !important;
+                                          flex-direction: row !important;
+                                          width: 100vw !important;
+                                          justify-content: flex-start !important;
+                                          align-items: center !important;
+                                          margin-bottom: 0.5rem !important;
+                                          overflow-x: auto !important;
+                                          white-space: nowrap !important;
+                                          font-size: 0.85rem !important;
+                                          padding: 0 0.2rem !important;
+                                        }
+                                        nav:not(.mobile-nav) a {
+                                          display: inline-block !important;
+                                          white-space: nowrap !important;
+                                          margin-right: 1.1rem !important;
+                                        @media (max-width: 800px) {
+                                          .pill-menu {
+                                            position: absolute !important;
+                                            left: 50% !important;
+                                            top: 110% !important;
+                                            transform: translateX(-50%) !important;
+                                            min-width: 180px !important;
+                                            max-width: 90vw !important;
+                                            width: auto !important;
+                                            z-index: 1000 !important;
+                                            background: #e1effa !important;
+                                            color: #17305c !important;
+                                            font-size: 0.85rem !important;
+                                            padding: 0.7rem 1rem !important;
+                                            border-radius: 0.7rem !important;
+                                            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+                                            margin-top: 0.3rem !important;
+                                            white-space: normal !important;
+                                            word-break: break-word !important;
+                                            text-align: left !important;
+                                          }
+                                        }
+                                          font-size: 0.95em !important;
+                                        }
+                                        nav:not(.mobile-nav) a:last-child {
+                                          margin-right: 0 !important;
+                                        }
+                                        .mobile-nav-btn, .mobile-nav {
+                                          display: none !important;
+                                        }
+                                      }
+                                  @media (max-width: 800px) {
+                                    .nav-inner {
+                                      flex-direction: column !important;
+                                      align-items: flex-start !important;
+                                    }
+                                    .brand {
+                                      margin-bottom: 0.5rem;
+                                    }
+                                    .mobile-nav-btn {
+                                      display: flex !important;
+                                      margin-top: 0.2rem !important;
+                                      margin-bottom: 0.7rem !important;
+                                      align-self: flex-start !important;
+                                      position: relative !important;
+                                      z-index: 1101 !important;
+                                    }
+                                    .nav-inner > nav:not(.mobile-nav) {
+                                      display: none !important;
+                                    }
+                                    .mobile-nav {
+                                      display: none !important;
+                                      flex-direction: column !important;
+                                      width: 100vw !important;
+                                      position: absolute !important;
+                                      top: 100% !important;
+                                      left: 0 !important;
+                                      background: #fff !important;
+                                      z-index: 1100 !important;
+                                      box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
+                                      padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
+                                    }
+                                    .mobile-nav.open {
+                                      display: flex !important;
+                                    }
+                                    .mobile-nav a {
+                                      white-space: nowrap !important;
+                                      display: block !important;
+                                      margin-bottom: 1rem !important;
+                                      font-size: 1.1rem !important;
+                                    }
+                                    .mobile-nav a:last-child {
+                                      margin-bottom: 0 !important;
+                                    }
+                                    .mobile-nav-close {
+                                      align-self: flex-end !important;
+                                      margin-bottom: 1rem !important;
+                                      font-size: 2rem !important;
+                                      background: none !important;
+                                      border: none !important;
+                                      color: #004c97 !important;
+                                      cursor: pointer !important;
+                                    }
+                                  }
+                              @media (max-width: 800px) {
+                                .nav-inner {
+                                  flex-direction: column !important;
+                                  align-items: flex-start !important;
+                                }
+                                .brand {
+                                  margin-bottom: 0.5rem;
+                                }
+                                .mobile-nav-btn {
+                                  display: flex !important;
+                                  margin-top: 0.2rem;
+                                  margin-bottom: 0.7rem;
+                                  align-self: flex-start;
+                                }
+                                nav:not(.mobile-nav) {
+                                  display: none !important;
+                                }
+                                .mobile-nav {
+                                  display: flex !important;
+                                  flex-direction: column;
+                                  width: 100vw;
+                                  position: absolute;
+                                  top: 100%;
+                                  left: 0;
+                                  background: #fff;
+                                  z-index: 1000;
+                                  box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+                                  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+                                }
+                                .mobile-nav a {
+                                  white-space: nowrap;
+                                  display: block;
+                                  margin-bottom: 1rem;
+                                  font-size: 1.1rem;
+                                }
+                                .mobile-nav a:last-child {
+                                  margin-bottom: 0;
+                                }
+                                .mobile-nav-close {
+                                  align-self: flex-end;
+                                  margin-bottom: 1rem;
+                                  font-size: 2rem;
+                                  background: none;
+                                  border: none;
+                                  color: #004c97;
+                                  cursor: pointer;
+                                }
+                              }
+                          @media (max-width: 800px) {
+                            .nav-inner {
+                              flex-direction: column !important;
+                              align-items: flex-start !important;
+                            }
+                            .brand {
+                              margin-bottom: 0.5rem;
+                            }
+                            .mobile-nav-btn {
+                              display: flex !important;
+                              margin-top: 0.2rem;
+                              margin-bottom: 0.7rem;
+                              align-self: flex-start;
+                            }
+                            nav:not(.mobile-nav) {
+                              width: 100%;
+                              margin-bottom: 0.5rem;
+                            }
+                            nav:not(.mobile-nav) a {
+                              white-space: nowrap;
+                              display: inline-block;
+                              margin-right: 1.2rem;
+                              margin-bottom: 0;
+                            }
+                            nav:not(.mobile-nav) a:last-child {
+                              margin-right: 0;
+                            }
+                          }
+                      /* Hamburger and mobile nav styles */
+                      @media (max-width: 800px) {
+                        .mobile-nav-btn {
+                          display: flex;
+                        }
+                        .mobile-nav {
+                          display: none;
+                        }
+                        .mobile-nav.open {
+                          display: flex;
+                        }
+                      }
+                      @media (min-width: 801px) {
+                        .mobile-nav-btn,
+                        .mobile-nav {
+                          display: none !important;
+                        }
+                      }
+                      .mobile-nav-btn {
+                        display: none;
+                        background: none;
+                        border: none;
+                        position: absolute;
