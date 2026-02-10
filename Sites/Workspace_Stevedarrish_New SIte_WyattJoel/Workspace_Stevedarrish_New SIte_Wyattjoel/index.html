@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+  <title>WyAttJoel Advisory Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #17305c 0%, #25447a 100%);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  color: inherit;
+}
+p {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.section {
+  padding: 2rem 0;
+}
+.footer {
+  background: #f8fafc;
+  padding: 2rem 0;
+  text-align: center;
+}
+.logo {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.social-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #e1effa;
+  color: #17305c;
+  font-size: 1.2rem;
+}
+.header {
+  background: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #004c97;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+.cta-button {
+  background: #004c97;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+.cta-button:hover {
+  background: #003366;
+}
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 0;
+  color: #fff;
+}
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.feature-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+.testimonials-section {
+  background: #f8fafc;
+  padding: 2rem 0;
+  text-align: center;
+}
+.testimonial-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.team-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.team-member {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.industry-label {
+  font-weight: normal;
+  color: #004c97;
+  font-size: 1.2rem;
+}
+.perspectives-article {
+  font-size: 1.2rem;
+}
+.article-title, .brief-title, .point-of-view-title {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+@media (max-width: 800px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .feature-card, .team-member {
+    padding: 1rem;
+  }
+  .cta-button {
+    padding: 0.5rem 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <a href="#" class="logo">
+          <img src="logo.png" alt="WyAttJoel Advisory Partners" />
+        </a>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#industries">Industries</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="mobile-nav-btn">
+          <button aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero-section">
+      <h1 class="hero-title">Welcome to WyAttJoel Advisory Partners</h1>
+      <p class="hero-subtitle">Your trusted partner in navigating complex challenges and achieving sustainable growth.</p>
+      <a href="#contact" class="cta-button">Get Started</a>
+    </section>
+    <section class="industries-section" style="margin:2rem 0;">
+      <h2 style="color:#004c97;">Industries</h2>
+      <ul style="list-style:none;padding:0;">
+        <li><span class="industry-label" style="color:#004c97;">Financial Services</span></li>
+        <li><span class="industry-label" style="color:#004c97;">Healthcare</span></li>
+        <li><span class="industry-label" style="color:#004c97;">Public & Social Sector</span></li>
+      </ul>
+    </section>
+    <section class="features-section" id="services">
+      <div class="feature-card">
+        <h3>Consulting</h3>
+        <p>Expert advice to help you build strategies for sustainable growth.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Technology Solutions</h3>
+        <p>Innovative tech solutions to streamline your operations.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Data Analytics</h3>
+        <p>Actionable insights derived from data to drive your business forward.</p>
+      </div>
+    </section>
+    <section class="testimonials-section">
+      <h2 style="color:#004c97;">What Our Clients Say</h2>
+      <div class="testimonial-card">
+        <p>"WyAttJoel transformed our business with their expert guidance."</p>
+        <cite>- Client Name, Position</cite>
+      </div>
+      <div class="testimonial-card">
+        <p>"The team at WyAttJoel are true partners in every sense of the word."</p>
+        <cite>- Client Name, Position</cite>
+      </div>
+    </section>
+    <section class="team-section">
+      <h2 style="color:#004c97;">Meet Our Team</h2>
+      <div class="team-member">
+        <h3>John Doe</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-member">
+        <h3>Jane Smith</h3>
+        <p>Chief Operating Officer</p>
+      </div>
+      <div class="team-member">
+        <h3>Emily Johnson</h3>
+        <p>Chief Financial Officer</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="logo.png" alt="WyAttJoel Advisory Partners" />
+      </a>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M22.675 0h-21.35C.596 0 0 .596 0 1.325v21.35C0 23.404.596 24 1.325 24h11.494v-9.294H9.691V11.25h3.128c1.457 0 2.646-.486 3.628-1.297.982-.812 1.54-1.95 1.54-3.253 0-2.462-1.338-4.658-3.448-5.86C15.354.486 14.165 0 12.708 0H7.125C6.496 0 6 .496 6 1.125v2.25c0 .63.496 1.125 1.125 1.125h3.582c.553 0 1.125.496 1.125 1.125v2.25c0 .63-.572 1.125-1.125 1.125H7.125C6.496 10.5 6 11.096 6 11.625v2.25c0 .63.496 1.125 1.125 1.125h3.582c.553 0 1.125.496 1.125 1.125v2.25c0 .63-.572 1.125-1.125 1.125H7.125C6.496 20.25 6 20.846 6 21.375v2.25c0 .63.496 1.125 1.125 1.125h14.45c.63 0 1.125-.496 1.125-1.125V1.325C24 .596 23.404 0 22.675 0z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M23.643 4.937a10.97 10.97 0 01-3.128.855 4.48 4.48 0 001.963-2.475 9.11 9.11 0 01-2.827 1.078 4.48 4.48 0 00-7.633 4.08A12.74 12.74 0 011.671 3.149a4.48 4.48 0 001.384 5.973 4.447 4.447 0 01-2.033-.563v.057a4.48 4.48 0 003.584 4.392 4.48 4.48 0 01-2.028.077 4.48 4.48 0 004.18 3.107A9.004 9.004 0 010 19.54a12.688 12.688 0 006.29 1.838c7.548 0 11.688-6.248 11.688-11.688 0-.178 0-.355-.012-.532A8.303 8.303 0 0024 4.59a8.568 8.568 0 01-2.475.678 4.48 4.48 0 001.963-2.475z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M22.225 0h-20.45C.996 0 0 .996 0 2.225v19.55C0 23.004.996 24 2.225 24h20.45C23.004 24 24 23.004 24 22.225v-19.55C24 .996 23.004 0 22.225 0zM7.175 20.225H3.975V9h3.2v11.225zm-1.6-12.9a1.85 1.85 0 110-3.7 1.85 1.85 0 010 3.7zm15.65 12.9h-3.2V15.5c0-1.425-.025-3.25-1.975-3.25-1.975 0-2.275 1.55-2.275 3.15v5.825h-3.2V9h3.075v1.575h.025c.425-.8 1.475-1.65 3.05-1.65 3.25 0 3.85 2.15 3.85 4.95v6.625z" />
+          </svg>
+        </a>
+      </div>
+      <p style="margin-top:1rem;color:#17305c;">&copy; 2023 WyAttJoel Advisory Partners. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    document.querySelector('.mobile-nav-btn').addEventListener('click', function() {
+      document.querySelector('.mobile-nav').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
