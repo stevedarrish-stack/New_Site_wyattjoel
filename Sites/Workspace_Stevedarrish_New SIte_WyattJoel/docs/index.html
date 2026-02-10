@@ -3,6 +3,68 @@
  <head>
  <meta charset="UTF-8" />
   <title>WyAttJoel Advisory Partners</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+          .client-impact-card {
+            background: #0a1833;
+            color: #f9fafb;
+            border-radius: 1.2rem;
+            padding: 1.7rem 1.5rem;
+            box-shadow: none;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+          }
+          .client-impact-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #b6c6e3;
+          }
+          .impact-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+          }
+          .impact-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+            color: #e0eaff;
+          }
+          .impact-label {
+            font-size: 1rem;
+            color: #b6c6e3;
+            display: block;
+            margin-top: 0.2rem;
+          }
+          .impact-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.1rem;
+          }
+          .impact-btn {
+            background: #17305c;
+            color: #f9fafb;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+          }
+          .impact-btn:hover, .impact-btn:focus {
+            background: #25447a;
+          }
+          .client-impact-card p {
+            font-size: 1rem;
+            margin: 0.5rem 0 0 0;
+            color: #e0eaff;
+          }
+    </style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
 body {
@@ -65,30 +127,31 @@ ul {
   color: #17305c;
   font-size: 1.2rem;
 }
-.header {
-  background: #fff;
-  padding: 1rem 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-links a {
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  background: #1a73e8;
-}
-.cta-button {
-  background: #004c97;
+      </div>
+    </div>
+    <div class="client-impact-card">
+      <h2>Client Impact Snapshot</h2>
+      <div class="impact-stats">
+        <div>
+          <span class="impact-number">120</span>
+          <span class="impact-label">Clients Served</span>
+        </div>
+        <div>
+          <span class="impact-number">98%</span>
+          <span class="impact-label">Satisfaction</span>
+        </div>
+        <div>
+          <span class="impact-number">5</span>
+          <span class="impact-label">Years Running</span>
+        </div>
+      </div>
+      <div class="impact-actions">
+        <button class="impact-btn" title="See a summary of all client impact metrics and highlights for last year.">Summary</button>
+        <button class="impact-btn" title="Download a detailed report with charts, analysis, and year-over-year comparisons.">Download Report</button>
+        <button class="impact-btn" title="Contact our team for more information about client impact and future opportunities.">Contact Us</button>
+      </div>
+      <p><strong>WyattJoel</strong> continues to make a difference in the community.</p>
+    </div>
   color: #fff;
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
