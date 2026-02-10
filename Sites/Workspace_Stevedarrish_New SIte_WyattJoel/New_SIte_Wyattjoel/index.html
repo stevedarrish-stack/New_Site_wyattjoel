@@ -19,23 +19,7 @@
               text-align: center !important;
               margin: 0 0.15rem !important;
               box-sizing: border-box !important;
-            try {
-              const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-              });
-              if (res.ok) {
-                alert('Thank you! We received your inquiry.');
-                contactForm.reset();
-              } else {
-                const errorText = await res.text();
-                alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
-              }
-            } catch (err) {
-              alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
             }
-          }
           .impact-stats {
             display: flex;
             justify-content: space-between;
@@ -104,7 +88,101 @@ a {
   color: inherit;
   text-decoration: none;
 }
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #17305c 0%, #25447a 100%);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold !important;
+  color: #000 !important;
+}
+p {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.section {
+  padding: 2rem 0;
+}
+.footer {
+  background: #f8fafc;
+  padding: 2rem 0;
+  text-align: center;
+}
+.logo {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.social-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #e1effa;
+  color: #17305c;
+  font-size: 1.2rem;
+}
+      </div>
+    </div>
+    <!-- Fixed: Move misplaced CSS rules back into the <style> block above -->
+  </style>
+  </body>
+  <script>
+  // Contact form AJAX submit (Flask-compatible JSON)
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.onsubmit = async function(e) {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+      try {
+        const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          alert('Thank you! We received your inquiry.');
+          contactForm.reset();
+        } else {
+          const errorText = await res.text();
+          alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
+        }
+      } catch (err) {
+        alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
+      }
+    };
+  }
+  </script>
   list-style: none;
   padding: 0;
   margin: 0;
@@ -185,8 +263,8 @@ ul {
       </ul>
     </section>
     <section class="what-we-do-section" style="margin:2rem 0;">
-      <h2 style="color:#000 !important; font-weight:bold !important;">WHAT WE DO</h2>
-      <p><strong style="color:#000 !important; font-weight:bold !important;">We help clients solve their toughest challenges with strategy, technology, and analytics.</strong></p>
+      <h2 class="force-black-bold" style="color:#000 !important; font-weight:bold !important;">WHAT WE DO</h2>
+      <p><span class="force-black-bold" style="color:#000 !important; font-weight:bold !important;">We help clients solve their toughest challenges with strategy, technology, and analytics.</span></p>
     </section>
     <section class="features-section" id="services">
       <div class="feature-card">
@@ -294,6 +372,15 @@ ul {
       };
     })();
   </script>
+  <script>
+// Force computed style for WHAT WE DO section
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.force-black-bold').forEach(function(el) {
+    el.style.color = '#000';
+    el.style.fontWeight = 'bold';
+  });
+});
+</script>
 </body>
 </html>
 
