@@ -1,86 +1,20 @@
 <!-- DEPLOY MARKER: 2026-02-11 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wyatt Joel Case Studies</title>
-  <style>
-  body {
-            font-family: Arial, sans-serif;
-            background: #f8f8f8;
-            margin: 0;
-            padding: 0;
-  }
-  .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 32px 24px;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  }
-  h1 {
-            color: #004c97;
-            font-weight: 700;
-            margin-bottom: 32px;
-  }
-  .card.case-study {
-            background: #f0f6fa;
-            border: 1px solid #e0e8ef;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            padding: 24px 20px 18px 20px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-  .card.case-study h3 {
-            color: #004c97;
-            font-weight: 400;
-            margin-top: 0;
-            margin-bottom: 10px;
-  }
-  .card.case-study span {
-            display: block;
-            color: #666;
-            font-size: 0.98em;
-            margin-bottom: 8px;
-  }
-  .card.case-study p {
-            color: #222;
-            margin: 0 0 8px 0;
-  }
-  .deploy-marker {
-            color: #fff;
-            background: #004c97;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            float: right;
-  }
-  </style>
-</head>
-<body>
-  <div class="container">
-  <h1>Wyatt Joel Case Studies <span class="deploy-marker">DEPLOY MARKER 2026-02-11</span></h1>
-  <div class="card case-study">
-            <h3>Case Study Title 1</h3>
-            <span>Subtitle or Date</span>
-            <p>Summary of the first case study. Key results, challenges, and solutions described here.</p>
-  </div>
-  <div class="card case-study">
-            <h3>Case Study Title 2</h3>
-            <span>Subtitle or Date</span>
-            <p>Summary of the second case study. Key results, challenges, and solutions described here.</p>
-  </div>
-  <div class="card case-study">
-            <h3>Case Study Title 3</h3>
-            <span>Subtitle or Date</span>
-            <p>Summary of the third case study. Key results, challenges, and solutions described here.</p>
-  </div>
-  <!-- Add more case studies as needed -->
-  </div>
-</body>
-...existing code...
+ <head>
+ <meta charset="UTF-8" />
+  <title>Juliette_Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+          @media (max-width: 600px) {
+            .pill-row .pill {
+              min-width: 80px;
+              max-width: 80px;
+              width: 80px;
+              height: 32px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
               font-size: 0.95rem;
               white-space: normal;
               text-align: center;
@@ -88,80 +22,73 @@
               box-sizing: border-box;
             }
           }
-      /* --- Existing and improved styles for mobile and color --- */
-      .client-impact-card {
-        background: #17305c;
-        color: #f9fafb;
-        border-radius: 1.2rem;
-        padding: 1.7rem 1.5rem;
-        box-shadow: none;
-        margin-top: 2.5rem;
-        margin-bottom: 2.5rem;
+          .client-impact-card {
+            background: #0a1833;
+            color: #f9fafb;
+            border-radius: 1.2rem;
+            padding: 1.7rem 1.5rem;
+            box-shadow: none;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+          }
+          .client-impact-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #b6c6e3;
+          }
+          .impact-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+          }
+          .impact-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+            color: #e0eaff;
+          }
+          .impact-label {
+            font-size: 1rem;
+            color: #b6c6e3;
+            display: block;
+            margin-top: 0.2rem;
+            display: block;
+            margin-top: 0.2rem;
+      /* Move .feature-card h3 to global style block */
       }
-      .client-impact-card h2 {
-        font-size: 1.15rem;
-        margin-bottom: 0.7rem;
-        letter-spacing: .15em;
-        text-transform: uppercase;
-        color: #b6c6e3;
+      .feature-card h3 {
+        color: #004c97 !important;
+        font-weight: normal !important;
       }
-      .impact-stats {
-        display: flex;
-        justify-content: space-between;
-        gap: 1.5rem;
-        margin-bottom: 1.2rem;
-      }
-      .impact-number {
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: block;
-        color: #e0eaff;
-      }
-      .impact-label {
-        font-size: 1rem;
-        color: #b6c6e3;
-        display: block;
-        margin-top: 0.2rem;
-      }
-      .impact-actions {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1.1rem;
-      }
-      .impact-btn {
-        background: #17305c;
-        color: #f9fafb;
-        border: none;
-        border-radius: 0.7rem;
-        padding: 0.6rem 1.2rem;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background 0.15s;
-        white-space: nowrap;
-      }
-      .impact-btn:hover, .impact-btn:focus {
-        background: #25447a;
-      }
-      .client-impact-card p {
-        font-size: 1rem;
-        margin: 0.5rem 0 0 0;
-        color: #e0eaff;
-      }
-      @media (max-width: 800px) {
-        .impact-stats {
-          flex-direction: column;
-          gap: 0.7rem;
-        }
-        .client-impact-card {
-          padding: 1.1rem 0.7rem;
-        }
-      }
-      /* --- Case study title color and weight --- */
-      .card.case-study h3 {
-  color: #004c97;
-  font-weight: normal;
-}
+          }
+          .impact-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.1rem;
+          }
+          .impact-btn {
+            background: #17305c;
+            color: #f9fafb;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+          }
+          .impact-btn:hover, .impact-btn:focus {
+            background: #25447a;
+          }
+          .client-impact-card p {
+            font-size: 1rem;
+            margin: 0.5rem 0 0 0;
+            color: #e0eaff;
+          }
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -172,6 +99,12 @@ body {
   color: #111827;
   -webkit-font-smoothing: antialiased;
 }
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: inherit;
+}
 p {
   margin: 0;
   padding: 0;
@@ -180,6 +113,7 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+}
 ul {
   list-style: none;
   padding: 0;
@@ -218,8 +152,38 @@ ul {
   color: #17305c;
   font-size: 1.2rem;
 }
-
-
+      </div>
+    </div>
+    <div class="client-impact-card">
+      <h2>Client Impact Snapshot</h2>
+      <div class="impact-stats pill-row">
+        <div class="pill">
+          <span class="impact-number">120</span>
+          <span class="impact-label">Clients Served</span>
+        </div>
+        <div class="pill">
+          <span class="impact-number">98%</span>
+          <span class="impact-label">Satisfaction</span>
+        </div>
+        <div class="pill">
+          <span class="impact-number">5</span>
+          <span class="impact-label">Years Running</span>
+        </div>
+      </div>
+      <div class="impact-actions">
+        <button class="impact-btn" title="See a summary of all client impact metrics and highlights for last year.">Summary</button>
+        <button class="impact-btn" title="Download a detailed report with charts, analysis, and year-over-year comparisons.">Download Report</button>
+        <button class="impact-btn" title="Contact our team for more information about client impact and future opportunities.">Contact Us</button>
+      </div>
+      <p><strong>WyattJoel</strong> continues to make a difference in the community.</p>
+    </div>
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+.cta-button:hover {
+  background: #003366;
 }
 .hero-section {
   display: flex;
@@ -289,11 +253,18 @@ ul {
   font-weight: bold;
   color: #000;
 }
-.case-study-card h3 {
+.case-study-tag {
+  color: #1a73e8;
+}
+.card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+    color: #111827 !important;
+    font-weight: bold !important;
+}
+.card.case-study h3, .feature-card h3 {
   color: #004c97 !important;
   font-weight: normal !important;
-  border: 2px solid red !important;
-  background: yellow !important;
 }
 @media (max-width: 800px) {
   .nav-links {
@@ -375,49 +346,16 @@ ul {
       <h2 style="color:#004c97;">Case Studies</h2>
       <div class="case-studies-grid">
         <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Healthcare Case Study</span>
-          <h3>Optimizing Patient & Physician Satisfaction in Large Hospital System</h3>
-          <p>Implemented a patient-centered approach, enhancing communication and streamlining processes, resulting in a 30% increase in satisfaction scores.</p>
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Growth, portfolio, and investment strategy</h3>
+          <p>Align leadership on direction, and build executable roadmaps anchored in tangible value.</p>
         </div>
         <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Software Development Case Study</span>
-          <h3>Transforming Product Development from Internally-Driven to Customer-Focused</h3>
-          <p>Redesigned the product development process to prioritize customer feedback, reducing time-to-market by 40% and increasing customer satisfaction.</p>
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Operating model & transformation offices</h3>
+          <p>Transformation offices help sustain impact and unblock progress.</p>
         </div>
         <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">IT System Development Case Study</span>
-          <h3>Business-Driven IT Architecture & System Design</h3>
-          <p>Developed an IT architecture strategy aligned with business goals, improving system interoperability and reducing operational costs by 25%.</p>
-        </div>
-        <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Petro-Chemical Product Development Case Study</span>
-          <h3>Accelerating Product Development & Market Success</h3>
-          <p>Streamlined product development processes and enhanced market analysis, leading to a 50% faster time-to-market for new petro-chemical products.</p>
-        </div>
-        <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Lean Six Sigma & Continuous Improvement</span>
-          <h3>Enterprise-Wide Lean Six Sigma Deployment & Excellence</h3>
-          <p>Implemented Lean Six Sigma methodologies across the enterprise, resulting in a 20% reduction in operational costs and significant quality improvements.</p>
-        </div>
-        <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Retail Bank Optimization</span>
-          <h3>Transforming Retail Bank Franchise Performance</h3>
-          <p>Redesigned retail banking processes and enhanced staff training, leading to a 35% increase in customer satisfaction and a 20% boost in sales.</p>
-        </div>
-        <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Credit Card Direct Mail Campaign Optimization</span>
-          <h3>Transforming Direct Mail Efficiency & Customer Capture</h3>
-          <p>Optimized direct mail campaigns through data analytics, increasing response rates by 50% and significantly lowering customer acquisition costs.</p>
-        </div>
-        <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Financial Services M&A Optimization</span>
-          <h3>Optimizing Behemoth Financial Services Environments M&A</h3>
-          <p>Advised on merger and acquisition strategies for large financial services firms, focusing on operational integration and cultural alignment.</p>
-        </div>
-        <div class="case-study-card">
-          <span style="color:#004c97; font-weight:normal;">Manufacturing Supply Chain Optimization</span>
-          <h3>Stabilizing Global Supply Chains for Resilience & Cost</h3>
-          <p>Redesigned supply chain processes and enhanced supplier collaboration, resulting in a 30% reduction in supply chain costs and improved resilience.</p>
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Digital journeys, automation, and analytics</h3>
+          <p>Digital transformation enables better decisions and improved performance.</p>
         </div>
         <!-- Add more case studies as needed, using the same structure -->
       </div>
