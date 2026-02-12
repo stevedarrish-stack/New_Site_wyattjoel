@@ -197,12 +197,17 @@
       letter-spacing: .15em;
       text-transform: uppercase;
       color: #b6c6e3;
+      text-align: center;
     }
     .impact-stats {
       display: flex;
       justify-content: space-between;
       gap: 1.5rem;
       margin-bottom: 1.2rem;
+    }
+    .impact-stats > div {
+      flex: 1 1 0;
+      text-align: center;
     }
     .impact-number {
       font-size: 1.5rem;
@@ -217,10 +222,13 @@
       margin-top: 0.2rem;
     }
     .sector-pills {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: flex;
       gap: 0.5rem;
       margin-bottom: 1.1rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.2rem;
     }
     .sector-pill {
       background: #17305c;
@@ -233,8 +241,7 @@
       cursor: pointer;
       transition: background 0.15s;
       white-space: nowrap;
-      width: 100%;
-      text-align: center;
+      flex: 0 0 auto;
     }
     .sector-pill:hover,
     .sector-pill:focus {
@@ -265,9 +272,11 @@
     .services-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    .services-grid .card span,
-    .services-grid .card h3 {
+    .services-grid .card span {
       color: #004c97;
+    }
+    .services-grid .card h3 {
+      color: #111827;
     }
     .section-label {
       font-size: 0.8rem;
