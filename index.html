@@ -226,9 +226,8 @@
       gap: 0.5rem;
       margin-bottom: 1.1rem;
       flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 0.2rem;
+      justify-content: center;
+      overflow-x: visible;
     }
     .sector-pill {
       background: #17305c;
@@ -528,6 +527,12 @@
       }
       .impact-stats {
         flex-wrap: wrap;
+      }
+      .sector-pills {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.2rem;
       }
       .insights-list-col {
         padding-top: 0;
