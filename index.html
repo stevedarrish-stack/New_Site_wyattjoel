@@ -262,6 +262,9 @@
       gap: 1.5rem;
       margin-top: 3.25rem;
     }
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
     .section-label {
       font-size: 0.8rem;
       letter-spacing: .18em;
@@ -322,6 +325,37 @@
       font-size: 0.9rem;
       color: #4b5563;
       margin-bottom: 0.5rem;
+    }
+    .service-hover-note {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      border-bottom: 1px dashed #93c5fd;
+    }
+    .service-hover-note::after {
+      content: attr(data-note);
+      position: absolute;
+      top: calc(100% + 0.45rem);
+      left: 0;
+      min-width: 19rem;
+      max-width: 24rem;
+      background: #17305c;
+      color: #f9fafb;
+      border-radius: 0.65rem;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      box-shadow: 0 12px 24px rgba(15,23,42,0.28);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+      z-index: 12;
+    }
+    .service-hover-note:hover::after,
+    .service-hover-note:focus::after {
+      opacity: 1;
+      visibility: visible;
     }
     .card span {
       font-size: 0.78rem;
@@ -386,6 +420,9 @@
       }
       .hero {
         grid-template-columns: minmax(0, 1fr);
+      }
+      .services-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
       }
     }
   </style>
@@ -464,49 +501,50 @@
       We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
       to move organizations from intent to outcome.
     </p>
-    <div class="card-grid">
-      <article class="card">
-        <span>00 · Portfolio Optimization</span>
-        <h3>Portfolio Optimization & Investment Alignment</h3>
-        <p>
-          Portfolio Optimization helps organizations align projects and investment across large enterprise business functions to improve end-to-end performance. It establishes clear, shared criteria for evaluating initiatives and supports leadership in deciding which work to fund, start, continue, or sunset, ensuring capital and effort are directed toward initiatives that most effectively strengthen the operating model and deliver value.
-        </p>
-        <ul style="margin:0.7em 0 0.2em 1.2em; color:#4b5563; font-size:0.95em;">
-          <li>Defines objective criteria to assess initiatives based on enterprise outcomes</li>
-          <li>Creates transparency and consistency in funding and prioritization decisions</li>
-          <li>Enables informed reallocation of investment as business priorities evolve</li>
-        </ul>
-      </article>
+    <div class="card-grid services-grid">
       <article class="card">
         <span>01 · Enterprise strategy</span>
         <h3>Growth, portfolio, and investment strategy</h3>
         <p>
-          Clarify where to play and how to win, align leadership on direction, and build
-          executable roadmaps anchored in tangible value.
+          <span class="service-hover-note" tabindex="0" data-note="Align leadership on direction and build executable roadmaps anchored in tangible value.">Clarify where to play and how to win.</span>
         </p>
       </article>
       <article class="card">
         <span>02 · Transformation</span>
         <h3>Operating model & transformation offices</h3>
         <p>
-          Redesign structures, roles, and ways of working while establishing transformation
-          offices that track, unblock, and sustain impact.
+          <span class="service-hover-note" tabindex="0" data-note="Transformation offices help sustain impact and unblock progress.">Redesign structures, roles, and ways of working while establishing transformation
+          offices that track, unblock, and sustain impact.</span>
         </p>
       </article>
       <article class="card">
         <span>03 · Digital & AI</span>
         <h3>Digital journeys, automation, and analytics</h3>
         <p>
-          Modernize customer and employee journeys, embed automation, and leverage data and AI
-          to inform mission‑critical decisions.
+          <span class="service-hover-note" tabindex="0" data-note="Digital transformation enables better decisions and improved performance.">Modernize customer and employee journeys, embed automation, and leverage data and AI
+          to inform mission‑critical decisions.</span>
         </p>
       </article>
       <article class="card">
         <span>04 · Risk & resilience</span>
         <h3>Regulatory, operational, and cyber resilience</h3>
         <p>
-          Strengthen risk frameworks, streamline controls, and align stakeholders around a
-          pragmatic path to compliance and resilience.
+          <span class="service-hover-note" tabindex="0" data-note="Resilience is built through strong frameworks and stakeholder alignment.">Strengthen risk frameworks, streamline controls, and align stakeholders around a
+          pragmatic path to compliance and resilience.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>05 · AI-Driven Acceleration</span>
+        <h3>Accelerating Product & Process Development</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>06 · M&A Excellence</span>
+        <h3>Executing Behemoth Financial Services Deals</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="Our proven M&amp;A approach streamlines due diligence, accelerates transitions, and ensures core operational continuity, empowering institutions to execute and integrate behemoth deals with confidence and speed.">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</span>
         </p>
       </article>
     </div>
