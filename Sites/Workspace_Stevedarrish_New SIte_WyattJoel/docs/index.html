@@ -22,73 +22,80 @@
               box-sizing: border-box;
             }
           }
-          .client-impact-card {
-            background: #0a1833;
-            color: #f9fafb;
-            border-radius: 1.2rem;
-            padding: 1.7rem 1.5rem;
-            box-shadow: none;
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-          }
-          .client-impact-card h2 {
-            font-size: 1.15rem;
-            margin-bottom: 0.7rem;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: #b6c6e3;
-          }
-          .impact-stats {
-            display: flex;
-            justify-content: space-between;
-            gap: 1.5rem;
-            margin-bottom: 1.2rem;
-          }
-          .impact-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: block;
-            color: #e0eaff;
-          }
-          .impact-label {
-            font-size: 1rem;
-            color: #b6c6e3;
-            display: block;
-            margin-top: 0.2rem;
-            display: block;
-            margin-top: 0.2rem;
-      /* Move .feature-card h3 to global style block */
+      /* --- Existing and improved styles for mobile and color --- */
+      .client-impact-card {
+        background: #17305c;
+        color: #f9fafb;
+        border-radius: 1.2rem;
+        padding: 1.7rem 1.5rem;
+        box-shadow: none;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
       }
-      .feature-card h3 {
+      .client-impact-card h2 {
+        font-size: 1.15rem;
+        margin-bottom: 0.7rem;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+        color: #b6c6e3;
+      }
+      .impact-stats {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-bottom: 1.2rem;
+      }
+      .impact-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: block;
+        color: #e0eaff;
+      }
+      .impact-label {
+        font-size: 1rem;
+        color: #b6c6e3;
+        display: block;
+        margin-top: 0.2rem;
+      }
+      .impact-actions {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.1rem;
+      }
+      .impact-btn {
+        background: #17305c;
+        color: #f9fafb;
+        border: none;
+        border-radius: 0.7rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s;
+        white-space: nowrap;
+      }
+      .impact-btn:hover, .impact-btn:focus {
+        background: #25447a;
+      }
+      .client-impact-card p {
+        font-size: 1rem;
+        margin: 0.5rem 0 0 0;
+        color: #e0eaff;
+      }
+      @media (max-width: 800px) {
+        .impact-stats {
+          flex-direction: column;
+          gap: 0.7rem;
+        }
+        .client-impact-card {
+          padding: 1.1rem 0.7rem;
+        }
+      }
+      /* --- Case study title color and weight --- */
+      .card.case-study h3, .card.case-study .section-title {
         color: #004c97 !important;
         font-weight: normal !important;
       }
-          }
-          .impact-actions {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.1rem;
-          }
-          .impact-btn {
-            background: #17305c;
-            color: #f9fafb;
-            border: none;
-            border-radius: 0.7rem;
-            padding: 0.6rem 1.2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.15s;
-            white-space: nowrap;
-          }
-          .impact-btn:hover, .impact-btn:focus {
-            background: #25447a;
-          }
-          .client-impact-card p {
-            font-size: 1rem;
-            margin: 0.5rem 0 0 0;
-            color: #e0eaff;
-          }
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -262,7 +269,7 @@ ul {
     color: #111827 !important;
     font-weight: bold !important;
 }
-.card.case-study h3, .feature-card h3 {
+.card.case-study h3, .card.case-study .section-title {
   color: #004c97 !important;
   font-weight: normal !important;
 }
