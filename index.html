@@ -218,21 +218,24 @@
     }
     .sector-pills {
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
       margin-bottom: 1.1rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .sector-pill {
       background: #17305c;
       color: #f9fafb;
       border: 1px solid rgba(182,198,227,0.7);
       border-radius: 999px;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.86rem;
+      padding: 0.28rem 0.62rem;
+      font-size: 0.77rem;
       font-weight: 500;
       cursor: pointer;
       transition: background 0.15s;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
     .sector-pill:hover,
     .sector-pill:focus {
