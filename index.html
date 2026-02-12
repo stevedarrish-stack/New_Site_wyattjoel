@@ -188,8 +188,8 @@
       border-radius: 1.2rem;
       padding: 1.7rem 1.5rem;
       box-shadow: none;
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
+      margin-top: 1.8rem;
+      margin-bottom: 1.8rem;
     }
     .client-impact-card h2 {
       font-size: 1.15rem;
@@ -223,6 +223,7 @@
       flex-wrap: nowrap;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.2rem;
     }
     .sector-pill {
       background: #17305c;
@@ -337,8 +338,9 @@
       position: absolute;
       top: calc(100% + 0.45rem);
       left: 0;
-      min-width: 19rem;
-      max-width: 24rem;
+      width: max-content;
+      min-width: 16rem;
+      max-width: min(24rem, calc(100vw - 4rem));
       background: #17305c;
       color: #f9fafb;
       border-radius: 0.65rem;
@@ -414,6 +416,17 @@
       gap: 1rem;
       align-items: center;
     }
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card-grid {
+        margin-top: 2.4rem;
+      }
+      .impact-stats {
+        gap: 0.9rem;
+      }
+    }
     @media (max-width: 800px) {
       nav {
         display: none;
@@ -423,6 +436,18 @@
       }
       .services-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      .service-hover-note::after {
+        min-width: 0;
+        left: 0;
+        right: auto;
+      }
+      .client-impact-card {
+        margin-top: 1.2rem;
+        margin-bottom: 1.2rem;
+      }
+      .impact-stats {
+        flex-wrap: wrap;
       }
     }
   </style>
