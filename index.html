@@ -294,10 +294,23 @@
       text-align: center;
     }
     .impact-number {
-      font-size: 1.5rem;
+      font-size: clamp(1.15rem, 1.85vw, 1.5rem);
       font-weight: 700;
       display: block;
       color: #e0eaff;
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+    @media (min-width: 801px) {
+      .impact-stats {
+        gap: 1rem;
+      }
+      .impact-stats > div {
+        min-width: 0;
+      }
+      .impact-number {
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+      }
     }
     .impact-label {
       font-size: 1rem;
