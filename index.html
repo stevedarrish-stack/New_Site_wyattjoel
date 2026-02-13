@@ -1143,16 +1143,6 @@
     const wordEl = document.getElementById('transform-word');
     if (!wordEl) return;
 
-    const letters = wordEl.textContent.split('');
-    wordEl.textContent = '';
-    const letterEls = letters.map(ch => {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = ch;
-      wordEl.appendChild(span);
-      return span;
-    });
-
     const fontCycle = [
       '"Trebuchet MS", "Segoe UI", sans-serif',
       'Georgia, "Times New Roman", serif',
@@ -1162,22 +1152,13 @@
     ];
     const colorCycle = ['#004c97', '#0f766e', '#c026d3', '#ea580c', '#0ea5e9'];
 
-    let charIndex = 0;
     let fontIndex = 0;
 
     setInterval(() => {
-      letterEls.forEach(el => {
-        el.style.fontFamily = 'inherit';
-        el.style.color = '';
-      });
-      letterEls[charIndex].style.fontFamily = fontCycle[fontIndex];
-      letterEls[charIndex].style.color = colorCycle[fontIndex];
-
-      charIndex = (charIndex + 1) % letterEls.length;
-      if (charIndex === 0) {
-        fontIndex = (fontIndex + 1) % fontCycle.length;
-      }
-    }, 420);
+      wordEl.style.fontFamily = fontCycle[fontIndex];
+      wordEl.style.color = colorCycle[fontIndex];
+      fontIndex = (fontIndex + 1) % fontCycle.length;
+    }, 1400);
   })();
 
   (function(){
