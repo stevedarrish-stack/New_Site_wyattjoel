@@ -447,7 +447,8 @@
       z-index: 12;
     }
     .service-hover-note:hover::after,
-    .service-hover-note:focus::after {
+    .service-hover-note:focus::after,
+    .service-hover-note.is-open::after {
       opacity: 1;
       visibility: visible;
     }
@@ -596,9 +597,15 @@
       z-index: 20;
     }
     .insight-hover-target:hover::after,
-    .insight-hover-target:focus-within::after {
+    .insight-hover-target:focus-within::after,
+    .insight-hover-target.is-open::after {
       opacity: 1;
       visibility: visible;
+    }
+    .card.case-study.is-open .case-body {
+      max-height: none;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
     .insight-item:last-child {
       border-bottom: none;
@@ -690,6 +697,22 @@
       }
       .offerings-scroll {
         max-height: 18rem;
+      }
+      .hover-indicator {
+        display: block;
+      }
+    }
+    @media (hover: none), (pointer: coarse) {
+      .service-hover-note,
+      .insight-hover-target {
+        cursor: pointer;
+      }
+      .service-hover-note::after,
+      .insight-hover-target::after {
+        max-width: min(20rem, calc(100vw - 3rem));
+      }
+      .card.case-study .hover-indicator {
+        color: #1d4ed8;
       }
     }
   </style>
@@ -1200,6 +1223,97 @@
   })();
 
   (function(){
+    const supportsTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (!supportsTouch) return;
+
+    const closers = [];
+
+    const attachTapToggle = (elements, className) => {
+      elements.forEach((el) => {
+        if (el.dataset.mobileBound === '1') return;
+        el.dataset.mobileBound = '1';
+        if (!el.hasAttribute('tabindex')) {
+          el.setAttribute('tabindex', '0');
+        }
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-expanded', 'false');
+
+        const toggle = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const isOpen = el.classList.contains(className);
+          closers.forEach((close) => close());
+          if (!isOpen) {
+            el.classList.add(className);
+            el.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        el.addEventListener('click', toggle);
+        el.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            toggle(event);
+          }
+        });
+
+        closers.push(() => {
+          el.classList.remove(className);
+          el.setAttribute('aria-expanded', 'false');
+        });
+      });
+    };
+
+    const initTouchInteractions = () => {
+      attachTapToggle(document.querySelectorAll('.service-hover-note'), 'is-open');
+      attachTapToggle(document.querySelectorAll('.insight-hover-target'), 'is-open');
+
+      const caseStudies = document.querySelectorAll('.card.case-study');
+      caseStudies.forEach((card) => {
+        if (card.dataset.mobileBound === '1') return;
+        card.dataset.mobileBound = '1';
+        card.setAttribute('aria-expanded', 'false');
+
+        const closeCard = () => {
+          card.classList.remove('is-open');
+          card.setAttribute('aria-expanded', 'false');
+        };
+
+        const toggleCard = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const isOpen = card.classList.contains('is-open');
+          closers.forEach((close) => close());
+          if (!isOpen) {
+            card.classList.add('is-open');
+            card.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        card.addEventListener('click', toggleCard);
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            toggleCard(event);
+          }
+        });
+
+        closers.push(closeCard);
+      });
+    };
+
+    initTouchInteractions();
+    document.addEventListener('insights:updated', initTouchInteractions);
+
+    document.addEventListener('click', () => {
+      closers.forEach((close) => close());
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closers.forEach((close) => close());
+      }
+    });
+  })();
+
+  (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
     if (!listEl) return;
@@ -1238,6 +1352,7 @@
         });
         listEl.appendChild(frag);
         if (fallbackEl) fallbackEl.style.display = 'none';
+        document.dispatchEvent(new Event('insights:updated'));
       })
       .catch(() => {
         // Keep fallback visible on error
