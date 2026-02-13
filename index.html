@@ -31,11 +31,11 @@
       inset: 0;
       z-index: -1;
       background:
-        radial-gradient(circle at 18% 22%, rgba(56,189,248,0.05), transparent 44%),
-        radial-gradient(circle at 78% 18%, rgba(236,72,153,0.06), transparent 42%),
-        radial-gradient(circle at 68% 74%, rgba(244,114,182,0.05), transparent 47%);
+        radial-gradient(circle at 18% 22%, rgba(147,197,253,0.10), transparent 44%),
+        radial-gradient(circle at 78% 18%, rgba(191,219,254,0.07), transparent 42%),
+        radial-gradient(circle at 68% 74%, rgba(219,234,254,0.08), transparent 47%);
       pointer-events: none;
-      animation: subtleColorShift 34s ease-in-out infinite alternate;
+      animation: subtleColorShift 34s ease-in-out infinite alternate, tintMorph 54s ease-in-out infinite alternate;
     }
     @keyframes subtleColorShift {
       0% {
@@ -53,13 +53,27 @@
     }
     @keyframes backgroundToneShift {
       0% {
-        filter: hue-rotate(0deg) saturate(1);
+        filter: saturate(1.02) brightness(1.01);
       }
       50% {
-        filter: hue-rotate(18deg) saturate(1.08);
+        filter: saturate(1.05) brightness(1.02);
       }
       100% {
-        filter: hue-rotate(32deg) saturate(1.1);
+        filter: saturate(1.06) brightness(1.03);
+      }
+    }
+    @keyframes tintMorph {
+      0% {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(147,197,253,0.11), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(191,219,254,0.08), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(219,234,254,0.09), transparent 47%);
+      }
+      100% {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(253,164,175,0.11), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(251,207,232,0.09), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(252,231,243,0.1), transparent 47%);
       }
     }
     header {
@@ -667,6 +681,14 @@
       }
       .hero {
         grid-template-columns: minmax(0, 1fr);
+      }
+      .card,
+      .insights,
+      .offerings-scroll {
+        background: rgba(15,23,42,0.14);
+        border-color: rgba(148,163,184,0.45);
+        box-shadow: 0 8px 20px rgba(15,23,42,0.12);
+        backdrop-filter: blur(3px);
       }
       .services-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
