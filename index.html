@@ -5,6 +5,12 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --accent: #004c97;
+      --accent-ink: #0f172a;
+      --surface-glass: rgba(255,255,255,0.1);
+      --surface-border: rgba(255,255,255,0.45);
+    }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -12,6 +18,13 @@
       color: #111827;
       -webkit-font-smoothing: antialiased;
       position: relative;
+    }
+    body.theme-dark {
+      --accent: #60a5fa;
+      --accent-ink: #e2e8f0;
+      --surface-glass: rgba(15,23,42,0.26);
+      --surface-border: rgba(148,163,184,0.4);
+      color: #e5e7eb;
     }
     body::before {
       content: "";
@@ -160,6 +173,79 @@
     nav a:hover::after {
       transform: scaleX(1);
     }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .theme-toggle {
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      color: #0f172a;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.34rem 0.75rem;
+      cursor: pointer;
+    }
+    body.theme-dark .theme-toggle {
+      background: rgba(15,23,42,0.72);
+      color: #e5e7eb;
+      border-color: rgba(148,163,184,0.55);
+    }
+    .progress-nav {
+      position: sticky;
+      top: 58px;
+      z-index: 9;
+      border-bottom: 1px solid rgba(203,213,225,0.85);
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(8px);
+    }
+    .progress-nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.42rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .progress-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: static;
+      border-radius: 999px;
+      padding: 0.3rem 0.72rem;
+      padding-bottom: 0.3rem;
+      margin-left: 0;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      color: #334155;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .progress-nav a::after {
+      display: none;
+    }
+    .progress-nav a.is-active {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      font-weight: 600;
+    }
+    body.theme-dark .progress-nav {
+      background: rgba(15,23,42,0.66);
+      border-bottom-color: rgba(148,163,184,0.35);
+    }
+    body.theme-dark .progress-nav a {
+      color: #cbd5e1;
+    }
     .shell {
       max-width: 1120px;
       margin: 0 auto;
@@ -174,6 +260,49 @@
       gap: 3rem;
       align-items: center;
       margin-top: 1.5rem;
+    }
+    .hero-right-stack {
+      display: grid;
+      gap: 0.9rem;
+    }
+    .hero-video-card {
+      position: relative;
+      min-height: 170px;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      border: 1px solid var(--surface-border);
+      background:
+        linear-gradient(135deg, rgba(30,64,175,0.4), rgba(14,165,233,0.25)),
+        radial-gradient(circle at 78% 24%, rgba(249,168,212,0.22), transparent 40%),
+        #0b1736;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.2);
+    }
+    .hero-video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.8;
+      mix-blend-mode: screen;
+    }
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(160deg, rgba(15,23,42,0.26), rgba(15,23,42,0.38)),
+        radial-gradient(circle at 20% 20%, rgba(147,197,253,0.18), transparent 50%);
+    }
+    .hero-video-label {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.8rem;
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
     }
     .eyebrow {
       font-size: 0.85rem;
@@ -419,9 +548,9 @@
     }
     .card {
       border-radius: 1.1rem;
-      border: 1px solid rgba(255,255,255,0.45);
+      border: 1px solid var(--surface-border);
       padding: 1.3rem 1.35rem;
-      background: rgba(255,255,255,0.08);
+      background: var(--surface-glass);
       box-shadow: 0 8px 20px rgba(15,23,42,0.08);
       backdrop-filter: blur(1.5px);
     }
@@ -505,10 +634,65 @@
     .insights {
       margin-top: 3.75rem;
       border-radius: 1.35rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.6);
       padding: 2rem 1.8rem;
-      backdrop-filter: blur(1.5px);
+      backdrop-filter: blur(2px);
+    }
+    .trust-strip {
+      margin-top: 2.4rem;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-glass);
+      border-radius: 1.1rem;
+      padding: 1rem 0.9rem;
+      overflow: hidden;
+    }
+    .trust-title {
+      margin: 0 0 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #475569;
+      padding-left: 0.35rem;
+      font-weight: 600;
+    }
+    .trust-viewport {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .trust-track {
+      display: flex;
+      gap: 0.7rem;
+      width: max-content;
+      animation: trustMarquee 26s linear infinite;
+    }
+    .trust-strip:hover .trust-track,
+    .trust-strip:focus-within .trust-track {
+      animation-play-state: paused;
+    }
+    .trust-pill {
+      border: 1px solid rgba(148,163,184,0.55);
+      background: rgba(255,255,255,0.5);
+      color: #111827;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      filter: grayscale(1);
+      opacity: 0.86;
+      transition: filter 0.2s ease, opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .trust-pill:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 45%, #94a3b8);
+    }
+    @keyframes trustMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
     .insights-grid {
       display: grid;
@@ -537,9 +721,9 @@
       align-items: start;
     }
     .offerings-scroll {
-      border: 1px solid rgba(255,255,255,0.45);
+      border: 1px solid var(--surface-border);
       border-radius: 1rem;
-      background: rgba(255,255,255,0.1);
+      background: var(--surface-glass);
       backdrop-filter: blur(1.5px);
       box-shadow: 0 8px 20px rgba(15,23,42,0.08);
       padding: 1rem;
@@ -659,7 +843,7 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: .13em;
-      color: #004c97;
+      color: #003f7d;
       font-weight: 600;
       margin: 0;
       line-height: 1.3;
@@ -668,16 +852,16 @@
       font-size: 1.05rem;
       margin: 0;
       line-height: 1.35;
-      color: #111827;
-      font-weight: 600;
+      color: #0b1220;
+      font-weight: 700;
       text-transform: none;
     }
     .insight-item p {
       font-size: 0.98rem;
-      color: #111827;
+      color: #0f172a;
       margin: 0;
       line-height: 1.45;
-      font-weight: 400;
+      font-weight: 500;
     }
     footer {
       border-top: 1px solid #e5e7eb;
@@ -707,8 +891,39 @@
       }
     }
     @media (max-width: 800px) {
-      nav {
-        display: none;
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+      }
+      .nav-actions > nav {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        padding-bottom: 0.2rem;
+      }
+      .nav-actions > nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+        padding-bottom: 0.1rem;
+        flex: 0 0 auto;
+      }
+      .nav-actions > nav a:last-child {
+        margin-right: 0;
+      }
+      .theme-toggle {
+        align-self: flex-start;
+      }
+      .progress-nav {
+        top: 56px;
       }
       .hero {
         grid-template-columns: minmax(0, 1fr);
@@ -729,6 +944,7 @@
       }
       .card,
       .insights,
+      .trust-strip,
       .offerings-scroll {
         background: rgba(15,23,42,0.14);
         border-color: rgba(148,163,184,0.45);
@@ -768,6 +984,25 @@
       .hover-indicator {
         display: block;
       }
+      .hero-video-card {
+        min-height: 130px;
+      }
+      #insights.insights {
+        background: rgba(255,255,255,0.34);
+        border-color: rgba(255,255,255,0.72);
+        backdrop-filter: blur(2.6px);
+      }
+      #insights .insight-tag {
+        color: #00356a;
+      }
+      #insights .insight-item h4 {
+        color: #0b1220;
+        font-weight: 700;
+      }
+      #insights .insight-item p {
+        color: #0b1220;
+        font-weight: 600;
+      }
     }
     @media (hover: none), (pointer: coarse) {
       .service-hover-note,
@@ -788,6 +1023,9 @@
         transform: none;
         transition: none;
       }
+      .trust-track {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -798,14 +1036,26 @@
       <div class="brand-mark">WJ</div>
       WyAttJoel Advisory Partners
     </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#insights">Insights</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="nav-actions">
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#insights">Insights</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle accent theme">Dark Accent</button>
+    </div>
   </div>
 </header>
+<nav class="progress-nav" aria-label="Section progress">
+  <div class="progress-nav-inner">
+    <a href="#services" data-progress-link="services">Services</a>
+    <a href="#insights" data-progress-link="insights">Insights</a>
+    <a href="#industries" data-progress-link="industries">Industries</a>
+    <a href="#case-studies" data-progress-link="case-studies">Case Studies</a>
+    <a href="#contact" data-progress-link="contact">Contact</a>
+  </div>
+</nav>
 
 <main class="shell">
   <section class="hero">
@@ -831,30 +1081,39 @@
         </div>
       </div>
     </div>
-    <div class="client-impact-card">
-      <h2>Client Impact Snapshot</h2>
-      <div class="impact-stats">
-        <div>
-          <span class="impact-number" data-target="14.7" data-prefix="$" data-suffix=" Billion" data-decimals="1">$14.7 Billion</span>
-          <span class="impact-label">Value Delivered</span>
-        </div>
-        <div>
-          <span class="impact-number" data-target="34" data-prefix="~" data-suffix="%" data-decimals="0">~34%</span>
-          <span class="impact-label">Efficiency Gains</span>
-        </div>
-        <div>
-          <span class="impact-number" data-target="500" data-prefix="" data-suffix="+" data-decimals="0">500+</span>
-          <span class="impact-label">Programs Led</span>
-        </div>
+    <div class="hero-right-stack">
+      <div class="hero-video-card" aria-label="Strategy activity highlight">
+        <video autoplay muted loop playsinline poster="site-background.png">
+          <source src="consulting-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-video-overlay"></div>
+        <p class="hero-video-label">Consulting in Motion</p>
       </div>
-      <div class="sector-pills" id="sector-pills">
-        <button type="button" class="sector-pill" data-sector-desc="We help banks, insurers, and asset managers modernize operations, manage risks, and drive growth through digital transformation and regulatory expertise.">Financial services</button>
-        <button type="button" class="sector-pill" data-sector-desc="Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.">Healthcare</button>
-        <button type="button" class="sector-pill" data-sector-desc="We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.">Public sector</button>
-        <button type="button" class="sector-pill" data-sector-desc="Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.">Technology</button>
+      <div class="client-impact-card">
+        <h2>Client Impact Snapshot</h2>
+        <div class="impact-stats">
+          <div>
+            <span class="impact-number" data-target="14.7" data-prefix="$" data-suffix=" Billion" data-decimals="1">$14.7 Billion</span>
+            <span class="impact-label">Value Delivered</span>
+          </div>
+          <div>
+            <span class="impact-number" data-target="34" data-prefix="~" data-suffix="%" data-decimals="0">~34%</span>
+            <span class="impact-label">Efficiency Gains</span>
+          </div>
+          <div>
+            <span class="impact-number" data-target="500" data-prefix="" data-suffix="+" data-decimals="0">500+</span>
+            <span class="impact-label">Programs Led</span>
+          </div>
+        </div>
+        <div class="sector-pills" id="sector-pills">
+          <button type="button" class="sector-pill" data-sector-desc="We help banks, insurers, and asset managers modernize operations, manage risks, and drive growth through digital transformation and regulatory expertise.">Financial services</button>
+          <button type="button" class="sector-pill" data-sector-desc="Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.">Healthcare</button>
+          <button type="button" class="sector-pill" data-sector-desc="We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.">Public sector</button>
+          <button type="button" class="sector-pill" data-sector-desc="Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.">Technology</button>
+        </div>
+        <div class="sector-description" id="sector-description">Hover over a sector to view details.</div>
+        <p style="color:#ffffff;">WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact, boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</p>
       </div>
-      <div class="sector-description" id="sector-description">Hover over a sector to view details.</div>
-      <p style="color:#ffffff;">WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact, boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</p>
     </div>
   </section>
 
@@ -944,6 +1203,29 @@
             <p>Design principles for scaling AI responsibly across critical workflows.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+  <section class="trust-strip" aria-label="trust strip">
+    <h3 class="trust-title">Trusted Methods and Certifications</h3>
+    <div class="trust-viewport">
+      <div class="trust-track">
+        <span class="trust-pill">Regulatory-grade Controls</span>
+        <span class="trust-pill">ISO-aligned Frameworks</span>
+        <span class="trust-pill">Lean Six Sigma Bench Strength</span>
+        <span class="trust-pill">PMO Governance Discipline</span>
+        <span class="trust-pill">Data-driven Operating Rhythm</span>
+        <span class="trust-pill">Day 1 Integration Readiness</span>
+        <span class="trust-pill">AI Safety and Accountability</span>
+        <span class="trust-pill">Enterprise Transformation Delivery</span>
+        <span class="trust-pill">Regulatory-grade Controls</span>
+        <span class="trust-pill">ISO-aligned Frameworks</span>
+        <span class="trust-pill">Lean Six Sigma Bench Strength</span>
+        <span class="trust-pill">PMO Governance Discipline</span>
+        <span class="trust-pill">Data-driven Operating Rhythm</span>
+        <span class="trust-pill">Day 1 Integration Readiness</span>
+        <span class="trust-pill">AI Safety and Accountability</span>
+        <span class="trust-pill">Enterprise Transformation Delivery</span>
       </div>
     </div>
   </section>
@@ -1242,10 +1524,65 @@
 
 <script>
   (function(){
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+
+    const storageKey = 'wj-accent-theme';
+    const setTheme = (mode) => {
+      document.body.classList.toggle('theme-dark', mode === 'dark');
+      toggle.textContent = mode === 'dark' ? 'Light Accent' : 'Dark Accent';
+      toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+    };
+
+    const saved = localStorage.getItem(storageKey);
+    setTheme(saved === 'dark' ? 'dark' : 'light');
+
+    toggle.addEventListener('click', () => {
+      const next = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+      setTheme(next);
+      localStorage.setItem(storageKey, next);
+    });
+  })();
+
+  (function(){
+    const links = Array.from(document.querySelectorAll('[data-progress-link]'));
+    if (!links.length) return;
+    const sections = links
+      .map((link) => document.getElementById(link.dataset.progressLink))
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    const setActive = (id) => {
+      links.forEach((link) => link.classList.toggle('is-active', link.dataset.progressLink === id));
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      setActive('services');
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      let best = null;
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (!best || entry.intersectionRatio > best.intersectionRatio) {
+          best = entry;
+        }
+      });
+      if (best?.target?.id) {
+        setActive(best.target.id);
+      }
+    }, { threshold: [0.2, 0.4, 0.6], rootMargin: '-30% 0px -50% 0px' });
+
+    sections.forEach((section) => observer.observe(section));
+    setActive(sections[0].id);
+  })();
+
+  (function(){
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const selector = '.hero > div, .client-impact-card, section[id], .card, .insight-item, .offerings-scroll';
+    const selector = '.hero > div, .client-impact-card, section[id], .trust-strip, .card, .insight-item, .offerings-scroll';
     const markAllVisible = () => {
       document.querySelectorAll(selector).forEach((el) => el.classList.add('is-visible'));
     };
