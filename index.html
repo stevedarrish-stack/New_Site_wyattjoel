@@ -23,6 +23,7 @@
         url("site-background.png") center center / cover no-repeat;
       background-attachment: fixed;
       pointer-events: none;
+      animation: backgroundToneShift 40s ease-in-out infinite alternate;
     }
     body::after {
       content: "";
@@ -48,6 +49,17 @@
       100% {
         opacity: 0.24;
         transform: translate3d(0.6%, -0.6%, 0) scale(1.005);
+      }
+    }
+    @keyframes backgroundToneShift {
+      0% {
+        filter: hue-rotate(0deg) saturate(1);
+      }
+      50% {
+        filter: hue-rotate(10deg) saturate(1.06);
+      }
+      100% {
+        filter: hue-rotate(-8deg) saturate(1.04);
       }
     }
     header {
