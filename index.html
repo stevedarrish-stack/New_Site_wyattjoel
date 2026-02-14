@@ -194,53 +194,6 @@
       color: #e5e7eb;
       border-color: rgba(148,163,184,0.55);
     }
-    .progress-nav {
-      display: none;
-    }
-    .progress-nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.42rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .progress-nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      position: static;
-      border-radius: 999px;
-      padding: 0.3rem 0.72rem;
-      padding-bottom: 0.3rem;
-      margin-left: 0;
-      font-size: 0.74rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      white-space: nowrap;
-      color: #334155;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
-    .progress-nav a::after {
-      display: none;
-    }
-    .progress-nav a.is-active {
-      color: var(--accent);
-      border-color: color-mix(in srgb, var(--accent) 40%, transparent);
-      background: color-mix(in srgb, var(--accent) 10%, transparent);
-      font-weight: 600;
-    }
-    body.theme-dark .progress-nav {
-      background: rgba(15,23,42,0.66);
-      border-bottom-color: rgba(148,163,184,0.35);
-    }
-    body.theme-dark .progress-nav a {
-      color: #cbd5e1;
-    }
     .shell {
       max-width: 1120px;
       margin: 0 auto;
@@ -649,6 +602,9 @@
       border-radius: 1.1rem;
       padding: 1rem 0.9rem;
       overflow: hidden;
+      max-width: 72%;
+      margin-left: auto;
+      margin-right: auto;
     }
     .trust-title {
       margin: 0 0 0.75rem;
@@ -894,15 +850,6 @@
       }
     }
     @media (max-width: 800px) {
-      .progress-nav {
-        display: block;
-        position: sticky;
-        top: 56px;
-        z-index: 9;
-        border-bottom: 1px solid rgba(203,213,225,0.85);
-        background: rgba(255,255,255,0.72);
-        backdrop-filter: blur(8px);
-      }
       .nav-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -938,6 +885,20 @@
       }
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+      }
+      .shell {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .hero,
+      section[id],
+      .insights,
+      .trust-strip,
+      .contact-layout {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
       }
       #case-studies .card-grid {
         display: grid;
@@ -964,6 +925,7 @@
       }
       .services-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-items: center;
       }
       .service-hover-note::after {
         min-width: 0;
@@ -971,11 +933,23 @@
         right: auto;
       }
       .client-impact-card {
-        margin-top: 1.2rem;
-        margin-bottom: 1.2rem;
+        width: 100%;
+        max-width: calc(100vw - 2rem);
+        margin: 1.2rem auto;
+        padding: 1rem 0.9rem;
       }
       .impact-stats {
         flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+      .impact-stats > div {
+        min-width: 0;
+      }
+      .impact-number {
+        font-size: clamp(0.95rem, 4.8vw, 1.12rem);
+      }
+      .impact-label {
+        font-size: 0.86rem;
       }
       .sector-pills {
         justify-content: flex-start;
@@ -988,9 +962,19 @@
       }
       .contact-layout {
         grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
       }
       .offerings-scroll {
         max-height: 18rem;
+      }
+      .card,
+      .offerings-scroll,
+      .insights-grid > div,
+      .client-impact-card {
+        width: 100%;
+      }
+      .trust-strip {
+        max-width: calc(100vw - 2rem);
       }
       .hover-indicator {
         display: block;
@@ -1013,6 +997,23 @@
       #insights .insight-item p {
         color: #0b1220;
         font-weight: 600;
+      }
+      #insights .insight-hover-target::after {
+        position: static;
+        display: block;
+        width: 100%;
+        max-width: none;
+        margin-top: 0.5rem;
+        box-sizing: border-box;
+        color: #ffffff;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #insights .insight-hover-target.is-open::after,
+      #insights .insight-hover-target:focus-within::after {
+        opacity: 1;
+        visibility: visible;
       }
     }
     @media (hover: none), (pointer: coarse) {
@@ -1063,15 +1064,6 @@
     </div>
   </div>
 </header>
-<nav class="progress-nav" aria-label="Section progress">
-  <div class="progress-nav-inner">
-    <a href="#services" data-progress-link="services">Services</a>
-    <a href="#insights" data-progress-link="insights">Insights</a>
-    <a href="#industries" data-progress-link="industries">Industries</a>
-    <a href="#case-studies" data-progress-link="case-studies">Case Studies</a>
-    <a href="#contact" data-progress-link="contact">Contact</a>
-  </div>
-</nav>
 
 <main class="shell">
   <section class="hero">
@@ -1232,6 +1224,7 @@
         <span class="trust-pill">Day 1 Integration Readiness</span>
         <span class="trust-pill">AI Safety and Accountability</span>
         <span class="trust-pill">Enterprise Transformation Delivery</span>
+        <span class="trust-pill">Best-in-Class Design and Development Expertise</span>
         <span class="trust-pill">Regulatory-grade Controls</span>
         <span class="trust-pill">ISO-aligned Frameworks</span>
         <span class="trust-pill">Lean Six Sigma Bench Strength</span>
@@ -1240,6 +1233,7 @@
         <span class="trust-pill">Day 1 Integration Readiness</span>
         <span class="trust-pill">AI Safety and Accountability</span>
         <span class="trust-pill">Enterprise Transformation Delivery</span>
+        <span class="trust-pill">Best-in-Class Design and Development Expertise</span>
       </div>
     </div>
   </section>
@@ -1565,40 +1559,6 @@
       setTheme(next);
       localStorage.setItem(storageKey, next);
     });
-  })();
-
-  (function(){
-    const links = Array.from(document.querySelectorAll('[data-progress-link]'));
-    if (!links.length) return;
-    const sections = links
-      .map((link) => document.getElementById(link.dataset.progressLink))
-      .filter(Boolean);
-    if (!sections.length) return;
-
-    const setActive = (id) => {
-      links.forEach((link) => link.classList.toggle('is-active', link.dataset.progressLink === id));
-    };
-
-    if (!('IntersectionObserver' in window)) {
-      setActive('services');
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      let best = null;
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        if (!best || entry.intersectionRatio > best.intersectionRatio) {
-          best = entry;
-        }
-      });
-      if (best?.target?.id) {
-        setActive(best.target.id);
-      }
-    }, { threshold: [0.2, 0.4, 0.6], rootMargin: '-30% 0px -50% 0px' });
-
-    sections.forEach((section) => observer.observe(section));
-    setActive(sections[0].id);
   })();
 
   (function(){
