@@ -768,99 +768,26 @@
       position: relative;
       cursor: help;
     }
-    .insight-hover-target::after {
-      content: attr(data-hover-note);
-      position: absolute;
-      top: calc(100% + 0.4rem);
-      left: 0;
-      max-width: 28rem;
-      background: #102a52;
+    .insight-note {
+      display: none;
+      margin-top: 0.5rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: none;
+      background-color: #0b2346;
       color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.28);
       border-radius: 0.65rem;
       padding: 0.55rem 0.7rem;
       font-size: 0.82rem;
       line-height: 1.35;
-      box-shadow: 0 12px 24px rgba(15,23,42,0.2);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.15s ease;
-      z-index: 20;
+      box-shadow: 0 14px 26px rgba(2, 6, 23, 0.42);
+      text-shadow: none;
     }
-    .insight-hover-target:hover::after,
-    .insight-hover-target:focus-within::after,
-    .insight-hover-target.is-open::after {
-      opacity: 1;
-      visibility: visible;
-    }
-    @media (min-width: 801px) {
-      .service-hover-note::after,
-      .insight-hover-target::after {
-        background-color: #0b2346 !important;
-        background-image: none !important;
-        color: #ffffff !important;
-        border: 1px solid rgba(255,255,255,0.28) !important;
-        box-shadow: 0 16px 28px rgba(2, 6, 23, 0.48) !important;
-        text-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        mix-blend-mode: normal;
-        filter: none;
-        isolation: isolate;
-        background-clip: padding-box;
-        transition: none;
-        display: none;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateZ(0);
-        contain: paint;
-        z-index: 200;
-      }
-      .service-hover-note::after,
-      .service-hover-note::after *,
-      .insight-hover-target::after,
-      .insight-hover-target::after * {
-        color: #ffffff !important;
-        opacity: 1 !important;
-        text-shadow: none !important;
-        -webkit-text-fill-color: #ffffff;
-      }
-      .insight-item,
-      .insight-hover-target {
-        overflow: visible;
-      }
-      .service-hover-note,
-      .insight-hover-target {
-        isolation: isolate;
-        z-index: 5;
-      }
-      .service-hover-note:hover::after,
-      .service-hover-note:focus::after,
-      .service-hover-note.is-open::after,
-      .insight-hover-target:hover::after,
-      .insight-hover-target:focus-within::after,
-      .insight-hover-target.is-open::after {
-        display: block !important;
-      }
-      /* Match the mobile behavior for insights hover notes to prevent bleed-through on desktop */
-      #insights .insight-hover-target::after {
-        position: static;
-        display: none !important;
-        width: 100%;
-        max-width: none;
-        margin-top: 0.5rem;
-        box-sizing: border-box;
-        opacity: 1 !important;
-        visibility: visible !important;
-      }
-      #insights .insight-hover-target:hover::after,
-      #insights .insight-hover-target:focus-within::after,
-      #insights .insight-hover-target.is-open::after {
-        display: block !important;
-      }
+    .insight-hover-target:hover .insight-note,
+    .insight-hover-target:focus-within .insight-note,
+    .insight-hover-target.is-open .insight-note {
+      display: block;
     }
     .card.case-study.is-open .case-body {
       max-height: none;
@@ -1094,37 +1021,14 @@
         color: #0b1220;
         font-weight: 600;
       }
-      #insights .insight-hover-target::after {
-        position: static;
-        display: block;
-        width: 100%;
-        max-width: none;
-        margin-top: 0.5rem;
-        box-sizing: border-box;
-        background-color: #0e2a55;
-        background-image: none;
-        color: #ffffff;
-        border: 1px solid rgba(255,255,255,0.26);
-        box-shadow: 0 14px 26px rgba(2, 6, 23, 0.42);
-        text-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        mix-blend-mode: normal;
-        filter: none;
-        background-clip: padding-box;
-        transition: none;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
       #insights .insight-hover-target {
         isolation: isolate;
         overflow: visible;
       }
-      #insights .insight-hover-target.is-open::after,
-      #insights .insight-hover-target:focus-within::after {
-        opacity: 1;
-        visibility: visible;
+      #insights .insight-note {
+        background-color: #0e2a55;
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.26);
       }
     }
     @media (hover: none), (pointer: coarse) {
@@ -1132,8 +1036,7 @@
       .insight-hover-target {
         cursor: pointer;
       }
-      .service-hover-note::after,
-      .insight-hover-target::after {
+      .service-hover-note::after {
         max-width: min(20rem, calc(100vw - 3rem));
       }
       .card.case-study .hover-indicator {
@@ -1308,16 +1211,19 @@
             <div class="insight-tag">Article · Operating Model</div>
             <h4>Five moves to realign your operating model for digital scale</h4>
             <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+            <div class="insight-note">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
           </div>
           <div class="insight-item insight-hover-target" data-hover-note="Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.">
             <div class="insight-tag">BRIEF · FINANCIAL SERVICES</div>
             <h4>Rebuilding trust through transparent risk and control frameworks</h4>
             <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
+            <div class="insight-note">Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.</div>
           </div>
           <div class="insight-item insight-hover-target" data-hover-note="Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.">
             <div class="insight-tag">POINT OF VIEW · AI</div>
             <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
             <p>Design principles for scaling AI responsibly across critical workflows.</p>
+            <div class="insight-note">Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.</div>
           </div>
         </div>
       </div>
@@ -1938,9 +1844,13 @@
           h4.textContent = item.title || '';
           const p = document.createElement('p');
           p.textContent = item.summary || '';
+          const note = document.createElement('div');
+          note.className = 'insight-note';
+          note.textContent = wrap.getAttribute('data-hover-note') || '';
           wrap.appendChild(tag);
           wrap.appendChild(h4);
           wrap.appendChild(p);
+          wrap.appendChild(note);
           frag.appendChild(wrap);
         });
         listEl.appendChild(frag);
