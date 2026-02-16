@@ -719,6 +719,12 @@
       color: #475569;
       font-weight: 600;
     }
+    .client-logo-note {
+      margin: 0 0 0.55rem;
+      color: #0f172a;
+      font-size: 0.8rem;
+      display: none;
+    }
     .client-logo-viewport {
       overflow: hidden;
       mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
@@ -774,8 +780,12 @@
       font-weight: 600;
       line-height: 1.25;
     }
-    .client-logo-tile.no-image {
+    .client-logo-tile.no-image .client-logo-img-wrap {
       display: none;
+    }
+    .client-logo-tile.no-image .client-logo-label {
+      display: block;
+      font-size: 0.66rem;
     }
     @keyframes clientLogoScroll {
       from {
@@ -1170,6 +1180,9 @@
         min-width: 6.6rem;
         min-height: 2.35rem;
         padding: 0.28rem 0.34rem;
+      }
+      .client-logo-tile.no-image .client-logo-label {
+        font-size: 0.6rem;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -1726,6 +1739,7 @@
   </section>
   <section class="client-logo-wall" aria-label="representative client experience">
     <h3 class="client-logo-title">Client Experience</h3>
+    <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
     <div class="client-logo-viewport">
     <div class="client-logo-track" id="client-logo-track">
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/microsoft.com" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
