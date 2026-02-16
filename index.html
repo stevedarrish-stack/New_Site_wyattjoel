@@ -845,6 +845,22 @@
       .insight-hover-target.is-open::after {
         display: block !important;
       }
+      /* Match the mobile behavior for insights hover notes to prevent bleed-through on desktop */
+      #insights .insight-hover-target::after {
+        position: static;
+        display: none !important;
+        width: 100%;
+        max-width: none;
+        margin-top: 0.5rem;
+        box-sizing: border-box;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      #insights .insight-hover-target:hover::after,
+      #insights .insight-hover-target:focus-within::after,
+      #insights .insight-hover-target.is-open::after {
+        display: block !important;
+      }
     }
     .card.case-study.is-open .case-body {
       max-height: none;
