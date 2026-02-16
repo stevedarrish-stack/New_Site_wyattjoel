@@ -799,11 +799,11 @@
     @media (min-width: 801px) {
       .service-hover-note::after,
       .insight-hover-target::after {
-        background-color: #0e2a55;
-        background-image: none;
-        color: #ffffff;
-        border: 1px solid rgba(255,255,255,0.26);
-        box-shadow: 0 16px 28px rgba(2, 6, 23, 0.45);
+        background-color: #0b2346 !important;
+        background-image: none !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255,255,255,0.28) !important;
+        box-shadow: 0 16px 28px rgba(2, 6, 23, 0.48) !important;
         text-shadow: none;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
@@ -812,6 +812,11 @@
         isolation: isolate;
         background-clip: padding-box;
         transition: none;
+        display: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateZ(0);
+        contain: paint;
         z-index: 200;
       }
       .insight-item,
@@ -829,8 +834,7 @@
       .insight-hover-target:hover::after,
       .insight-hover-target:focus-within::after,
       .insight-hover-target.is-open::after {
-        opacity: 1;
-        visibility: visible;
+        display: block !important;
       }
     }
     .card.case-study.is-open .case-body {
@@ -1072,10 +1076,25 @@
         max-width: none;
         margin-top: 0.5rem;
         box-sizing: border-box;
+        background-color: #0e2a55;
+        background-image: none;
         color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.26);
+        box-shadow: 0 14px 26px rgba(2, 6, 23, 0.42);
+        text-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        mix-blend-mode: normal;
+        filter: none;
+        background-clip: padding-box;
+        transition: none;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
+      }
+      #insights .insight-hover-target {
+        isolation: isolate;
+        overflow: visible;
       }
       #insights .insight-hover-target.is-open::after,
       #insights .insight-hover-target:focus-within::after {
