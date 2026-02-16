@@ -922,27 +922,21 @@
         width: 100%;
       }
       #case-studies .card-grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
         gap: 1rem;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 0 1rem 0.8rem;
-        scroll-padding-left: 1rem;
-        scroll-padding-right: 1rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      #case-studies .card-grid::-webkit-scrollbar {
-        display: none;
+        overflow: visible;
+        padding: 0;
+        scroll-padding: 0;
+        scroll-snap-type: none;
       }
       #case-studies .card.case-study {
         box-sizing: border-box;
-        flex: 0 0 calc(100% - 2.4rem);
-        max-width: calc(100% - 2.4rem);
-        scroll-snap-align: center;
+        width: 100%;
+        max-width: 100%;
+        scroll-snap-align: none;
         margin: 0;
-        padding-left: calc(1rem + 0.0625in);
+        padding-left: 1rem;
       }
       #case-studies .card.case-study .section-lead {
         margin-bottom: 0.7rem !important;
