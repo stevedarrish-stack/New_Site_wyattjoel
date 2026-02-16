@@ -725,29 +725,42 @@
       font-size: 0.8rem;
     }
     .client-logo-viewport {
-      max-height: 15.5rem;
-      overflow: auto;
-      padding-right: 0.15rem;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
     }
-    .client-logo-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+    .client-logo-track {
+      display: flex;
       gap: 0.45rem;
+      width: max-content;
+      animation: clientLogoScroll 46s linear infinite;
+      will-change: transform;
     }
     .client-logo-tile {
       border: 1px solid rgba(148,163,184,0.45);
       background: rgba(255,255,255,0.55);
       color: #0f172a;
       border-radius: 0.65rem;
-      padding: 0.4rem 0.42rem 0.35rem;
+      padding: 0.35rem 0.42rem;
       text-align: center;
-      min-height: 3.45rem;
-      display: grid;
+      min-height: 2.5rem;
+      min-width: 8.4rem;
+      display: flex;
       align-items: center;
-      gap: 0.25rem;
+      justify-content: center;
+      flex: 0 0 auto;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .client-logo-wall:hover .client-logo-track,
+    .client-logo-wall:focus-within .client-logo-track {
+      animation-play-state: paused;
+    }
+    .client-logo-tile:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--accent) 40%, #94a3b8);
     }
     .client-logo-img-wrap {
-      height: 1.4rem;
+      height: 1.35rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -759,6 +772,7 @@
       filter: contrast(1.03) saturate(1.02);
     }
     .client-logo-label {
+      display: none;
       font-size: 0.62rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -769,7 +783,16 @@
       display: none;
     }
     .client-logo-tile.no-image .client-logo-label {
-      font-size: 0.76rem;
+      display: block;
+      font-size: 0.66rem;
+    }
+    @keyframes clientLogoScroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
     }
     .insights-grid {
       display: grid;
@@ -980,8 +1003,8 @@
       .impact-stats {
         gap: 0.9rem;
       }
-      .client-logo-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+      .client-logo-tile {
+        min-width: 7.4rem;
       }
     }
     @media (max-width: 800px) {
@@ -1152,21 +1175,13 @@
       .client-logo-wall {
         border-radius: 0.95rem;
       }
-      .client-logo-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .client-logo-viewport {
-        max-height: 13.5rem;
-      }
       .client-logo-tile {
-        min-height: 3.25rem;
-        padding: 0.35rem 0.35rem 0.32rem;
-      }
-      .client-logo-label {
-        font-size: 0.58rem;
+        min-width: 6.6rem;
+        min-height: 2.35rem;
+        padding: 0.28rem 0.34rem;
       }
       .client-logo-tile.no-image .client-logo-label {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -1725,7 +1740,7 @@
     <h3 class="client-logo-title">Representative Client Experience</h3>
     <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
     <div class="client-logo-viewport">
-    <div class="client-logo-grid">
+    <div class="client-logo-track" id="client-logo-track">
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/microsoft.com" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/dow.com" alt="Dow Chemical Brazil logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/gehealthcare.com" alt="GE Healthcare logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Healthcare</div></div>
@@ -1737,7 +1752,7 @@
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/jpmorganchase.com" alt="JP Morgan Chase US and Japan logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">JP Morgan Chase US &amp; Japan</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/citi.com" alt="Citi logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Citi</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/wellsfargo.com" alt="Wells Fargo logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" alt="Brandywine logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" alt="Brandywine Financial Group, Inc. logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine Financial Group, Inc.</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/alacergold.com" alt="Alacer logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Alacer</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/pwc.com" alt="PwC logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">PwC</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/deloitte.com" alt="Deloitte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Deloitte</div></div>
@@ -2020,6 +2035,12 @@
   })();
 
   (function(){
+    const logoTrack = document.getElementById('client-logo-track');
+    if (logoTrack && logoTrack.dataset.loopReady !== '1') {
+      logoTrack.innerHTML += logoTrack.innerHTML;
+      logoTrack.dataset.loopReady = '1';
+    }
+
     const logoImages = document.querySelectorAll('.client-logo-img');
     if (!logoImages.length) return;
 
