@@ -2286,6 +2286,7 @@
           img.src = originalSrc;
           return;
         }
+        window.clearTimeout(failSafeTimer);
         markFallback();
       };
       const validateLoadedImage = () => {
@@ -2294,8 +2295,14 @@
           handleImageError();
           return;
         }
+        window.clearTimeout(failSafeTimer);
         clearFallback();
       };
+      const failSafeTimer = window.setTimeout(() => {
+        if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
+          markFallback();
+        }
+      }, 6500);
 
       img.addEventListener('error', handleImageError);
       img.addEventListener('load', validateLoadedImage);
