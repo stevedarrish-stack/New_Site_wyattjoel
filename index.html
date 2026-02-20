@@ -123,95 +123,6 @@
         opacity: 0.25;
       }
     }
-    .opening-curtain {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      pointer-events: none;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 22% 26%, rgba(96,165,250,0.28) 0%, rgba(96,165,250,0) 42%),
-        radial-gradient(circle at 78% 34%, rgba(244,114,182,0.24) 0%, rgba(244,114,182,0) 45%),
-        radial-gradient(circle at 58% 72%, rgba(34,211,238,0.22) 0%, rgba(34,211,238,0) 46%),
-        radial-gradient(circle at 84% 72%, rgba(250,204,21,0.2) 0%, rgba(250,204,21,0) 44%),
-        linear-gradient(145deg, #071a46 0%, #183a84 40%, #472b78 72%, #81307b 100%);
-      animation: curtainFade 4.8s steps(18, end) forwards;
-    }
-    .opening-curtain::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(147,197,253,0.2) 0 32px,
-          rgba(244,114,182,0.14) 32px 64px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(56,189,248,0.16) 0 32px,
-          rgba(250,204,21,0.12) 32px 64px
-        );
-      mix-blend-mode: screen;
-      opacity: 0.78;
-      animation: curtainPixelDissolve 4.8s steps(12, end) forwards, curtainColorShift 4.8s linear forwards;
-    }
-    .opening-panel {
-      display: none;
-    }
-    .opening-panel.left {
-      display: none;
-    }
-    .opening-panel.right {
-      display: none;
-    }
-    .opening-core {
-      display: none;
-    }
-    @keyframes curtainFade {
-      0% {
-        opacity: 1;
-        filter: saturate(1.08) brightness(0.9);
-      }
-      68% {
-        opacity: 0.94;
-        filter: saturate(1.03) brightness(0.96);
-      }
-      100% {
-        opacity: 0;
-        filter: saturate(1) brightness(1);
-        visibility: hidden;
-      }
-    }
-    @keyframes curtainPixelDissolve {
-      0% {
-        opacity: 0.82;
-      }
-      55% {
-        opacity: 0.6;
-      }
-      82% {
-        opacity: 0.28;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-    @keyframes curtainColorShift {
-      0% {
-        filter: hue-rotate(0deg) saturate(1.12) brightness(0.88);
-      }
-      35% {
-        filter: hue-rotate(28deg) saturate(1.2) brightness(0.95);
-      }
-      70% {
-        filter: hue-rotate(-18deg) saturate(1.14) brightness(1);
-      }
-      100% {
-        filter: hue-rotate(0deg) saturate(1) brightness(1);
-      }
-    }
     header {
       position: sticky;
       top: 0;
@@ -1594,11 +1505,6 @@
   </style>
 </head>
 <body>
-<div id="opening-curtain" class="opening-curtain" aria-hidden="true">
-  <div class="opening-panel left"></div>
-  <div class="opening-panel right"></div>
-  <div class="opening-core"></div>
-</div>
 <header>
   <div class="nav-inner">
     <div class="brand">
@@ -2124,22 +2030,6 @@
 </main>
 
 <script>
-  (function(){
-    const curtain = document.getElementById('opening-curtain');
-    if (!curtain) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      curtain.remove();
-      return;
-    }
-    const cleanup = () => {
-      if (curtain.isConnected) curtain.remove();
-    };
-    curtain.addEventListener('animationend', (event) => {
-      if (event.animationName === 'curtainFade') cleanup();
-    });
-    window.setTimeout(cleanup, 5600);
-  })();
-
   (function(){
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
