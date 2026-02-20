@@ -2254,14 +2254,20 @@
       logoTrack.dataset.loopReady = '1';
     }
 
-    const logoImages = logoTrack.querySelectorAll('.client-logo-img');
     logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
+      const img = tile.querySelector('.client-logo-img');
+      const src = img ? (img.getAttribute('src') || '').trim() : '';
+      if (!img || !src) {
+        tile.remove();
+        return;
+      }
       tile.classList.remove('no-image');
       const label = tile.querySelector('.client-logo-label');
       if (label) label.style.setProperty('display', 'none', 'important');
       const wrap = tile.querySelector('.client-logo-img-wrap');
       if (wrap) wrap.style.setProperty('display', 'flex', 'important');
     });
+    const logoImages = logoTrack.querySelectorAll('.client-logo-img');
     if (!logoImages.length) {
       logoTrack.classList.add('is-ready');
       return;
@@ -2286,7 +2292,9 @@
       if (originalSrc) preloadSrcs.add(originalSrc);
 
       const markFallback = () => {
+        if (!tile.isConnected) return;
         tile.classList.add('no-image');
+        tile.remove();
       };
       const clearFallback = () => {
         tile.classList.remove('no-image');
