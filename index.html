@@ -2253,6 +2253,25 @@
       logoTrack.dataset.loopReady = '1';
     }
 
+    const tileLabel = (tile) => {
+      const label = tile.querySelector('.client-logo-label');
+      return label ? (label.textContent || '').trim() : '';
+    };
+    const normalizeCriticalAdjacency = () => {
+      const tiles = Array.from(logoTrack.querySelectorAll('.client-logo-tile'));
+      tiles.forEach((tile) => {
+        if (!/TD Bank/i.test(tileLabel(tile))) return;
+        let probe = tile.nextElementSibling;
+        while (probe) {
+          const probeLabel = tileLabel(probe);
+          if (/^Citi\b/i.test(probeLabel)) break;
+          const nextProbe = probe.nextElementSibling;
+          probe.remove();
+          probe = nextProbe;
+        }
+      });
+    };
+
     logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
       const img = tile.querySelector('.client-logo-img');
       const src = img ? (img.getAttribute('src') || '').trim() : '';
@@ -2266,6 +2285,7 @@
       const wrap = tile.querySelector('.client-logo-img-wrap');
       if (wrap) wrap.style.setProperty('display', 'flex', 'important');
     });
+    normalizeCriticalAdjacency();
     const logoImages = logoTrack.querySelectorAll('.client-logo-img');
     if (!logoImages.length) {
       logoTrack.classList.add('is-ready');
