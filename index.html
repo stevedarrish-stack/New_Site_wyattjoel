@@ -864,10 +864,6 @@
       box-sizing: border-box;
       min-height: 2rem;
       padding: 0.18rem 0.24rem !important;
-      visibility: hidden;
-    }
-    .client-logo-track .client-logo-tile.is-loaded {
-      visibility: visible;
     }
     .client-logo-track .client-logo-tile .client-logo-img-wrap {
       height: 1.28rem !important;
@@ -2254,7 +2250,6 @@
     const logoImages = logoTrack.querySelectorAll('.client-logo-img');
     logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
       tile.classList.remove('no-image');
-      tile.classList.remove('is-loaded');
       const label = tile.querySelector('.client-logo-label');
       if (label) label.style.setProperty('display', 'none', 'important');
       const wrap = tile.querySelector('.client-logo-img-wrap');
@@ -2284,12 +2279,10 @@
       if (originalSrc) preloadSrcs.add(originalSrc);
 
       const markFallback = () => {
-        tile.classList.remove('is-loaded');
         tile.classList.add('no-image');
       };
       const clearFallback = () => {
         tile.classList.remove('no-image');
-        tile.classList.add('is-loaded');
       };
       const handleImageError = () => {
         if (!retriedOriginal && originalSrc) {
@@ -2328,9 +2321,17 @@
       (src) =>
         new Promise((resolve) => {
           const probe = new Image();
+          let done = false;
+          const finish = () => {
+            if (done) return;
+            done = true;
+            window.clearTimeout(preloadTimer);
+            resolve();
+          };
+          const preloadTimer = window.setTimeout(finish, 4500);
           probe.referrerPolicy = 'no-referrer';
-          probe.onload = resolve;
-          probe.onerror = resolve;
+          probe.onload = finish;
+          probe.onerror = finish;
           probe.src = src;
         })
     );
