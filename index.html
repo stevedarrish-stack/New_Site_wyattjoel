@@ -2253,10 +2253,12 @@
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
+      const originalSrc = img.getAttribute('src') || '';
+      let retriedOriginal = false;
 
-      if (img.src) {
+      if (originalSrc) {
         try {
-          const logoUrl = new URL(img.src, window.location.origin);
+          const logoUrl = new URL(originalSrc, window.location.origin);
           logoUrl.searchParams.set('logo_v', logoNoCacheToken);
           img.src = logoUrl.toString();
         } catch (err) {
@@ -2265,15 +2267,26 @@
       }
 
       const markFallback = () => tile.classList.add('no-image');
+      const clearFallback = () => tile.classList.remove('no-image');
+      const handleImageError = () => {
+        if (!retriedOriginal && originalSrc) {
+          retriedOriginal = true;
+          img.src = originalSrc;
+          return;
+        }
+        markFallback();
+      };
       const validateLoadedImage = () => {
         if (!img.complete) return;
-        if (!img.naturalWidth || !img.naturalHeight || img.naturalWidth < 16 || img.naturalHeight < 16) {
-          markFallback();
+        if (!img.naturalWidth || !img.naturalHeight) {
+          handleImageError();
+          return;
         }
+        clearFallback();
       };
 
-      img.addEventListener('error', markFallback, { once: true });
-      img.addEventListener('load', validateLoadedImage, { once: true });
+      img.addEventListener('error', handleImageError);
+      img.addEventListener('load', validateLoadedImage);
       validateLoadedImage();
     });
   })();
