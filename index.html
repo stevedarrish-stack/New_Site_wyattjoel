@@ -898,6 +898,12 @@
       font-weight: 600;
       line-height: 1.25;
     }
+    .client-logo-track .client-logo-label {
+      display: none !important;
+    }
+    .client-logo-track .client-logo-img-wrap {
+      display: flex !important;
+    }
     .client-logo-tile.client-logo-tile-fallback.no-image {
       display: flex;
     }
@@ -2250,6 +2256,13 @@
     }
 
     const logoImages = logoTrack.querySelectorAll('.client-logo-img');
+    logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
+      tile.classList.remove('no-image');
+      const label = tile.querySelector('.client-logo-label');
+      if (label) label.style.setProperty('display', 'none', 'important');
+      const wrap = tile.querySelector('.client-logo-img-wrap');
+      if (wrap) wrap.style.setProperty('display', 'flex', 'important');
+    });
     if (!logoImages.length) {
       logoTrack.classList.add('is-ready');
       return;
