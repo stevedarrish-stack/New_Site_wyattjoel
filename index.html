@@ -123,6 +123,90 @@
         opacity: 0.25;
       }
     }
+    .opening-curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      overflow: hidden;
+      animation: curtainFade 2s ease forwards;
+    }
+    .opening-panel {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50.5%;
+      background:
+        linear-gradient(140deg, #00376f 0%, #004c97 45%, #1d4ed8 100%);
+      box-shadow: inset 0 0 70px rgba(255,255,255,0.1);
+    }
+    .opening-panel.left {
+      left: 0;
+      transform: translateX(0);
+      animation: curtainLeftOpen 1.6s cubic-bezier(0.22, 0.76, 0.16, 1) 0.18s forwards;
+    }
+    .opening-panel.right {
+      right: 0;
+      transform: translateX(0);
+      animation: curtainRightOpen 1.6s cubic-bezier(0.22, 0.76, 0.16, 1) 0.18s forwards;
+    }
+    .opening-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 5rem;
+      height: 5rem;
+      margin-left: -2.5rem;
+      margin-top: -2.5rem;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(191,219,254,0.6) 52%, rgba(191,219,254,0) 74%);
+      filter: blur(0.5px);
+      animation: curtainCorePulse 1.25s ease-out 0.06s forwards;
+    }
+    @keyframes curtainLeftOpen {
+      0% {
+        transform: translateX(0);
+        filter: saturate(1.15);
+      }
+      100% {
+        transform: translateX(-102%);
+        filter: saturate(1);
+      }
+    }
+    @keyframes curtainRightOpen {
+      0% {
+        transform: translateX(0);
+        filter: saturate(1.15);
+      }
+      100% {
+        transform: translateX(102%);
+        filter: saturate(1);
+      }
+    }
+    @keyframes curtainCorePulse {
+      0% {
+        transform: scale(0.2);
+        opacity: 0;
+      }
+      32% {
+        transform: scale(1.35);
+        opacity: 0.95;
+      }
+      100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+    @keyframes curtainFade {
+      0%, 86% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
     header {
       position: sticky;
       top: 0;
@@ -1468,6 +1552,11 @@
   </style>
 </head>
 <body>
+<div id="opening-curtain" class="opening-curtain" aria-hidden="true">
+  <div class="opening-panel left"></div>
+  <div class="opening-panel right"></div>
+  <div class="opening-core"></div>
+</div>
 <header>
   <div class="nav-inner">
     <div class="brand">
@@ -1993,6 +2082,22 @@
 </main>
 
 <script>
+  (function(){
+    const curtain = document.getElementById('opening-curtain');
+    if (!curtain) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      curtain.remove();
+      return;
+    }
+    const cleanup = () => {
+      if (curtain.isConnected) curtain.remove();
+    };
+    curtain.addEventListener('animationend', (event) => {
+      if (event.animationName === 'curtainFade') cleanup();
+    });
+    window.setTimeout(cleanup, 2400);
+  })();
+
   (function(){
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
