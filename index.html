@@ -863,8 +863,8 @@
     }
     .client-logo-track .client-logo-tile .client-logo-img {
       max-height: 0.92rem !important;
-      opacity: 0.92 !important;
-      filter: contrast(0.96) saturate(0.88) !important;
+      opacity: 0.97 !important;
+      filter: contrast(1) saturate(0.95) !important;
     }
     .client-logo-wall:hover .client-logo-track,
     .client-logo-wall:focus-within .client-logo-track {
@@ -905,7 +905,15 @@
       font-size: 0.66rem;
     }
     .client-logo-tile.no-image {
+      display: flex;
+    }
+    .client-logo-tile.no-image .client-logo-img-wrap {
       display: none;
+    }
+    .client-logo-tile.no-image .client-logo-label {
+      display: block;
+      font-size: 0.66rem;
+      color: #0f172a;
     }
     @keyframes clientLogoScroll {
       from {
