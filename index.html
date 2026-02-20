@@ -907,23 +907,8 @@
     .client-logo-track .client-logo-img-wrap {
       display: flex !important;
     }
-    .client-logo-tile.client-logo-tile-fallback.no-image {
-      display: flex;
-    }
-    .client-logo-tile.client-logo-tile-fallback.no-image .client-logo-img-wrap {
-      display: flex;
-    }
-    .client-logo-tile.client-logo-tile-fallback.no-image .client-logo-label {
-      display: none;
-    }
-    .client-logo-tile.no-image {
-      display: flex;
-    }
-    .client-logo-tile.no-image .client-logo-img-wrap {
-      display: flex;
-    }
-    .client-logo-tile.no-image .client-logo-label {
-      display: none;
+    .client-logo-track .client-logo-tile.no-image {
+      display: none !important;
     }
     @keyframes clientLogoScroll {
       from {
@@ -2293,7 +2278,7 @@
       img.decoding = 'async';
       if (originalSrc) preloadSrcs.add(originalSrc);
 
-      const markFallback = () => {};
+      const markFallback = () => tile.classList.add('no-image');
       const clearFallback = () => tile.classList.remove('no-image');
       const handleImageError = () => {
         if (!retriedOriginal && originalSrc) {
