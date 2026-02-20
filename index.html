@@ -2280,6 +2280,18 @@
       logoTrack.classList.add('is-ready');
     };
 
+    const removeTilesForSrc = (targetSrc) => {
+      if (!targetSrc) return;
+      logoTrack.querySelectorAll('.client-logo-img').forEach((candidate) => {
+        const candidateSrc = (candidate.getAttribute('src') || '').trim();
+        if (candidateSrc !== targetSrc) return;
+        const candidateTile = candidate.closest('.client-logo-tile');
+        if (!candidateTile) return;
+        candidateTile.classList.add('no-image');
+        candidateTile.remove();
+      });
+    };
+
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
@@ -2292,6 +2304,10 @@
 
       const markFallback = () => {
         if (!tile.isConnected) return;
+        if (originalSrc) {
+          removeTilesForSrc(originalSrc);
+          return;
+        }
         tile.classList.add('no-image');
         tile.remove();
       };
