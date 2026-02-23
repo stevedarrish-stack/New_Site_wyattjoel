@@ -922,13 +922,19 @@
       line-height: 1.25;
     }
     .client-logo-track .client-logo-label {
-      display: none !important;
+      display: none;
     }
     .client-logo-track .client-logo-img-wrap {
       display: flex !important;
     }
     .client-logo-track .client-logo-tile.no-image {
+      display: flex !important;
+    }
+    .client-logo-track .client-logo-tile.no-image .client-logo-img-wrap {
       display: none !important;
+    }
+    .client-logo-track .client-logo-tile.no-image .client-logo-label {
+      display: block !important;
     }
     @keyframes clientLogoScroll {
       from {
@@ -2332,14 +2338,10 @@
       const img = tile.querySelector('.client-logo-img');
       const src = img ? (img.getAttribute('src') || '').trim() : '';
       if (!img || !src) {
-        tile.remove();
+        tile.classList.add('no-image');
         return;
       }
       tile.classList.remove('no-image');
-      const label = tile.querySelector('.client-logo-label');
-      if (label) label.style.setProperty('display', 'none', 'important');
-      const wrap = tile.querySelector('.client-logo-img-wrap');
-      if (wrap) wrap.style.setProperty('display', 'flex', 'important');
     });
     normalizeCriticalAdjacency();
     const logoImages = logoTrack.querySelectorAll('.client-logo-img');
@@ -2347,7 +2349,6 @@
       logoTrack.classList.add('is-ready');
       return;
     }
-    const preloadSrcs = new Set();
     let started = false;
 
     const startAnimation = () => {
@@ -2356,36 +2357,18 @@
       logoTrack.classList.add('is-ready');
     };
 
-    const removeTilesForSrc = (targetSrc) => {
-      if (!targetSrc) return;
-      logoTrack.querySelectorAll('.client-logo-img').forEach((candidate) => {
-        const candidateSrc = (candidate.getAttribute('src') || '').trim();
-        if (candidateSrc !== targetSrc) return;
-        const candidateTile = candidate.closest('.client-logo-tile');
-        if (!candidateTile) return;
-        candidateTile.classList.add('no-image');
-        candidateTile.remove();
-      });
-    };
-
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
       const originalSrc = img.getAttribute('src') || '';
       let retriedOriginal = false;
 
-      img.loading = 'eager';
+      img.loading = 'lazy';
       img.decoding = 'async';
-      if (originalSrc) preloadSrcs.add(originalSrc);
 
       const markFallback = () => {
         if (!tile.isConnected) return;
-        if (originalSrc) {
-          removeTilesForSrc(originalSrc);
-          return;
-        }
         tile.classList.add('no-image');
-        tile.remove();
       };
       const clearFallback = () => {
         tile.classList.remove('no-image');
@@ -2422,28 +2405,7 @@
       img.addEventListener('load', validateLoadedImage);
       validateLoadedImage();
     });
-
-    const preloadTasks = Array.from(preloadSrcs).map(
-      (src) =>
-        new Promise((resolve) => {
-          const probe = new Image();
-          let done = false;
-          const finish = () => {
-            if (done) return;
-            done = true;
-            window.clearTimeout(preloadTimer);
-            resolve();
-          };
-          const preloadTimer = window.setTimeout(finish, 4500);
-          probe.referrerPolicy = 'no-referrer';
-          probe.onload = finish;
-          probe.onerror = finish;
-          probe.src = src;
-        })
-    );
-
-    Promise.all(preloadTasks).then(startAnimation);
-    window.setTimeout(startAnimation, 2500);
+    window.setTimeout(startAnimation, 600);
   })();
 
   (function(){
