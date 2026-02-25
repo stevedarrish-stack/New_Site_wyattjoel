@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+  <title>WyAttJoel Advisory Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <style>
+        .client-impact-card {
+          background: #17305c;
+          color: #f9fafb;
+          border-radius: 1.2rem;
+          padding: 1.7rem 1.5rem;
+          box-shadow: none;
+          margin-top: 2.5rem;
+          margin-bottom: 2.5rem;
+        }
+        .client-impact-card h2 {
+          font-size: 1.15rem;
+          margin-bottom: 0.7rem;
+          letter-spacing: .15em;
+          text-transform: uppercase;
+          color: #b6c6e3;
+        }
+        .impact-stats {
+          display: flex;
+          justify-content: space-between;
+          gap: 1.5rem;
+          margin-bottom: 1.2rem;
+        }
+        .impact-number {
+          font-size: 1.5rem;
+          font-weight: 700;
+          display: block;
+          color: #e0eaff;
+        }
+        .impact-label {
+          font-size: 1rem;
+          color: #b6c6e3;
+          display: block;
+          margin-top: 0.2rem;
+        }
+        .impact-actions {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 1.1rem;
+        }
+        .impact-btn {
+          background: #17305c;
+          color: #f9fafb;
+          border: none;
+          border-radius: 0.7rem;
+          padding: 0.6rem 1.2rem;
+          font-size: 1rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background 0.15s;
+          white-space: nowrap;
+        }
+        .impact-btn:hover, .impact-btn:focus {
+          background: #25447a;
+        }
+        .client-impact-card p {
+          font-size: 1rem;
+          margin: 0.5rem 0 0 0;
+          color: #e0eaff;
+        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 30% 70% 55% 45%;
+      background: linear-gradient(135deg, #004c97, #0f172a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f9fafb;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.35);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      color: #6b7280;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #004c97;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.18s ease-out;
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
+      gap: 3rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 1rem;
+    }
+    h1 span {
+      color: #004c97;
+    }
+    .hero p {
+      color: #4b5563;
+      font-size: 1.02rem;
+      max-width: 36rem;
+      margin-bottom: 1.75rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #004c97;
+      color: #f9fafb;
+      box-shadow: 0 12px 22px rgba(15,23,42,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(15,23,42,0.3);
+      background: #00376f;
+    }
+    .btn-outline {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #111827;
+    }
+    .btn-outline:hover {
+      background: #e5f0ff;
+      border-color: #93c5fd;
+      transform: translateY(-1px);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+    .hero-meta strong {
+      display: block;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+    .hero-card {
+      background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
+      color: #e5e7eb;
+      border-radius: 1.35rem;
+      padding: 1.75rem 1.6rem;
+      box-shadow: 0 18px 35px rgba(15,23,42,0.35);
+    }
+    .hero-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+    .hero-card-main {
+      margin-bottom: 1rem;
+    }
+    .hero-card-main strong {
+      font-size: 1.9rem;
+      display: block;
+      letter-spacing: -0.03em;
+    }
+    .hero-card-main span {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.8);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.25rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .section-lead {
+      font-size: 0.98rem;
+      color: #4b5563;
+      max-width: 40rem;
+      margin-bottom: 1.4rem;
+    }
+    .card {
+      border-radius: 1.1rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.3rem 1.35rem;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
+    }
+    .card.case-study {
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .card.case-study .case-body {
+      max-height: 7.5rem;
+      overflow: hidden;
+      transition: max-height 0.2s ease;
+      -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    }
+    .card.case-study:hover .case-body,
+    .card.case-study:focus-within .case-body {
+      max-height: none;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    .card.case-study .hover-indicator {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+    .card span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: #6b7280;
+    }
+    .insights {
+      margin-top: 3.75rem;
+      border-radius: 1.35rem;
+      background: #f4f6f8;
+      padding: 2rem 1.8rem;
+    }
+    .insights-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .insight-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .insight-item:last-child {
+      border-bottom: none;
+    }
+    .insight-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #6b7280;
+      margin-bottom: 0.2rem;
+    }
+    .insight-item h4 {
+      font-size: 0.95rem;
+      margin: 0 0 0.15rem;
+    }
+    .insight-item p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem 1.5rem 2rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 3rem;
+    }
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">WJ</div>
+      WyattJoel Advisory Partners
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#insights">Insights</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Strategy · Transformation · Performance</div>
+      <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
+      <p>
+        We partner with senior leaders to redesign operating models, unlock digital value,
+        and deliver measurable impact across growth, cost, and risk.
+      </p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
+        <a href="#insights" class="btn btn-outline">Browse recent insights</a>
+      </div>
+      <div class="hero-meta">
+        <div>
+          <strong>500+ transformation programs</strong>
+          Across financial services, healthcare, public sector, and technology.
+        </div>
+        <div>
+          <strong>Average 15–30% efficiency gains</strong>
+          Through process redesign, automation, and data-driven decisioning.
+        </div>
+      </div>
+    </div>
+    <div class="client-impact-card">
+      <h2>Client Impact Snapshot</h2>
+      <div class="impact-stats">
+        <div>
+          <span class="impact-number">$2.1B</span>
+          <span class="impact-label">Value Delivered</span>
+        </div>
+        <div>
+          <span class="impact-number">15–30%</span>
+          <span class="impact-label">Efficiency Gains</span>
+        </div>
+        <div>
+          <span class="impact-number">500+</span>
+          <span class="impact-label">Programs Led</span>
+        </div>
+      </div>
+      <div class="impact-actions">
+        <button class="impact-btn impact-tooltip" data-tooltip="Total dollar value delivered to clients through transformation and advisory projects.">Value delivered to clients through all projects</button>
+        <button class="impact-btn impact-tooltip" data-tooltip="Average efficiency improvement range achieved for clients via process redesign and automation.">Typical efficiency improvement range for clients</button>
+        <button class="impact-btn impact-tooltip" data-tooltip="Number of transformation and advisory programs successfully led by our team.">Total programs led by WyattJoel</button>
+          .impact-tooltip {
+            position: relative;
+          }
+          .impact-tooltip::after {
+            content: attr(data-tooltip);
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #25447a;
+            color: #fff;
+            padding: 0.4em 0.7em;
+            border-radius: 0.5em;
+            font-size: 0.95em;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+            z-index: 10;
+            pointer-events: none;
+          }
+          .impact-tooltip:hover::after,
+          .impact-tooltip:focus::after {
+            visibility: visible;
+            opacity: 1;
+          }
+      </div>
+      <p style="color:#ffffff; font-weight: 600;"><strong>WyattJoel</strong> continues to make a difference in the community.</p>
+</div>
+      </p>
+    </aside>
+  </section>
+
+  <section id="services" style="margin-top:1.5rem;">
+    <div class="section-label">What we do</div>
+    <div class="section-title">End‑to‑end support from strategy to sustained delivery.</div>
+    <p class="section-lead">
+      We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
+      to move organizations from intent to outcome.
+    </p>
+    <div class="card-grid">
+      <article class="card">
+        <span>01 · Enterprise strategy</span>
+        <h3>Growth, portfolio, and investment strategy</h3>
+        <p>
+          Clarify where to play and how to win, align leadership on direction, and build
+          executable roadmaps anchored in tangible value.
+        </p>
+      </article>
+      <article class="card">
+        <span>02 · Transformation</span>
+        <h3>Operating model & transformation offices</h3>
+        <p>
+          Redesign structures, roles, and ways of working while establishing transformation
+          offices that track, unblock, and sustain impact.
+        </p>
+      </article>
+      <article class="card">
+        <span>03 · Digital & AI</span>
+        <h3>Digital journeys, automation, and analytics</h3>
+        <p>
+          Modernize customer and employee journeys, embed automation, and leverage data and AI
+          to inform mission‑critical decisions.
+        </p>
+      </article>
+      <article class="card">
+        <span>04 · Risk & resilience</span>
+        <h3>Regulatory, operational, and cyber resilience</h3>
+        <p>
+          Strengthen risk frameworks, streamline controls, and align stakeholders around a
+          pragmatic path to compliance and resilience.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="insights" class="insights">
+    <div class="insights-grid">
+      <div>
+        <div class="section-label">Insights</div>
+        <div class="section-title">Perspectives on what’s next.</div>
+        <p class="section-lead">
+          Short, practicable viewpoints on the trends reshaping industries—from generative AI
+          to evolving regulatory expectations.
+        </p>
+      </div>
+      <div>
+        <div id="insights-list"></div>
+        <div id="insights-fallback">
+          <div class="insight-item">
+            <div class="insight-tag">Article · Operating model</div>
+            <h4>Five moves to realign your operating model for digital scale</h4>
+            <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+          </div>
+          <div class="insight-item">
+            <div class="insight-tag">Brief · Financial services</div>
+            <h4>Rebuilding trust through transparent risk and control frameworks</h4>
+            <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
+          </div>
+          <div class="insight-item">
+            <div class="insight-tag">Point of view · AI</div>
+            <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
+            <p>Design principles for scaling AI responsibly across critical workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" style="margin-top:3.5rem;">
+    <div class="section-label">Industries</div>
+    <div class="section-title">We work where the stakes are high.</div>
+    <p class="section-lead">
+      Our teams bring specialized experience in highly regulated, complex environments where
+      execution risk is material.
+    </p>
+    <div class="card-grid">
+      <article class="card">
+        <span>Financial services</span>
+        <h3>Banking, payments, and capital markets</h3>
+        <p>
+          From core banking modernization to third‑party risk and AML/KYC remediation,
+          we help institutions navigate change at scale.
+        </p>
+      </article>
+      <article class="card">
+        <span>Healthcare</span>
+        <h3>Payers, providers, and services</h3>
+        <p>
+          Improve access, experience, and economics by rethinking care models,
+          digital front doors, and analytics foundations.
+        </p>
+      </article>
+      <article class="card">
+        <span>Public & social sector</span>
+        <h3>Government, education, and nonprofits</h3>
+        <p>
+          Support agencies and institutions in delivering better outcomes for citizens,
+          students, and communities.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="case-studies" style="margin-top:3.5rem;">
+    <div class="section-label">Case Studies</div>
+    <div class="section-title">Real-world impact in action.</div>
+    <p class="section-lead">
+      Explore how we’ve partnered with organizations to deliver measurable results across industries.
+    </p>
+    <div class="card-grid">
+      <article class="card case-study" tabindex="0">
+        <span>Healthcare Case Study</span>
+        <h3>Optimizing Patient & Physician Satisfaction in Large Hospital System</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Optimizing patient and physician satisfaction while improving productivity and diagnosis speed. Lack of connected framework to drive change and convert physician time from non-value to revenue-generating activities.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Linked initiatives to strategic priorities, uncovered process performance gaps, built dashboards, deployed governance, and aligned stakeholders from C-suite to frontline.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            33% MRI/CT throughput increase | $4.5M equipment savings (annually) | 30% patient satisfaction improvement | 23% physician satisfaction increase
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Software Development Case Study</span>
+        <h3>Transforming Product Development from Internally-Driven to Customer-Focused</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A software organization shifted to customer‑centric, Agile and Lean delivery, aligning teams to real market needs, cutting defects, and improving release predictability.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Market requirements misunderstood, developers producing features misaligned with customer needs, high error rates, scope creep, and disconnected work streams.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Prioritized design requirements through customer segmentation, moved to Agile & Lean development, integrated concurrent engineering, built visualization systems for work streams, ensured rigorous testing, and committed to design elements as late as possible.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            Improved end-to-end cycle | On-time delivery | Reduced development costs | Higher user acceptance | Low post-launch error rates | Real-time market responsiveness
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>IT System Development Case Study</span>
+        <h3>Business-Driven IT Architecture & System Design</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          IT architecture was reoriented around business priorities, reducing critical errors, simplifying implementations, and elevating customer and associate experiences.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> IT design driven by package architecture rather than business needs, lack of systematic framework to cascade requirements, poor front-end design driving high error rates, and risk/compliance requirements not integrated into work processes.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Engaged business leaders in executive sessions to understand needs and gaps, focused design activity through qualitative scoring of requirements, cascaded functional requirements down to process levels, and flipped the change model to start and end with business leaders rather than IT.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            Reduced system error rates & eliminated Severity Classes 1&2 | Improved overall software performance | Increased customer & associate satisfaction | Decreased implementation complexity | Business-responsive systems
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Petro-Chemical Product Development Case Study</span>
+        <h3>Accelerating Product Development & Market Success</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A petro‑chemical leader used concurrent engineering and rigorous experimental design to halve time‑to‑market and drive portfolio growth and profitability.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Product design lifecycle too long (14-21 months), inability to identify market gaps, functional silos reducing value chain integration, and ineffective experimental approaches missing critical factor interactions.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Leveraged concurrent engineering, DOE & QFD statistical methods to assess product gaps and manufacturing specs, conducted market segmentation analysis, assembled cross-functional teams of marketing, chemical, manufacturing engineers and R&D scientists focused on specific outcomes, and used Design of Experiments to uncover key effects and interactions.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            50%+ reduction in design lifecycle | Increased market share | Higher R&D pipeline adoption | Improved NPV | Higher development success rate | Improved revenue & operating costs | Enhanced product & process capability
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Lean Six Sigma & Continuous Improvement</span>
+        <h3>Enterprise-Wide Lean Six Sigma Deployment & Excellence</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          Enterprises aligned strategy, governance, and the right improvement methods to deliver sustained, enterprise‑wide performance gains and market leadership.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Business leaders lack understanding of sustainable program deployment, organizations misapply methodology with wrong entry points (DMAIC vs. Lean vs. DFSS), program entitlement undermines execution, and incorrect financial benefit positioning drives failure.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Facilitated cross-LOB strategy workshops using Hoshin Kanri to align organization and link human capital to business goals, matched improvement approach to organizational context and problem type, built robust PMOs and governance, deployed experienced Lean Six Sigma leadership teams, and ensured proper financial benefit calculation.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            Billions in documented improvement | CAT stock $55→$95/share | GE, Microsoft, JPMorgan Chase sector leadership | Companies outperforming Dow Jones | Quality & speed improvements | Enhanced customer alignment
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Retail Bank Optimization</span>
+        <h3>Transforming Retail Bank Franchise Performance</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A national bank standardized customer experience and deployed needs‑based selling and market analytics to unlock growth, raise satisfaction, and improve profitability.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Large retail franchises often don’t provide customers with a common experience across banking centers, driving dissatisfaction and attrition. Most banks lack a needs-based, customer-centric selling model, leading to missed opportunities and mismatched products. Sales goals are set based on historical performance rather than market data, and leadership support is applied uniformly, sub-optimizing market potential.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Designed and deployed an enterprise-level “Selling the Bank of America Way” playbook, engineered customer experience, deployed needs-based selling tools across 5700 branches, developed market capability algorithms, leveraged market demand models for goal setting, and customized product mix and sales targets by region.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            <strong>Impact:</strong> Moved the Bank from under $15B to $22B gross profit. Standardized selling routines, increased customer satisfaction, and reduced defections. Aggregate sales up 23% over 3 years, cross-sales ratio from 2.1 to 3.6, aggregate sales up 16%. Modeled store performance for higher market penetration and optimized leadership time allocation.
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Credit Card Direct Mail Campaign Optimization</span>
+        <h3>Transforming Direct Mail Efficiency & Customer Capture</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A credit card issuer modernized campaigns using data‑driven, relationship‑aware offers to cut costs, increase capture and conversion, and lift enterprise ROE.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Large credit card direct market campaigns are costly and inefficient. Banks struggle to leverage customer data for improved capture and conversion rates, and customizing campaigns is expensive with low ROI. Significant efficiency savings are needed to fund growth in the credit card space.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Moved from indiscriminate push offers to real-time, relationship-based offers using a prospect database and offer repository. Shifted to menu-driven, attribute-focused campaigns targeting customers by relationship, affinity, price sensitivity, and product interest. Reduced mailings per customer, increased capture and conversion rates, and coordinated cross-channel distribution for improved efficiency.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            <strong>Impact:</strong> $953M NPV in marketing cost reduction over 5 years (six channels), ROE up 7%, customer delight up 7%, direct mail costs down 8%, cost to acquire accounts down 11%, attrition from highest to lowest in industry, micro-segmentation strategy replicated across enterprise.
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Financial Services M&A Optimization</span>
+        <h3>Optimizing Behemoth Financial Services Environments M&A</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A complex merger integration delivered on‑time, low‑risk Day One and go‑live, protecting customers and performance while setting a new execution standard.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Conducting large-scale merger integrations without negatively impacting customer-facing systems or BAU performance. Needed to ensure flawless execution, manage risk, and report progress to stakeholders while avoiding business loss or reputational damage.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Ran parallel current-state analysis, identified redundant systems, built risk frameworks, and prioritized operational gaps. Developed project charters, held cross-functional workshops to uncover dependencies and risks, and executed projects through professional change managers with robust financial and communication routines.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            <strong>Impact:</strong> Completed Day One and go-live events with minimal critical errors. Key risks mitigated, customer satisfaction improved, and transitions became PR opportunities. Integrations finished on time and within budget, setting a new standard for post-merger re-engineering.
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+      <article class="card case-study" tabindex="0">
+        <span>Manufacturing Supply Chain Optimization</span>
+        <h3>Stabilizing Global Supply Chains for Resilience & Cost</h3>
+        <p class="section-lead" style="margin-bottom:0.9rem;">
+          A global manufacturer redesigned planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience across suppliers and regions.
+        </p>
+        <div class="case-body">
+          <p>
+            <strong>Issue:</strong> Volatile demand and fragmented supplier networks caused stockouts, excess inventory, and missed service levels. Limited visibility across tiers and manual planning created delays and cost overruns.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Action:</strong> Implemented S&OP discipline, built a multi‑tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+            18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead‑time improvement | Tier‑2/3 visibility established
+          </p>
+        </div>
+        <div class="hover-indicator">Hover to read more</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" style="margin-top:3.5rem;">
+    <div class="section-label">Contact</div>
+    <div class="section-title">Start a conversation.</div>
+    <p class="section-lead">
+      Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
+      on where we might help.
+    </p>
+      <form method="POST" action="https://new-site-wyattjoel.onrender.com/inquiry" style="max-width:480px;">
+      <div style="margin-bottom:0.9rem;">
+        <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
+        <input id="name" name="name" type="text" required
+               style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
+      </div>
+      <div style="margin-bottom:0.9rem;">
+        <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
+        <input id="email" name="email" type="email" required
+               style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
+      </div>
+      <div style="margin-bottom:0.9rem;">
+        <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
+        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
+          <option>Enterprise transformation</option>
+          <option>Digital & AI</option>
+          <option>Risk, compliance, and controls</option>
+          <option>Cost and productivity</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
+        <textarea id="message" name="message" rows="4"
+                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit inquiry →</button>
+    </form>
+  </section>
+</main>
+
+<script>
+  (function(){
+    const listEl = document.getElementById('insights-list');
+    const fallbackEl = document.getElementById('insights-fallback');
+    if (!listEl) return;
+    fetch('insights.json', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('Failed to load insights');
+        return r.json();
+      })
+      .then(items => {
+        if (!Array.isArray(items) || items.length === 0) return;
+        const frag = document.createDocumentFragment();
+        items.forEach(item => {
+          const wrap = document.createElement('div');
+          wrap.className = 'insight-item';
+          const tag = document.createElement('div');
+          tag.className = 'insight-tag';
+          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
+          const h4 = document.createElement('h4');
+          h4.textContent = item.title || '';
+          const p = document.createElement('p');
+          p.textContent = item.summary || '';
+          wrap.appendChild(tag);
+          wrap.appendChild(h4);
+          wrap.appendChild(p);
+          frag.appendChild(wrap);
+        });
+        listEl.appendChild(frag);
+        if (fallbackEl) fallbackEl.style.display = 'none';
+      })
+      .catch(() => {
+        // Keep fallback visible on error
+      });
+  })();
+</script>
+
+<footer>
+  <div class="footer-inner">
+    <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
+    <div>Strategy · Transformation · Digital & AI · Risk</div>
+  </div>
+</footer>
+

@@ -1,3 +1,7 @@
 Flask
 flask-cors
+<<<<<<< HEAD
 gunicorn
+=======
+gunicorn
+>>>>>>> origin/main
