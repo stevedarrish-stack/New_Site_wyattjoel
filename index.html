@@ -655,7 +655,8 @@
       margin-left: 0;
       margin-right: auto;
     }
-    .trust-title {
+    .trust-title,
+    .client-logo-title {
       margin: 0 0 0.75rem;
       font-size: 0.82rem;
       letter-spacing: 0.12em;
@@ -663,6 +664,8 @@
       color: #475569;
       padding-left: 0;
       font-weight: 600;
+      display: block;
+      text-align: left;
     }
     .trust-viewport {
       overflow: hidden;
@@ -703,21 +706,16 @@
       to { transform: translateX(-50%); }
     }
     .client-logo-wall {
-      margin-top: 2.2rem;
+      margin-top: calc(2.2rem + 3in);
+      width: min(45.2rem, calc(100% - 1rem));
+      margin-left: 0;
+      margin-right: auto;
       border: 1px solid var(--surface-border);
       background: var(--surface-glass);
       border-radius: 1.1rem;
-      padding: 0.8rem 0.8rem 0.75rem;
+      padding: 0.05rem 0.08rem;
       backdrop-filter: blur(1.5px);
       box-shadow: 0 8px 20px rgba(15,23,42,0.08);
-    }
-    .client-logo-title {
-      margin: 0 0 0.2rem;
-      font-size: 0.76rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #475569;
-      font-weight: 600;
     }
     .client-logo-note {
       margin: 0 0 0.55rem;
@@ -727,15 +725,19 @@
     }
     .client-logo-viewport {
       overflow: hidden;
-      mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
     }
     .client-logo-track {
       display: flex;
       gap: 0.45rem;
       width: max-content;
       animation: clientLogoScroll 56s linear infinite;
+      animation-play-state: paused;
       will-change: transform;
+    }
+    .client-logo-track.is-ready {
+      animation-play-state: running;
     }
     .client-logo-tile {
       border: 1px solid rgba(148,163,184,0.45);
@@ -753,14 +755,143 @@
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .client-logo-tile.client-logo-tile-pwc {
-      min-width: 9.8rem;
-      padding: 0.3rem 0.5rem;
+      min-width: 25.2rem;
+      padding: 0.72rem 1.48rem;
     }
     .client-logo-tile.client-logo-tile-pwc .client-logo-img-wrap {
-      height: 1.58rem;
+      height: 4.1rem;
     }
     .client-logo-tile.client-logo-tile-pwc .client-logo-img {
-      max-height: 1.5rem;
+      max-height: 3.92rem;
+    }
+    .client-logo-tile.client-logo-tile-ge {
+      min-width: 9.6rem;
+      padding: 0.3rem 0.5rem;
+    }
+    .client-logo-tile.client-logo-tile-ge .client-logo-img-wrap {
+      height: 1.56rem;
+    }
+    .client-logo-tile.client-logo-tile-ge .client-logo-img {
+      max-height: 1.48rem;
+    }
+    .client-logo-tile.client-logo-tile-ge-capital {
+      min-width: 13.6rem;
+      padding: 0.38rem 0.8rem;
+    }
+    .client-logo-tile.client-logo-tile-ge-capital .client-logo-img-wrap {
+      height: 2.35rem;
+    }
+    .client-logo-tile.client-logo-tile-ge-capital .client-logo-img {
+      max-height: 2.26rem;
+    }
+    .client-logo-tile.client-logo-tile-lg {
+      min-width: 11.8rem;
+      padding: 0.34rem 0.68rem;
+    }
+    .client-logo-tile.client-logo-tile-lg .client-logo-img-wrap {
+      height: 1.96rem;
+    }
+    .client-logo-tile.client-logo-tile-lg .client-logo-img {
+      max-height: 1.88rem;
+    }
+    .client-logo-tile.client-logo-tile-wells {
+      min-width: 22.8rem;
+      padding: 0.68rem 1.32rem;
+    }
+    .client-logo-tile.client-logo-tile-wells .client-logo-img-wrap {
+      height: 3.8rem;
+    }
+    .client-logo-tile.client-logo-tile-wells .client-logo-img {
+      max-height: 3.64rem;
+    }
+    .client-logo-tile.client-logo-tile-wfa {
+      min-width: 33.6rem;
+      padding: 0.84rem 1.8rem;
+    }
+    .client-logo-tile.client-logo-tile-wfa .client-logo-img-wrap {
+      height: 5.4rem;
+    }
+    .client-logo-tile.client-logo-tile-wfa .client-logo-img {
+      max-height: 5.12rem;
+    }
+    .client-logo-tile.client-logo-tile-sloan {
+      min-width: 14.4rem;
+      padding: 0.4rem 0.86rem;
+    }
+    .client-logo-tile.client-logo-tile-sloan .client-logo-img-wrap {
+      height: 2.45rem;
+    }
+    .client-logo-tile.client-logo-tile-sloan .client-logo-img {
+      max-height: 2.34rem;
+    }
+    .client-logo-tile.client-logo-tile-penn {
+      min-width: 6.8rem;
+      padding: 0.28rem 0.46rem;
+    }
+    .client-logo-tile.client-logo-tile-penn .client-logo-img-wrap {
+      height: 0.68rem;
+    }
+    .client-logo-tile.client-logo-tile-penn .client-logo-img {
+      max-height: 0.64rem;
+      filter: grayscale(1) sepia(1) saturate(6500%) hue-rotate(186deg) brightness(0.95) contrast(1.05);
+    }
+    .client-logo-tile.client-logo-tile-kroger {
+      min-width: 13.2rem;
+      padding: 0.4rem 0.84rem;
+    }
+    .client-logo-tile.client-logo-tile-kroger .client-logo-img-wrap {
+      height: 2.55rem;
+    }
+    .client-logo-tile.client-logo-tile-kroger .client-logo-img {
+      max-height: 2.44rem;
+    }
+    .client-logo-tile.client-logo-tile-maritz {
+      min-width: 13.2rem;
+      padding: 0.36rem 0.74rem;
+    }
+    .client-logo-tile.client-logo-tile-maritz .client-logo-img-wrap {
+      height: 2rem;
+    }
+    .client-logo-tile.client-logo-tile-maritz .client-logo-img {
+      max-height: 1.92rem;
+    }
+    /* Keep crawl tiles visually consistent across the strip. */
+    .client-logo-track .client-logo-tile {
+      width: 10.8rem !important;
+      min-width: 10.8rem !important;
+      max-width: 10.8rem !important;
+      flex: 0 0 10.8rem !important;
+      box-sizing: border-box;
+      min-height: 2rem;
+      padding: 0.18rem 0.24rem !important;
+    }
+    .client-logo-track .client-logo-tile .client-logo-img-wrap {
+      height: 1.28rem !important;
+    }
+    .client-logo-track .client-logo-tile .client-logo-img {
+      max-height: 1.2rem !important;
+      opacity: 0.97 !important;
+      filter: contrast(1) saturate(0.95) !important;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-pwc .client-logo-img {
+      transform: scale(2);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-ge-capital-art .client-logo-img {
+      transform: scale(1.8);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-alacer-art .client-logo-img {
+      transform: scale(4);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-fedstl .client-logo-img {
+      transform: scale(4);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-wfa .client-logo-img {
+      transform: scale(3);
+      transform-origin: center;
     }
     .client-logo-wall:hover .client-logo-track,
     .client-logo-wall:focus-within .client-logo-track {
@@ -790,12 +921,20 @@
       font-weight: 600;
       line-height: 1.25;
     }
-    .client-logo-tile.no-image .client-logo-img-wrap {
+    .client-logo-track .client-logo-label {
       display: none;
     }
-    .client-logo-tile.no-image .client-logo-label {
-      display: block;
-      font-size: 0.66rem;
+    .client-logo-track .client-logo-img-wrap {
+      display: flex !important;
+    }
+    .client-logo-track .client-logo-tile.no-image {
+      display: flex !important;
+    }
+    .client-logo-track .client-logo-tile.no-image .client-logo-img-wrap {
+      display: none !important;
+    }
+    .client-logo-track .client-logo-tile.no-image .client-logo-label {
+      display: block !important;
     }
     @keyframes clientLogoScroll {
       from {
@@ -1018,7 +1157,43 @@
         min-width: 7.4rem;
       }
       .client-logo-tile.client-logo-tile-pwc {
-        min-width: 8.6rem;
+        min-width: 22.2rem;
+      }
+      .client-logo-tile.client-logo-tile-ge {
+        min-width: 8.4rem;
+      }
+      .client-logo-tile.client-logo-tile-ge-capital {
+        min-width: 12.1rem;
+      }
+      .client-logo-tile.client-logo-tile-lg {
+        min-width: 10.2rem;
+      }
+      .client-logo-tile.client-logo-tile-wells {
+        min-width: 20rem;
+      }
+      .client-logo-tile.client-logo-tile-wfa {
+        min-width: 29.6rem;
+      }
+      .client-logo-tile.client-logo-tile-sloan {
+        min-width: 12.9rem;
+      }
+      .client-logo-tile.client-logo-tile-penn {
+        min-width: 6.2rem;
+      }
+      .client-logo-tile.client-logo-tile-kroger {
+        min-width: 11.8rem;
+      }
+      .client-logo-tile.client-logo-tile-maritz {
+        min-width: 11.8rem;
+      }
+      .client-logo-wall {
+        width: min(45.2rem, calc(100% - 1rem));
+      }
+      .client-logo-track .client-logo-tile {
+        width: 9.6rem !important;
+        min-width: 9.6rem !important;
+        max-width: 9.6rem !important;
+        flex: 0 0 9.6rem !important;
       }
     }
     @media (max-width: 800px) {
@@ -1062,6 +1237,10 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
         justify-items: center;
+      }
+      .hero-right-stack {
+        width: 100%;
+        max-width: 100%;
       }
       .shell {
         padding-left: 1.25rem;
@@ -1132,29 +1311,46 @@
         right: auto;
       }
       .client-impact-card {
-        width: 100%;
-        max-width: calc(100vw - 2rem);
-        margin: 1.2rem auto;
-        padding: 1rem 0.9rem;
+        box-sizing: border-box;
+        width: 92%;
+        max-width: 92%;
+        margin: 1rem auto;
+        padding: 0.9rem 0.72rem;
+        overflow: hidden;
       }
       .impact-stats {
-        flex-wrap: wrap;
-        gap: 0.7rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem;
+        margin-bottom: 0.9rem;
       }
       .impact-stats > div {
         min-width: 0;
       }
       .impact-number {
-        font-size: clamp(0.95rem, 4.8vw, 1.12rem);
+        font-size: clamp(0.8rem, 3.6vw, 0.96rem);
+        white-space: nowrap;
       }
       .impact-label {
-        font-size: 0.86rem;
+        font-size: 0.74rem;
+        line-height: 1.15;
       }
       .sector-pills {
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.2rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.36rem;
+        justify-content: stretch;
+        overflow-x: visible;
+        padding-bottom: 0;
+      }
+      .sector-pill {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.2;
+        padding: 0.38rem 0.42rem;
+        font-size: 0.68rem;
       }
       .insights-list-col {
         padding-top: 0;
@@ -1195,10 +1391,44 @@
         padding: 0.28rem 0.34rem;
       }
       .client-logo-tile.client-logo-tile-pwc {
-        min-width: 7.8rem;
+        min-width: 20rem;
       }
-      .client-logo-tile.no-image .client-logo-label {
-        font-size: 0.6rem;
+      .client-logo-tile.client-logo-tile-ge {
+        min-width: 7.6rem;
+      }
+      .client-logo-tile.client-logo-tile-ge-capital {
+        min-width: 10.9rem;
+      }
+      .client-logo-tile.client-logo-tile-lg {
+        min-width: 9.2rem;
+      }
+      .client-logo-tile.client-logo-tile-wells {
+        min-width: 18rem;
+      }
+      .client-logo-tile.client-logo-tile-wfa {
+        min-width: 26.4rem;
+      }
+      .client-logo-tile.client-logo-tile-sloan {
+        min-width: 11.6rem;
+      }
+      .client-logo-tile.client-logo-tile-penn {
+        min-width: 5.6rem;
+      }
+      .client-logo-tile.client-logo-tile-kroger {
+        min-width: 10.6rem;
+      }
+      .client-logo-tile.client-logo-tile-maritz {
+        min-width: 10.4rem;
+      }
+      .client-logo-wall {
+        width: 100%;
+        margin-top: 2.2rem;
+      }
+      .client-logo-track .client-logo-tile {
+        width: 8.6rem !important;
+        min-width: 8.6rem !important;
+        max-width: 8.6rem !important;
+        flex: 0 0 8.6rem !important;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -1233,6 +1463,32 @@
         background-color: #0e2a55;
         color: #ffffff;
         border: 1px solid rgba(255,255,255,0.26);
+      }
+      .card,
+      .insights,
+      .offerings-scroll,
+      .trust-strip,
+      .client-impact-card,
+      .client-logo-wall,
+      .insights-grid > div {
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+      #insights.insights {
+        background: transparent !important;
+        border-color: transparent !important;
+        backdrop-filter: none !important;
+      }
+      .client-impact-card {
+        background: #17305c !important;
+        border-color: rgba(182,198,227,0.35) !important;
+      }
+      #contact form {
+        background: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        box-shadow: 0 8px 20px rgba(15,23,42,0.06) !important;
       }
     }
     @media (hover: none), (pointer: coarse) {
@@ -1505,17 +1761,17 @@
         <span>Healthcare Case Study</span>
         <h3>Optimizing Patient & Physician Satisfaction in Large Hospital System</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.
+          A large hospital system redesigned care workflows and governance to raise patient and physician satisfaction while increasing diagnostic throughput and reducing capital spend.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Optimizing patient and physician satisfaction while improving productivity and diagnosis speed. Lack of connected framework to drive change and convert physician time from non-value to revenue-generating activities.
+            <strong>Issue:</strong> Patient and physician satisfaction were under pressure while diagnostic productivity lagged. Physicians were spending too much time on non-value administrative work, and improvement efforts lacked an integrated execution framework.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Linked initiatives to strategic priorities, uncovered process performance gaps, built dashboards, deployed governance, and aligned stakeholders from C-suite to frontline.
+            <strong>Action:</strong> Established a strategy-linked transformation roadmap, identified process bottlenecks, launched performance dashboards, instituted governance cadences, and aligned leaders from the C-suite through frontline clinical teams.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            33% MRI/CT throughput increase | $4.5M equipment savings (annually) | 30% patient satisfaction improvement | 23% physician satisfaction increase
+            <strong>Impact:</strong> 33% increase in MRI/CT throughput | $4.5M annual equipment savings | 30% improvement in patient satisfaction | 23% improvement in physician satisfaction
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1524,17 +1780,17 @@
         <span>Software Development Case Study</span>
         <h3>Transforming Product Development from Internally-Driven to Customer-Focused</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A software organization shifted to customer‑centric, Agile and Lean delivery, aligning teams to real market needs, cutting defects, and improving release predictability.
+          A software organization shifted from internally driven delivery to a customer-centered Agile and Lean model, improving quality, predictability, and market responsiveness.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Market requirements misunderstood, developers producing features misaligned with customer needs, high error rates, scope creep, and disconnected work streams.
+            <strong>Issue:</strong> Product decisions were driven by internal assumptions rather than validated customer needs, resulting in misaligned features, high defect rates, and costly scope drift.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Prioritized design requirements through customer segmentation, moved to Agile & Lean development, integrated concurrent engineering, built visualization systems for work streams, ensured rigorous testing, and committed to design elements as late as possible.
+            <strong>Action:</strong> Implemented customer-segmented prioritization, adopted Agile and Lean delivery, integrated concurrent engineering, increased workflow transparency, and strengthened testing and release discipline.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            Improved end-to-end cycle | On-time delivery | Reduced development costs | Higher user acceptance | Low post-launch error rates | Real-time market responsiveness
+            <strong>Impact:</strong> Shorter end-to-end cycle times | Higher on-time release performance | Lower development costs | Improved user acceptance | Fewer post-launch defects | Faster market response
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1543,17 +1799,17 @@
         <span>IT System Development Case Study</span>
         <h3>Business-Driven IT Architecture & System Design</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          IT architecture was reoriented around business priorities, reducing critical errors, simplifying implementations, and elevating customer and associate experiences.
+          An enterprise reoriented IT architecture around business priorities, reducing critical errors, simplifying implementation, and improving customer and associate experiences.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> IT design driven by package architecture rather than business needs, lack of systematic framework to cascade requirements, poor front-end design driving high error rates, and risk/compliance requirements not integrated into work processes.
+            <strong>Issue:</strong> Architecture decisions were constrained by package design rather than business outcomes, requirements were inconsistently translated into process design, and risk/compliance controls were not embedded in day-to-day operations.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Engaged business leaders in executive sessions to understand needs and gaps, focused design activity through qualitative scoring of requirements, cascaded functional requirements down to process levels, and flipped the change model to start and end with business leaders rather than IT.
+            <strong>Action:</strong> Convened business-led design sessions, prioritized requirements using structured scoring, cascaded business needs into process-level architecture decisions, and shifted governance so business leaders owned the full change lifecycle.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            Reduced system error rates & eliminated Severity Classes 1&2 | Improved overall software performance | Increased customer & associate satisfaction | Decreased implementation complexity | Business-responsive systems
+            <strong>Impact:</strong> Eliminated Severity 1 and 2 incidents and reduced overall error rates | Improved software performance | Increased customer and associate satisfaction | Reduced implementation complexity | Built business-responsive systems
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1566,13 +1822,13 @@
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Product design lifecycle too long (14-21 months), inability to identify market gaps, functional silos reducing value chain integration, and ineffective experimental approaches missing critical factor interactions.
+            <strong>Issue:</strong> Product design lifecycles stretched 14–21 months, market gaps stayed hidden, siloes blocked value-chain integration, and experiments missed critical factor interactions.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Leveraged concurrent engineering, DOE & QFD statistical methods to assess product gaps and manufacturing specs, conducted market segmentation analysis, assembled cross-functional teams of marketing, chemical, manufacturing engineers and R&D scientists focused on specific outcomes, and used Design of Experiments to uncover key effects and interactions.
+            <strong>Action:</strong> Applied concurrent engineering plus DOE and QFD practices to illuminate product and manufacturing requirements, ran outcome-focused segmentation pods, and governed experiments to uncover key factor interactions.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            50%+ reduction in design lifecycle | Increased market share | Higher R&D pipeline adoption | Improved NPV | Higher development success rate | Improved revenue & operating costs | Enhanced product & process capability
+            <strong>Impact:</strong> Cut design time by more than 50%, increased market share, lifted R&D pipeline adoption, improved NPV, boosted revenue and operating cost leverage, and elevated product-process capability.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1581,17 +1837,17 @@
         <span>Lean Six Sigma & Continuous Improvement</span>
         <h3>Enterprise-Wide Lean Six Sigma Deployment & Excellence</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          Enterprises aligned strategy, governance, and the right improvement methods to deliver sustained, enterprise‑wide performance gains and market leadership.
+          Enterprises aligned strategy, governance, and improvement methods to deliver sustained, company-wide performance gains and market leadership.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Business leaders lack understanding of sustainable program deployment, organizations misapply methodology with wrong entry points (DMAIC vs. Lean vs. DFSS), program entitlement undermines execution, and incorrect financial benefit positioning drives failure.
+            <strong>Issue:</strong> Business leaders struggled to deploy sustainable programs, misapplied methodologies, and lacked clarity on benefit capture and governance.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Facilitated cross-LOB strategy workshops using Hoshin Kanri to align organization and link human capital to business goals, matched improvement approach to organizational context and problem type, built robust PMOs and governance, deployed experienced Lean Six Sigma leadership teams, and ensured proper financial benefit calculation.
+            <strong>Action:</strong> Ran Hoshin Kanri strategy sessions, matched methodologies to context, built PMOs and governance, deployed experienced Lean Six Sigma leadership, and standardised financial benefit accounting.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            Billions in documented improvement | CAT stock $55→$95/share | GE, Microsoft, JPMorgan Chase sector leadership | Companies outperforming Dow Jones | Quality & speed improvements | Enhanced customer alignment
+            <strong>Impact:</strong> Billions in documented improvement | CAT stock $55→$95/share | Strengthened leadership positions at GE, Microsoft, JPMorgan Chase | Companies outperforming Dow Jones | Measurable quality, cadence, and customer alignment gains
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1604,13 +1860,13 @@
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Large retail franchises often don’t provide customers with a common experience across banking centers, driving dissatisfaction and attrition. Most banks lack a needs-based, customer-centric selling model, leading to missed opportunities and mismatched products. Sales goals are set based on historical performance rather than market data, and leadership support is applied uniformly, sub-optimizing market potential.
+            <strong>Issue:</strong> Retail centers delivered inconsistent experiences, customer loyalty eroded, and leadership leaned on historical goals rather than real-time market signals, so needs-based selling capabilities lagged.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Designed and deployed an enterprise-level “Selling the Bank of America Way” playbook, engineered customer experience, deployed needs-based selling tools across 5700 branches, developed market capability algorithms, leveraged market demand models for goal setting, and customized product mix and sales targets by region.
+            <strong>Action:</strong> Crafted and rolled out the “Selling the Bank of America Way” playbook, engineered a consistent experience across 5,700 branches, deployed needs-based selling tools, introduced market capability algorithms, and aligned regional goals to demand models.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> Moved the Bank from under $15B to $22B gross profit. Standardized selling routines, increased customer satisfaction, and reduced defections. Aggregate sales up 23% over 3 years, cross-sales ratio from 2.1 to 3.6, aggregate sales up 16%. Modeled store performance for higher market penetration and optimized leadership time allocation.
+            <strong>Impact:</strong> Grew gross profit from under $15B to $22B, standardized selling routines, lifted customer satisfaction, reduced defections, increased aggregate sales 23% over three years, and raised cross-sales from 2.1 to 3.6 while optimizing market penetration.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1623,13 +1879,13 @@
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Large credit card direct market campaigns are costly and inefficient. Banks struggle to leverage customer data for improved capture and conversion rates, and customizing campaigns is expensive with low ROI. Significant efficiency savings are needed to fund growth in the credit card space.
+            <strong>Issue:</strong> Direct-mail campaigns were costly, broadly targeted, and poorly tuned to customer attributes, leaving acquisition inefficient and expensive.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Moved from indiscriminate push offers to real-time, relationship-based offers using a prospect database and offer repository. Shifted to menu-driven, attribute-focused campaigns targeting customers by relationship, affinity, price sensitivity, and product interest. Reduced mailings per customer, increased capture and conversion rates, and coordinated cross-channel distribution for improved efficiency.
+            <strong>Action:</strong> Shifted to relationship-aware offers, fed by a prospect database and menu-driven repository, and orchestrated attribute-based segments by relationship, affinity, price sensitivity, and product interest while coordinating across six channels.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> $953M NPV in marketing cost reduction over 5 years (six channels), ROE up 7%, customer delight up 7%, direct mail costs down 8%, cost to acquire accounts down 11%, attrition from highest to lowest in industry, micro-segmentation strategy replicated across enterprise.
+            <strong>Impact:</strong> $953M NPV in marketing savings over five years, ROE up 7%, customer delight up 7%, direct-mail costs down 8%, acquisition cost down 11%, attrition rates now the lowest in the channel.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1642,13 +1898,13 @@
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Conducting large-scale merger integrations without negatively impacting customer-facing systems or BAU performance. Needed to ensure flawless execution, manage risk, and report progress to stakeholders while avoiding business loss or reputational damage.
+            <strong>Issue:</strong> Large-scale merger integrations threatened customer systems and BAU performance, creating operational risk and stakeholder anxiety.
           </p>
           <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Ran parallel current-state analysis, identified redundant systems, built risk frameworks, and prioritized operational gaps. Developed project charters, held cross-functional workshops to uncover dependencies and risks, and executed projects through professional change managers with robust financial and communication routines.
+            <strong>Action:</strong> Ran parallel current-state analysis, identified redundant systems, built risk frameworks, prioritized gaps, chartered projects, convened cross-functional workshops, and deployed structured change management with transparent finance and reporting cadences.
           </p>
           <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> Completed Day One and go-live events with minimal critical errors. Key risks mitigated, customer satisfaction improved, and transitions became PR opportunities. Integrations finished on time and within budget, setting a new standard for post-merger re-engineering.
+            <strong>Impact:</strong> Delivered Day One and go-live with minimal critical errors, mitigated key risks, improved customer satisfaction, created PR momentum, and finished on time and within budget.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
@@ -1754,36 +2010,40 @@
     </div>
   </section>
   <section class="client-logo-wall" aria-label="representative client experience">
-    <h3 class="client-logo-title">Client Experience</h3>
+    <h3 class="client-logo-title">CLIENT EXPERIENCE</h3>
     <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
     <div class="client-logo-viewport">
     <div class="client-logo-track" id="client-logo-track">
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_logo.svg" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dow_Chemical_Company_logo.svg" alt="Dow Chemical Brazil logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_HealthCare_logo_2023.svg" alt="GE Healthcare logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Healthcare</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_Capital_logo_late_1980s.svg" alt="GE Capital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Capital</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/LG_logo_(2023).svg" alt="LG Industries Korea logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LG Industries, Korea</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_logo.svg" alt="CAT Worldwide logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">CAT Worldwide</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" alt="Bank of America logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bank of America</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Toronto-Dominion_Bank_Logo.svg" alt="TD Bank US and Canada logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TD Bank US &amp; Canada</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_of_JPMorganChase_2024.svg" alt="JP Morgan Chase US and Japan logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">JP Morgan Chase US &amp; Japan</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Citibank.svg" alt="Citi logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Citi</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Bank.svg" alt="Wells Fargo logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" alt="Brandywine Financial Group, Inc. logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine Financial Group, Inc.</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/alacergold.com" alt="Alacer logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Alacer</div></div>
-      <div class="client-logo-tile client-logo-tile-pwc"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/BKK_PwC_Logo.svg" alt="PwC logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">PwC</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_of_Deloitte.svg" alt="Deloitte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Deloitte</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/TRW_logo.svg" alt="TRW Europe logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TRW Europe</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fiserv_Logo.svg" alt="Fiserv logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fiserv</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/dow-chemical.svg" alt="Dow Chemical Brazil logo" loading="lazy" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
+      <div class="client-logo-tile client-logo-tile-ge"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/ge-healthcare.svg" alt="GE Healthcare logo" loading="lazy" /></div><div class="client-logo-label">GE Healthcare</div></div>
+      <div class="client-logo-tile client-logo-tile-ge client-logo-tile-ge-capital-art"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/ge-capital.svg" alt="GE Capital logo" loading="lazy" /></div><div class="client-logo-label">GE Capital</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-lg"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/lg.svg" alt="LG Industries logo" loading="lazy" /></div><div class="client-logo-label">LG Industries</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/caterpillar.svg" alt="CAT Worldwide logo" loading="lazy" /></div><div class="client-logo-label">CAT Worldwide</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/bank-of-america.svg" alt="Bank of America logo" loading="lazy" /></div><div class="client-logo-label">Bank of America</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/td-bank.svg" alt="TD Bank US and Canada logo" loading="lazy" /></div><div class="client-logo-label">TD Bank US &amp; Canada</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/citibank.svg" alt="Citi logo" loading="lazy" /></div><div class="client-logo-label">Citi</div></div>
+      <div class="client-logo-tile client-logo-tile-wells"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/wells-fargo.svg" alt="Wells Fargo logo" loading="lazy" /></div><div class="client-logo-label">Wells Fargo</div></div>
+      <div class="client-logo-tile client-logo-tile-brandywine"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" alt="Brandywine Financial Group, Inc. logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine Financial Group, Inc.</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-alacer client-logo-tile-alacer-art"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b4ad483be7f386c6bb4b812bd42af2ab" alt="Alacer logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Alacer</div></div>
+      <div class="client-logo-tile client-logo-tile-pwc"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/pwc.svg" alt="PwC logo" loading="lazy" /></div><div class="client-logo-label">PwC</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/deloitte.svg" alt="Deloitte logo" loading="lazy" /></div><div class="client-logo-label">Deloitte</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/trw.svg" alt="TRW Europe logo" loading="lazy" /></div><div class="client-logo-label">TRW Europe</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/fiserv.svg" alt="Fiserv logo" loading="lazy" /></div><div class="client-logo-label">Fiserv</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-mda"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/MD_Anderson_Cancer_Center_logo.svg" alt="MD Anderson Cancer Hospital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">MD Anderson Cancer Hospital</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Esselte_logo.svg" alt="Esselte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Esselte</div></div>
+      <div class="client-logo-tile client-logo-tile-kroger"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/kroger.svg" alt="Kroger logo" loading="lazy" /></div><div class="client-logo-label">Kroger</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-wfa"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Advisors_logo.svg" alt="Wells Fargo Advisors logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo Advisors</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/fulton.svg" alt="Fulton Bank logo" loading="lazy" /></div><div class="client-logo-label">Fulton Bank</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-penn"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/penn-state.svg" alt="Penn State University logo" loading="lazy" /></div><div class="client-logo-label">Penn State University</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/witf.svg" alt="WITF Broadcasting logo" loading="lazy" /></div><div class="client-logo-label">WITF Broadcasting</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-maritz"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://www.smartsheet.com/sites/default/files/styles/900px/public/2024-02/maritz_logo_1.png?itok=3bbBoEXx" alt="Maritz St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Maritz, based in St. Louis</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-fedstl"><div class="client-logo-img-wrap"><img class="client-logo-img" src="federal-reserve-stl-logo.png" alt="Federal Reserve Bank of St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Federal Reserve Bank of St. Louis</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/en/4/45/Walter_Energy_Logo.png" alt="Jim Walter Resources logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Jim Walter Resources</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/LTV_Corporation_logo.png" alt="LTV Aerospace logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LTV Aerospace</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Boeing_full_logo.svg" alt="Boeing logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Boeing</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Koppers_logo.svg" alt="Coppers Industries logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Coppers Industries</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/MD_Anderson_Cancer_Center_logo.svg" alt="MD Anderson Cancer Hospital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">MD Anderson Cancer Hospital</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/ketteringhealth.org" alt="Sloan Kettering logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Sloan Kettering</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Esselte_logo.svg" alt="Esselte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Esselte</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kroger_logo_(1961-2019).svg" alt="Kroger logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Kroger</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Advisors_logo.svg" alt="Wells Fargo Advisors logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo Advisors</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fulton_Financial_Corporation_wordmark.svg" alt="Fulton Bank logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fulton Bank</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nokia_Bell_Labs_logo.svg" alt="Bell Labs Paris logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bell Labs, Paris</div></div>
     </div>
     </div>
@@ -2053,27 +2313,104 @@
 
   (function(){
     const logoTrack = document.getElementById('client-logo-track');
-    if (logoTrack && logoTrack.dataset.loopReady !== '1') {
+    if (!logoTrack) return;
+
+    if (logoTrack.dataset.loopReady !== '1') {
       logoTrack.innerHTML += logoTrack.innerHTML;
       logoTrack.dataset.loopReady = '1';
     }
 
-    const logoImages = document.querySelectorAll('.client-logo-img');
-    if (!logoImages.length) return;
+    const tileLabel = (tile) => {
+      const label = tile.querySelector('.client-logo-label');
+      return label ? (label.textContent || '').trim() : '';
+    };
+    const normalizeCriticalAdjacency = () => {
+      const tiles = Array.from(logoTrack.querySelectorAll('.client-logo-tile'));
+      tiles.forEach((tile) => {
+        if (!/TD Bank/i.test(tileLabel(tile))) return;
+        let probe = tile.nextElementSibling;
+        while (probe) {
+          const probeLabel = tileLabel(probe);
+          if (/^Citi\b/i.test(probeLabel)) break;
+          const nextProbe = probe.nextElementSibling;
+          probe.remove();
+          probe = nextProbe;
+        }
+      });
+    };
+
+    logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
+      const img = tile.querySelector('.client-logo-img');
+      const src = img ? (img.getAttribute('src') || '').trim() : '';
+      if (!img || !src) {
+        tile.classList.add('no-image');
+        return;
+      }
+      tile.classList.remove('no-image');
+    });
+    normalizeCriticalAdjacency();
+    const logoImages = logoTrack.querySelectorAll('.client-logo-img');
+    if (!logoImages.length) {
+      logoTrack.classList.add('is-ready');
+      return;
+    }
+    let started = false;
+
+    const startAnimation = () => {
+      if (started) return;
+      started = true;
+      logoTrack.classList.add('is-ready');
+    };
 
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
+      const originalSrc = img.getAttribute('src') || '';
+      let retriedOriginal = false;
 
-      const markFallback = () => tile.classList.add('no-image');
+      img.loading = 'lazy';
+      img.decoding = 'async';
 
-      img.addEventListener('error', markFallback, { once: true });
-      img.addEventListener('load', () => {
-        if (img.naturalWidth < 16 || img.naturalHeight < 16) {
+      const markFallback = () => {
+        if (!tile.isConnected) return;
+        tile.classList.add('no-image');
+      };
+      const clearFallback = () => {
+        tile.classList.remove('no-image');
+      };
+      const handleImageError = () => {
+        if (!retriedOriginal && originalSrc) {
+          retriedOriginal = true;
+          img.src = originalSrc;
+          return;
+        }
+        window.clearTimeout(failSafeTimer);
+        markFallback();
+      };
+      const validateLoadedImage = () => {
+        if (!img.complete) return;
+        if (!img.naturalWidth || !img.naturalHeight) {
+          handleImageError();
+          return;
+        }
+        if (img.naturalWidth <= 16 && img.naturalHeight <= 16) {
+          handleImageError();
+          return;
+        }
+        window.clearTimeout(failSafeTimer);
+        clearFallback();
+      };
+      const failSafeTimer = window.setTimeout(() => {
+        if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
           markFallback();
         }
-      }, { once: true });
+      }, 12000);
+
+      img.addEventListener('error', handleImageError);
+      img.addEventListener('load', validateLoadedImage);
+      validateLoadedImage();
     });
+    window.setTimeout(startAnimation, 600);
   })();
 
   (function(){

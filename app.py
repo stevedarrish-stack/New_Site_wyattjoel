@@ -4,7 +4,8 @@ from email.message import EmailMessage
 
 from flask import Flask, jsonify, redirect, request, send_from_directory
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__, static_folder=ROOT_DIR, static_url_path='')
 INQUIRY_RECIPIENTS = ('stevedarrish@gmail.com', 'steve@wyattjoel.com')
 
 
@@ -53,12 +54,12 @@ def send_inquiry_email(payload):
 
 @app.route('/')
 def home():
-    return send_from_directory('.', 'index.html')
+    return send_from_directory(ROOT_DIR, 'index.html')
 
 
 @app.route('/insights.json')
 def insights():
-    return send_from_directory('.', 'insights.json')
+    return send_from_directory(ROOT_DIR, 'insights.json')
 
 
 @app.route('/inquiry', methods=['POST'])
