@@ -92,5 +92,11 @@ def api_contact():
     return submit_inquiry()
 
 
+@app.route('/assets/<path:filename>')
+def serve_asset(filename):
+    asset_root = os.path.join(ROOT_DIR, 'assets')
+    return send_from_directory(asset_root, filename)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
