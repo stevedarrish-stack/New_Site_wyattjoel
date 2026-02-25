@@ -32,7 +32,7 @@ def send_inquiry_email(payload):
     msg.set_content(
         '\n'.join(
             [
-                'A new inquiry was submitted from wyattjoel.com',
+                'A new inquiry was submitted from wyattjoeladvisorypartners.com',
                 '',
                 f'Name: {name}',
                 f'Email: {email}',

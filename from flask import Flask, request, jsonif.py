@@ -7,7 +7,7 @@ from email.message import EmailMessage
 from flask_cors import CORS  # <-- Add this import
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)  # <-- Enable CORS for your domain
+CORS(app, resources={r"/*": {"origins": "https://wyattjoeladvisorypartners.com"}}, supports_credentials=True)  # <-- Enable CORS for your domain
 DB_PATH = 'inquiries.db'
 
 def init_db():
