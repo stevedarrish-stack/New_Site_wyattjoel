@@ -549,39 +549,55 @@
     .case-studies-section {
       background: rgba(255,255,255,0.22);
       border: 1px solid rgba(255,255,255,0.6);
-      padding: 2.25rem;
-      border-radius: 1.2rem;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.08);
+      padding: 2.5rem 2rem;
+      border-radius: 1.3rem;
+      box-shadow: 0 12px 36px rgba(15,23,42,0.1);
     }
     .case-studies-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
     }
     .case-study-card {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(148,163,184,0.5);
-      border-radius: 1rem;
-      padding: 1.3rem;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(148,163,184,0.55);
+      border-radius: 1.1rem;
+      padding: 1.2rem;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .case-study-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px rgba(15,23,42,0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(15,23,42,0.14);
     }
     .case-study-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
       font-weight: 700;
       color: #0b1220;
     }
-    .case-study-card p {
-      margin: 0;
+    .case-detail {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
       color: #374151;
-      line-height: 1.5;
       font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .case-detail p {
+      margin: 0;
+    }
+    .case-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #475569;
     }
     .card {
       border-radius: 1.1rem;
@@ -1766,27 +1782,102 @@
     <div class="case-studies-grid">
       <article class="case-study-card">
         <h3>Growth, portfolio, and investment strategy</h3>
-        <p>Align leadership on direction and build executable roadmaps anchored in tangible value.</p>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Leadership lacked a unified direction and executable roadmap, so priority-setting stalled.</p>
+          <p class="case-label">Action</p>
+          <p>Aligned cross-functional leadership, codified value-based roadmaps, and brought rigor to portfolio choices.</p>
+          <p class="case-label">Impact</p>
+          <p>Accelerated high-priority programs and cleared runway for strategic bets.</p>
+        </div>
       </article>
       <article class="case-study-card">
         <h3>Operating model & transformation offices</h3>
-        <p>Design transformation offices that track, unblock, and sustain impact.</p>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Disconnected structures and unclear governance blocked sustained execution.</p>
+          <p class="case-label">Action</p>
+          <p>Redesigned roles, launched a transformation office, and instituted performance cadences.</p>
+          <p class="case-label">Impact</p>
+          <p>Created reliable delivery, faster escalation, and stronger accountability.</p>
+        </div>
       </article>
       <article class="case-study-card">
         <h3>Digital journeys, automation, and analytics</h3>
-        <p>Modernize journeys, embed automation, and leverage data to inform mission-critical decisions.</p>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Journeys were fragmented, automation was ad hoc, and analytics lagged decision-makers.</p>
+          <p class="case-label">Action</p>
+          <p>Reimagined journeys, embedded automation, and brought data/AI into critical workflows.</p>
+          <p class="case-label">Impact</p>
+          <p>Improved customer and employee experience with measurable productivity gains.</p>
+        </div>
       </article>
       <article class="case-study-card">
         <h3>Regulatory, operational, and cyber resilience</h3>
-        <p>Strengthen risk frameworks, streamline controls, and align leaders around resilient execution.</p>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Risk frameworks were inconsistent and controls were seen as a burden.</p>
+          <p class="case-label">Action</p>
+          <p>Streamlined frameworks, aligned stakeholders, and embedded resilience practices.</p>
+          <p class="case-label">Impact</p>
+          <p>Reduced regulatory friction and increased stakeholder confidence.</p>
+        </div>
       </article>
       <article class="case-study-card">
         <h3>Accelerating product & process development</h3>
-        <p>Cut innovation lifecycles with AI-powered benchmarking and concurrent engineering.</p>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Design and launch timelines stretched 9–24 months, limiting new revenue.</p>
+          <p class="case-label">Action</p>
+          <p>Applied AI benchmarking, DOE, and concurrent engineering to compress cycles.</p>
+          <p class="case-label">Impact</p>
+          <p>Cut design time, improved quality, and unlocked faster market adoption.</p>
+        </div>
       </article>
       <article class="case-study-card">
         <h3>Executing behemoth financial services deals</h3>
-        <p>Guide large-scale M&A with structured due diligence, integration, and change management.</p>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Large integrations threatened customers, systems, and BAU performance.</p>
+          <p class="case-label">Action</p>
+          <p>Ran structured due diligence, prioritized risks, and deployed transparent change management.</p>
+          <p class="case-label">Impact</p>
+          <p>Delivered Day One on time, within budget, and with minimal disruptions.</p>
+        </div>
+      </article>
+      <article class="case-study-card">
+        <h3>Healthcare patient & clinician satisfaction</h3>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Physician burnout rose, diagnostics lagged, and patients received inconsistent care.</p>
+          <p class="case-label">Action</p>
+          <p>Rebuilt care workflows, launched governance cadences, and tied dashboards to clinical KPIs.</p>
+          <p class="case-label">Impact</p>
+          <p>33% quicker MRI/CT throughput, $4.5M equipment savings, and notable satisfaction gains.</p>
+        </div>
+      </article>
+      <article class="case-study-card">
+        <h3>Lean Six Sigma & continuous improvement</h3>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Teams misapplied methodologies and lacked benefit clarity, leading to inconsistent improvements.</p>
+          <p class="case-label">Action</p>
+          <p>Matched tools to context, built PMOs, standardized benefit accounting, and deployed seasoned leaders.</p>
+          <p class="case-label">Impact</p>
+          <p>Recorded billions in improvement, strengthened leadership positions, and increased quality and cadence.</p>
+        </div>
+      </article>
+      <article class="case-study-card">
+        <h3>Manufacturing supply chain optimization</h3>
+        <div class="case-detail">
+          <p class="case-label">Issue</p>
+          <p>Volatile demand, fragmented suppliers, and manual planning drove stockouts and cost overruns.</p>
+          <p class="case-label">Action</p>
+          <p>Introduced S&OP discipline, multitier control tower, supplier consolidation, and predictive replenishment.</p>
+          <p class="case-label">Impact</p>
+          <p>Inventory dropped 18%, stockouts fell 27%, logistics costs dropped 9%, and lead time improved 12%.</p>
+        </div>
       </article>
     </div>
   </section>
