@@ -4,8 +4,7 @@ from email.message import EmailMessage
 
 from flask import Flask, jsonify, redirect, request, send_from_directory
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-app = Flask(__name__, static_folder=ROOT_DIR, static_url_path='')
+app = Flask(__name__, static_folder='.', static_url_path='')
 INQUIRY_RECIPIENTS = ('stevedarrish@gmail.com', 'steve@wyattjoel.com')
 
 
@@ -32,7 +31,7 @@ def send_inquiry_email(payload):
     msg.set_content(
         '\n'.join(
             [
-                'A new inquiry was submitted from wyattjoeladvisorypartners.com',
+                'A new inquiry was submitted from wyattjoel.com',
                 '',
                 f'Name: {name}',
                 f'Email: {email}',
@@ -54,12 +53,12 @@ def send_inquiry_email(payload):
 
 @app.route('/')
 def home():
-    return send_from_directory(ROOT_DIR, 'index.html')
+    return send_from_directory('.', 'index.html')
 
 
 @app.route('/insights.json')
 def insights():
-    return send_from_directory(ROOT_DIR, 'insights.json')
+    return send_from_directory('.', 'insights.json')
 
 
 @app.route('/inquiry', methods=['POST'])
@@ -90,12 +89,6 @@ def submit_inquiry():
 @app.route('/api/contact', methods=['POST'])
 def api_contact():
     return submit_inquiry()
-
-
-@app.route('/assets/<path:filename>')
-def serve_asset(filename):
-    asset_root = os.path.join(ROOT_DIR, 'assets')
-    return send_from_directory(asset_root, filename)
 
 
 if __name__ == '__main__':
