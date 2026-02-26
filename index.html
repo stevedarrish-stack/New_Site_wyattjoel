@@ -1450,11 +1450,46 @@
       .card {
         padding: 1.1rem 1rem;
       }
-      .insights-art {
-        width: calc(100% - 0.35rem);
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .insights-art {
+      width: calc(100% - 0.35rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ai-spotlight {
+      margin-top: 1.2rem;
+      padding: 1.2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+    }
+    .ai-spotlight-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 0.35rem;
+    }
+    .ai-spotlight h4 {
+      font-size: 1.25rem;
+      margin: 0;
+      margin-bottom: 0.45rem;
+      color: #0b1220;
+      line-height: 1.35;
+    }
+    .ai-spotlight p {
+      margin: 0;
+      margin-bottom: 0.75rem;
+      color: #1f2937;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .ai-spotlight-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
       .client-impact-card,
       .insights,
       .offerings-scroll,
@@ -1534,6 +1569,9 @@
         background: rgba(255,255,255,0.34);
         border-color: rgba(255,255,255,0.72);
         backdrop-filter: blur(2.6px);
+      }
+      .client-logo-track .client-logo-tile.logo-ltv .client-logo-img {
+        max-height: 2.3rem !important;
       }
       #insights .insight-tag {
         color: #00356a;
@@ -1727,6 +1765,15 @@
           Short, practicable viewpoints on the trends reshaping industries—from generative AI
           to evolving regulatory expectation
         </p>
+        <div class="ai-spotlight" id="ai-spotlight">
+          <div class="ai-spotlight-label">AI Spotlight</div>
+          <h4 id="ai-spotlight-title">Moving from AI pilots to industrialized impact in 12 months</h4>
+          <p id="ai-spotlight-summary">Design principles for scaling AI responsibly across critical workflows.</p>
+          <div class="ai-spotlight-meta">
+            <span id="ai-spotlight-category">POINT OF VIEW · AI</span>
+            <a id="ai-spotlight-cta" class="btn btn-outline" href="#insights">Read insight →</a>
+          </div>
+        </div>
         <img src="insights-art.jpg" alt="Abstract geometric insights visual" class="insights-art" />
       </div>
       <div class="insights-list-col">
@@ -2542,7 +2589,23 @@
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
+    const spotlightTitle = document.getElementById('ai-spotlight-title');
+    const spotlightSummary = document.getElementById('ai-spotlight-summary');
+    const spotlightCategory = document.getElementById('ai-spotlight-category');
+    const spotlightCta = document.getElementById('ai-spotlight-cta');
     if (!listEl) return;
+    const applySpotlight = (entry) => {
+      if (!entry || !spotlightTitle) return;
+      const type = entry.type || 'Article';
+      const category = entry.category || 'General';
+      spotlightTitle.textContent = entry.title || 'Fresh perspective on transformation';
+      spotlightSummary.textContent = entry.summary || '';
+      spotlightCategory.textContent = `${type} · ${category}`;
+      if (spotlightCta) {
+        spotlightCta.href = entry.url || '#insights';
+      }
+    };
+
     fetch('insights.json', { cache: 'no-store' })
       .then(r => {
         if (!r.ok) throw new Error('Failed to load insights');
@@ -2582,6 +2645,8 @@
         });
         listEl.appendChild(frag);
         if (fallbackEl) fallbackEl.style.display = 'none';
+        const aiEntry = items.find((item) => /ai/i.test(item.category || '') || /ai/i.test(item.type || ''));
+        applySpotlight(aiEntry || items[0]);
         document.dispatchEvent(new Event('insights:updated'));
       })
       .catch(() => {
