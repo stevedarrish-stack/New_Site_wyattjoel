@@ -2424,7 +2424,8 @@
     const logoTrack = document.getElementById('client-logo-track');
     if (!logoTrack) return;
 
-    if (logoTrack.dataset.loopReady !== '1') {
+    const isMobileView = window.matchMedia('(max-width: 800px)').matches;
+    if (!isMobileView && logoTrack.dataset.loopReady !== '1') {
       logoTrack.innerHTML += logoTrack.innerHTML;
       logoTrack.dataset.loopReady = '1';
     }
