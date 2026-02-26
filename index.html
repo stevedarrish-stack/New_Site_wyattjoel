@@ -601,11 +601,11 @@
     }
     .card {
       border-radius: 1.1rem;
-      border: 1px solid var(--surface-border);
+      border: 1px solid rgba(255,255,255,0.35);
       padding: 1.3rem 1.35rem;
-      background: var(--surface-glass);
-      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
-      backdrop-filter: blur(1.5px);
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
     }
     .card.case-study {
       position: relative;
@@ -937,6 +937,9 @@
     .client-logo-track .client-logo-tile.logo-large .client-logo-img {
       max-height: 2rem !important;
     }
+    .client-logo-track .client-logo-tile.logo-large.client-logo-tile-mda .client-logo-img {
+      max-height: 1.7rem !important;
+    }
     .client-logo-track .client-logo-tile.logo-esselte .client-logo-img {
       max-height: 4rem !important;
     }
@@ -962,6 +965,10 @@
       transform-origin: center;
     }
     .client-logo-track .client-logo-tile.client-logo-tile-fedstl .client-logo-img {
+      transform: scale(4);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-bell-labs .client-logo-img {
       transform: scale(4);
       transform-origin: center;
     }
@@ -1360,10 +1367,16 @@
       .insights,
       .trust-strip,
       .offerings-scroll {
-        background: rgba(15,23,42,0.14);
-        border-color: rgba(148,163,184,0.45);
-        box-shadow: 0 8px 20px rgba(15,23,42,0.12);
-        backdrop-filter: blur(3px);
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+      #contact .offerings-scroll {
+        background: var(--surface-glass);
+        border-color: var(--surface-border);
+        box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+        backdrop-filter: blur(1.5px);
       }
       .services-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1377,10 +1390,12 @@
         right: auto;
       }
       .client-impact-card {
-        width: 100%;
-        max-width: calc(100vw - 2rem);
+        width: calc(100% - 0.25in);
+        max-width: calc(100vw - 0.25in);
         margin: 1.2rem auto;
-        padding: 1rem 0.9rem;
+        margin-left: calc(0.125in);
+        margin-right: calc(0.125in);
+        padding: 0.75rem 0.65rem;
       }
       .impact-stats {
         flex-wrap: wrap;
@@ -1400,6 +1415,11 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 0.2rem;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: calc(100% - 0.25in);
       }
       .insights-list-col {
         padding-top: 0;
@@ -1433,6 +1453,12 @@
       .card,
       .client-logo-wall {
         border-radius: 0.95rem;
+      }
+      .card.case-study {
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
       }
       .client-logo-tile {
         min-width: 6.6rem;
@@ -2045,10 +2071,11 @@
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" data-local-src="assets/logos/bank-of-america.svg" alt="Bank of America logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bank of America</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Toronto-Dominion_Bank_Logo.svg" data-remote-src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Toronto-Dominion_Bank_Logo.svg" data-local-src="assets/logos/td-bank.svg" alt="TD Bank US and Canada logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TD Bank US &amp; Canada</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Citibank.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Citibank.svg" data-local-src="assets/logos/citi.svg" alt="Citi logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Citi</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/JPMorgan_Chase_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/JPMorgan_Chase_logo.svg" data-local-src="assets/logos/jpmorgan.svg" alt="JPMorgan Chase logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">JPMorgan Chase</div></div>
+      <div class="client-logo-tile client-logo-tile-jpmorgan-chase"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/JPMorgan_Chase_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/JPMorgan_Chase_logo.svg" data-local-src="assets/logos/jpmorgan.svg" alt="JPMorgan Chase logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">JPMorgan Chase</div></div>
       <div class="client-logo-tile client-logo-tile-wells"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Bank.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Bank.svg" data-local-src="assets/logos/wells-fargo.svg" alt="Wells Fargo logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo</div></div>
       <div class="client-logo-tile client-logo-tile-brandywine logo-brandywine"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" data-remote-src="https://logo.clearbit.com/brandywineglobal.com" data-local-src="assets/logos/brandywine.svg" alt="Brandywine Financial Group, Inc. logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine Financial Group, Inc.</div></div>
       <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-alacer client-logo-tile-alacer-art logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b4ad483be7f386c6bb4b812bd42af2ab" data-remote-src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b4ad483be7f386c6bb4b812bd42af2ab" data-local-src="assets/logos/alacer.svg" alt="Alacer logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Alacer</div></div>
+      <div class="client-logo-tile client-logo-tile-bell-labs"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/bell-labs.svg" alt="Bell Labs logo" loading="lazy" decoding="async"></div><div class="client-logo-label">Bell Labs</div></div>
       <div class="client-logo-tile client-logo-tile-pwc"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/BKK_PwC_Logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/BKK_PwC_Logo.svg" data-local-src="assets/logos/pwc.svg" alt="PwC logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">PwC</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_of_Deloitte.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_of_Deloitte.svg" data-local-src="assets/logos/deloitte.svg" alt="Deloitte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Deloitte</div></div>
       <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/TRW_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/TRW_logo.svg" data-local-src="assets/logos/trw.svg" alt="TRW Europe logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TRW Europe</div></div>
