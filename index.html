@@ -850,20 +850,20 @@
       padding: 0.34rem 0.68rem;
     }
     .client-logo-tile.client-logo-tile-lg .client-logo-img-wrap {
-      height: 1.96rem;
+      height: 2.94rem;
     }
     .client-logo-tile.client-logo-tile-lg .client-logo-img {
-      max-height: 1.88rem;
+      max-height: 2.82rem;
     }
     .client-logo-tile.client-logo-tile-wells {
-      min-width: 22.8rem;
-      padding: 0.68rem 1.32rem;
+      min-width: 29.6rem;
+      padding: 0.88rem 1.72rem;
     }
     .client-logo-tile.client-logo-tile-wells .client-logo-img-wrap {
-      height: 3.8rem;
+      height: 4.94rem;
     }
     .client-logo-tile.client-logo-tile-wells .client-logo-img {
-      max-height: 3.64rem;
+      max-height: 4.73rem;
     }
     .client-logo-tile.client-logo-tile-wfa {
       min-width: 33.6rem;
@@ -907,14 +907,14 @@
       max-height: 2.44rem;
     }
     .client-logo-tile.client-logo-tile-maritz {
-      min-width: 13.2rem;
-      padding: 0.36rem 0.74rem;
+      min-width: 4rem;
+      padding: 0.15rem 0.30rem;
     }
     .client-logo-tile.client-logo-tile-maritz .client-logo-img-wrap {
-      height: 2rem;
+      height: 0.9rem;
     }
     .client-logo-tile.client-logo-tile-maritz .client-logo-img {
-      max-height: 1.92rem;
+      max-height: 0.7rem;
     }
     /* Keep crawl tiles visually consistent across the strip. */
     .client-logo-track .client-logo-tile {
@@ -935,13 +935,15 @@
       filter: contrast(1) saturate(0.95) !important;
     }
     .client-logo-track .client-logo-tile.logo-large .client-logo-img {
-      max-height: 2rem !important;
+      max-height: 2.82rem !important;
     }
     .client-logo-track .client-logo-tile.logo-large.client-logo-tile-mda .client-logo-img {
       max-height: 1.7rem !important;
     }
     .client-logo-track .client-logo-tile.logo-esselte .client-logo-img {
-      max-height: 2rem !important;
+      max-height: 1rem !important;
+      transform: scale(0.5);
+      transform-origin: center;
     }
     .client-logo-track .client-logo-tile.logo-ltv .client-logo-img {
       max-height: 3.1rem !important;
@@ -968,7 +970,7 @@
       transform-origin: center;
     }
     .client-logo-track .client-logo-tile.client-logo-tile-fedstl .client-logo-img {
-      transform: scale(4);
+      transform: scale(5.6);
       transform-origin: center;
     }
     .client-logo-track .client-logo-tile.client-logo-tile-bell-labs .client-logo-img {
@@ -1249,7 +1251,7 @@
         min-width: 10.2rem;
       }
       .client-logo-tile.client-logo-tile-wells {
-        min-width: 20rem;
+        min-width: 26rem;
       }
       .client-logo-tile.client-logo-tile-wfa {
         min-width: 29.6rem;
@@ -1264,7 +1266,7 @@
         min-width: 11.8rem;
       }
       .client-logo-tile.client-logo-tile-maritz {
-        min-width: 11.8rem;
+        min-width: 3.55rem;
       }
       .client-logo-wall {
         width: min(45.2rem, calc(100% - 1rem));
@@ -1532,7 +1534,7 @@
         min-width: 9.2rem;
       }
       .client-logo-tile.client-logo-tile-wells {
-        min-width: 18rem;
+        min-width: 23.4rem;
       }
       .client-logo-tile.client-logo-tile-wfa {
         min-width: 26.4rem;
@@ -1547,7 +1549,7 @@
         min-width: 10.6rem;
       }
       .client-logo-tile.client-logo-tile-maritz {
-        min-width: 10.4rem;
+        min-width: 3.15rem;
       }
       .client-logo-wall {
         width: 100%;
@@ -1560,7 +1562,7 @@
         flex: 0 0 8.6rem !important;
       }
       .client-logo-track .client-logo-tile.client-logo-tile-maritz .client-logo-img {
-        max-height: 1.15rem !important;
+        max-height: 0.6rem !important;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -2063,12 +2065,12 @@
       <form method="POST" action="/inquiry" style="max-width:480px; border:1px solid #d1d5db; border-radius:1rem; padding:1.1rem 1rem; background:#ffffff; box-shadow:0 8px 20px rgba(15,23,42,0.06);">
         <div style="margin-bottom:0.9rem;">
           <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-          <input id="name" name="name" type="text" required
+          <input id="name" name="name" type="text" required autocomplete="name"
                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
         </div>
         <div style="margin-bottom:0.9rem;">
           <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-          <input id="email" name="email" type="email" required
+          <input id="email" name="email" type="email" required autocomplete="email"
                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
         </div>
         <div style="margin-bottom:0.9rem;">
@@ -2134,7 +2136,7 @@
       <div class="client-logo-tile logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dow_Chemical_Company_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Dow_Chemical_Company_logo.svg" data-local-src="assets/logos/dow-chemical.svg" alt="Dow Chemical Brazil logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
       <div class="client-logo-tile client-logo-tile-ge logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_HealthCare_logo_2023.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_HealthCare_logo_2023.svg" data-local-src="assets/logos/ge-healthcare.svg" alt="GE Healthcare logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Healthcare</div></div>
       <div class="client-logo-tile client-logo-tile-ge client-logo-tile-ge-capital-art logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_Capital_logo_late_1980s.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_Capital_logo_late_1980s.svg" data-local-src="assets/logos/ge-capital.svg" alt="GE Capital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Capital</div></div>
-      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" data-remote-src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" data-local-src="assets/logos/microsoft-logo.svg" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/microsoft-logo.svg" data-remote-src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" data-local-src="assets/logos/microsoft-logo.svg" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
       <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-lg"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/LG_logo_(2023).svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/LG_logo_(2023).svg" data-local-src="assets/logos/lg-logo.svg" alt="LG Industries logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LG Industries</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_logo.svg" data-local-src="assets/logos/cat.svg" alt="CAT Worldwide logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">CAT Worldwide</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" data-local-src="assets/logos/bank-of-america.svg" alt="Bank of America logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bank of America</div></div>
@@ -2518,11 +2520,14 @@
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
       const originalSrc = img.getAttribute('src') || '';
+      const fallbackSrc = (img.dataset.localSrc || '').trim();
       let retriedOriginal = false;
+      let retriedFallback = false;
 
       img.loading = 'eager';
       img.decoding = 'async';
       if (originalSrc) preloadSrcs.add(originalSrc);
+      if (fallbackSrc) preloadSrcs.add(fallbackSrc);
 
       const markFallback = () => {
         if (!tile.isConnected) return;
@@ -2540,6 +2545,11 @@
         if (!retriedOriginal && originalSrc) {
           retriedOriginal = true;
           img.src = originalSrc;
+          return;
+        }
+        if (!retriedFallback && fallbackSrc) {
+          retriedFallback = true;
+          img.src = fallbackSrc;
           return;
         }
         window.clearTimeout(failSafeTimer);
