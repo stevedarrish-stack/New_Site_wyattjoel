@@ -63,7 +63,6 @@
         color: #004c97 !important;
         font-weight: normal !important;
       }
-          }
           .impact-actions {
             display: flex;
             gap: 1rem;
@@ -152,31 +151,8 @@ ul {
   color: #17305c;
   font-size: 1.2rem;
 }
-      </div>
-    </div>
-    <div class="client-impact-card">
-      <h2>Client Impact Snapshot</h2>
-      <div class="impact-stats pill-row">
-        <div class="pill">
-          <span class="impact-number">120</span>
-          <span class="impact-label">Clients Served</span>
-        </div>
-        <div class="pill">
-          <span class="impact-number">98%</span>
-          <span class="impact-label">Satisfaction</span>
-        </div>
-        <div class="pill">
-          <span class="impact-number">5</span>
-          <span class="impact-label">Years Running</span>
-        </div>
-      </div>
-      <div class="impact-actions">
-        <button class="impact-btn" title="See a summary of all client impact metrics and highlights for last year.">Summary</button>
-        <button class="impact-btn" title="Download a detailed report with charts, analysis, and year-over-year comparisons.">Download Report</button>
-        <button class="impact-btn" title="Contact our team for more information about client impact and future opportunities.">Contact Us</button>
-      </div>
-      <p><strong>WyattJoel</strong> continues to make a difference in the community.</p>
-    </div>
+.cta-button {
+  display: inline-block;
   color: #fff;
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
@@ -266,7 +242,69 @@ ul {
   color: #004c97 !important;
   font-weight: normal !important;
 }
+.announcement-banner {
+  width: 100%;
+  background: linear-gradient(90deg, #004c97 0%, #17305c 100%);
+  color: #ffffff;
+  padding: 0.85rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.announcement-banner-track {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: 2.5rem;
+  padding-left: 100%;
+  animation: announcement-scroll 22s linear infinite;
+}
+.announcement-banner-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.announcement-banner-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.announcement-banner-separator {
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 700;
+}
+.announcement-banner strong {
+  color: #ffe082;
+  font-weight: 700;
+}
+@keyframes announcement-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 @media (max-width: 800px) {
+  .announcement-banner {
+    font-size: 0.92rem;
+    padding: 0.75rem 0;
+  }
+  .announcement-banner-track {
+    gap: 1.75rem;
+    animation-duration: 18s;
+  }
+  .announcement-banner-content {
+    gap: 1.75rem;
+  }
+  .announcement-banner-message {
+    gap: 0.5rem;
+  }
   .nav-links {
     flex-direction: column;
     gap: 0.5rem;
@@ -287,11 +325,22 @@ ul {
   </style>
 </head>
 <body>
-        <div style="background:#e91e63;color:#fff;padding:8px 16px;border-radius:6px;font-size:1.1rem;text-align:center;margin-bottom:18px;">DEPLOY MARKER: 2026-02-12 VISIBLE TEST</div>
-      <div style="background:#e91e63;color:#fff;padding:8px 16px;border-radius:6px;font-size:1.1rem;text-align:center;margin-bottom:18px;">DEPLOY MARKER: 2026-02-12 2nd TEST</div>
-    <div style="background:#004c97;color:#fff;padding:8px 16px;border-radius:6px;font-size:1.1rem;text-align:center;margin-bottom:18px;">DEPLOY TEST 2026-02-12</div>
-  <div style="background:#ff0;color:#000;font-weight:bold;text-align:center;padding:1rem;">DEPLOY MARKER: 2026-02-11</div>
-  <span style="background:#004c97;color:#fff;padding:4px 8px;border-radius:4px;display:inline-block;margin-bottom:16px;">DEPLOY TEST 2026-02-12</span>
+      <div class="announcement-banner" aria-label="Announcement banner">
+        <div class="announcement-banner-track">
+          <div class="announcement-banner-content">
+            <span class="announcement-banner-message">Now partnering with <strong>Windy Hill Partners</strong></span>
+            <span class="announcement-banner-separator">◆</span>
+            <span class="announcement-banner-message">Launching our new <strong>Enterprise Portfolio Optimization Methodology</strong></span>
+            <span class="announcement-banner-separator">◆</span>
+          </div>
+          <div class="announcement-banner-content" aria-hidden="true">
+            <span class="announcement-banner-message">Now partnering with <strong>Windy Hill Partners</strong></span>
+            <span class="announcement-banner-separator">◆</span>
+            <span class="announcement-banner-message">Launching our new <strong>Enterprise Portfolio Optimization Methodology</strong></span>
+            <span class="announcement-banner-separator">◆</span>
+          </div>
+        </div>
+      </div>
   <header class="header">
     <div class="container">
       <div class="navbar">
@@ -347,33 +396,32 @@ ul {
       </div>
     </section>
     <section class="case-studies-section" style="margin:2rem 0;">
-      <div style="background:#e91e63;color:#fff;padding:8px 16px;border-radius:6px;font-size:1.1rem;text-align:center;margin-bottom:18px;">DEPLOY MARKER: 2026-02-12 CASE STUDIES SECTION</div>
       <h2 style="color:#004c97;">Case Studies</h2>
       <div class="case-studies-grid">
-          <div class="case-study-card">
-            <h3 class="section-title" style="color:#000; font-weight:bold;">Growth, portfolio, and investment strategy</h3>
-            <p>Align leadership on direction, and build executable roadmaps anchored in tangible value.</p>
-          </div>
-          <div class="case-study-card">
-            <h3 class="section-title" style="color:#000; font-weight:bold;">Operating model & transformation offices</h3>
-            <p>Transformation offices help sustain impact and unblock progress.</p>
-          </div>
-          <div class="case-study-card">
-            <h3 class="section-title" style="color:#000; font-weight:bold;">Digital journeys, automation, and analytics</h3>
-            <p>Digital transformation enables better decisions and improved performance.</p>
-          </div>
-          <div class="case-study-card">
-            <h3 class="section-title" style="color:#000; font-weight:bold;">Regulatory, operational, and cyber resilience</h3>
-            <p>Helping organizations meet regulatory requirements and strengthen operational and cyber resilience.</p>
-          </div>
-          <div class="case-study-card">
-            <h3 class="section-title" style="color:#000; font-weight:bold;">Accelerating Product & Process Development</h3>
-            <p>Speeding up innovation and improving product and process development cycles.</p>
-          </div>
-          <div class="case-study-card">
-            <h3 class="section-title" style="color:#000; font-weight:bold;">Executing Behemoth Financial Services Deals</h3>
-            <p>Supporting large-scale financial transactions with expert guidance and execution.</p>
-          </div>
+        <div class="case-study-card">
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Growth, portfolio, and investment strategy</h3>
+          <p>Align leadership on direction, and build executable roadmaps anchored in tangible value.</p>
+        </div>
+        <div class="case-study-card">
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Operating model & transformation offices</h3>
+          <p>Transformation offices help sustain impact and unblock progress.</p>
+        </div>
+        <div class="case-study-card">
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Digital journeys, automation, and analytics</h3>
+          <p>Digital transformation enables better decisions and improved performance.</p>
+        </div>
+        <div class="case-study-card">
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Regulatory, operational, and cyber resilience</h3>
+          <p>Helping organizations meet regulatory requirements and strengthen operational and cyber resilience.</p>
+        </div>
+        <div class="case-study-card">
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Accelerating Product & Process Development</h3>
+          <p>Speeding up innovation and improving product and process development cycles.</p>
+        </div>
+        <div class="case-study-card">
+          <h3 class="section-title" style="color:#004c97; font-weight:normal;">Executing Behemoth Financial Services Deals</h3>
+          <p>Supporting large-scale financial transactions with expert guidance and execution.</p>
+        </div>
         <!-- Add more case studies as needed, using the same structure -->
       </div>
     </section>
