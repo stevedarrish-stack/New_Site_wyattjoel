@@ -1,0 +1,33 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 2rem;
+  color: #17305c;
+  background: #f8fafc;
+}
+.article-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.07);
+  padding: 2.5rem 2rem;
+}
+h1 {
+  color: #004c97;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+.article-meta {
+  color: #3b5b7c;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+a {
+  color: #004c97;
+}
+ul {
+  margin-left: 1.2rem;
+}
+li {
+  margin-bottom: 0.7rem;
+}
