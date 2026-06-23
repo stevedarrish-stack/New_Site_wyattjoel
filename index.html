@@ -131,6 +131,33 @@
       border-bottom: 1px solid #e5e7eb;
       z-index: 10;
     }
+    .announcement-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 1rem;
+      background: #004c97;
+      color: #f9fafb;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .announcement-banner a {
+      color: #e1effa;
+      font-weight: 700;
+    }
+    .announcement-banner button {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0 0.2rem;
+    }
     .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
@@ -1649,6 +1676,10 @@
   </style>
 </head>
 <body>
+<div id="announcement-banner" class="announcement-banner">
+  <span>🚀 <strong>Announcing our partnership with Windy Hill Partners</strong> and the launch of a proven Enterprise Portfolio Optimization methodology that will change how Business Transformation is done. <a href="#contact">Learn more →</a></span>
+  <button type="button" onclick="document.getElementById('announcement-banner').style.display='none'" aria-label="Dismiss announcement">✕</button>
+</div>
 <header>
   <div class="nav-inner">
     <div class="brand">
