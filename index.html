@@ -236,6 +236,21 @@
       border-radius: 0;
       box-shadow: none;
     }
+    .homepage-banner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.4rem 1.5rem 0;
+    }
+    .homepage-banner img {
+      width: 100%;
+      height: clamp(220px, 30vw, 360px);
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+    }
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(260px, 2.5fr);
@@ -1324,6 +1339,10 @@
         padding-left: 1.25rem;
         padding-right: 1.25rem;
       }
+      .homepage-banner {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
       .hero,
       section[id],
       .insights,
@@ -1649,6 +1668,10 @@
     </div>
   </div>
 </header>
+
+<section class="homepage-banner" aria-label="Homepage banner">
+  <img src="image.png" alt="Illustrated workflow, analytics, and growth banner" />
+</section>
 
 <main class="shell">
   <section class="hero">
