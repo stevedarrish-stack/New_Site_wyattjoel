@@ -123,6 +123,40 @@
         opacity: 0.25;
       }
     }
+    .announcement-banner {
+      background: linear-gradient(90deg, #004c97, #1d4ed8);
+      color: #ffffff;
+      text-align: center;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      position: relative;
+      z-index: 11;
+    }
+    .announcement-banner a {
+      color: #bfdbfe;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-left: 0.5rem;
+      white-space: nowrap;
+    }
+    .announcement-banner a:hover {
+      color: #ffffff;
+    }
+    .announcement-banner .banner-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      padding: 0.15rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-right: 0.65rem;
+      vertical-align: middle;
+    }
     header {
       position: sticky;
       top: 0;
@@ -1632,6 +1666,11 @@
   </style>
 </head>
 <body>
+<div class="announcement-banner" role="banner" aria-label="Product announcement">
+  <span class="banner-badge">New</span>
+  Introducing <strong>Enterprise Portfolio Optimization Methodology</strong> — WyattJoel's latest solution for transforming how organizations manage and optimize their investment portfolios.
+  <a href="#contact">Learn more →</a>
+</div>
 <header>
   <div class="nav-inner">
     <div class="brand">
