@@ -1,431 +1,132 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
- <head>
- <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-                                                                                          .pill-menu {
-                                                                                            position: absolute;
-                                                                                            left: 50%;
-                                                                                            transform: translateX(-50%);
-                                                                                            top: 110%;
-                                                                                            min-width: 180px;
-                                                                                            max-width: 220px;
-                                                                                            width: auto;
-                                                                                            background: #e1effa;
-                                                                                            color: #17305c;
-                                                                                            font-size: 0.85rem;
-                                                                                            padding: 0.7rem 1rem;
-                                                                                            border-radius: 0.7rem;
-                                                                                            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-                                                                                            z-index: 10;
-                                                                                            margin-top: 0.3rem;
-                                                                                            white-space: normal;
-                                                                                            word-break: break-word;
-                                                                                            text-align: left;
-                                                                                            display: none;
-                                                                                          }
-                                                                                      .pill-row > div {
-                                                                                        position: relative !important;
-                                                                                      }
-                                          @media (max-width: 800px) {
-                                            .client-impact-card {
-                                              padding: 0.7rem 0.4rem !important;
-                                              max-width: 98vw !important;
-                                              font-size: 0.95rem !important;
-                                            }
-                                            .client-impact-card h2 {
-                                              font-size: 1.3rem !important;
-                                              margin-bottom: 0.3rem !important;
-                                            }
-                                            .impact-stats {
-                                              gap: 1rem !important;
-                                            }
-                                            .impact-number {
-                                              font-size: 1.3rem !important;
-                                            }
-                                            .impact-label {
-                                              font-size: 0.85rem !important;
-                                            }
-                                            .client-impact-card p {
-                                              font-size: 0.68rem !important;
-                                              padding: 0.5rem 0.7rem !important;
-                                            }
-                                          }
-                                      @media (max-width: 800px) {
-                                        .nav-inner {
-                                          flex-direction: column !important;
-                                          align-items: flex-start !important;
-                                        }
-                                        .brand {
-                                          margin-bottom: 0.5rem !important;
-                                        }
-                                        nav:not(.mobile-nav) {
-                                          display: flex !important;
-                                          flex-direction: row !important;
-                                          width: 100vw !important;
-                                          justify-content: flex-start !important;
-                                          align-items: center !important;
-                                          margin-bottom: 0.5rem !important;
-                                          overflow-x: auto !important;
-                                          white-space: nowrap !important;
-                                          font-size: 0.85rem !important;
-                                          padding: 0 0.2rem !important;
-                                        }
-                                        nav:not(.mobile-nav) a {
-                                          display: inline-block !important;
-                                          white-space: nowrap !important;
-                                          margin-right: 1.1rem !important;
-                                          margin-bottom: 0 !important;
-                                          font-size: 0.95em !important;
-                                        }
-                                        nav:not(.mobile-nav) a:last-child {
-                                          margin-right: 0 !important;
-                                        }
-                                        .mobile-nav-btn, .mobile-nav {
-                                          display: none !important;
-                                        }
-                                      }
-                                  @media (max-width: 800px) {
-                                    .nav-inner {
-                                      flex-direction: column !important;
-                                      align-items: flex-start !important;
-                                    }
-                                    .brand {
-                                      margin-bottom: 0.5rem !important;
-                                    }
-                                    .mobile-nav-btn {
-                                      display: flex !important;
-                                      margin-top: 0.2rem !important;
-                                      margin-bottom: 0.7rem !important;
-                                      align-self: flex-start !important;
-                                      position: relative !important;
-                                      z-index: 1101 !important;
-                                    }
-                                    .nav-inner > nav:not(.mobile-nav) {
-                                      display: none !important;
-                                    }
-                                    .mobile-nav {
-                                      display: none !important;
-                                      flex-direction: column !important;
-                                      width: 100vw !important;
-                                      position: absolute !important;
-                                      top: 100% !important;
-                                      left: 0 !important;
-                                      background: #fff !important;
-                                      z-index: 1100 !important;
-                                      box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
-                                      padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
-                                    }
-                                    .mobile-nav.open {
-                                      display: flex !important;
-                                    }
-                                    .mobile-nav a {
-                                      white-space: nowrap !important;
-                                      display: block !important;
-                                      margin-bottom: 1rem !important;
-                                      font-size: 1.1rem !important;
-                                    }
-                                    .mobile-nav a:last-child {
-                                      margin-bottom: 0 !important;
-                                    }
-                                    .mobile-nav-close {
-                                      align-self: flex-end !important;
-                                      margin-bottom: 1rem !important;
-                                      font-size: 2rem !important;
-                                      background: none !important;
-                                      border: none !important;
-                                      color: #004c97 !important;
-                                      cursor: pointer !important;
-                                    }
-                                  }
-                              @media (max-width: 800px) {
-                                .nav-inner {
-                                  flex-direction: column !important;
-                                  align-items: flex-start !important;
-                                }
-                                .brand {
-                                  margin-bottom: 0.5rem;
-                                }
-                                .mobile-nav-btn {
-                                  display: flex !important;
-                                  margin-top: 0.2rem;
-                                  margin-bottom: 0.7rem;
-                                  align-self: flex-start;
-                                }
-                                nav:not(.mobile-nav) {
-                                  display: none !important;
-                                }
-                                .mobile-nav {
-                                  display: flex !important;
-                                  flex-direction: column;
-                                  width: 100vw;
-                                  position: absolute;
-                                  top: 100%;
-                                  left: 0;
-                                  background: #fff;
-                                  z-index: 1000;
-                                  box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-                                  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
-                                }
-                                .mobile-nav a {
-                                  white-space: nowrap;
-                                  display: block;
-                                  margin-bottom: 1rem;
-                                  font-size: 1.1rem;
-                                }
-                                .mobile-nav a:last-child {
-                                  margin-bottom: 0;
-                                }
-                                .mobile-nav-close {
-                                  align-self: flex-end;
-                                  margin-bottom: 1rem;
-                                  font-size: 2rem;
-                                  background: none;
-                                  border: none;
-                                  color: #004c97;
-                                  cursor: pointer;
-                                }
-                              }
-                          @media (max-width: 800px) {
-                            .nav-inner {
-                              flex-direction: column !important;
-                              align-items: flex-start !important;
-                            }
-                            .brand {
-                              margin-bottom: 0.5rem;
-                            }
-                            .mobile-nav-btn {
-                              display: flex !important;
-                              margin-top: 0.2rem;
-                              margin-bottom: 0.7rem;
-                              align-self: flex-start;
-                            }
-                            nav:not(.mobile-nav) {
-                              width: 100%;
-                              margin-bottom: 0.5rem;
-                            }
-                            nav:not(.mobile-nav) a {
-                              white-space: nowrap;
-                              display: inline-block;
-                              margin-right: 1.2rem;
-                              margin-bottom: 0;
-                            }
-                            nav:not(.mobile-nav) a:last-child {
-                              margin-right: 0;
-                            }
-                          }
-                      /* Hamburger and mobile nav styles */
-                      @media (max-width: 800px) {
-                        .mobile-nav-btn {
-                          display: flex;
-                        }
-                        .mobile-nav {
-                          display: none;
-                        }
-                        .mobile-nav.open {
-                          display: flex;
-                        }
-                      }
-                      @media (min-width: 801px) {
-                        .mobile-nav-btn,
-                        .mobile-nav {
-                          display: none !important;
-                        }
-                      }
-                      .mobile-nav-btn {
-                        display: none;
-                        background: none;
-                        border: none;
-                        position: absolute;
-                        right: 1.5rem;
-                        top: 1.2rem;
-                        z-index: 20;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        width: 38px;
-                        height: 38px;
-                        cursor: pointer;
-                      }
-                      .mobile-nav-btn span {
-                        display: block;
-                        width: 26px;
-                        height: 3px;
-                        margin: 4px 0;
-                        background: #004c97;
-                        border-radius: 2px;
-                        transition: 0.2s;
-                      }
-                      .mobile-nav {
-                        display: none;
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        width: 80vw;
-                        max-width: 320px;
-                        height: 100vh;
-                        background: #fff;
-                        box-shadow: -2px 0 18px rgba(15,23,42,0.13);
-                        z-index: 100;
-                        padding: 2.5rem 1.5rem 1.5rem 2rem;
-                        flex-direction: column;
-                        gap: 1.5rem;
-                        animation: slideInNav 0.22s cubic-bezier(.4,0,.2,1);
-                      }
-                      .mobile-nav a {
-                        color: #004c97;
-                        font-size: 1.15rem;
-                        font-weight: 600;
-                        text-decoration: none;
-                        margin-bottom: 1.2rem;
-                        display: block;
-                      }
-                      .mobile-nav-close {
-                        position: absolute;
-                        top: 1.1rem;
-                        right: 1.2rem;
-                        background: none;
-                        border: none;
-                        font-size: 2rem;
-                        color: #004c97;
-                        cursor: pointer;
-                      }
-                      @keyframes slideInNav {
-                        from { right: -100vw; opacity: 0; }
-                        to { right: 0; opacity: 1; }
-                      }
-                  /* Desktop: Set Pers.jpg to 3.5in x 3.5in in INSIGHTS */
-                  @media (min-width: 601px) {
-                    .insights-pers-img {
-                      width: 3.5in !important;
-                      height: 3.5in !important;
-                      max-width: 100%;
-                      max-height: 100%;
-                      border-radius: 1.1rem;
-                      object-fit: cover;
-                      box-shadow: 0 4px 18px rgba(15,23,42,0.13);
-                      display: block;
-                      margin-top: 1.1rem;
-                      margin-bottom: 0.7rem;
-                    }
-                  }
-              /* Mobile improvements for Client Impact Snapshot */
-              @media (max-width: 600px) {
-                .client-impact-card {
-                  max-width: 380px !important;
-                  min-width: 260px !important;
-                  width: 90vw !important;
-                  margin-left: auto !important;
-                  margin-right: auto !important;
-                  padding: 0.8rem 0.5rem !important;
-                  box-sizing: border-box !important;
-                  border-radius: 1.35rem !important;
-                }
-                .client-impact-card h2 {
-                  font-size: 1.3rem !important;
-                  padding: 0 0.2rem !important;
-                }
-                .impact-stats {
-                  flex-direction: row !important;
-                  gap: 1rem !important;
-                  justify-content: center !important;
-                  align-items: flex-start !important;
-                }
-                .pill-row {
-                  flex-wrap: nowrap !important;
-                  gap: 0.18rem !important;
-                  justify-content: center !important;
-                  overflow-x: auto !important;
-                }
-                .pill {
-                  min-width: 60px !important;
-                  max-width: 90px !important;
-                  font-size: 0.62rem !important;
-                  padding: 0.11rem 0.32rem !important;
-                }
-                .client-impact-card p,
-                .client-impact-card .impact-label,
-                .client-impact-card .impact-number {
-                  font-size: 0.95rem !important;
-                }
-                .client-impact-card p:last-child {
-                  font-size: 0.68rem !important;
-                  line-height: 1.2 !important;
-                  margin-top: 0.5rem !important;
-                }
-              }
-          /* WHAT WE DO hover popup: match INSIGHTS style exactly */
-          .whatwedo-hover-popup {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 100%;
-            width: 100%;
-            background: transparent;
-            color: #17305c;
-            font-size: 0.85rem;
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            font-weight: 400;
-            padding: 0.7rem 1rem;
-            border-radius: 0.7rem;
-            box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-            z-index: 2;
-            margin-top: 0.3rem;
-            white-space: normal;
-            word-break: break-word;
-            text-align: left;
-            text-transform: none !important;
-            /* Remove all-caps, force sentence case */
-            letter-spacing: normal !important;
-          }
-          .hover-col:hover .whatwedo-hover-popup,
-          .hover-col:focus-within .whatwedo-hover-popup {
-            display: block;
-          }
-      </footer>
-          margin-top: 0.2rem;
-        }
-        .impact-actions {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 1.1rem;
-        }
-        .impact-btn {
-          background: #17305c;
-          color: #f9fafb;
-          border: none;
-          border-radius: 0.7rem;
-          padding: 0.6rem 1.2rem;
-          font-size: 1rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: background 0.15s;
-          white-space: nowrap;
-        }
-        .impact-btn:hover, .impact-btn:focus {
-          background: #25447a;
-        }
-        .client-impact-card p {
-          font-size: 1rem;
-          margin: 0.5rem 0 0 0;
-          color: #e0eaff;
-        }
+    :root {
+      --accent: #004c97;
+      --accent-ink: #0f172a;
+      --surface-glass: rgba(255,255,255,0.1);
+      --surface-border: rgba(255,255,255,0.45);
+    }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: transparent;
+      background: #ffffff;
       color: #111827;
       -webkit-font-smoothing: antialiased;
+      position: relative;
     }
-    /* Removed animated gradient background */
+    body.theme-dark {
+      --accent: #60a5fa;
+      --accent-ink: #e2e8f0;
+      --surface-glass: rgba(15,23,42,0.26);
+      --surface-border: rgba(148,163,184,0.4);
+      color: #e5e7eb;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(255,255,255,0.38), rgba(255,255,255,0.38)),
+        url("site-background.png") center center / cover no-repeat;
+      background-attachment: fixed;
+      pointer-events: none;
+      animation: backgroundToneShift 40s ease-in-out infinite alternate;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(37,99,235,0.16), transparent 44%),
+        radial-gradient(circle at 78% 18%, rgba(96,165,250,0.14), transparent 42%),
+        radial-gradient(circle at 68% 74%, rgba(125,211,252,0.12), transparent 47%),
+        radial-gradient(circle at 86% 66%, rgba(244,114,182,0.14), transparent 46%),
+        radial-gradient(circle at 74% 34%, rgba(251,113,133,0.12), transparent 44%),
+        radial-gradient(circle at 22% 26%, rgba(255,255,255,0.12) 0 0.14rem, transparent 0.2rem),
+        radial-gradient(circle at 46% 58%, rgba(255,255,255,0.1) 0 0.12rem, transparent 0.18rem),
+        radial-gradient(circle at 73% 41%, rgba(255,255,255,0.1) 0 0.13rem, transparent 0.19rem);
+      pointer-events: none;
+      animation: subtleColorShift 38s ease-in-out infinite alternate, tintMorph 54s ease-in-out infinite alternate, twinklePulse 10s ease-in-out infinite;
+    }
+    @keyframes subtleColorShift {
+      0% {
+        opacity: 0.09;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        opacity: 0;
+        transform: translate3d(-0.6%, 0.6%, 0) scale(1.01);
+      }
+      100% {
+        opacity: 0.1;
+        transform: translate3d(0.6%, -0.6%, 0) scale(1.005);
+      }
+    }
+    @keyframes backgroundToneShift {
+      0% {
+        filter: saturate(1.04) brightness(1.06) contrast(1.04);
+      }
+      50% {
+        filter: saturate(0.25) brightness(1.46) contrast(0.86);
+      }
+      100% {
+        filter: saturate(1.05) brightness(1.07) contrast(1.03);
+      }
+    }
+    @keyframes tintMorph {
+      0% {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(37,99,235,0.17), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(96,165,250,0.14), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(125,211,252,0.12), transparent 47%),
+          radial-gradient(circle at 86% 66%, rgba(244,114,182,0.14), transparent 46%),
+          radial-gradient(circle at 74% 34%, rgba(251,113,133,0.11), transparent 44%);
+      }
+      50% {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(255,255,255,0.34), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(255,255,255,0.29), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(255,255,255,0.27), transparent 47%),
+          radial-gradient(circle at 86% 66%, rgba(255,255,255,0.31), transparent 46%),
+          radial-gradient(circle at 74% 34%, rgba(255,255,255,0.28), transparent 44%),
+          radial-gradient(circle at 22% 26%, rgba(255,255,255,0.62) 0 0.15rem, transparent 0.22rem),
+          radial-gradient(circle at 46% 58%, rgba(255,255,255,0.56) 0 0.13rem, transparent 0.2rem),
+          radial-gradient(circle at 73% 41%, rgba(255,255,255,0.54) 0 0.14rem, transparent 0.21rem);
+      }
+      100% {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(96,165,250,0.12), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(59,130,246,0.1), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(236,72,153,0.16), transparent 47%),
+          radial-gradient(circle at 86% 66%, rgba(244,114,182,0.2), transparent 46%),
+          radial-gradient(circle at 74% 34%, rgba(251,113,133,0.16), transparent 44%),
+          radial-gradient(circle at 22% 26%, rgba(255,255,255,0.12) 0 0.14rem, transparent 0.2rem),
+          radial-gradient(circle at 46% 58%, rgba(255,255,255,0.1) 0 0.12rem, transparent 0.18rem),
+          radial-gradient(circle at 73% 41%, rgba(255,255,255,0.1) 0 0.13rem, transparent 0.19rem);
+      }
+    }
+    @keyframes twinklePulse {
+      0%, 42%, 58%, 100% {
+        opacity: 0.1;
+      }
+      48%, 52% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.25;
+      }
+    }
     header {
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
       z-index: 10;
@@ -506,10 +207,34 @@
     nav a:hover::after {
       transform: scaleX(1);
     }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .theme-toggle {
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      color: #0f172a;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.34rem 0.75rem;
+      cursor: pointer;
+    }
+    body.theme-dark .theme-toggle {
+      background: rgba(15,23,42,0.72);
+      color: #e5e7eb;
+      border-color: rgba(148,163,184,0.55);
+    }
     .shell {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 0.9rem;
+      padding: 2.5rem 1.5rem 3.5rem;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
     }
     .hero {
       display: grid;
@@ -517,7 +242,57 @@
       gap: 3rem;
       align-items: center;
       margin-top: 1.5rem;
-      margin-bottom: 0.06rem;
+    }
+    .hero-right-stack {
+      display: grid;
+      gap: 0.9rem;
+    }
+    .hero-video-card {
+      position: relative;
+      min-height: 170px;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      border: 1px solid var(--surface-border);
+      background:
+        linear-gradient(135deg, rgba(30,64,175,0.4), rgba(14,165,233,0.25)),
+        radial-gradient(circle at 78% 24%, rgba(249,168,212,0.22), transparent 40%),
+        #0b1736;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.2);
+    }
+    .hero-video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.8;
+      mix-blend-mode: screen;
+    }
+    .hero-video-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.72;
+      filter: saturate(1.06) contrast(1.03);
+    }
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(160deg, rgba(15,23,42,0.26), rgba(15,23,42,0.38)),
+        radial-gradient(circle at 20% 20%, rgba(147,197,253,0.18), transparent 50%);
+    }
+    .hero-video-label {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.8rem;
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
     }
     .eyebrow {
       font-size: 0.85rem;
@@ -532,6 +307,16 @@
       line-height: 1.05;
       letter-spacing: -0.04em;
       margin: 0 0 1rem;
+    }
+    .transform-word {
+      display: inline-block;
+      white-space: nowrap;
+      opacity: 1;
+      transition: color 14s ease-in-out, opacity 3.2s cubic-bezier(0.2, 0.9, 0.25, 1);
+    }
+    .transform-word .char {
+      display: inline-block;
+      font-family: inherit;
     }
     h1 span {
       color: #004c97;
@@ -561,6 +346,13 @@
       transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
       text-decoration: none;
     }
+    input,
+    select,
+    textarea,
+    button {
+      box-sizing: border-box;
+      max-width: 100%;
+    }
     .btn-primary {
       background: #004c97;
       color: #f9fafb;
@@ -572,8 +364,8 @@
       background: #00376f;
     }
     .btn-outline {
-      background: transparent;
-      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border: 2px solid #004c97;
       color: #111827;
     }
     .btn-outline:hover {
@@ -585,59 +377,155 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
-      font-size: 0.85rem;
+      font-size: 0.98rem;
       color: #6b7280;
     }
     .hero-meta strong {
       display: block;
       color: #111827;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
-    .hero-card {
-      background: radial-gradient(circle at top, #e1effa 0, transparent 55%), #020617;
-      color: #e5e7eb;
-      border-radius: 1.35rem;
-      padding: 1.75rem 1.6rem;
-      box-shadow: 0 18px 35px rgba(15,23,42,0.35);
+    .client-impact-card {
+      background: #17305c;
+      color: #f9fafb;
+      border-radius: 1.2rem;
+      padding: 1.7rem 1.5rem;
+      box-shadow: none;
+      margin-top: 1.8rem;
+      margin-bottom: 1.8rem;
     }
-    .hero-card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: .16em;
+    .client-impact-card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: .15em;
       text-transform: uppercase;
-      color: #0f172a;
+      color: #b6c6e3;
+      text-align: center;
     }
-    .hero-card-main {
-      margin-bottom: 1rem;
-    }
-    .hero-card-main strong {
-      font-size: 1.9rem;
-      display: block;
-      letter-spacing: -0.03em;
-    }
-    .hero-card-main span {
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-    .pill-row {
+    .impact-stats {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin: 0.75rem 0 1.25rem;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
     }
-    .pill {
+    .impact-stats > div {
+      flex: 1 1 0;
+      text-align: center;
+    }
+    .impact-number {
+      font-size: clamp(1.15rem, 1.85vw, 1.5rem);
+      font-weight: 700;
+      display: block;
+      color: #e0eaff;
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+    @media (min-width: 801px) {
+      .impact-stats {
+        gap: 1rem;
+      }
+      .impact-stats > div {
+        min-width: 0;
+      }
+      .impact-number {
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+      }
+    }
+    .impact-label {
+      font-size: 1rem;
+      color: #b6c6e3;
+      display: block;
+      margin-top: 0.2rem;
+    }
+    .sector-pills {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: nowrap;
+      justify-content: center;
+      overflow-x: visible;
+    }
+    .sector-pill {
+      background: #17305c;
+      color: #f9fafb;
+      border: 1px solid rgba(182,198,227,0.7);
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.78rem;
-      color: #e5e7eb;
-      background: rgba(15,23,42,0.8);
+      padding: 0.28rem 0.62rem;
+      font-size: 0.77rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    .sector-pill:hover,
+    .sector-pill:focus {
+      background: #25447a;
+    }
+    .sector-description {
+      border: 1px solid rgba(182,198,227,0.35);
+      border-radius: 0.7rem;
+      background: #25447a;
+      color: #f8fbff;
+      font-size: 0.93rem;
+      line-height: 1.4;
+      padding: 0.65rem 0.75rem;
+      min-height: 2.3rem;
+    }
+    .client-impact-card p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0 0 0;
+      color: #e0eaff;
+      font-weight: 400;
     }
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.5rem;
       margin-top: 3.25rem;
+    }
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      isolation: isolate;
+    }
+    .services-grid .card {
+      position: relative;
+      overflow: visible;
+      z-index: 1;
+    }
+    .services-grid .card:hover,
+    .services-grid .card:focus-within {
+      z-index: 30;
+    }
+    .services-grid .card span {
+      color: #004c97;
+    }
+    .services-grid .card h3 {
+      color: #111827;
+    }
+    .services-grid .card p {
+      color: #111827;
+      font-weight: 400;
+    }
+    .services-grid .service-hover-note {
+      color: #111827;
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+    .services-grid .card p .service-hover-note {
+      color: #111827;
     }
     .section-label {
       font-size: 0.8rem;
@@ -651,8 +539,6 @@
       font-size: 1.4rem;
       margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
-      color: #004c97;
-      font-weight: bold;
     }
     .section-lead {
       font-size: 0.98rem;
@@ -660,12 +546,66 @@
       max-width: 40rem;
       margin-bottom: 1.4rem;
     }
+    .case-studies-section {
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 2.5rem 2rem;
+      border-radius: 1.3rem;
+      box-shadow: 0 12px 36px rgba(15,23,42,0.1);
+    }
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+    .case-study-card {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(148,163,184,0.55);
+      border-radius: 1.1rem;
+      padding: 1.2rem;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .case-study-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(15,23,42,0.14);
+    }
+    .case-study-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+      font-weight: 700;
+      color: #0b1220;
+    }
+    .case-detail {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      color: #374151;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .case-detail p {
+      margin: 0;
+    }
+    .case-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #475569;
+    }
     .card {
       border-radius: 1.1rem;
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.35);
       padding: 1.3rem 1.35rem;
       background: transparent;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
+      box-shadow: none;
+      backdrop-filter: none;
     }
     .card.case-study {
       position: relative;
@@ -678,7 +618,8 @@
       transition: max-height 0.2s ease;
       -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-    }
+        color: #004c97;
+      }
     .card.case-study:hover .case-body,
     .card.case-study:focus-within .case-body {
       max-height: none;
@@ -690,17 +631,57 @@
       right: 1rem;
       bottom: 1rem;
       font-size: 0.75rem;
-      color: #6b7280;
+        color: #004c97;
+    }
+    .card.case-study > span {
+      color: #004c97;
     }
     .card h3 {
       font-size: 1.05rem;
       margin-bottom: 0.4rem;
-      color: #0f172a;
     }
     .card p {
       font-size: 0.9rem;
       color: #4b5563;
       margin-bottom: 0.5rem;
+    }
+    .service-hover-note {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      border-bottom: 1px dashed #93c5fd;
+      z-index: 40;
+    }
+    .service-hover-note::after {
+      content: attr(data-note);
+      position: absolute;
+      bottom: calc(100% + 0.45rem);
+      top: auto;
+      left: 0;
+      width: max-content;
+      min-width: 16rem;
+      max-width: min(24rem, calc(100vw - 4rem));
+      background: #0b2346;
+      color: #ffffff;
+      border: 1px solid rgba(15,23,42,0.75);
+      border-radius: 0.65rem;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      box-shadow: 0 14px 28px rgba(15,23,42,0.4);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+      z-index: 100;
+    }
+    .service-hover-note:hover::after,
+    .service-hover-note:focus::after,
+    .service-hover-note.is-open::after {
+      opacity: 1;
+      visibility: visible;
     }
     .card span {
       font-size: 0.78rem;
@@ -711,8 +692,339 @@
     .insights {
       margin-top: 3.75rem;
       border-radius: 1.35rem;
-      background: transparent;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.6);
       padding: 2rem 1.8rem;
+      backdrop-filter: blur(2px);
+    }
+    .trust-strip {
+      margin-top: 2.4rem;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-glass);
+      border-radius: 1.1rem;
+      padding: 1rem 0.9rem;
+      overflow: hidden;
+      max-width: 72%;
+      margin-left: 0;
+      margin-right: auto;
+    }
+    .trust-title {
+      margin: 0 0 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #475569;
+      padding-left: 0;
+      font-weight: 600;
+    }
+    .trust-viewport {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .trust-track {
+      display: flex;
+      gap: 0.7rem;
+      width: max-content;
+      animation: trustMarquee 26s linear infinite;
+    }
+    .trust-strip:hover .trust-track,
+    .trust-strip:focus-within .trust-track {
+      animation-play-state: paused;
+    }
+    .trust-pill {
+      border: 1px solid rgba(148,163,184,0.55);
+      background: rgba(255,255,255,0.5);
+      color: #111827;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      filter: grayscale(1);
+      opacity: 0.86;
+      transition: filter 0.2s ease, opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .trust-pill:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 45%, #94a3b8);
+    }
+    @keyframes trustMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .client-logo-wall {
+      margin-top: calc(2.2rem + 1.5in);
+      width: min(45.2rem, calc(100% - 1rem));
+      margin-left: 0;
+      margin-right: auto;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-glass);
+      border-radius: 1.1rem;
+      padding: 0.05rem 0.08rem;
+      backdrop-filter: blur(1.5px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+    }
+    .client-logo-title {
+      display: block;
+      margin: 0 0 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #475569;
+      padding-left: 0;
+      font-weight: 600;
+      text-align: left;
+    }
+    .client-logo-note {
+      margin: 0 0 0.55rem;
+      color: #0f172a;
+      font-size: 0.8rem;
+      display: none;
+    }
+    .client-logo-viewport {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    }
+    .client-logo-track {
+      display: flex;
+      gap: 0.45rem;
+      width: max-content;
+      animation: clientLogoScroll 56s linear infinite;
+      animation-play-state: paused;
+      will-change: transform;
+    }
+    .client-logo-track.is-ready {
+      animation-play-state: running;
+    }
+    .client-logo-tile {
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(255,255,255,0.55);
+      color: #0f172a;
+      border-radius: 0.65rem;
+      padding: 0.35rem 0.42rem;
+      text-align: center;
+      min-height: 2.5rem;
+      min-width: 8.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .client-logo-tile.client-logo-tile-pwc {
+      min-width: 25.2rem;
+      padding: 0.72rem 1.48rem;
+    }
+    .client-logo-tile.client-logo-tile-pwc .client-logo-img-wrap {
+      height: 4.1rem;
+    }
+    .client-logo-tile.client-logo-tile-pwc .client-logo-img {
+      max-height: 3.92rem;
+    }
+    .client-logo-tile.client-logo-tile-ge {
+      min-width: 9.6rem;
+      padding: 0.3rem 0.5rem;
+    }
+    .client-logo-tile.client-logo-tile-ge .client-logo-img-wrap {
+      height: 1.56rem;
+    }
+    .client-logo-tile.client-logo-tile-ge .client-logo-img {
+      max-height: 1.48rem;
+    }
+    .client-logo-tile.client-logo-tile-ge-capital {
+      min-width: 13.6rem;
+      padding: 0.38rem 0.8rem;
+    }
+    .client-logo-tile.client-logo-tile-ge-capital .client-logo-img-wrap {
+      height: 2.35rem;
+    }
+    .client-logo-tile.client-logo-tile-ge-capital .client-logo-img {
+      max-height: 2.26rem;
+    }
+    .client-logo-tile.client-logo-tile-lg {
+      min-width: 11.8rem;
+      padding: 0.34rem 0.68rem;
+    }
+    .client-logo-tile.client-logo-tile-lg .client-logo-img-wrap {
+      height: 2.94rem;
+    }
+    .client-logo-tile.client-logo-tile-lg .client-logo-img {
+      max-height: 2.82rem;
+    }
+    .client-logo-tile.client-logo-tile-wells {
+      min-width: 29.6rem;
+      padding: 0.88rem 1.72rem;
+    }
+    .client-logo-tile.client-logo-tile-wells .client-logo-img-wrap {
+      height: 4.94rem;
+    }
+    .client-logo-tile.client-logo-tile-wells .client-logo-img {
+      max-height: 4.73rem;
+    }
+    .client-logo-tile.client-logo-tile-wfa {
+      min-width: 33.6rem;
+      padding: 0.84rem 1.8rem;
+    }
+    .client-logo-tile.client-logo-tile-wfa .client-logo-img-wrap {
+      height: 5.4rem;
+    }
+    .client-logo-tile.client-logo-tile-wfa .client-logo-img {
+      max-height: 5.12rem;
+    }
+    .client-logo-tile.client-logo-tile-sloan {
+      min-width: 14.4rem;
+      padding: 0.4rem 0.86rem;
+    }
+    .client-logo-tile.client-logo-tile-sloan .client-logo-img-wrap {
+      height: 2.45rem;
+    }
+    .client-logo-tile.client-logo-tile-sloan .client-logo-img {
+      max-height: 2.34rem;
+    }
+    .client-logo-tile.client-logo-tile-penn {
+      min-width: 6.8rem;
+      padding: 0.28rem 0.46rem;
+    }
+    .client-logo-tile.client-logo-tile-penn .client-logo-img-wrap {
+      height: 0.68rem;
+    }
+    .client-logo-tile.client-logo-tile-penn .client-logo-img {
+      max-height: 0.64rem;
+      filter: grayscale(1) sepia(1) saturate(6500%) hue-rotate(186deg) brightness(0.95) contrast(1.05);
+    }
+    .client-logo-tile.client-logo-tile-kroger {
+      min-width: 13.2rem;
+      padding: 0.4rem 0.84rem;
+    }
+    .client-logo-tile.client-logo-tile-kroger .client-logo-img-wrap {
+      height: 2.55rem;
+    }
+    .client-logo-tile.client-logo-tile-kroger .client-logo-img {
+      max-height: 2.44rem;
+    }
+    .client-logo-tile.client-logo-tile-maritz {
+      min-width: 4rem;
+      padding: 0.15rem 0.30rem;
+    }
+    .client-logo-tile.client-logo-tile-maritz .client-logo-img-wrap {
+      height: 0.9rem;
+    }
+    .client-logo-tile.client-logo-tile-maritz .client-logo-img {
+      max-height: 0.7rem;
+    }
+    /* Keep crawl tiles visually consistent across the strip. */
+    .client-logo-track .client-logo-tile {
+      width: 10.8rem !important;
+      min-width: 10.8rem !important;
+      max-width: 10.8rem !important;
+      flex: 0 0 10.8rem !important;
+      box-sizing: border-box;
+      min-height: 2rem;
+      padding: 0.18rem 0.24rem !important;
+    }
+    .client-logo-track .client-logo-tile .client-logo-img-wrap {
+      height: 1.28rem !important;
+    }
+    .client-logo-track .client-logo-tile .client-logo-img {
+      max-height: 1.2rem !important;
+      opacity: 0.97 !important;
+      filter: contrast(1) saturate(0.95) !important;
+    }
+    .client-logo-track .client-logo-tile.logo-large .client-logo-img {
+      max-height: 2.82rem !important;
+    }
+    .client-logo-track .client-logo-tile.logo-large.client-logo-tile-mda .client-logo-img {
+      max-height: 1.7rem !important;
+    }
+    .client-logo-track .client-logo-tile.logo-esselte .client-logo-img {
+      max-height: 1rem !important;
+      transform: scale(0.5);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.logo-ltv .client-logo-img {
+      max-height: 3.1rem !important;
+    }
+    .client-logo-track .client-logo-tile.no-image {
+      display: none !important;
+    }
+    .client-logo-track .client-logo-tile.logo-brandywine .client-logo-img {
+      max-height: 6rem !important;
+    }
+    .client-logo-track .client-logo-tile.logo-penn .client-logo-img {
+      max-height: 3rem !important;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-pwc .client-logo-img {
+      transform: scale(2);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-ge-capital-art .client-logo-img {
+      transform: scale(1.07);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-alacer-art .client-logo-img {
+      transform: scale(2);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-fedstl .client-logo-img {
+      transform: scale(5.6);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-bell-labs .client-logo-img {
+      transform: scale(4);
+      transform-origin: center;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-wfa .client-logo-img {
+      transform: scale(3);
+      transform-origin: center;
+    }
+    .client-logo-wall:hover .client-logo-track,
+    .client-logo-wall:focus-within .client-logo-track {
+      animation-play-state: paused;
+    }
+    .client-logo-tile:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--accent) 40%, #94a3b8);
+    }
+    .client-logo-img-wrap {
+      height: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .client-logo-img {
+      max-height: 1.28rem;
+      max-width: 100%;
+      object-fit: contain;
+      filter: contrast(1.03) saturate(1.02);
+    }
+    .client-logo-label {
+      display: none;
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .client-logo-track .client-logo-label {
+      display: none !important;
+    }
+    .client-logo-track .client-logo-img-wrap {
+      display: flex !important;
+    }
+    .client-logo-track .client-logo-tile.no-image {
+      display: none !important;
+    }
+    @keyframes clientLogoScroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-50% - 0.225rem));
+      }
     }
     .insights-grid {
       display: grid;
@@ -720,81 +1032,182 @@
       gap: 2rem;
       align-items: flex-start;
     }
-    .insight-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #e5e7eb;
-      position: relative;
+    .insights-list-col {
+      padding-top: 4.6rem;
     }
-    .insight-hover-desc {
-      display: none;
+    .insights-art {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1 / 1;
+      border-radius: 1rem;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.12);
+      margin-top: 0.6rem;
+      object-fit: cover;
+      display: block;
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 1.4rem;
+      align-items: start;
+    }
+    .offerings-scroll {
+      border: 1px solid var(--surface-border);
+      border-radius: 1rem;
+      background: var(--surface-glass);
+      backdrop-filter: blur(1.5px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+      padding: 1rem;
+      max-height: 20rem;
+      overflow: hidden;
+    }
+    .offerings-scroll h4 {
+      margin: 0 0 0.5rem;
+      color: #004c97;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .offerings-scroll p {
+      margin: 0 0 0.9rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid #cbd5e1;
+      color: #111827;
+      font-size: 1rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .offerings-scroll ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      color: #111827;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .offerings-scroll li {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+    .offerings-scroll li::before {
+      content: "✦";
       position: absolute;
       left: 0;
-      top: 100%;
+      top: 0.02rem;
+      color: #0ea5e9;
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .offerings-scroll li + li {
+      margin-top: 0.45rem;
+    }
+    .offerings-viewport {
+      height: 11.5rem;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .offerings-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: offeringsScroll 20s linear infinite;
+      will-change: transform;
+    }
+    .offerings-scroll:hover .offerings-track,
+    .offerings-scroll:focus-within .offerings-track {
+      animation-play-state: paused;
+    }
+    @keyframes offeringsScroll {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-50%);
+      }
+    }
+    .insight-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      display: grid;
+      row-gap: 0.4rem;
+    }
+    .insight-hover-target {
+      position: relative;
+      cursor: help;
+    }
+    .insight-note {
+      display: none;
+      margin-top: 0.5rem;
+      box-sizing: border-box;
       width: 100%;
-      background: #e1effa;
-      color: #17305c;
-      font-size: 0.85rem;
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-      z-index: 2;
-      margin-top: 0.3rem;
-      white-space: normal;
-      word-break: break-word;
-      text-align: left;
+      max-width: none;
+      background-color: #0b2346;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 0.65rem;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      box-shadow: 0 14px 26px rgba(2, 6, 23, 0.42);
+      text-shadow: none;
     }
-    .insight-item:hover .insight-hover-desc,
-    .insight-item:focus-within .insight-hover-desc {
+    .insight-hover-target:hover .insight-note,
+    .insight-hover-target:focus-within .insight-note,
+    .insight-hover-target.is-open .insight-note {
       display: block;
     }
-          .whatwedo-hover-popup {
-            display: none !important;
-            position: absolute !important;
-            left: 0 !important;
-            top: 100% !important;
-            width: 100% !important;
-            background: #e1effa !important;
-            color: #17305c !important;
-            font-size: 0.85rem !important;
-            padding: 0.7rem 1rem !important;
-            border-radius: 0.7rem !important;
-            box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
-            z-index: 2 !important;
-            margin-top: 0.3rem !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            text-align: left !important;
-            text-transform: none !important;
-        }
-        .hover-col:hover .whatwedo-hover-popup,
-        .hover-col:focus-within .whatwedo-hover-popup {
-            display: block !important;
-        }
-      text-align: left;
+    @media (min-width: 801px) {
+      #insights .insight-item {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.9fr);
+        column-gap: 1rem;
+        align-items: start;
+      }
+      #insights .insight-tag,
+      #insights .insight-item h4,
+      #insights .insight-item p {
+        grid-column: 1;
+      }
+      #insights .insight-note {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        align-self: start;
+        margin-top: 0.1rem;
+      }
     }
-    .industry-card:hover .industry-hover-desc,
-    .industry-card:focus-within .industry-hover-desc {
-      display: block;
+    .card.case-study.is-open .case-body {
+      max-height: none;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
     .insight-item:last-child {
       border-bottom: none;
     }
     .insight-tag {
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #6b7280;
-      margin-bottom: 0.2rem;
+      letter-spacing: .13em;
+      color: #003f7d;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
     }
     .insight-item h4 {
-      font-size: 0.95rem;
-      margin: 0 0 0.15rem;
-      color: #0f172a;
+      font-size: 1.05rem;
+      margin: 0;
+      line-height: 1.35;
+      color: #0b1220;
+      font-weight: 700;
+      text-transform: none;
     }
     .insight-item p {
-      font-size: 0.85rem;
-      color: #6b7280;
+      font-size: 0.98rem;
+      color: #0f172a;
       margin: 0;
+      line-height: 1.45;
+      font-weight: 500;
     }
     footer {
       border-top: 1px solid #e5e7eb;
@@ -812,31 +1225,428 @@
       gap: 1rem;
       align-items: center;
     }
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card-grid {
+        margin-top: 2.4rem;
+      }
+      .impact-stats {
+        gap: 0.9rem;
+      }
+      .client-logo-tile {
+        min-width: 7.4rem;
+      }
+      .client-logo-tile.client-logo-tile-pwc {
+        min-width: 22.2rem;
+      }
+      .client-logo-tile.client-logo-tile-ge {
+        min-width: 8.4rem;
+      }
+      .client-logo-tile.client-logo-tile-ge-capital {
+        min-width: 12.1rem;
+      }
+      .client-logo-tile.client-logo-tile-lg {
+        min-width: 10.2rem;
+      }
+      .client-logo-tile.client-logo-tile-wells {
+        min-width: 26rem;
+      }
+      .client-logo-tile.client-logo-tile-wfa {
+        min-width: 29.6rem;
+      }
+      .client-logo-tile.client-logo-tile-sloan {
+        min-width: 12.9rem;
+      }
+      .client-logo-tile.client-logo-tile-penn {
+        min-width: 6.2rem;
+      }
+      .client-logo-tile.client-logo-tile-kroger {
+        min-width: 11.8rem;
+      }
+      .client-logo-tile.client-logo-tile-maritz {
+        min-width: 3.55rem;
+      }
+      .client-logo-wall {
+        width: min(45.2rem, calc(100% - 1rem));
+      }
+      .client-logo-track .client-logo-tile {
+        width: 9.6rem !important;
+        min-width: 9.6rem !important;
+        max-width: 9.6rem !important;
+        flex: 0 0 9.6rem !important;
+      }
+    }
     @media (max-width: 800px) {
+      html,
+      body {
+        overflow-x: clip;
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+      }
+      .nav-actions > nav {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        padding-bottom: 0.2rem;
+        justify-content: center;
+      }
+      .nav-actions > nav a {
+        margin-left: 0;
+        margin-right: 0.7rem;
+        padding-bottom: 0.1rem;
+        flex: 0 0 auto;
+        font-size: 0.82rem;
+      }
+      .nav-actions > nav a:last-child {
+        margin-right: 0;
+      }
+      .theme-toggle {
+        display: none;
+      }
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+      }
+      .shell {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .hero,
+      section[id],
+      .insights,
+      .trust-strip,
+      .contact-layout {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+      #case-studies .card-grid {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 1rem 0.8rem;
+        scroll-padding-left: 1rem;
+        scroll-padding-right: 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      #case-studies .card-grid::-webkit-scrollbar {
+        display: none;
+      }
+      #case-studies .card.case-study {
+        box-sizing: border-box;
+        flex: 0 0 calc(100% - 2.4rem);
+        max-width: calc(100% - 2.4rem);
+        scroll-snap-align: center;
+        margin: 0;
+        padding-left: calc(1rem + 0.0625in);
+      }
+      #case-studies .card.case-study .section-lead {
+        margin-bottom: 0.7rem !important;
+      }
+      #case-studies .card.case-study .case-body p {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+      #case-studies .card.case-study h3,
+      #case-studies .card.case-study .section-lead,
+      #case-studies .card.case-study .case-body p {
+        overflow-wrap: anywhere;
+      }
+      .card,
+      .insights,
+      .trust-strip,
+      .offerings-scroll {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+      .card.case-study,
+      .client-impact-card,
+      .insight-item,
+      section#case-studies .card,
+      section#case-studies .card.case-study {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+      }
+      #contact .offerings-scroll {
+        background: var(--surface-glass);
+        border-color: var(--surface-border);
+        box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+        backdrop-filter: blur(1.5px);
+      }
+      .services-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-items: center;
+      }
+      .service-hover-note::after {
+        min-width: 0;
+        top: calc(100% + 0.45rem);
+        bottom: auto;
+        left: 0;
+        right: auto;
+      }
+      .client-impact-card {
+        width: min(calc(100% - 0.25in), 330px);
+        max-width: 330px;
+        margin: 1.2rem auto;
+        padding: 0.8rem 0.75rem;
+      }
+      .impact-stats {
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+      .impact-stats > div {
+        min-width: 0;
+      }
+      .impact-number {
+        font-size: clamp(0.95rem, 4.8vw, 1.12rem);
+      }
+      .impact-label {
+        font-size: 0.86rem;
+      }
+      .sector-pills {
+        justify-content: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.2rem;
+        gap: 0.2rem;
+      }
+      .sector-pills .sector-pill {
+        font-size: 0.65rem;
+        padding: 0.28rem 0.5rem;
+        min-width: 0;
+        white-space: nowrap;
+      }
+      .insights-list-col {
+        padding-top: 0;
+      }
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+      }
+      .offerings-scroll {
+        max-height: 18rem;
+      }
+      .card,
+      .offerings-scroll,
+      .insights-grid > div,
+      .client-impact-card,
+      .client-logo-wall {
+        width: 100%;
+      }
+      .card {
+        padding: 1.1rem 1rem;
+      }
+    .insights-art {
+      width: calc(100% - 0.35rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ai-spotlight {
+      margin-top: 1.2rem;
+      padding: 1.2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+    }
+    .ai-spotlight-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 0.35rem;
+    }
+    .ai-spotlight h4 {
+      font-size: 1.25rem;
+      margin: 0;
+      margin-bottom: 0.45rem;
+      color: #0b1220;
+      line-height: 1.35;
+    }
+    .ai-spotlight p {
+      margin: 0;
+      margin-bottom: 0.75rem;
+      color: #1f2937;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .ai-spotlight-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+      .client-impact-card,
+      .insights,
+      .offerings-scroll,
+      .trust-strip,
+      .card,
+      .client-logo-wall {
+        border-radius: 0.95rem;
+      }
+      .client-impact-card {
+        background: #17305c;
+        color: #f9fafb;
+        border: 1px solid rgba(255,255,255,0.25);
+        box-shadow: 0 12px 24px rgba(15,23,42,0.3);
+        backdrop-filter: blur(1.5px);
+      }
+      .card.case-study {
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+      .client-logo-tile {
+        min-width: 6.6rem;
+        min-height: 2.35rem;
+        padding: 0.28rem 0.34rem;
+      }
+      .client-logo-tile.client-logo-tile-pwc {
+        min-width: 20rem;
+      }
+      .client-logo-tile.client-logo-tile-ge {
+        min-width: 7.6rem;
+      }
+      .client-logo-tile.client-logo-tile-ge-capital {
+        min-width: 10.9rem;
+      }
+      .client-logo-tile.client-logo-tile-lg {
+        min-width: 9.2rem;
+      }
+      .client-logo-tile.client-logo-tile-wells {
+        min-width: 23.4rem;
+      }
+      .client-logo-tile.client-logo-tile-wfa {
+        min-width: 26.4rem;
+      }
+      .client-logo-tile.client-logo-tile-sloan {
+        min-width: 11.6rem;
+      }
+      .client-logo-tile.client-logo-tile-penn {
+        min-width: 5.6rem;
+      }
+      .client-logo-tile.client-logo-tile-kroger {
+        min-width: 10.6rem;
+      }
+      .client-logo-tile.client-logo-tile-maritz {
+        min-width: 3.15rem;
+      }
+      .client-logo-wall {
+        width: 100%;
+        margin-top: 2.2rem;
+      }
+      .client-logo-track .client-logo-tile {
+        width: 8.6rem !important;
+        min-width: 8.6rem !important;
+        max-width: 8.6rem !important;
+        flex: 0 0 8.6rem !important;
+      }
+      .client-logo-track .client-logo-tile.client-logo-tile-maritz .client-logo-img {
+        max-height: 0.6rem !important;
+      }
+      .trust-strip {
+        max-width: calc(100vw - 2rem);
+      }
+      .hover-indicator {
+        display: block;
+      }
+      .hero-video-card {
+        display: none;
+      }
+      #insights.insights {
+        background: rgba(255,255,255,0.34);
+        border-color: rgba(255,255,255,0.72);
+        backdrop-filter: blur(2.6px);
+      }
+      .client-logo-track .client-logo-tile.logo-ltv .client-logo-img {
+        max-height: 2.3rem !important;
+      }
+      #insights .insight-tag {
+        color: #00356a;
+      }
+      #insights .insight-item h4 {
+        color: #0b1220;
+        font-weight: 700;
+      }
+      #insights .insight-item p {
+        color: #0b1220;
+        font-weight: 600;
+      }
+      #insights .insight-hover-target {
+        isolation: isolate;
+        overflow: visible;
+      }
+      #insights .insight-note {
+        background-color: #0e2a55;
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.26);
+      }
+    }
+    @media (hover: none), (pointer: coarse) {
+      .service-hover-note,
+      .insight-hover-target {
+        cursor: pointer;
+      }
+      .service-hover-note::after {
+        max-width: min(20rem, calc(100vw - 3rem));
+      }
+      .card.case-study .hover-indicator {
+        color: #1d4ed8;
+      }
+    }
+    @media (min-width: 801px) {
+      .hero-video-card {
+        display: none;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .trust-track {
+        animation: none;
       }
     }
   </style>
 </head>
 <body>
-  <!-- New Product Announcement Banner -->
-  <div id="announcement-banner" style="width:100%; background:#004c97; color:#f9fafb; text-align:center; padding:0.65rem 1rem; font-size:1rem; font-weight:600; letter-spacing:0.01em; position:relative; z-index:1000; display:flex; align-items:center; justify-content:center; gap:1rem;">
-    <span>🚀 <strong>Announcing our partnership with Windy Hill Partners</strong> and the launch of a proven Enterprise Portfolio Optimization methodology that will change how Business Transformation is done. <a href="#contact" style="color:#e1effa; text-decoration:underline; font-weight:700;">Learn more →</a></span>
-    <button onclick="document.getElementById('announcement-banner').style.display='none'" aria-label="Dismiss announcement" style="background:none; border:none; color:#f9fafb; font-size:1.3rem; cursor:pointer; line-height:1; padding:0 0.2rem; margin-left:0.5rem;">✕</button>
-  </div>
 <header>
-  <div class="nav-inner" style="position:relative;">
+  <div class="nav-inner">
     <div class="brand">
       <div class="brand-mark">WJ</div>
-      WyattJoel Advisory Partners
+      WyAttJoel Advisory Partners
     </div>
-    <nav class="main-nav">
-      <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
-      <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
-      <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
-      <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
-    </nav>
+    <div class="nav-actions">
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#insights">Insights</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle accent theme">Dark Accent</button>
+    </div>
   </div>
 </header>
 
@@ -844,14 +1654,14 @@
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
-      <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
+      <h1><span id="transform-word" class="transform-word">Transforming</span> <span>complexity</span> into sustainable advantage.</h1>
       <p>
         We partner with senior leaders to redesign operating models, unlock digital value,
         and deliver measurable impact across growth, cost, and risk.
       </p>
       <div class="btn-row">
-        <a href="#contact" class="btn btn-primary" style="background:#004c97; color:#f9fafb; border:none;">Schedule a conversation →</a>
-        <a href="#insights" class="btn btn-outline" style="background:#e5e7eb; color:#004c97; border:none;">Browse recent insights</a>
+        <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
+        <a href="#insights" class="btn btn-outline">Browse recent insights</a>
       </div>
       <div class="hero-meta">
         <div>
@@ -860,705 +1670,1012 @@
         </div>
         <div>
           <strong>Average 15–30% efficiency gains</strong>
-          Through process redesign, automation, and data-driven decisioning.
+          Through process redesign, automation, and data-driven decisioning
         </div>
       </div>
     </div>
-    <div class="client-impact-card" style="background: #17305c; color: #f9fafb; border-radius: 1.35rem; padding: 1.2rem 1rem; box-shadow: 0 18px 35px rgba(15,23,42,0.35); margin-bottom:2rem; text-align:center; max-width:540px; margin-left:auto; margin-right:auto; opacity:1;">
-      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:0.5rem; color:#e5e7eb; font-weight:700; background:transparent; letter-spacing:0.01em; filter:brightness(2.2);">Client Impact Snapshot</h2>
-      <div class="impact-stats" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.2rem; text-align:center;">
-        <div>
-          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">120</span>
-          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Clients Served</span>
-        </div>
-        <div>
-          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">98%</span>
-          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Satisfaction</span>
-        </div>
-        <div>
-          <span class="impact-number" style="font-size:2.2rem; font-weight:700; display:block;">17</span>
-          <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
-        </div>
+    <div class="hero-right-stack">
+      <div class="hero-video-card" aria-label="Strategy activity highlight">
+        <img src="site-background.png" alt="Strategy activity visual" />
+        <div class="hero-video-overlay"></div>
+        <p class="hero-video-label">Consulting in Motion</p>
       </div>
-        <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:flex-start; flex-wrap:nowrap; margin-bottom:0.7rem; position:relative;">
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
-            <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
+      <div class="client-impact-card">
+        <h2>Client Impact Snapshot</h2>
+        <div class="impact-stats">
+          <div>
+            <span class="impact-number" data-target="14.7" data-prefix="$" data-suffix=" Billion" data-decimals="1">$14.7 Billion</span>
+            <span class="impact-label">Value Delivered</span>
           </div>
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
-            <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+          <div>
+            <span class="impact-number" data-target="34" data-prefix="~" data-suffix="%" data-decimals="0">~34%</span>
+            <span class="impact-label">Efficiency Gains</span>
           </div>
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
-            <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology</button>
-            <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+          <div>
+            <span class="impact-number" data-target="500" data-prefix="" data-suffix="+" data-decimals="0">500+</span>
+            <span class="impact-label">Programs Led</span>
           </div>
         </div>
-      <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
-        <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
-      </p>
-</div>
-      </p>
-    </aside>
+        <div class="sector-pills" id="sector-pills">
+          <button type="button" class="sector-pill" data-sector-desc="We help banks, insurers, and asset managers modernize operations, manage risks, and drive growth through digital transformation and regulatory expertise.">Financial services</button>
+          <button type="button" class="sector-pill" data-sector-desc="Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.">Healthcare</button>
+          <button type="button" class="sector-pill" data-sector-desc="We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.">Public sector</button>
+          <button type="button" class="sector-pill" data-sector-desc="Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.">Technology</button>
+        </div>
+        <div class="sector-description" id="sector-description">Hover over a sector to view details.</div>
+        <p style="color:#ffffff;">WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact, boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="services" style="margin-top:1.6rem;">
-    <div class="section-label" style="margin-bottom:0.7rem; color:#004c97; font-weight:bold;">WHAT WE DO</div>
-    <div class="section-title" style="margin-bottom:0.7rem;">End‑to‑end support from strategy to sustained delivery.</div>
-    <p class="section-lead" style="margin-bottom:1.2rem;">
+  <section id="services" style="margin-top:3.25rem;">
+    <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none; margin-bottom:1rem;">What We Do</div>
+    <div class="section-title" style="color:#111827; font-weight:700; margin-bottom:1rem;">End‑to‑end support from strategy to sustained delivery.</div>
+    <p class="section-lead" style="margin-bottom:2rem;">
       We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
       to move organizations from intent to outcome.
     </p>
-    <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-bottom:2.2rem;">
-      <div style="flex:1; min-width:280px; max-width:400px;">
-        <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">01 · <span style="color:#004c97; font-weight:normal;">Enterprise strategy</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Growth, portfolio, and investment strategy</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Align leadership on direction, and build executable roadmaps anchored in tangible value.</span>
-            <p style="margin-bottom:0; font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; text-align:left;">Clarify where to play and how to win.</p>
-            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+    <div class="card-grid services-grid">
+      <article class="card">
+        <span>01 · Enterprise strategy</span>
+        <h3>Growth, portfolio, and investment strategy</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="Align leadership on direction and build executable roadmaps anchored in tangible value.">Clarify where to play and how to win.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>02 · Transformation</span>
+        <h3>Operating model & transformation offices</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" style="color:#111827;" data-note="Transformation offices help sustain impact and unblock progress.">Redesign structures, roles, and ways of working while establishing transformation
+          offices that track, unblock, and sustain impact.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>03 · Digital & AI</span>
+        <h3>Digital journeys, automation, and analytics</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="Digital transformation enables better decisions and improved performance.">Modernize customer and employee journeys, embed automation, and leverage data and AI
+          to inform mission‑critical decisions.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>04 · Risk & resilience</span>
+        <h3>Regulatory, operational, and cyber resilience</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="Resilience is built through strong frameworks and stakeholder alignment.">Strengthen risk frameworks, streamline controls, and align stakeholders around a
+          pragmatic path to compliance and resilience.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>05 · AI-driven acceleration</span>
+        <h3>Accelerating product & process development</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</span>
+        </p>
+      </article>
+      <article class="card">
+        <span>06 · M&A excellence</span>
+        <h3>Executing behemoth financial services deals</h3>
+        <p>
+          <span class="service-hover-note" tabindex="0" data-note="Our proven M&amp;A approach streamlines due diligence, accelerates transitions, and ensures core operational continuity, empowering institutions to execute and integrate behemoth deals with confidence and speed.">Develop and apply robust M&amp;A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</span>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="insights" class="insights">
+    <div class="insights-grid">
+      <div>
+        <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Insights</div>
+        <div class="section-title" style="color:#111827; font-weight:700;">Perspectives on what’s next.</div>
+        <p class="section-lead">
+          Short, practicable viewpoints on the trends reshaping industries—from generative AI
+          to evolving regulatory expectation
+        </p>
+        <div class="ai-spotlight" id="ai-spotlight">
+          <div class="ai-spotlight-label">AI Spotlight</div>
+          <h4 id="ai-spotlight-title">Moving from AI pilots to industrialized impact in 12 months</h4>
+          <p id="ai-spotlight-summary">Design principles for scaling AI responsibly across critical workflows.</p>
+          <div class="ai-spotlight-meta">
+            <span id="ai-spotlight-category">POINT OF VIEW · AI</span>
+            <a id="ai-spotlight-cta" class="btn btn-outline" href="#insights">Read insight →</a>
           </div>
-        </article>
+        </div>
+        <img src="insights-art.jpg" alt="Abstract geometric insights visual" class="insights-art" />
       </div>
-      <div style="flex:1; min-width:280px; max-width:400px;">
-        <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.7rem; display:block; color:#004c97; font-weight:normal;">02 · <span style="color:#004c97; font-weight:normal;">Transformation</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Operating model & transformation offices</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Transformation offices help sustain impact and unblock progress.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</p>
-            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
+      <div class="insights-list-col">
+        <div id="insights-list"></div>
+        <div id="insights-fallback">
+          <div class="insight-item insight-hover-target" data-hover-note="Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.">
+            <div class="insight-tag">Article · Operating Model</div>
+            <h4>Five moves to realign your operating model for digital scale</h4>
+            <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+            <div class="insight-note">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
           </div>
-        </article>
+          <div class="insight-item insight-hover-target" data-hover-note="Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.">
+            <div class="insight-tag">BRIEF · FINANCIAL SERVICES</div>
+            <h4>Rebuilding trust through transparent risk and control frameworks</h4>
+            <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
+            <div class="insight-note">Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.</div>
+          </div>
+          <div class="insight-item insight-hover-target" data-hover-note="Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.">
+            <div class="insight-tag">POINT OF VIEW · AI</div>
+            <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
+            <p>Design principles for scaling AI responsibly across critical workflows.</p>
+            <div class="insight-note">Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.</div>
+          </div>
+        </div>
       </div>
-      <div style="flex:1; min-width:280px; max-width:400px;">
-        <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">03 · <span style="color:#004c97; font-weight:normal;">Digital & AI</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Digital journeys, automation, and analytics</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Digital transformation enables better decisions and improved performance.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</p>
-            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
-          </div>
-        </article>
-      </div>
-      <div style="flex:1; min-width:280px; max-width:400px;">
-        <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">04 · <span style="color:#004c97; font-weight:normal;">Risk & resilience</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Regulatory, operational, and cyber resilience</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Resilience is built through strong frameworks and stakeholder alignment.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</p>
-            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
-          </div>
-        </article>
-      </div>
-      <div style="flex:1; min-width:280px; max-width:400px;">
-        <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">05 · <span style="color:#004c97; font-weight:normal;">AI-Driven Acceleration</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Accelerating Product & Process Development</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</p>
-            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
-          </div>
-        </article>
-      </div>
-      <div style="flex:1; min-width:280px; max-width:400px;">
-        <article class="card" style="height:100%; margin-bottom:1.2rem;">
-          <span style="margin-bottom:0.5rem; display:block; color:#004c97; font-weight:normal;">06 · <span style="color:#004c97; font-weight:normal;">M&A Excellence</span></span>
-          <h3 style="margin-top:0; margin-bottom:0.5rem; color:#004c97; font-weight:normal;">Executing Behemoth Financial Services Deals</h3>
-          <div class="hover-col" style="position:relative; cursor:pointer; max-width:320px; margin:0 auto; margin-bottom:0.5rem; text-align:left;">
-            <span class="whatwedo-hover-popup">Our proven M&amp;A approach streamlines due diligence, accelerates transition, and ensures core operational continuity—empowering financial institutions to execute and integrate behemoth deals with confidence and speed.</span>
-            <p style="font-size:0.95rem; max-width:320px; white-space:normal; overflow-wrap:break-word; margin-bottom:0.5rem; text-align:left;">Develop and apply robust M&A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</p>
-            <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
-          </div>
-        </article>
+    </div>
+  </section>
+  <section class="trust-strip" aria-label="trust strip">
+    <h3 class="trust-title">Trusted Methods and Certifications</h3>
+    <div class="trust-viewport">
+      <div class="trust-track">
+        <span class="trust-pill">Regulatory-grade Controls</span>
+        <span class="trust-pill">ISO-aligned Frameworks</span>
+        <span class="trust-pill">Lean Six Sigma Bench Strength</span>
+        <span class="trust-pill">PMO Governance Discipline</span>
+        <span class="trust-pill">Data-driven Operating Rhythm</span>
+        <span class="trust-pill">Day 1 Integration Readiness</span>
+        <span class="trust-pill">AI Safety and Accountability</span>
+        <span class="trust-pill">Enterprise Transformation Delivery</span>
+        <span class="trust-pill">Best-in-Class Design and Development Expertise</span>
+        <span class="trust-pill">Regulatory-grade Controls</span>
+        <span class="trust-pill">ISO-aligned Frameworks</span>
+        <span class="trust-pill">Lean Six Sigma Bench Strength</span>
+        <span class="trust-pill">PMO Governance Discipline</span>
+        <span class="trust-pill">Data-driven Operating Rhythm</span>
+        <span class="trust-pill">Day 1 Integration Readiness</span>
+        <span class="trust-pill">AI Safety and Accountability</span>
+        <span class="trust-pill">Enterprise Transformation Delivery</span>
+        <span class="trust-pill">Best-in-Class Design and Development Expertise</span>
       </div>
     </div>
   </section>
 
-  <section id="insights" class="insights" style="position:relative; overflow:hidden;">
-      <div class="insights-grid" style="position:relative; z-index:1;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;">
-          <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
-          <div class="section-title">Perspectives on what’s next.</div>
-          <p class="section-lead">
-            Short, practicable viewpoints on the trends reshaping industries—from generative AI
-            to evolving regulatory expectations.
-          </p>
-          <img src="Pers.jpg" alt="WyattJoel Partner" class="insights-pers-img" style="width:141px; max-width:100%; height:auto; border-radius:1.1rem; margin-top:1.1rem; margin-bottom:0.7rem; box-shadow:0 4px 18px rgba(15,23,42,0.13); display:block;" />
-        </div>
-        <div>
-          <div id="insights-list"></div>
-          <div id="insights-fallback">
-            <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Article · Operating model</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Five moves to realign your operating model for digital scale</h4>
-              <p style="margin-bottom:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:bold;">How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
-              <div class="insight-hover-desc" style="margin-top:0.7rem; font-size:0.95rem; color:#0f172a; font-weight:normal;">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
-            </div>
-            <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Brief · Financial services</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Rebuilding trust through transparent risk and control frameworks</h4>
-              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Why risk, compliance, and transformation leaders need a shared playbook.</p>
-              <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
-            </div>
-            <div class="insight-item" style="margin-bottom:1.2rem;">
-              <div class="insight-tag" style="margin-bottom:0.7rem;">Point of view · AI</div>
-              <h4 style="margin-top:0; margin-bottom:0.7rem; color:#004c97; font-weight:normal;">Moving from AI pilots to industrialized impact in 12 months</h4>
-              <p style="margin-bottom:0.7rem; color:#0f172a; font-weight:bold;">Design principles for scaling AI responsibly across critical workflows.</p>
-              <div class="insight-hover-desc" style="color:#0f172a; font-weight:normal;">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-  </section>
-
   <section id="industries" style="margin-top:3.5rem;">
-    <div class="section-label" style="color:#004c97; font-weight:bold;">Industries</div>
-    <div class="section-title">We work where the stakes are high.</div>
+    <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Industries</div>
+    <div class="section-title" style="color:#111827; font-weight:700;">We work where the stakes are high.</div>
     <p class="section-lead">
       Our teams bring specialized experience in highly regulated, complex environments where
       execution risk is material.
     </p>
     <div class="card-grid">
-      <article class="card industry-card">
-        <span>Financial services</span>
+      <article class="card">
+        <span style="color:#004c97;">Financial services</span>
         <h3>Banking, payments, and capital markets</h3>
         <p>
           From core banking modernization to third‑party risk and AML/KYC remediation,
           we help institutions navigate change at scale.
         </p>
-        <div class="industry-hover-desc">We provide tailored solutions for financial institutions to manage regulatory change and drive sustainable growth.</div>
       </article>
-      <article class="card industry-card">
-        <span>Healthcare</span>
+      <article class="card">
+        <span style="color:#004c97;">Healthcare</span>
         <h3>Payers, providers, and services</h3>
         <p>
           Improve access, experience, and economics by rethinking care models,
           digital front doors, and analytics foundations.
         </p>
-        <div class="industry-hover-desc">Our healthcare strategies focus on patient outcomes, operational efficiency, and digital transformation for providers.</div>
       </article>
-      <article class="card industry-card">
-        <span>Public & social sector</span>
+      <article class="card">
+        <span style="color:#004c97;">Public & social sector</span>
         <h3>Government, education, and nonprofits</h3>
         <p>
           Support agencies and institutions in delivering better outcomes for citizens,
           students, and communities.
         </p>
-        <div class="industry-hover-desc">We help public sector organizations innovate, improve service delivery, and achieve measurable community impact.</div>
       </article>
     </div>
   </section>
 
-  <section id="case-studies" style="margin-top:3.5rem;">
-    <div class="section-label" style="color:#004c97; font-weight:bold;">Case Studies</div>
-    <div class="section-title">Real-world impact in action.</div>
+      <section id="case-studies" style="margin-top:3.5rem;" data-reveal-bound="1" class="reveal-on-scroll is-visible">
+    <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Case Studies</div>
+    <div class="section-title" style="color:#111827; font-weight:700;">Real-world impact in action.</div>
     <p class="section-lead">
       Explore how we’ve partnered with organizations to deliver measurable results across industries.
     </p>
     <div class="card-grid">
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Healthcare Case Study</span>
-        <h3>Optimizing Patient & Physician Satisfaction in Large Hospital System</h3>
+        <h3>Optimizing Patient &amp; Physician Satisfaction in a Large Hospital System</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A large hospital system streamlined care workflows and governance to boost patient and physician satisfaction while increasing diagnostic throughput and reducing equipment spend.
+          A large hospital system redesigned care workflows and governance to boost satisfaction, throughput, and capital efficiency.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Optimizing patient and physician satisfaction while improving productivity and diagnosis speed. Lack of connected framework to drive change and convert physician time from non-value to revenue-generating activities.
+            <strong>Issue:</strong> Patient and physician satisfaction were under pressure while diagnostic productivity lagged and clinicians spent excessive time on administrative work.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Linked initiatives to strategic priorities, uncovered process performance gaps, built dashboards, deployed governance, and aligned stakeholders from C-suite to frontline.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Established a strategy-linked transformation roadmap, identified process bottlenecks, launched performance dashboards, instituted governance cadences, and aligned leaders from the C-suite through frontline clinical teams.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            33% MRI/CT throughput increase | $4.5M equipment savings (annually) | 30% patient satisfaction improvement | 23% physician satisfaction increase
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> 33% increase in MRI/CT throughput | $4.5M annual equipment savings | 30% improvement in patient satisfaction | 23% lift in physician satisfaction.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Software Development Case Study</span>
-        <h3>Transforming Product Development from Internally-Driven to Customer-Focused</h3>
+        <h3>Transforming Product Development from Internally Driven to Customer Focused</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A software organization shifted to customer‑centric, Agile and Lean delivery, aligning teams to real market needs, cutting defects, and improving release predictability.
+          A software organization shifted from internally driven delivery to a customer-centered Agile/Lean model for better quality, predictability, and market response.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Market requirements misunderstood, developers producing features misaligned with customer needs, high error rates, scope creep, and disconnected work streams.
+            <strong>Issue:</strong> Product decisions leaned on internal assumptions, producing misaligned features, high defect counts, and unpredictable releases.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Prioritized design requirements through customer segmentation, moved to Agile & Lean development, integrated concurrent engineering, built visualization systems for work streams, ensured rigorous testing, and committed to design elements as late as possible.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Implemented customer-segmented prioritization, adopted Agile and Lean delivery rituals, integrated concurrent engineering, improved transparency, and strengthened testing governance.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            Improved end-to-end cycle | On-time delivery | Reduced development costs | Higher user acceptance | Low post-launch error rates | Real-time market responsiveness
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> Shorter cycle times | Higher on-time release performance | Lower development costs | Better quality and user acceptance.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>IT System Development Case Study</span>
-        <h3>Business-Driven IT Architecture & System Design</h3>
+        <h3>Business-Driven IT Architecture &amp; System Design</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          IT architecture was reoriented around business priorities, reducing critical errors, simplifying implementations, and elevating customer and associate experiences.
+          An enterprise reoriented IT architecture around business priorities to reduce errors, simplify implementations, and improve experiences.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> IT design driven by package architecture rather than business needs, lack of systematic framework to cascade requirements, poor front-end design driving high error rates, and risk/compliance requirements not integrated into work processes.
+            <strong>Issue:</strong> Architecture was driven by package constraints, requirements translated inconsistently, and controls were bolted on.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Engaged business leaders in executive sessions to understand needs and gaps, focused design activity through qualitative scoring of requirements, cascaded functional requirements down to process levels, and flipped the change model to start and end with business leaders rather than IT.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Convened business-led design sessions, scored requirements, cascaded business needs into architecture decisions, and shifted governance so business leaders owned the lifecycle.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            Reduced system error rates & eliminated Severity Classes 1&2 | Improved overall software performance | Increased customer & associate satisfaction | Decreased implementation complexity | Business-responsive systems
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> Eliminated Severity 1/2 incidents, reduced error rates, improved performance, and delivered responsive systems.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Petro-Chemical Product Development Case Study</span>
-        <h3>Accelerating Product Development & Market Success</h3>
+        <h3>Accelerating Product Development &amp; Market Success</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A petro‑chemical leader used concurrent engineering and rigorous experimental design to halve time‑to‑market and drive portfolio growth and profitability.
+          A petro-chemical leader applied concurrent engineering and DOE to halve time-to-market and accelerate profitability.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Product design lifecycle too long (14-21 months), inability to identify market gaps, functional silos reducing value chain integration, and ineffective experimental approaches missing critical factor interactions.
+            <strong>Issue:</strong> Product lifecycles stretched 14–21 months, market gaps were hidden, silos blocked integration, and experiments missed key interactions.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Leveraged concurrent engineering, DOE & QFD statistical methods to assess product gaps and manufacturing specs, conducted market segmentation analysis, assembled cross-functional teams of marketing, chemical, manufacturing engineers and R&D scientists focused on specific outcomes, and used Design of Experiments to uncover key effects and interactions.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Applied concurrent engineering, DOE, and QFD, governed experiments, and ran outcome-focused segmentation pods.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            50%+ reduction in design lifecycle | Increased market share | Higher R&D pipeline adoption | Improved NPV | Higher development success rate | Improved revenue & operating costs | Enhanced product & process capability
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> Design time cut by over 50%, market share grew, pipeline adoption improved, and revenue/opportunity value increased.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
-        <span>Lean Six Sigma & Continuous Improvement</span>
-        <h3>Enterprise-Wide Lean Six Sigma Deployment & Excellence</h3>
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
+        <span>Lean Six Sigma &amp; Continuous Improvement</span>
+        <h3>Enterprise-Wide Lean Six Sigma Deployment &amp; Excellence</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          Enterprises aligned strategy, governance, and the right improvement methods to deliver sustained, enterprise‑wide performance gains and market leadership.
+          Enterprises aligned strategy, governance, and Lean Six Sigma practices to capture sustained, company-wide performance gains.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Business leaders lack understanding of sustainable program deployment, organizations misapply methodology with wrong entry points (DMAIC vs. Lean vs. DFSS), program entitlement undermines execution, and incorrect financial benefit positioning drives failure.
+            <strong>Issue:</strong> Leaders struggled to deploy sustainable programs, misapplied methodologies, and lacked benefit clarity.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Facilitated cross-LOB strategy workshops using Hoshin Kanri to align organization and link human capital to business goals, matched improvement approach to organizational context and problem type, built robust PMOs and governance, deployed experienced Lean Six Sigma leadership teams, and ensured proper financial benefit calculation.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Ran Hoshin Kanri strategy sessions, matched methods to context, built PMOs, deployed experienced belts, and standardized financial benefit accounting.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            Billions in documented improvement | CAT stock $55→$95/share | GE, Microsoft, JPMorgan Chase sector leadership | Companies outperforming Dow Jones | Quality & speed improvements | Enhanced customer alignment
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> Billions in documented improvement, CAT stock $55→$95, stronger leadership at GE, Microsoft, JPMorgan, and measurable cadence improvements.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Retail Bank Optimization</span>
         <h3>Transforming Retail Bank Franchise Performance</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A national bank standardized customer experience and deployed needs‑based selling and market analytics to unlock growth, raise satisfaction, and improve profitability.
+          A national bank standardized experience, needs-based selling, and market analytics to unlock growth and improve profitability.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Large retail franchises often don’t provide customers with a common experience across banking centers, driving dissatisfaction and attrition. Most banks lack a needs-based, customer-centric selling model, leading to missed opportunities and mismatched products. Sales goals are set based on historical performance rather than market data, and leadership support is applied uniformly, sub-optimizing market potential.
+            <strong>Issue:</strong> Retail centers delivered inconsistent experiences, loyalty eroded, and needs-based selling capability lagged.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Designed and deployed an enterprise-level “Selling the Bank of America Way” playbook, engineered customer experience, deployed needs-based selling tools across 5700 branches, developed market capability algorithms, leveraged market demand models for goal setting, and customized product mix and sales targets by region.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Rolled out the “Selling the Bank of America Way” playbook, engineered consistent experiences across 5,700 branches, deployed needs-based tools, and aligned regional goals to demand models.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> Moved the Bank from under $15B to $22B gross profit. Standardized selling routines, increased customer satisfaction, and reduced defections. Aggregate sales up 23% over 3 years, cross-sales ratio from 2.1 to 3.6, aggregate sales up 16%. Modeled store performance for higher market penetration and optimized leadership time allocation.
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> Gross profit grew from under $15B to $22B, selling routines standardized, satisfaction improved, defections dropped, sales rose 23%, and cross-sales moved from 2.1 to 3.6.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Credit Card Direct Mail Campaign Optimization</span>
-        <h3>Transforming Direct Mail Efficiency & Customer Capture</h3>
+        <h3>Transforming Direct Mail Efficiency &amp; Customer Capture</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A credit card issuer modernized campaigns using data‑driven, relationship‑aware offers to cut costs, increase capture and conversion, and lift enterprise ROE.
+          A credit card issuer modernized campaigns with data-driven, relationship-aware offers to cut costs and boost capture.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Large credit card direct market campaigns are costly and inefficient. Banks struggle to leverage customer data for improved capture and conversion rates, and customizing campaigns is expensive with low ROI. Significant efficiency savings are needed to fund growth in the credit card space.
+            <strong>Issue:</strong> Direct-mail campaigns were costly, broadly targeted, and poorly tuned to customer attributes.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Moved from indiscriminate push offers to real-time, relationship-based offers using a prospect database and offer repository. Shifted to menu-driven, attribute-focused campaigns targeting customers by relationship, affinity, price sensitivity, and product interest. Reduced mailings per customer, increased capture and conversion rates, and coordinated cross-channel distribution for improved efficiency.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Shifted to relationship-aware offers, attribute-based segmentation, and coordinated six channels with a prospect database and offer repository.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> $953M NPV in marketing cost reduction over 5 years (six channels), ROE up 7%, customer delight up 7%, direct mail costs down 8%, cost to acquire accounts down 11%, attrition from highest to lowest in industry, micro-segmentation strategy replicated across enterprise.
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> $953M NPV in marketing savings over five years, ROE up 7%, customer delight up 7%, direct-mail costs down 8%, acquisition cost down 11%, and attrition at the channel’s lowest.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Financial Services M&A Optimization</span>
-        <h3>Optimizing Behemoth Financial Services Environments M&A</h3>
+        <h3>Optimizing Behemoth Financial Services Environments M&amp;A</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A complex merger integration delivered on‑time, low‑risk Day One and go‑live, protecting customers and performance while setting a new execution standard.
+          A complex merger integration delivered on-time, low-risk Day One/go-live while protecting customers and performance.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Conducting large-scale merger integrations without negatively impacting customer-facing systems or BAU performance. Needed to ensure flawless execution, manage risk, and report progress to stakeholders while avoiding business loss or reputational damage.
+            <strong>Issue:</strong> Large-scale merger integrations threatened customer systems and BAU performance, creating operational risk.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Ran parallel current-state analysis, identified redundant systems, built risk frameworks, and prioritized operational gaps. Developed project charters, held cross-functional workshops to uncover dependencies and risks, and executed projects through professional change managers with robust financial and communication routines.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Ran parallel current-state analysis, built risk frameworks, prioritized gaps, chartered projects, and deployed structured change management with transparent finance cadences.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            <strong>Impact:</strong> Completed Day One and go-live events with minimal critical errors. Key risks mitigated, customer satisfaction improved, and transitions became PR opportunities. Integrations finished on time and within budget, setting a new standard for post-merger re-engineering.
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> Day One and go-live delivered with minimal critical errors, key risks mitigated, customer satisfaction improved, PR momentum created, and execution finished on time and on budget.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
-      <article class="card case-study" tabindex="0">
+      <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Manufacturing Supply Chain Optimization</span>
-        <h3>Stabilizing Global Supply Chains for Resilience & Cost</h3>
+        <h3>Stabilizing Global Supply Chains for Resilience &amp; Cost</h3>
         <p class="section-lead" style="margin-bottom:0.9rem;">
-          A global manufacturer redesigned planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience across suppliers and regions.
+          A global manufacturer rebuilt planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience.
         </p>
         <div class="case-body">
           <p>
-            <strong>Issue:</strong> Volatile demand and fragmented supplier networks caused stockouts, excess inventory, and missed service levels. Limited visibility across tiers and manual planning created delays and cost overruns.
+            <strong>Issue:</strong> Volatile demand and fragmented suppliers caused stockouts, excess inventory, and missed service levels with limited visibility across tiers.
           </p>
-          <p style="margin-top: 0.5rem;">
-            <strong>Action:</strong> Implemented S&OP discipline, built a multi‑tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.
+          <p style="margin-top:0.5rem;">
+            <strong>Action:</strong> Implemented S&amp;OP discipline, built a multi-tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
-            18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead‑time improvement | Tier‑2/3 visibility established
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
+            <strong>Impact:</strong> 18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead-time improvement | Tier-2/3 visibility established.
           </p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
     </div>
   </section>
-
-  <section id="contact" style="margin-top:3.5rem;">
-    <div class="section-label" style="text-align:left; color:#004c97; font-weight:bold;">Contact</div>
-    <div class="section-title" style="text-align:left;">Start a conversation.</div>
-    <p class="section-lead" style="text-align:left;">
+<section id="contact" style="margin-top:3.5rem;">
+    <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Contact</div>
+    <div class="section-title" style="font-weight:700;">Start a conversation.</div>
+    <p class="section-lead">
       Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
       on where we might help.
     </p>
-    <div class="card" style="max-width:480px; margin:1rem 0; text-align:left;">
-      <p style="margin-bottom:0.2rem;"><strong>Steve Darrish</strong></p>
-      <p style="margin-bottom:0.2rem;">Phone: <a href="tel:3143591367">314-359-1367</a></p>
-      <p>Email: <a href="mailto:steve@wyattjoel.com">steve@wyattjoel.com</a></p>
+    <p class="section-lead" style="margin-top:-0.2rem; margin-bottom:1.2rem; color:#004c97; font-weight:700;">
+      Phone: 314-359-1367<br />
+      Email: steve@wyattjoel.com
+    </p>
+    <div class="contact-layout">
+      <form method="POST" action="/inquiry" style="max-width:480px; border:1px solid #d1d5db; border-radius:1rem; padding:1.1rem 1rem; background:#ffffff; box-shadow:0 8px 20px rgba(15,23,42,0.06);">
+        <div style="margin-bottom:0.9rem;">
+          <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name"
+                 style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
+        </div>
+        <div style="margin-bottom:0.9rem;">
+          <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
+          <input id="email" name="email" type="email" required autocomplete="email"
+                 style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
+        </div>
+        <div style="margin-bottom:0.9rem;">
+          <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
+          <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
+            <option>Enterprise transformation</option>
+            <option>Digital & AI</option>
+            <option>Risk, compliance, and controls</option>
+            <option>Cost and productivity</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
+          <textarea id="message" name="message" rows="4"
+                    style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit inquiry →</button>
+      </form>
+      <aside class="offerings-scroll" aria-label="our offerings">
+        <h4>Our Offerings</h4>
+        <p>Flexible advisory support designed to meet your execution pace, capability goals, and transformation scope.</p>
+        <div class="offerings-viewport">
+          <div class="offerings-track">
+            <ul>
+              <li>Custom consulting initiatives aligned to enterprise priorities and outcomes.</li>
+              <li>Consulting packages: 500-hour, 1,000-hour, and 1,500-hour options.</li>
+              <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
+              <li>LSS and Lean gating and governance to support client CI initiatives.</li>
+              <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
+              <li>M&amp;A integration advisory for Customer &amp; Legal Day 1 readiness through snyergies value capture.</li>
+              <li>AI-enabled product and process design optimization that cuts development timelines by up to 50% while improving quality and launch confidence.</li>
+              <li>Portfolio project optimization at functional and enterprise levels to improve prioritization, resource focus, and value realization.</li>
+              <li>Process and product design for speed, quality, and customer fit.</li>
+              <li>Productivity improvement programs grounded in measurable impact.</li>
+              <li>Process design and end-to-end operating model optimization.</li>
+              <li>Business and digital transformation support from strategy through execution.</li>
+            </ul>
+            <ul aria-hidden="true">
+              <li>Custom consulting initiatives aligned to enterprise priorities and outcomes.</li>
+              <li>Consulting packages: 500-hour, 1,000-hour, and 1,500-hour options.</li>
+              <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
+              <li>LSS and Lean gating and governance to support client CI initiatives.</li>
+              <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
+              <li>M&amp;A integration advisory for Customer &amp; Legal Day 1 readiness through snyergies value capture.</li>
+              <li>AI-enabled product and process design optimization that cuts development timelines by up to 50% while improving quality and launch confidence.</li>
+              <li>Portfolio project optimization at functional and enterprise levels to improve prioritization, resource focus, and value realization.</li>
+              <li>Process and product design for speed, quality, and customer fit.</li>
+              <li>Productivity improvement programs grounded in measurable impact.</li>
+              <li>Process design and end-to-end operating model optimization.</li>
+              <li>Business and digital transformation support from strategy through execution.</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
     </div>
-    <form id="contact-form" style="max-width:480px;">
-      <div style="margin-bottom:0.9rem;">
-        <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-        <input id="name" name="name" type="text" required
-               style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-      </div>
-      <div style="margin-bottom:0.9rem;">
-        <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-        <input id="email" name="email" type="email" required
-               style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-      </div>
-      <div style="margin-bottom:0.9rem;">
-        <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
-          <option>Enterprise transformation</option>
-          <option>Digital & AI</option>
-          <option>Risk, compliance, and controls</option>
-          <option>Cost and productivity</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-        <textarea id="message" name="message" rows="4"
-                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
-        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
-          <option>Enterprise transformation</option>
-          <option>Digital & AI</option>
-          <option>Risk, compliance, and controls</option>
-          <option>Cost and productivity</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-        <textarea id="message" name="message" rows="4"
-                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit inquiry →</button>
-    </form>
+  </section>
+  <section class="client-logo-wall" aria-label="representative client experience">
+    <h3 class="client-logo-title">CLIENT EXPERIENCE</h3>
+    <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
+    <div class="client-logo-viewport">
+    <div class="client-logo-track" id="client-logo-track">
+      <div class="client-logo-tile logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dow_Chemical_Company_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Dow_Chemical_Company_logo.svg" data-local-src="assets/logos/dow-chemical.svg" alt="Dow Chemical Brazil logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
+      <div class="client-logo-tile client-logo-tile-ge logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_HealthCare_logo_2023.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_HealthCare_logo_2023.svg" data-local-src="assets/logos/ge-healthcare.svg" alt="GE Healthcare logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Healthcare</div></div>
+      <div class="client-logo-tile client-logo-tile-ge client-logo-tile-ge-capital-art logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_Capital_logo_late_1980s.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/GE_Capital_logo_late_1980s.svg" data-local-src="assets/logos/ge-capital.svg" alt="GE Capital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Capital</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/microsoft-logo.svg" data-remote-src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" data-local-src="assets/logos/microsoft-logo.svg" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-lg"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/LG_logo_(2023).svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/LG_logo_(2023).svg" data-local-src="assets/logos/lg-logo.svg" alt="LG Industries logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LG Industries</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_logo.svg" data-local-src="assets/logos/cat.svg" alt="CAT Worldwide logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">CAT Worldwide</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Bank_of_America_logo_(1998%E2%80%932018).svg" data-local-src="assets/logos/bank-of-america.svg" alt="Bank of America logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bank of America</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Toronto-Dominion_Bank_Logo.svg" data-remote-src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Toronto-Dominion_Bank_Logo.svg" data-local-src="assets/logos/td-bank.svg" alt="TD Bank US and Canada logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TD Bank US &amp; Canada</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Citibank.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Citibank.svg" data-local-src="assets/logos/citi.svg" alt="Citi logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Citi</div></div>
+      <div class="client-logo-tile client-logo-tile-jpmorgan-chase"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/JPMorgan_Chase_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/JPMorgan_Chase_logo.svg" data-local-src="assets/logos/jpmorgan.svg" alt="JPMorgan Chase logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">JPMorgan Chase</div></div>
+      <div class="client-logo-tile client-logo-tile-wells"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Bank.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Wells_Fargo_Bank.svg" data-local-src="assets/logos/wells-fargo.svg" alt="Wells Fargo logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo</div></div>
+      <div class="client-logo-tile client-logo-tile-brandywine logo-brandywine"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" data-remote-src="https://logo.clearbit.com/brandywineglobal.com" data-local-src="assets/logos/brandywine.svg" alt="Brandywine Financial Group, Inc. logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine Financial Group, Inc.</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-alacer client-logo-tile-alacer-art logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b4ad483be7f386c6bb4b812bd42af2ab" data-remote-src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b4ad483be7f386c6bb4b812bd42af2ab" data-local-src="assets/logos/alacer.svg" alt="Alacer logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Alacer</div></div>
+      <div class="client-logo-tile client-logo-tile-bell-labs"><div class="client-logo-img-wrap"><img class="client-logo-img" src="assets/logos/bell-labs.svg" alt="Bell Labs logo" loading="lazy" decoding="async"></div><div class="client-logo-label">Bell Labs</div></div>
+      <div class="client-logo-tile client-logo-tile-pwc"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/BKK_PwC_Logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/BKK_PwC_Logo.svg" data-local-src="assets/logos/pwc.svg" alt="PwC logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">PwC</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_of_Deloitte.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_of_Deloitte.svg" data-local-src="assets/logos/deloitte.svg" alt="Deloitte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Deloitte</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/TRW_logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/TRW_logo.svg" data-local-src="assets/logos/trw.svg" alt="TRW Europe logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TRW Europe</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fiserv_Logo.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Fiserv_Logo.svg" data-local-src="assets/logos/fiserv.svg" alt="Fiserv logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fiserv</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-mda logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://www.mdanderson.org/content/mda/en/jcr:content/footer/desktoplogo.resize.png" data-remote-src="https://www.mdanderson.org/content/mda/en/jcr:content/footer/desktoplogo.resize.png" data-local-src="assets/logos/md-anderson.svg" alt="MD Anderson Cancer Hospital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">MD Anderson Cancer Hospital</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback logo-large logo-esselte"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logonoid.com/images/esselte-logo.png" data-remote-src="https://logonoid.com/images/esselte-logo.png" data-local-src="assets/logos/esselte.svg" alt="Esselte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Esselte</div></div>
+      <div class="client-logo-tile client-logo-tile-kroger"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kroger_logo_(1961-2019).svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Kroger_logo_(1961-2019).svg" data-local-src="assets/logos/kroger.svg" alt="Kroger logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Kroger</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-wfa"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://toppng.com/public/uploads/preview/wells-fargo-advisors-logo-11530965154n7gnbwxmx8.png" data-remote-src="https://toppng.com/public/uploads/preview/wells-fargo-advisors-logo-11530965154n7gnbwxmx8.png" data-local-src="assets/logos/wells-fargo-advisors.svg" alt="Wells Fargo Advisors logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo Advisors</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fulton_Financial_Corporation_wordmark.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Fulton_Financial_Corporation_wordmark.svg" data-local-src="assets/logos/fulton-bank.svg" alt="Fulton Bank logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fulton Bank</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-penn logo-penn"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Penn_State_wordmark.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/Penn_State_wordmark.svg" data-local-src="assets/logos/penn-state.svg" alt="Penn State University logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Penn State University</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/WITF_2022.svg" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/WITF_2022.svg" data-local-src="assets/logos/witf.svg" alt="WITF Broadcasting logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">WITF Broadcasting</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-maritz logo-large"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://www.smartsheet.com/sites/default/files/styles/900px/public/2024-02/maritz_logo_1.png?itok=3bbBoEXx" data-remote-src="https://www.smartsheet.com/sites/default/files/styles/900px/public/2024-02/maritz_logo_1.png?itok=3bbBoEXx" data-local-src="assets/logos/maritz.svg" alt="Maritz St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Maritz, based in St. Louis</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-fedstl"><div class="client-logo-img-wrap"><img class="client-logo-img" src="federal-reserve-stl-logo.png" data-remote-src="federal-reserve-stl-logo.png" data-local-src="assets/logos/federal-reserve-stl-logo.svg" alt="Federal Reserve Bank of St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Federal Reserve Bank of St. Louis</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/en/4/45/Walter_Energy_Logo.png" data-remote-src="https://upload.wikimedia.org/wikipedia/en/4/45/Walter_Energy_Logo.png" alt="Jim Walter Resources logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Jim Walter Resources</div></div>
+      <div class="client-logo-tile logo-ltv"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/LTV_Corporation_logo.png" data-remote-src="https://commons.wikimedia.org/wiki/Special:FilePath/LTV_Corporation_logo.png" data-local-src="assets/logos/ltv.svg" alt="LTV Aerospace logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LTV Aerospace</div></div>
+    </div>
+    </div>
   </section>
 </main>
 
 <script>
   (function(){
-    const listEl = document.getElementById('insights-list');
-    const fallbackEl = document.getElementById('insights-fallback');
-    if (listEl) {
-      fetch('insights.json', { cache: 'no-store' })
-        .then(r => {
-          if (!r.ok) throw new Error('Failed to load insights');
-          return r.json();
-        })
-        .then(items => {
-          if (!Array.isArray(items) || items.length === 0) return;
-          const frag = document.createDocumentFragment();
-          items.forEach(item => {
-            const wrap = document.createElement('div');
-            wrap.className = 'insight-item';
-            const tag = document.createElement('div');
-            tag.className = 'insight-tag';
-            tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
-            const h4 = document.createElement('h4');
-            h4.textContent = item.title || '';
-            const p = document.createElement('p');
-            p.textContent = item.summary || '';
-            wrap.appendChild(tag);
-            wrap.appendChild(h4);
-            wrap.appendChild(p);
-            // Add hover description
-            const hoverDesc = document.createElement('div');
-            hoverDesc.className = 'insight-hover-desc';
-            hoverDesc.textContent =
-              item.hoverDesc ||
-              'Read more for actionable insights and practical steps to address this topic.';
-            wrap.appendChild(hoverDesc);
-            frag.appendChild(wrap);
-          });
-          listEl.appendChild(frag);
-          if (fallbackEl) fallbackEl.style.display = 'none';
-        })
-        .catch(() => {
-          // Keep fallback visible on error
-        });
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+    const isMobile = window.matchMedia('(max-width: 800px)').matches;
+    if (isMobile) {
+      document.body.classList.remove('theme-dark');
+      return;
     }
-    // Contact form AJAX submit (Flask-compatible JSON)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.onsubmit = async function(e) {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-        try {
-          const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-          if (res.ok) {
-            alert('Thank you! We received your inquiry.');
-            contactForm.reset();
-          } else {
-            const errorText = await res.text();
-            alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
-          }
-        }
-        } catch (err) {
-          alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
+
+    const storageKey = 'wj-accent-theme';
+    const setTheme = (mode) => {
+      document.body.classList.toggle('theme-dark', mode === 'dark');
+      toggle.textContent = mode === 'dark' ? 'Light Accent' : 'Dark Accent';
+      toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+    };
+
+    const saved = localStorage.getItem(storageKey);
+    setTheme(saved === 'dark' ? 'dark' : 'light');
+
+    toggle.addEventListener('click', () => {
+      const next = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+      setTheme(next);
+      localStorage.setItem(storageKey, next);
+    });
+  })();
+
+  (function(){
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const selector = '.hero > div, .client-impact-card, section[id], .trust-strip, .client-logo-wall, .card, .insight-item, .offerings-scroll';
+    const markAllVisible = () => {
+      document.querySelectorAll(selector).forEach((el) => el.classList.add('is-visible'));
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      markAllVisible();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+
+    const register = () => {
+      const targets = document.querySelectorAll(selector);
+      if (!targets.length) return;
+      targets.forEach((el) => {
+        if (el.dataset.revealBound === '1') return;
+        el.dataset.revealBound = '1';
+        el.classList.add('reveal-on-scroll');
+        observer.observe(el);
+      });
+    };
+
+    register();
+    document.addEventListener('insights:updated', register);
+  })();
+
+  (function(){
+    const impactCard = document.querySelector('.client-impact-card');
+    const stats = document.querySelectorAll('.impact-number[data-target]');
+    if (!impactCard || !stats.length) return;
+
+    const animateCount = (el) => {
+      const target = Number(el.dataset.target || 0);
+      const decimals = Number(el.dataset.decimals || 0);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1600;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target * eased;
+        const formatted = value.toLocaleString(undefined, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        });
+        el.textContent = `${prefix}${formatted}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
         }
       };
+      requestAnimationFrame(tick);
+    };
+
+    const run = () => {
+      if (impactCard.dataset.counted === '1') return;
+      impactCard.dataset.counted = '1';
+      stats.forEach((el) => animateCount(el));
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      run();
+      return;
     }
-  })();
-</script>
-  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
-  // Enable pill popups on tap/click for mobile
-  document.addEventListener('DOMContentLoaded', function() {
-    var pills = document.querySelectorAll('.pill');
-    pills.forEach(function(pill) {
-      pill.addEventListener('click', function(e) {
-        // Only trigger on touch/click, not on desktop hover
-        var popup = pill.querySelector('.pill-hover');
-        if (!popup) return;
-        // If already visible, hide it
-        var isVisible = popup.style.display === 'block';
-        // Hide all other pill popups
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
-          ph.style.display = 'none';
-        });
-        // Toggle this one
-        popup.style.display = isVisible ? 'none' : 'block';
-        // Prevent scrolling on mobile when popup is open
-        if (!isVisible && window.innerWidth <= 600) {
-          e.stopPropagation();
-        }
+
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        run();
+        obs.disconnect();
       });
+    }, { threshold: 0.35 });
+
+    counterObserver.observe(impactCard);
+  })();
+
+  (function(){
+    const wordEl = document.getElementById('transform-word');
+    if (!wordEl) return;
+
+    const fontCycle = [
+      '"Trebuchet MS", "Segoe UI", sans-serif',
+      'Georgia, "Times New Roman", serif',
+      '"Courier New", Courier, monospace',
+      '"Palatino Linotype", "Book Antiqua", Palatino, serif',
+      '"Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif'
+    ];
+    const colorCycle = ['#004c97', '#0b5fb8', '#2563eb', '#0369a1', '#1d4ed8'];
+
+    let fontIndex = 0;
+    const morphIntervalMs = 30000;
+    const fadeMs = 1800;
+
+    const morphWord = () => {
+      wordEl.style.opacity = '0.45';
+      setTimeout(() => {
+        wordEl.style.fontFamily = fontCycle[fontIndex];
+        wordEl.style.color = colorCycle[fontIndex];
+        wordEl.style.opacity = '1';
+        fontIndex = (fontIndex + 1) % fontCycle.length;
+      }, fadeMs);
+    };
+
+    morphWord();
+    setInterval(() => {
+      morphWord();
+    }, morphIntervalMs);
+  })();
+
+  (function(){
+    const pills = document.querySelectorAll('#sector-pills .sector-pill');
+    const description = document.getElementById('sector-description');
+    if (!pills.length || !description) return;
+
+    const defaultText = description.textContent;
+
+    pills.forEach(pill => {
+      const update = () => {
+        description.textContent = pill.getAttribute('data-sector-desc') || defaultText;
+      };
+      const reset = () => {
+        description.textContent = defaultText;
+      };
+
+      pill.addEventListener('mouseenter', update);
+      pill.addEventListener('focus', update);
+      pill.addEventListener('mouseleave', reset);
+      pill.addEventListener('blur', reset);
     });
-    // Hide pill popups when clicking elsewhere
-    document.addEventListener('click', function(e) {
-      if (!e.target.classList.contains('pill')) {
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
-          ph.style.display = 'none';
+  })();
+
+  (function(){
+    const supportsTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (!supportsTouch) return;
+
+    const closers = [];
+
+    const attachTapToggle = (elements, className) => {
+      elements.forEach((el) => {
+        if (el.dataset.mobileBound === '1') return;
+        el.dataset.mobileBound = '1';
+        if (!el.hasAttribute('tabindex')) {
+          el.setAttribute('tabindex', '0');
+        }
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-expanded', 'false');
+
+        const toggle = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const isOpen = el.classList.contains(className);
+          closers.forEach((close) => close());
+          if (!isOpen) {
+            el.classList.add(className);
+            el.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        el.addEventListener('click', toggle);
+        el.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            toggle(event);
+          }
         });
+
+        closers.push(() => {
+          el.classList.remove(className);
+          el.setAttribute('aria-expanded', 'false');
+        });
+      });
+    };
+
+    const initTouchInteractions = () => {
+      attachTapToggle(document.querySelectorAll('.service-hover-note'), 'is-open');
+      attachTapToggle(document.querySelectorAll('.insight-hover-target'), 'is-open');
+
+      const caseStudies = document.querySelectorAll('.card.case-study');
+      caseStudies.forEach((card) => {
+        if (card.dataset.mobileBound === '1') return;
+        card.dataset.mobileBound = '1';
+        card.setAttribute('aria-expanded', 'false');
+
+        const closeCard = () => {
+          card.classList.remove('is-open');
+          card.setAttribute('aria-expanded', 'false');
+        };
+
+        const toggleCard = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const isOpen = card.classList.contains('is-open');
+          closers.forEach((close) => close());
+          if (!isOpen) {
+            card.classList.add('is-open');
+            card.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        card.addEventListener('click', toggleCard);
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            toggleCard(event);
+          }
+        });
+
+        closers.push(closeCard);
+      });
+    };
+
+    initTouchInteractions();
+    document.addEventListener('insights:updated', initTouchInteractions);
+
+    document.addEventListener('click', () => {
+      closers.forEach((close) => close());
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closers.forEach((close) => close());
       }
     });
-  });
-  </div>
+  })();
 
-<!--
-================ Flask Backend Example for Inquiry Form ================
+  (function(){
+    const logoTrack = document.getElementById('client-logo-track');
+    if (!logoTrack) return;
 
-Save this as app.py and run with: python app.py
+    if (logoTrack.dataset.loopReady !== '1') {
+      logoTrack.innerHTML += logoTrack.innerHTML;
+      logoTrack.dataset.loopReady = '1';
+    }
 
+    const tileLabel = (tile) => {
+      const label = tile.querySelector('.client-logo-label');
+      return label ? (label.textContent || '').trim() : '';
+    };
+    const normalizeCriticalAdjacency = () => {
+      const tiles = Array.from(logoTrack.querySelectorAll('.client-logo-tile'));
+      tiles.forEach((tile) => {
+        if (!/TD Bank/i.test(tileLabel(tile))) return;
+        let probe = tile.nextElementSibling;
+        while (probe) {
+          const probeLabel = tileLabel(probe);
+          if (/^Citi\b/i.test(probeLabel)) break;
+          const nextProbe = probe.nextElementSibling;
+          probe.remove();
+          probe = nextProbe;
+        }
+      });
+    };
 
-from flask import Flask, request, jsonify
-import sqlite3
-from datetime import datetime
-# Email notification imports
-import smtplib
-from email.message import EmailMessage
-from flask_cors import CORS  # <-- Add this import
+    logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
+      const img = tile.querySelector('.client-logo-img');
+      const src = img ? (img.getAttribute('src') || '').trim() : '';
+      if (!img || !src) {
+        tile.remove();
+        return;
+      }
+      tile.classList.remove('no-image');
+      const label = tile.querySelector('.client-logo-label');
+      if (label) label.style.setProperty('display', 'none', 'important');
+      const wrap = tile.querySelector('.client-logo-img-wrap');
+      if (wrap) wrap.style.setProperty('display', 'flex', 'important');
+    });
+    normalizeCriticalAdjacency();
+    const localHostnames = new Set(['localhost', '127.0.0.1', '::1', '']);
+    const attemptLocalLogos = () => {
+      if (!localHostnames.has(window.location.hostname)) return;
+      logoTrack.querySelectorAll('.client-logo-img[data-local-src]').forEach((img) => {
+        const localSrc = img.dataset.localSrc;
+        if (!localSrc) return;
+        const remoteSrc = img.dataset.remoteSrc || img.getAttribute('src');
+        const verifier = new Image();
+        verifier.onload = () => {
+          img.src = localSrc;
+        };
+        verifier.onerror = () => {
+          if (remoteSrc) {
+            img.src = remoteSrc;
+          }
+        };
+        verifier.src = localSrc;
+      });
+    };
+    attemptLocalLogos();
+    const logoImages = logoTrack.querySelectorAll('.client-logo-img');
+    if (!logoImages.length) {
+      logoTrack.classList.add('is-ready');
+      return;
+    }
+    const preloadSrcs = new Set();
+    let started = false;
 
+    const startAnimation = () => {
+      if (started) return;
+      started = true;
+      logoTrack.classList.add('is-ready');
+    };
 
-app = Flask(__name__)
-CORS(app, origins=["https://wyattjoeladvisorypartners.com"])  # <-- Enable CORS for your domain
-DB_PATH = 'inquiries.db'
+    const removeTilesForSrc = (targetSrc) => {
+      if (!targetSrc) return;
+      logoTrack.querySelectorAll('.client-logo-img').forEach((candidate) => {
+        const candidateSrc = (candidate.getAttribute('src') || '').trim();
+        if (candidateSrc !== targetSrc) return;
+        const candidateTile = candidate.closest('.client-logo-tile');
+        if (!candidateTile) return;
+        candidateTile.classList.add('no-image');
+        candidateTile.remove();
+      });
+    };
 
-def init_db():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS inquiries (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            email TEXT,
-            topic TEXT,
-            message TEXT,
-            submitted_at TEXT
-        )
-    ''')
-    conn.commit()
-    conn.close()
+    logoImages.forEach((img) => {
+      const tile = img.closest('.client-logo-tile');
+      if (!tile) return;
+      const originalSrc = img.getAttribute('src') || '';
+      const fallbackSrc = (img.dataset.localSrc || '').trim();
+      let retriedOriginal = false;
+      let retriedFallback = false;
 
-def send_email_notification(name, email, topic, message, submitted_at):
-    # Configure your SMTP server and credentials here
-    SMTP_SERVER = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com'
-    SMTP_PORT = 587
-    SMTP_USER = 'steve@wyattjoel.com'  # Your Gmail address
-    SMTP_PASS = 'YOUR_APP_PASSWORD'    # Your Gmail app password
-    TO_EMAIL = 'steve@wyattjoel.com'
+      img.loading = 'eager';
+      img.decoding = 'async';
+      if (originalSrc) preloadSrcs.add(originalSrc);
+      if (fallbackSrc) preloadSrcs.add(fallbackSrc);
 
-    msg = EmailMessage()
-    msg['Subject'] = f'New Inquiry from {name} ({email})'
-    msg['From'] = SMTP_USER
-    msg['To'] = TO_EMAIL
-    msg.set_content(f'''
-New inquiry received:
+      const markFallback = () => {
+        if (!tile.isConnected) return;
+        if (originalSrc) {
+          removeTilesForSrc(originalSrc);
+          return;
+        }
+        tile.classList.add('no-image');
+        tile.remove();
+      };
+      const clearFallback = () => {
+        tile.classList.remove('no-image');
+      };
+      const handleImageError = () => {
+        if (!retriedOriginal && originalSrc) {
+          retriedOriginal = true;
+          img.src = originalSrc;
+          return;
+        }
+        if (!retriedFallback && fallbackSrc) {
+          retriedFallback = true;
+          img.src = fallbackSrc;
+          return;
+        }
+        window.clearTimeout(failSafeTimer);
+        markFallback();
+      };
+      const validateLoadedImage = () => {
+        if (!img.complete) return;
+        if (!img.naturalWidth || !img.naturalHeight) {
+          handleImageError();
+          return;
+        }
+        if (img.naturalWidth <= 16 && img.naturalHeight <= 16) {
+          handleImageError();
+          return;
+        }
+        window.clearTimeout(failSafeTimer);
+        clearFallback();
+      };
+      const failSafeTimer = window.setTimeout(() => {
+        if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
+          markFallback();
+        }
+      }, 6500);
 
-Name: {name}
-Email: {email}
-Topic: {topic}
-Message: {message}
-Submitted at: {submitted_at}
-''')
+      img.addEventListener('error', handleImageError);
+      img.addEventListener('load', validateLoadedImage);
+      validateLoadedImage();
+    });
 
-    try:
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls();
-            server.login(SMTP_USER, SMTP_PASS);
-            server.send_message(msg);
-    except Exception as e:
-        print('Failed to send email:', e);
+    const preloadTasks = Array.from(preloadSrcs).map(
+      (src) =>
+        new Promise((resolve) => {
+          const probe = new Image();
+          let done = false;
+          const finish = () => {
+            if (done) return;
+            done = true;
+            window.clearTimeout(preloadTimer);
+            resolve();
+          };
+          const preloadTimer = window.setTimeout(finish, 4500);
+          probe.referrerPolicy = 'no-referrer';
+          probe.onload = finish;
+          probe.onerror = finish;
+          probe.src = src;
+        })
+    );
 
-@app.route('/inquiry', methods=['POST'])
-def inquiry():
-    data = request.get_json();
-    name = data.get('name', '');
-    email = data.get('email', '');
-    topic = data.get('topic', '');
-    message = data.get('message', '');
-    submitted_at = datetime.utcnow().isoformat();
+    Promise.all(preloadTasks).then(startAnimation);
+    window.setTimeout(startAnimation, 2500);
+  })();
 
-    conn = sqlite3.connect(DB_PATH);
-    c = conn.cursor();
-    c.execute('''
-        INSERT INTO inquiries (name, email, topic, message, submitted_at)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (name, email, topic, message, submitted_at));
-    conn.commit();
-    conn.close();
+  (function(){
+    const listEl = document.getElementById('insights-list');
+    const fallbackEl = document.getElementById('insights-fallback');
+    const spotlightTitle = document.getElementById('ai-spotlight-title');
+    const spotlightSummary = document.getElementById('ai-spotlight-summary');
+    const spotlightCategory = document.getElementById('ai-spotlight-category');
+    const spotlightCta = document.getElementById('ai-spotlight-cta');
+    if (!listEl) return;
+    const applySpotlight = (entry) => {
+      if (!entry || !spotlightTitle) return;
+      const type = entry.type || 'Article';
+      const category = entry.category || 'General';
+      spotlightTitle.textContent = entry.title || 'Fresh perspective on transformation';
+      spotlightSummary.textContent = entry.summary || '';
+      spotlightCategory.textContent = `${type} · ${category}`;
+      if (spotlightCta) {
+        spotlightCta.href = entry.url || '#insights';
+      }
+    };
 
-    # Send email notification
-    send_email_notification(name, email, topic, message, submitted_at);
+    fetch('insights.json', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('Failed to load insights');
+        return r.json();
+      })
+      .then(items => {
+        if (!Array.isArray(items) || items.length === 0) return;
+        const frag = document.createDocumentFragment();
+        items.forEach((item, idx) => {
+          const wrap = document.createElement('div');
+          wrap.className = 'insight-item';
+          if (idx === 0) {
+            wrap.classList.add('insight-hover-target');
+            wrap.setAttribute('data-hover-note', 'Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.');
+          } else if (idx === 1) {
+            wrap.classList.add('insight-hover-target');
+            wrap.setAttribute('data-hover-note', 'Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.');
+          } else if (idx === 2) {
+            wrap.classList.add('insight-hover-target');
+            wrap.setAttribute('data-hover-note', 'Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.');
+          }
+          const tag = document.createElement('div');
+          tag.className = 'insight-tag';
+          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
+          const h4 = document.createElement('h4');
+          h4.textContent = item.title || '';
+          const p = document.createElement('p');
+          p.textContent = item.summary || '';
+          const note = document.createElement('div');
+          note.className = 'insight-note';
+          note.textContent = wrap.getAttribute('data-hover-note') || '';
+          wrap.appendChild(tag);
+          wrap.appendChild(h4);
+          wrap.appendChild(p);
+          wrap.appendChild(note);
+          frag.appendChild(wrap);
+        });
+        listEl.appendChild(frag);
+        if (fallbackEl) fallbackEl.style.display = 'none';
+        const aiEntry = items.find((item) => /ai/i.test(item.category || '') || /ai/i.test(item.type || ''));
+        applySpotlight(aiEntry || items[0]);
+        document.dispatchEvent(new Event('insights:updated'));
+      })
+      .catch(() => {
+        // Keep fallback visible on error
+      });
+  })();
+</script>
 
-    return jsonify({'status': 'success'}), 200;
-
-if __name__ == '__main__':
-    init_db();
-    app.run(debug=True);
-
-# ===================
-# Instructions:
-# 1. Replace SMTP_USER and SMTP_PASS with your Gmail address and app password.
-#    (For Gmail, you may need to enable 2FA and create an app password.)
-# 2. If not using Gmail, update SMTP_SERVER, SMTP_PORT, and credentials for your provider.
-# 3. The notification will be sent to steve@wyattjoel.com on every inquiry.
-# ===================
-=======================================================================
--->
 <footer>
   <div class="footer-inner">
     <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
     <div>Strategy · Transformation · Digital & AI · Risk</div>
   </div>
 </footer>
-
-<script>
-// Pill hover/tap/focus popup for Client Impact Snapshot
-// Pill hover/tap/focus popup for Client Impact Snapshot
-(function(){
-  var pills = document.querySelectorAll('.pill');
-  var menus = document.querySelectorAll('.pill-menu');
-  function hideAllMenus() {
-    menus.forEach(function(menu) {
-      menu.style.display = 'none';
-    });
-    pills.forEach(function(pill) {
-      pill.setAttribute('aria-expanded', 'false');
-    });
-  }
-  // Use same code for desktop and mobile: show popup on hover, focus, and click/tap
-  pills.forEach(function(pill, idx) {
-    var menu = menus[idx];
-    pill.addEventListener('mouseenter', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-    pill.addEventListener('mouseleave', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
-    });
-    pill.addEventListener('focus', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-    pill.addEventListener('blur', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
-    });
-    pill.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        pill.setAttribute('aria-expanded', 'false');
-      } else {
-        hideAllMenus();
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-  document.addEventListener('click', function(e) {
-    // Only hide popups if click is outside both pill and popup
-    if (!e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu')) {
-      hideAllMenus();
-    }
-  });
-})();
-</script>
+</body>
+</html>
