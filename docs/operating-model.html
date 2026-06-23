@@ -2,25 +2,225 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Five moves to realign your operating model for digital scale</title>
+  <title>Five moves to realign your operating model for digital scale · WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="index.css" />
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2rem; color: #17305c; background: #f8fafc; }
-    .article-container { max-width: 700px; margin: 0 auto; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(15,23,42,0.07); padding: 2.5rem 2rem; }
-    h1 { color: #004c97; font-size: 2rem; margin-bottom: 1.2rem; }
-    .article-meta { color: #3b5b7c; font-size: 1rem; margin-bottom: 2rem; }
-    a { color: #004c97; }
-    ul { margin-left: 1.2rem; }
-    li { margin-bottom: 0.7rem; }
+    :root {
+      --accent: #004c97;
+      --surface-glass: rgba(255,255,255,0.1);
+      --surface-border: rgba(255,255,255,0.45);
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(255,255,255,0.38), rgba(255,255,255,0.38)),
+        url("../site-background.png") center center / cover no-repeat;
+      background-attachment: fixed;
+      pointer-events: none;
+      animation: backgroundToneShift 40s ease-in-out infinite alternate;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(37,99,235,0.16), transparent 44%),
+        radial-gradient(circle at 78% 18%, rgba(96,165,250,0.14), transparent 42%),
+        radial-gradient(circle at 68% 74%, rgba(125,211,252,0.12), transparent 47%),
+        radial-gradient(circle at 86% 66%, rgba(244,114,182,0.14), transparent 46%);
+      pointer-events: none;
+      animation: subtleColorShift 38s ease-in-out infinite alternate;
+    }
+    @keyframes subtleColorShift {
+      0%   { opacity: 0.09; }
+      50%  { opacity: 0; }
+      100% { opacity: 0.1; }
+    }
+    @keyframes backgroundToneShift {
+      0%   { filter: saturate(1.04) brightness(1.06) contrast(1.04); }
+      50%  { filter: saturate(0.25) brightness(1.46) contrast(0.86); }
+      100% { filter: saturate(1.05) brightness(1.07) contrast(1.03); }
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #111827;
+    }
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 30% 70% 55% 45%;
+      background: linear-gradient(135deg, #004c97, #0f172a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f9fafb;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.35);
+      flex-shrink: 0;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      color: #6b7280;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #004c97;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.18s ease-out;
+    }
+    nav a:hover::after { transform: scaleX(1); }
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .article-card {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(148,163,184,0.45);
+      border-radius: 1.3rem;
+      padding: 2.5rem 2.2rem;
+      max-width: 760px;
+      box-shadow: 0 12px 36px rgba(15,23,42,0.09);
+      backdrop-filter: blur(4px);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .back-link:hover { color: #004c97; }
+    .article-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #6b7280;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .article-card h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: #0b1220;
+      margin: 0 0 0.75rem;
+    }
+    .article-card .lead {
+      font-size: 1.02rem;
+      color: #4b5563;
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+    .article-divider {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 1.5rem 0;
+    }
+    .article-card ul {
+      margin: 0;
+      padding-left: 1.3rem;
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+    .article-card ul li {
+      margin-bottom: 0.85rem;
+    }
+    .article-card ul li strong {
+      color: #004c97;
+    }
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem 1.5rem 2rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 3rem;
+    }
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
-  <div class="article-container">
-    <div class="article-meta">Article · Operating model</div>
+
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark">WJ</div>
+      WyAttJoel Advisory Partners
+    </a>
+    <nav>
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#insights">Insights</a>
+      <a href="../index.html#industries">Industries</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+  <div class="article-card">
+    <a class="back-link" href="../index.html#insights">&#8592; Back to Insights</a>
+    <div class="article-eyebrow">Article · Operating model</div>
     <h1>Five moves to realign your operating model for digital scale</h1>
-    <p><em>How leaders are shifting structures, incentives, and talent to unlock digital value.</em></p>
-    <hr style="margin:2rem 0;">
+    <p class="lead"><em>How leaders are shifting structures, incentives, and talent to unlock digital value.</em></p>
+    <hr class="article-divider">
     <ul>
       <li><strong>Assess Current Capabilities:</strong> Evaluate existing processes and technologies to identify gaps in digital readiness.</li>
       <li><strong>Define Digital Objectives:</strong> Set clear goals for digital transformation aligned with business strategy.</li>
@@ -28,7 +228,15 @@
       <li><strong>Foster a Digital Culture:</strong> Encourage a mindset shift among employees to embrace digital practices and innovation.</li>
       <li><strong>Measure and Adapt:</strong> Continuously track performance metrics and be ready to adjust strategies based on feedback and results.</li>
     </ul>
-    <p><a href="index.html">&#8592; Back to Insights</a></p>
   </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
+    <div>Strategy · Transformation · Digital &amp; AI · Risk</div>
+  </div>
+</footer>
+
 </body>
 </html>
