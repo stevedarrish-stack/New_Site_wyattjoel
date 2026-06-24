@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,41 @@
       --surface-glass: rgba(255,255,255,0.1);
       --surface-border: rgba(255,255,255,0.45);
     }
+
+    /* ===== SCROLLING PARTNERSHIP BANNER ===== */
+    #partnership-banner {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: linear-gradient(90deg, #0a1f40 0%, #17305c 60%, #0a1f40 100%);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(10,31,64,0.45);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      height: 2.6rem;
+    }
+    .banner-edge { position:absolute; top:0; height:100%; width:80px; z-index:2; pointer-events:none; }
+    .banner-edge-left { left:0; background:linear-gradient(to right, #0a1f40 60%, transparent); }
+    .banner-edge-right { right:60px; background:linear-gradient(to left, #0a1f40 60%, transparent); }
+    .banner-track { display:flex; width:100%; overflow:hidden; position:relative; }
+    .banner-scroll { display:flex; align-items:center; white-space:nowrap; animation:bannerScroll 32s linear infinite; }
+    .banner-scroll:hover { animation-play-state:paused; }
+    @keyframes bannerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .banner-item { display:inline-flex; align-items:center; gap:0.6rem; padding:0 2.5rem; font-size:0.88rem; }
+    .banner-badge { background:#c9a227; color:#0a1f40; font-size:0.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; border-radius:999px; padding:0.18rem 0.65rem; }
+    .banner-headline { font-size:0.88rem; font-weight:700; color:#fff; }
+    .banner-headline span { color:#f0d060; }
+    .banner-sep { color:rgba(201,162,39,0.6); font-size:1rem; margin:0 0.4rem; }
+    .banner-sub { font-size:0.84rem; color:rgba(255,255,255,0.78); }
+    .banner-sub strong { color:#f0d060; font-weight:700; }
+    .banner-close { position:absolute; right:0; top:0; height:100%; background:#0a1f40; border:none; border-left:1px solid rgba(201,162,39,0.25); color:rgba(255,255,255,0.55); font-size:1.1rem; cursor:pointer; padding:0 0.9rem; z-index:3; transition:color 0.12s; }
+    .banner-close:hover { color:#fff; background:#17305c; }
+    /* ===== END BANNER ===== */
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -57,29 +91,14 @@
       animation: subtleColorShift 38s ease-in-out infinite alternate, tintMorph 54s ease-in-out infinite alternate, twinklePulse 10s ease-in-out infinite;
     }
     @keyframes subtleColorShift {
-      0% {
-        opacity: 0.09;
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-      50% {
-        opacity: 0;
-        transform: translate3d(-0.6%, 0.6%, 0) scale(1.01);
-      }
-      100% {
-        opacity: 0.1;
-        transform: translate3d(0.6%, -0.6%, 0) scale(1.005);
-      }
+      0% { opacity: 0.09; transform: translate3d(0, 0, 0) scale(1); }
+      50% { opacity: 0; transform: translate3d(-0.6%, 0.6%, 0) scale(1.01); }
+      100% { opacity: 0.1; transform: translate3d(0.6%, -0.6%, 0) scale(1.005); }
     }
     @keyframes backgroundToneShift {
-      0% {
-        filter: saturate(1.04) brightness(1.06) contrast(1.04);
-      }
-      50% {
-        filter: saturate(0.25) brightness(1.46) contrast(0.86);
-      }
-      100% {
-        filter: saturate(1.05) brightness(1.07) contrast(1.03);
-      }
+      0% { filter: saturate(1.04) brightness(1.06) contrast(1.04); }
+      50% { filter: saturate(0.25) brightness(1.46) contrast(0.86); }
+      100% { filter: saturate(1.05) brightness(1.07) contrast(1.03); }
     }
     @keyframes tintMorph {
       0% {
@@ -114,19 +133,13 @@
       }
     }
     @keyframes twinklePulse {
-      0%, 42%, 58%, 100% {
-        opacity: 0.1;
-      }
-      48%, 52% {
-        opacity: 0.2;
-      }
-      50% {
-        opacity: 0.25;
-      }
+      0%, 42%, 58%, 100% { opacity: 0.1; }
+      48%, 52% { opacity: 0.2; }
+      50% { opacity: 0.25; }
     }
     header {
       position: sticky;
-      top: 0;
+      top: 2.6rem;
       background: rgba(255,255,255,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
@@ -141,29 +154,6 @@
       align-items: center;
       gap: 1rem;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     .brand {
       display: flex;
       align-items: center;
@@ -205,14 +195,8 @@
       transform-origin: center;
       transition: transform 0.18s ease-out;
     }
-    nav a:hover::after {
-      transform: scaleX(1);
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
+    nav a:hover::after { transform: scaleX(1); }
+    .nav-actions { display: flex; align-items: center; gap: 0.55rem; }
     .theme-toggle {
       border: 1px solid #cbd5e1;
       border-radius: 999px;
@@ -244,10 +228,7 @@
       align-items: center;
       margin-top: 1.5rem;
     }
-    .hero-right-stack {
-      display: grid;
-      gap: 0.9rem;
-    }
+    .hero-right-stack { display: grid; gap: 0.9rem; }
     .hero-video-card {
       position: relative;
       min-height: 170px;
@@ -260,1379 +241,315 @@
         #0b1736;
       box-shadow: 0 12px 30px rgba(15,23,42,0.2);
     }
-    .hero-video-card video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.8;
-      mix-blend-mode: screen;
-    }
     .hero-video-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.72;
-      filter: saturate(1.06) contrast(1.03);
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      opacity: 0.72; filter: saturate(1.06) contrast(1.03);
     }
     .hero-video-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
+      position: absolute; inset: 0; pointer-events: none;
       background:
         linear-gradient(160deg, rgba(15,23,42,0.26), rgba(15,23,42,0.38)),
         radial-gradient(circle at 20% 20%, rgba(147,197,253,0.18), transparent 50%);
     }
     .hero-video-label {
-      position: absolute;
-      left: 0.9rem;
-      bottom: 0.8rem;
-      margin: 0;
-      color: #e2e8f0;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 600;
+      position: absolute; left: 0.9rem; bottom: 0.8rem; margin: 0;
+      color: #e2e8f0; font-size: 0.72rem; letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 600;
     }
     .eyebrow {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: #6b7280;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: .18em;
+      color: #6b7280; margin-bottom: 0.75rem; font-weight: 600;
     }
-    h1 {
-      font-size: clamp(2.3rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin: 0 0 1rem;
-    }
-    .transform-word {
-      display: inline-block;
-      white-space: nowrap;
-      opacity: 1;
-      transition: color 14s ease-in-out, opacity 3.2s cubic-bezier(0.2, 0.9, 0.25, 1);
-    }
-    .transform-word .char {
-      display: inline-block;
-      font-family: inherit;
-    }
-    h1 span {
-      color: #004c97;
-    }
-    .hero p {
-      color: #4b5563;
-      font-size: 1.02rem;
-      max-width: 36rem;
-      margin-bottom: 1.75rem;
-    }
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
+    h1 { font-size: clamp(2.3rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.04em; margin: 0 0 1rem; }
+    .transform-word { display: inline-block; white-space: nowrap; opacity: 1; transition: color 14s ease-in-out, opacity 3.2s cubic-bezier(0.2, 0.9, 0.25, 1); }
+    .transform-word .char { display: inline-block; font-family: inherit; }
+    h1 span { color: #004c97; }
+    .hero p { color: #4b5563; font-size: 1.02rem; max-width: 36rem; margin-bottom: 1.75rem; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
     .btn {
-      border-radius: 999px;
-      border: none;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      border-radius: 999px; border: none; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: 500;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem;
       transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
       text-decoration: none;
     }
-    input,
-    select,
-    textarea,
-    button {
-      box-sizing: border-box;
-      max-width: 100%;
-    }
-    .btn-primary {
-      background: #004c97;
-      color: #f9fafb;
-      box-shadow: 0 12px 22px rgba(15,23,42,0.25);
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 30px rgba(15,23,42,0.3);
-      background: #00376f;
-    }
-    .btn-outline {
-      background: #ffffff;
-      border: 2px solid #004c97;
-      color: #111827;
-    }
-    .btn-outline:hover {
-      background: #e5f0ff;
-      border-color: #93c5fd;
-      transform: translateY(-1px);
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 0.98rem;
-      color: #6b7280;
-    }
-    .hero-meta strong {
-      display: block;
-      color: #111827;
-      font-size: 0.98rem;
-    }
+    input, select, textarea, button { box-sizing: border-box; max-width: 100%; }
+    .btn-primary { background: #004c97; color: #f9fafb; box-shadow: 0 12px 22px rgba(15,23,42,0.25); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 30px rgba(15,23,42,0.3); background: #00376f; }
+    .btn-outline { background: #ffffff; border: 2px solid #004c97; color: #111827; }
+    .btn-outline:hover { background: #e5f0ff; border-color: #93c5fd; transform: translateY(-1px); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.98rem; color: #6b7280; }
+    .hero-meta strong { display: block; color: #111827; font-size: 0.98rem; }
     .client-impact-card {
-      background: #17305c;
-      color: #f9fafb;
-      border-radius: 1.2rem;
-      padding: 1.7rem 1.5rem;
-      box-shadow: none;
-      margin-top: 1.8rem;
-      margin-bottom: 1.8rem;
+      background: #17305c; color: #f9fafb; border-radius: 1.2rem;
+      padding: 1.7rem 1.5rem; box-shadow: none; margin-top: 1.8rem; margin-bottom: 1.8rem;
     }
     .client-impact-card h2 {
-      font-size: 1.15rem;
-      margin-bottom: 0.7rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: #b6c6e3;
-      text-align: center;
+      font-size: 1.15rem; margin-bottom: 0.7rem; letter-spacing: .15em;
+      text-transform: uppercase; color: #b6c6e3; text-align: center;
     }
-    .impact-stats {
-      display: flex;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-    .impact-stats > div {
-      flex: 1 1 0;
-      text-align: center;
-    }
-    .impact-number {
-      font-size: clamp(1.15rem, 1.85vw, 1.5rem);
-      font-weight: 700;
-      display: block;
-      color: #e0eaff;
-      white-space: nowrap;
-      line-height: 1.1;
-    }
+    .impact-stats { display: flex; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.2rem; }
+    .impact-stats > div { flex: 1 1 0; text-align: center; }
+    .impact-number { font-size: clamp(1.15rem, 1.85vw, 1.5rem); font-weight: 700; display: block; color: #e0eaff; white-space: nowrap; line-height: 1.1; }
     @media (min-width: 801px) {
-      .impact-stats {
-        gap: 1rem;
-      }
-      .impact-stats > div {
-        min-width: 0;
-      }
-      .impact-number {
-        font-size: clamp(1rem, 1.35vw, 1.28rem);
-      }
+      .impact-stats { gap: 1rem; }
+      .impact-stats > div { min-width: 0; }
+      .impact-number { font-size: clamp(1rem, 1.35vw, 1.28rem); }
     }
-    .impact-label {
-      font-size: 1rem;
-      color: #b6c6e3;
-      display: block;
-      margin-top: 0.2rem;
-    }
-    .sector-pills {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.1rem;
-      flex-wrap: nowrap;
-      justify-content: center;
-      overflow-x: visible;
-    }
+    .impact-label { font-size: 1rem; color: #b6c6e3; display: block; margin-top: 0.2rem; }
+    .sector-pills { display: flex; gap: 0.5rem; margin-bottom: 1.1rem; flex-wrap: nowrap; justify-content: center; overflow-x: visible; }
     .sector-pill {
-      background: #17305c;
-      color: #f9fafb;
-      border: 1px solid rgba(182,198,227,0.7);
-      border-radius: 999px;
-      padding: 0.28rem 0.62rem;
-      font-size: 0.77rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.15s;
-      white-space: nowrap;
-      flex: 0 0 auto;
+      background: #17305c; color: #f9fafb; border: 1px solid rgba(182,198,227,0.7);
+      border-radius: 999px; padding: 0.28rem 0.62rem; font-size: 0.77rem; font-weight: 500;
+      cursor: pointer; transition: background 0.15s; white-space: nowrap; flex: 0 0 auto;
     }
-    .sector-pill:hover,
-    .sector-pill:focus {
-      background: #25447a;
-    }
+    .sector-pill:hover, .sector-pill:focus { background: #25447a; }
     .sector-description {
-      border: 1px solid rgba(182,198,227,0.35);
-      border-radius: 0.7rem;
-      background: #25447a;
-      color: #f8fbff;
-      font-size: 0.93rem;
-      line-height: 1.4;
-      padding: 0.65rem 0.75rem;
-      min-height: 2.3rem;
+      border: 1px solid rgba(182,198,227,0.35); border-radius: 0.7rem;
+      background: #25447a; color: #f8fbff; font-size: 0.93rem; line-height: 1.4;
+      padding: 0.65rem 0.75rem; min-height: 2.3rem;
     }
-    .client-impact-card p {
-      font-size: 0.9rem;
-      margin: 0.5rem 0 0 0;
-      color: #e0eaff;
-      font-weight: 400;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.25rem;
-    }
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-      will-change: opacity, transform;
-    }
-    .reveal-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .services-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      isolation: isolate;
-    }
-    .services-grid .card {
-      position: relative;
-      overflow: visible;
-      z-index: 1;
-    }
-    .services-grid .card:hover,
-    .services-grid .card:focus-within {
-      z-index: 30;
-    }
-    .services-grid .card span {
-      color: #004c97;
-    }
-    .services-grid .card h3 {
-      color: #111827;
-    }
-    .services-grid .card p {
-      color: #111827;
-      font-weight: 400;
-    }
-    .services-grid .service-hover-note {
-      color: #111827;
-      font-size: 0.9rem;
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: normal;
-    }
-    .services-grid .card p .service-hover-note {
-      color: #111827;
-    }
-    .section-label {
-      font-size: 0.8rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-    .section-lead {
-      font-size: 0.98rem;
-      color: #4b5563;
-      max-width: 40rem;
-      margin-bottom: 1.4rem;
-    }
-    .case-studies-section {
-      background: rgba(255,255,255,0.22);
-      border: 1px solid rgba(255,255,255,0.6);
-      padding: 2.5rem 2rem;
-      border-radius: 1.3rem;
-      box-shadow: 0 12px 36px rgba(15,23,42,0.1);
-    }
-    .case-studies-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.75rem;
-    }
-    .case-study-card {
-      background: rgba(255,255,255,0.94);
-      border: 1px solid rgba(148,163,184,0.55);
-      border-radius: 1.1rem;
-      padding: 1.2rem;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.09);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .case-study-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 35px rgba(15,23,42,0.14);
-    }
-    .case-study-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.65rem;
-      font-weight: 700;
-      color: #0b1220;
-    }
-    .case-detail {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      color: #374151;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .case-detail p {
-      margin: 0;
-    }
-    .case-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #475569;
-    }
-    .card {
-      border-radius: 1.1rem;
-      border: 1px solid rgba(255,255,255,0.35);
-      padding: 1.3rem 1.35rem;
-      background: transparent;
-      box-shadow: none;
-      backdrop-filter: none;
-    }
-    .card.case-study {
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-    }
+    .client-impact-card p { font-size: 0.9rem; margin: 0.5rem 0 0 0; color: #e0eaff; font-weight: 400; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; margin-top: 3.25rem; }
+    .reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; will-change: opacity, transform; }
+    .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+    .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); isolation: isolate; }
+    .services-grid .card { position: relative; overflow: visible; z-index: 1; }
+    .services-grid .card:hover, .services-grid .card:focus-within { z-index: 30; }
+    .services-grid .card span { color: #004c97; }
+    .services-grid .card h3 { color: #111827; }
+    .services-grid .card p { color: #111827; font-weight: 400; }
+    .services-grid .service-hover-note { color: #111827; font-size: 0.9rem; font-weight: 400; text-transform: none; letter-spacing: normal; }
+    .services-grid .card p .service-hover-note { color: #111827; }
+    .section-label { font-size: 0.8rem; letter-spacing: .18em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.75rem; font-weight: 600; }
+    .section-title { font-size: 1.4rem; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    .section-lead { font-size: 0.98rem; color: #4b5563; max-width: 40rem; margin-bottom: 1.4rem; }
+    .card { border-radius: 1.1rem; border: 1px solid rgba(255,255,255,0.35); padding: 1.3rem 1.35rem; background: transparent; box-shadow: none; backdrop-filter: none; }
+    .card.case-study { position: relative; overflow: hidden; cursor: default; }
     .card.case-study .case-body {
-      max-height: 7.5rem;
-      overflow: hidden;
-      transition: max-height 0.2s ease;
+      max-height: 7.5rem; overflow: hidden; transition: max-height 0.2s ease;
       -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-        color: #004c97;
-      }
-    .card.case-study:hover .case-body,
-    .card.case-study:focus-within .case-body {
-      max-height: none;
-      -webkit-mask-image: none;
-      mask-image: none;
-    }
-    .card.case-study .hover-indicator {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-      font-size: 0.75rem;
-        color: #004c97;
-    }
-    .card.case-study > span {
       color: #004c97;
     }
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
+    .card.case-study:hover .case-body, .card.case-study:focus-within .case-body {
+      max-height: none; -webkit-mask-image: none; mask-image: none;
     }
-    .card p {
-      font-size: 0.9rem;
-      color: #4b5563;
-      margin-bottom: 0.5rem;
-    }
+    .card.case-study .hover-indicator { position: absolute; right: 1rem; bottom: 1rem; font-size: 0.75rem; color: #004c97; }
+    .card.case-study > span { color: #004c97; }
+    .card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .card p { font-size: 0.9rem; color: #4b5563; margin-bottom: 0.5rem; }
     .service-hover-note {
-      position: relative;
-      display: inline-block;
-      cursor: help;
-      border-bottom: 1px dashed #93c5fd;
-      z-index: 40;
+      position: relative; display: inline-block; cursor: help;
+      border-bottom: 1px dashed #93c5fd; z-index: 40;
     }
     .service-hover-note::after {
       content: attr(data-note);
-      position: absolute;
-      bottom: calc(100% + 0.45rem);
-      top: auto;
-      left: 0;
-      width: max-content;
-      min-width: 16rem;
-      max-width: min(24rem, calc(100vw - 4rem));
-      background: #0b2346;
-      color: #ffffff;
-      border: 1px solid rgba(15,23,42,0.75);
-      border-radius: 0.65rem;
-      padding: 0.55rem 0.7rem;
-      font-size: 0.82rem;
-      line-height: 1.35;
-      box-shadow: 0 14px 28px rgba(15,23,42,0.4);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.15s ease;
-      z-index: 100;
+      position: absolute; bottom: calc(100% + 0.45rem); top: auto; left: 0;
+      width: max-content; min-width: 16rem; max-width: min(24rem, calc(100vw - 4rem));
+      background: #0b2346; color: #ffffff; border: 1px solid rgba(15,23,42,0.75);
+      border-radius: 0.65rem; padding: 0.55rem 0.7rem; font-size: 0.82rem; line-height: 1.35;
+      box-shadow: 0 14px 28px rgba(15,23,42,0.4); backdrop-filter: none; -webkit-backdrop-filter: none;
+      opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.15s ease; z-index: 100;
     }
-    .service-hover-note:hover::after,
-    .service-hover-note:focus::after,
-    .service-hover-note.is-open::after {
-      opacity: 1;
-      visibility: visible;
-    }
-    .card span {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      color: #6b7280;
-    }
+    .service-hover-note:hover::after, .service-hover-note:focus::after, .service-hover-note.is-open::after { opacity: 1; visibility: visible; }
+    .card span { font-size: 0.78rem; text-transform: uppercase; letter-spacing: .13em; color: #6b7280; }
     .insights {
-      margin-top: 3.75rem;
-      border-radius: 1.35rem;
-      background: rgba(255,255,255,0.22);
-      border: 1px solid rgba(255,255,255,0.6);
-      padding: 2rem 1.8rem;
-      backdrop-filter: blur(2px);
+      margin-top: 3.75rem; border-radius: 1.35rem; background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.6); padding: 2rem 1.8rem; backdrop-filter: blur(2px);
     }
     .trust-strip {
-      margin-top: 2.4rem;
-      border: 1px solid var(--surface-border);
-      background: var(--surface-glass);
-      border-radius: 1.1rem;
-      padding: 1rem 0.9rem;
-      overflow: hidden;
-      max-width: 72%;
-      margin-left: 0;
-      margin-right: auto;
+      margin-top: 2.4rem; border: 1px solid var(--surface-border); background: var(--surface-glass);
+      border-radius: 1.1rem; padding: 1rem 0.9rem; overflow: hidden; max-width: 72%;
+      margin-left: 0; margin-right: auto;
     }
-    .trust-title {
-      margin: 0 0 0.75rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #475569;
-      padding-left: 0;
-      font-weight: 600;
-    }
+    .trust-title { margin: 0 0 0.75rem; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: #475569; padding-left: 0; font-weight: 600; }
     .trust-viewport {
       overflow: hidden;
       mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
       -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
-    .trust-track {
-      display: flex;
-      gap: 0.7rem;
-      width: max-content;
-      animation: trustMarquee 26s linear infinite;
-    }
-    .trust-strip:hover .trust-track,
-    .trust-strip:focus-within .trust-track {
-      animation-play-state: paused;
-    }
+    .trust-track { display: flex; gap: 0.7rem; width: max-content; animation: trustMarquee 26s linear infinite; }
+    .trust-strip:hover .trust-track, .trust-strip:focus-within .trust-track { animation-play-state: paused; }
     .trust-pill {
-      border: 1px solid rgba(148,163,184,0.55);
-      background: rgba(255,255,255,0.5);
-      color: #111827;
-      padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      filter: grayscale(1);
-      opacity: 0.86;
+      border: 1px solid rgba(148,163,184,0.55); background: rgba(255,255,255,0.5); color: #111827;
+      padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.04em;
+      white-space: nowrap; filter: grayscale(1); opacity: 0.86;
       transition: filter 0.2s ease, opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
-    .trust-pill:hover {
-      filter: grayscale(0);
-      opacity: 1;
-      color: var(--accent);
-      border-color: color-mix(in srgb, var(--accent) 45%, #94a3b8);
-    }
-    @keyframes trustMarquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
+    .trust-pill:hover { filter: grayscale(0); opacity: 1; color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, #94a3b8); }
+    @keyframes trustMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .client-logo-wall {
-      margin-top: calc(2.2rem + 1.5in);
-      width: min(45.2rem, calc(100% - 1rem));
-      margin-left: 0;
-      margin-right: auto;
-      border: 1px solid var(--surface-border);
-      background: var(--surface-glass);
-      border-radius: 1.1rem;
-      padding: 0.05rem 0.08rem;
-      backdrop-filter: blur(1.5px);
-      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+      margin-top: calc(2.2rem + 1.5in); width: min(45.2rem, calc(100% - 1rem));
+      margin-left: 0; margin-right: auto; border: 1px solid var(--surface-border);
+      background: var(--surface-glass); border-radius: 1.1rem; padding: 0.05rem 0.08rem;
+      backdrop-filter: blur(1.5px); box-shadow: 0 8px 20px rgba(15,23,42,0.08);
     }
-    .client-logo-title {
-      display: block;
-      margin: 0 0 0.75rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #475569;
-      padding-left: 0;
-      font-weight: 600;
-      text-align: left;
-    }
-    .client-logo-note {
-      margin: 0 0 0.55rem;
-      color: #0f172a;
-      font-size: 0.8rem;
-      display: none;
-    }
+    .client-logo-title { display: block; margin: 0 0 0.75rem; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: #475569; padding-left: 0; font-weight: 600; text-align: left; }
+    .client-logo-note { margin: 0 0 0.55rem; color: #0f172a; font-size: 0.8rem; display: none; }
     .client-logo-viewport {
       overflow: hidden;
       mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
       -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
     }
-    .client-logo-track {
-      display: flex;
-      gap: 0.45rem;
-      width: max-content;
-      animation: clientLogoScroll 56s linear infinite;
-      animation-play-state: paused;
-      will-change: transform;
-    }
-    .client-logo-track.is-ready {
-      animation-play-state: running;
-    }
-    .client-logo-tile {
-      border: 1px solid rgba(148,163,184,0.45);
-      background: rgba(255,255,255,0.55);
-      color: #0f172a;
-      border-radius: 0.65rem;
-      padding: 0.35rem 0.42rem;
-      text-align: center;
-      min-height: 2.5rem;
-      min-width: 8.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .client-logo-tile.client-logo-tile-pwc {
-      min-width: 25.2rem;
-      padding: 0.72rem 1.48rem;
-    }
-    .client-logo-tile.client-logo-tile-pwc .client-logo-img-wrap {
-      height: 4.1rem;
-    }
-    .client-logo-tile.client-logo-tile-pwc .client-logo-img {
-      max-height: 3.92rem;
-    }
-    .client-logo-tile.client-logo-tile-ge {
-      min-width: 9.6rem;
-      padding: 0.3rem 0.5rem;
-    }
-    .client-logo-tile.client-logo-tile-ge .client-logo-img-wrap {
-      height: 1.56rem;
-    }
-    .client-logo-tile.client-logo-tile-ge .client-logo-img {
-      max-height: 1.48rem;
-    }
-    .client-logo-tile.client-logo-tile-ge-capital {
-      min-width: 13.6rem;
-      padding: 0.38rem 0.8rem;
-    }
-    .client-logo-tile.client-logo-tile-ge-capital .client-logo-img-wrap {
-      height: 2.35rem;
-    }
-    .client-logo-tile.client-logo-tile-ge-capital .client-logo-img {
-      max-height: 2.26rem;
-    }
-    .client-logo-tile.client-logo-tile-lg {
-      min-width: 11.8rem;
-      padding: 0.34rem 0.68rem;
-    }
-    .client-logo-tile.client-logo-tile-lg .client-logo-img-wrap {
-      height: 2.94rem;
-    }
-    .client-logo-tile.client-logo-tile-lg .client-logo-img {
-      max-height: 2.82rem;
-    }
-    .client-logo-tile.client-logo-tile-wells {
-      min-width: 29.6rem;
-      padding: 0.88rem 1.72rem;
-    }
-    .client-logo-tile.client-logo-tile-wells .client-logo-img-wrap {
-      height: 4.94rem;
-    }
-    .client-logo-tile.client-logo-tile-wells .client-logo-img {
-      max-height: 4.73rem;
-    }
-    .client-logo-tile.client-logo-tile-wfa {
-      min-width: 33.6rem;
-      padding: 0.84rem 1.8rem;
-    }
-    .client-logo-tile.client-logo-tile-wfa .client-logo-img-wrap {
-      height: 5.4rem;
-    }
-    .client-logo-tile.client-logo-tile-wfa .client-logo-img {
-      max-height: 5.12rem;
-    }
-    .client-logo-tile.client-logo-tile-sloan {
-      min-width: 14.4rem;
-      padding: 0.4rem 0.86rem;
-    }
-    .client-logo-tile.client-logo-tile-sloan .client-logo-img-wrap {
-      height: 2.45rem;
-    }
-    .client-logo-tile.client-logo-tile-sloan .client-logo-img {
-      max-height: 2.34rem;
-    }
-    .client-logo-tile.client-logo-tile-penn {
-      min-width: 6.8rem;
-      padding: 0.28rem 0.46rem;
-    }
-    .client-logo-tile.client-logo-tile-penn .client-logo-img-wrap {
-      height: 0.68rem;
-    }
-    .client-logo-tile.client-logo-tile-penn .client-logo-img {
-      max-height: 0.64rem;
-      filter: grayscale(1) sepia(1) saturate(6500%) hue-rotate(186deg) brightness(0.95) contrast(1.05);
-    }
-    .client-logo-tile.client-logo-tile-kroger {
-      min-width: 13.2rem;
-      padding: 0.4rem 0.84rem;
-    }
-    .client-logo-tile.client-logo-tile-kroger .client-logo-img-wrap {
-      height: 2.55rem;
-    }
-    .client-logo-tile.client-logo-tile-kroger .client-logo-img {
-      max-height: 2.44rem;
-    }
-    .client-logo-tile.client-logo-tile-maritz {
-      min-width: 4rem;
-      padding: 0.15rem 0.30rem;
-    }
-    .client-logo-tile.client-logo-tile-maritz .client-logo-img-wrap {
-      height: 0.9rem;
-    }
-    .client-logo-tile.client-logo-tile-maritz .client-logo-img {
-      max-height: 0.7rem;
-    }
-    /* Keep crawl tiles visually consistent across the strip. */
-    .client-logo-track .client-logo-tile {
-      width: 10.8rem !important;
-      min-width: 10.8rem !important;
-      max-width: 10.8rem !important;
-      flex: 0 0 10.8rem !important;
-      box-sizing: border-box;
-      min-height: 2rem;
-      padding: 0.18rem 0.24rem !important;
-    }
-    .client-logo-track .client-logo-tile .client-logo-img-wrap {
-      height: 1.28rem !important;
-    }
-    .client-logo-track .client-logo-tile .client-logo-img {
-      max-height: 1.2rem !important;
-      opacity: 0.97 !important;
-      filter: contrast(1) saturate(0.95) !important;
-    }
-    .client-logo-track .client-logo-tile.logo-large .client-logo-img {
-      max-height: 2.82rem !important;
-    }
-    .client-logo-track .client-logo-tile.logo-large.client-logo-tile-mda .client-logo-img {
-      max-height: 1.7rem !important;
-    }
-    .client-logo-track .client-logo-tile.logo-esselte .client-logo-img {
-      max-height: 1rem !important;
-      transform: scale(0.5);
-      transform-origin: center;
-    }
-    .client-logo-track .client-logo-tile.logo-ltv .client-logo-img {
-      max-height: 3.1rem !important;
-    }
-    .client-logo-track .client-logo-tile.no-image {
-      display: none !important;
-    }
-    .client-logo-track .client-logo-tile.logo-brandywine .client-logo-img {
-      max-height: 6rem !important;
-    }
-    .client-logo-track .client-logo-tile.logo-penn .client-logo-img {
-      max-height: 3rem !important;
-    }
-    .client-logo-track .client-logo-tile.client-logo-tile-pwc .client-logo-img {
-      transform: scale(2);
-      transform-origin: center;
-    }
-    .client-logo-track .client-logo-tile.client-logo-tile-ge-capital-art .client-logo-img {
-      transform: scale(1.07);
-      transform-origin: center;
-    }
-    .client-logo-track .client-logo-tile.client-logo-tile-alacer-art .client-logo-img {
-      transform: scale(2);
-      transform-origin: center;
-    }
-    .client-logo-track .client-logo-tile.client-logo-tile-fedstl .client-logo-img {
-      transform: scale(5.6);
-      transform-origin: center;
-    }
-    .client-logo-track .client-logo-tile.client-logo-tile-bell-labs .client-logo-img {
-      transform: scale(4);
-      transform-origin: center;
-    }
-    .client-logo-track .client-logo-tile.client-logo-tile-wfa .client-logo-img {
-      transform: scale(3);
-      transform-origin: center;
-    }
-    .client-logo-wall:hover .client-logo-track,
-    .client-logo-wall:focus-within .client-logo-track {
-      animation-play-state: paused;
-    }
-    .client-logo-tile:hover {
-      transform: translateY(-1px);
-      border-color: color-mix(in srgb, var(--accent) 40%, #94a3b8);
-    }
-    .client-logo-img-wrap {
-      height: 1.35rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .client-logo-img {
-      max-height: 1.28rem;
-      max-width: 100%;
-      object-fit: contain;
-      filter: contrast(1.03) saturate(1.02);
-    }
-    .client-logo-label {
-      display: none;
-      font-size: 0.62rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-weight: 600;
-      line-height: 1.25;
-    }
-    .client-logo-track .client-logo-label {
-      display: none !important;
-    }
-    .client-logo-track .client-logo-img-wrap {
-      display: flex !important;
-    }
-    .client-logo-track .client-logo-tile.no-image {
-      display: none !important;
-    }
-    @keyframes clientLogoScroll {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(calc(-50% - 0.225rem));
-      }
-    }
-    .insights-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
-      gap: 2rem;
-      align-items: flex-start;
-    }
-    .insights-list-col {
-      padding-top: 4.6rem;
-    }
-    .insights-art {
-      width: 100%;
-      max-width: 420px;
-      aspect-ratio: 1 / 1;
-      border-radius: 1rem;
-      border: 1px solid #d1d5db;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.12);
-      margin-top: 0.6rem;
-      object-fit: cover;
-      display: block;
-    }
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      gap: 1.4rem;
-      align-items: start;
-    }
-    .offerings-scroll {
-      border: 1px solid var(--surface-border);
-      border-radius: 1rem;
-      background: var(--surface-glass);
-      backdrop-filter: blur(1.5px);
-      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
-      padding: 1rem;
-      max-height: 20rem;
-      overflow: hidden;
-    }
-    .offerings-scroll h4 {
-      margin: 0 0 0.5rem;
-      color: #004c97;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-    .offerings-scroll p {
-      margin: 0 0 0.9rem;
-      padding-bottom: 0.7rem;
-      border-bottom: 1px solid #cbd5e1;
-      color: #111827;
-      font-size: 1rem;
-      line-height: 1.45;
-      font-weight: 700;
-    }
-    .offerings-scroll ul {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-      color: #111827;
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-    .offerings-scroll li {
-      position: relative;
-      padding-left: 1.25rem;
-    }
-    .offerings-scroll li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      top: 0.02rem;
-      color: #0ea5e9;
-      font-size: 1rem;
-      line-height: 1;
-    }
-    .offerings-scroll li + li {
-      margin-top: 0.45rem;
-    }
-    .offerings-viewport {
-      height: 11.5rem;
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-    }
-    .offerings-track {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      animation: offeringsScroll 20s linear infinite;
-      will-change: transform;
-    }
-    .offerings-scroll:hover .offerings-track,
-    .offerings-scroll:focus-within .offerings-track {
-      animation-play-state: paused;
-    }
-    @keyframes offeringsScroll {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-50%);
-      }
-    }
-    .insight-item {
-      padding: 0.9rem 0;
-      border-bottom: 1px solid #e5e7eb;
-      display: grid;
-      row-gap: 0.4rem;
-    }
-    .insight-hover-target {
-      position: relative;
-      cursor: help;
-    }
-    .insight-note {
-      display: none;
-      margin-top: 0.5rem;
-      box-sizing: border-box;
-      width: 100%;
-      max-width: none;
-      background-color: #0b2346;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.28);
-      border-radius: 0.65rem;
-      padding: 0.55rem 0.7rem;
-      font-size: 0.82rem;
-      line-height: 1.35;
-      box-shadow: 0 14px 26px rgba(2, 6, 23, 0.42);
-      text-shadow: none;
-    }
-    .insight-hover-target:hover .insight-note,
-    .insight-hover-target:focus-within .insight-note,
-    .insight-hover-target.is-open .insight-note {
-      display: block;
-    }
+    .client-logo-track { display: flex; gap: 0.45rem; width: max-content; animation: clientLogoScroll 56s linear infinite; animation-play-state: paused; will-change: transform; }
+    .client-logo-track.is-ready { animation-play-state: running; }
+    .client-logo-tile { border: 1px solid rgba(148,163,184,0.45); background: rgba(255,255,255,0.55); color: #0f172a; border-radius: 0.65rem; padding: 0.35rem 0.42rem; text-align: center; min-height: 2.5rem; min-width: 8.4rem; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .client-logo-track .client-logo-tile { width: 10.8rem !important; min-width: 10.8rem !important; max-width: 10.8rem !important; flex: 0 0 10.8rem !important; box-sizing: border-box; min-height: 2rem; padding: 0.18rem 0.24rem !important; }
+    .client-logo-track .client-logo-tile .client-logo-img-wrap { height: 1.28rem !important; }
+    .client-logo-track .client-logo-tile .client-logo-img { max-height: 1.2rem !important; opacity: 0.97 !important; filter: contrast(1) saturate(0.95) !important; }
+    .client-logo-track .client-logo-tile.logo-large .client-logo-img { max-height: 2.82rem !important; }
+    .client-logo-track .client-logo-tile.logo-large.client-logo-tile-mda .client-logo-img { max-height: 1.7rem !important; }
+    .client-logo-track .client-logo-tile.logo-esselte .client-logo-img { max-height: 1rem !important; transform: scale(0.5); transform-origin: center; }
+    .client-logo-track .client-logo-tile.logo-ltv .client-logo-img { max-height: 3.1rem !important; }
+    .client-logo-track .client-logo-tile.no-image { display: none !important; }
+    .client-logo-track .client-logo-tile.logo-brandywine .client-logo-img { max-height: 6rem !important; }
+    .client-logo-track .client-logo-tile.logo-penn .client-logo-img { max-height: 3rem !important; }
+    .client-logo-track .client-logo-tile.client-logo-tile-pwc .client-logo-img { transform: scale(2); transform-origin: center; }
+    .client-logo-track .client-logo-tile.client-logo-tile-ge-capital-art .client-logo-img { transform: scale(1.07); transform-origin: center; }
+    .client-logo-track .client-logo-tile.client-logo-tile-alacer-art .client-logo-img { transform: scale(2); transform-origin: center; }
+    .client-logo-track .client-logo-tile.client-logo-tile-fedstl .client-logo-img { transform: scale(5.6); transform-origin: center; }
+    .client-logo-track .client-logo-tile.client-logo-tile-bell-labs .client-logo-img { transform: scale(4); transform-origin: center; }
+    .client-logo-track .client-logo-tile.client-logo-tile-wfa .client-logo-img { transform: scale(3); transform-origin: center; }
+    .client-logo-wall:hover .client-logo-track, .client-logo-wall:focus-within .client-logo-track { animation-play-state: paused; }
+    .client-logo-tile:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--accent) 40%, #94a3b8); }
+    .client-logo-img-wrap { height: 1.35rem; display: flex; align-items: center; justify-content: center; }
+    .client-logo-img { max-height: 1.28rem; max-width: 100%; object-fit: contain; filter: contrast(1.03) saturate(1.02); }
+    .client-logo-label { display: none; font-size: 0.62rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; line-height: 1.25; }
+    .client-logo-track .client-logo-label { display: none !important; }
+    .client-logo-track .client-logo-img-wrap { display: flex !important; }
+    .client-logo-track .client-logo-tile.no-image { display: none !important; }
+    @keyframes clientLogoScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.225rem)); } }
+    .insights-grid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr); gap: 2rem; align-items: flex-start; }
+    .insights-list-col { padding-top: 4.6rem; }
+    .insights-art { width: 100%; max-width: 420px; aspect-ratio: 1 / 1; border-radius: 1rem; border: 1px solid #d1d5db; box-shadow: 0 12px 28px rgba(15,23,42,0.12); margin-top: 0.6rem; object-fit: cover; display: block; }
+    .contact-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: 1.4rem; align-items: start; }
+    .offerings-scroll { border: 1px solid var(--surface-border); border-radius: 1rem; background: var(--surface-glass); backdrop-filter: blur(1.5px); box-shadow: 0 8px 20px rgba(15,23,42,0.08); padding: 1rem; max-height: 20rem; overflow: hidden; }
+    .offerings-scroll h4 { margin: 0 0 0.5rem; color: #004c97; font-size: 1.8rem; font-weight: 700; letter-spacing: 0.02em; }
+    .offerings-scroll p { margin: 0 0 0.9rem; padding-bottom: 0.7rem; border-bottom: 1px solid #cbd5e1; color: #111827; font-size: 1rem; line-height: 1.45; font-weight: 700; }
+    .offerings-scroll ul { margin: 0; padding-left: 0; list-style: none; color: #111827; font-size: 0.9rem; line-height: 1.45; }
+    .offerings-scroll li { position: relative; padding-left: 1.25rem; }
+    .offerings-scroll li::before { content: "✦"; position: absolute; left: 0; top: 0.02rem; color: #0ea5e9; font-size: 1rem; line-height: 1; }
+    .offerings-scroll li + li { margin-top: 0.45rem; }
+    .offerings-viewport { height: 11.5rem; overflow: hidden; position: relative; mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%); }
+    .offerings-track { display: flex; flex-direction: column; gap: 1rem; animation: offeringsScroll 20s linear infinite; will-change: transform; }
+    .offerings-scroll:hover .offerings-track, .offerings-scroll:focus-within .offerings-track { animation-play-state: paused; }
+    @keyframes offeringsScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+    .insight-item { padding: 0.9rem 0; border-bottom: 1px solid #e5e7eb; display: grid; row-gap: 0.4rem; }
+    .insight-hover-target { position: relative; cursor: help; }
+    .insight-note { display: none; margin-top: 0.5rem; box-sizing: border-box; width: 100%; max-width: none; background-color: #0b2346; color: #ffffff; border: 1px solid rgba(255,255,255,0.28); border-radius: 0.65rem; padding: 0.55rem 0.7rem; font-size: 0.82rem; line-height: 1.35; box-shadow: 0 14px 26px rgba(2,6,23,0.42); text-shadow: none; }
+    .insight-hover-target:hover .insight-note, .insight-hover-target:focus-within .insight-note, .insight-hover-target.is-open .insight-note { display: block; }
     @media (min-width: 801px) {
-      #insights .insight-item {
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.9fr);
-        column-gap: 1rem;
-        align-items: start;
-      }
-      #insights .insight-tag,
-      #insights .insight-item h4,
-      #insights .insight-item p {
-        grid-column: 1;
-      }
-      #insights .insight-note {
-        grid-column: 2;
-        grid-row: 1 / span 3;
-        align-self: start;
-        margin-top: 0.1rem;
-      }
+      #insights .insight-item { grid-template-columns: minmax(0, 1fr) minmax(220px, 0.9fr); column-gap: 1rem; align-items: start; }
+      #insights .insight-tag, #insights .insight-item h4, #insights .insight-item p { grid-column: 1; }
+      #insights .insight-note { grid-column: 2; grid-row: 1 / span 3; align-self: start; margin-top: 0.1rem; }
     }
-    .card.case-study.is-open .case-body {
-      max-height: none;
-      -webkit-mask-image: none;
-      mask-image: none;
-    }
-    .insight-item:last-child {
-      border-bottom: none;
-    }
-    .insight-tag {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      color: #003f7d;
-      font-weight: 600;
-      margin: 0;
-      line-height: 1.3;
-    }
-    .insight-item h4 {
-      font-size: 1.05rem;
-      margin: 0;
-      line-height: 1.35;
-      color: #0b1220;
-      font-weight: 700;
-      text-transform: none;
-    }
-    .insight-item p {
-      font-size: 0.98rem;
-      color: #0f172a;
-      margin: 0;
-      line-height: 1.45;
-      font-weight: 500;
-    }
-    footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 1.5rem 1.5rem 2rem;
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 3rem;
-    }
-    footer .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-    }
+    .card.case-study.is-open .case-body { max-height: none; -webkit-mask-image: none; mask-image: none; }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-tag { font-size: 0.78rem; text-transform: uppercase; letter-spacing: .13em; color: #003f7d; font-weight: 600; margin: 0; line-height: 1.3; }
+    .insight-item h4 { font-size: 1.05rem; margin: 0; line-height: 1.35; color: #0b1220; font-weight: 700; text-transform: none; }
+    .insight-item p { font-size: 0.98rem; color: #0f172a; margin: 0; line-height: 1.45; font-weight: 500; }
+    .ai-spotlight { margin-top: 1.2rem; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.14); background: rgba(255,255,255,0.94); box-shadow: 0 20px 40px rgba(15,23,42,0.12); }
+    .ai-spotlight-label { font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: #475569; margin-bottom: 0.35rem; }
+    .ai-spotlight h4 { font-size: 1.25rem; margin: 0; margin-bottom: 0.45rem; color: #0b1220; line-height: 1.35; }
+    .ai-spotlight p { margin: 0; margin-bottom: 0.75rem; color: #1f2937; font-weight: 500; line-height: 1.4; }
+    .ai-spotlight-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    footer { border-top: 1px solid #e5e7eb; padding: 1.5rem 1.5rem 2rem; font-size: 0.8rem; color: #6b7280; margin-top: 3rem; }
+    footer .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
     @media (max-width: 1080px) {
-      .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .card-grid {
-        margin-top: 2.4rem;
-      }
-      .impact-stats {
-        gap: 0.9rem;
-      }
-      .client-logo-tile {
-        min-width: 7.4rem;
-      }
-      .client-logo-tile.client-logo-tile-pwc {
-        min-width: 22.2rem;
-      }
-      .client-logo-tile.client-logo-tile-ge {
-        min-width: 8.4rem;
-      }
-      .client-logo-tile.client-logo-tile-ge-capital {
-        min-width: 12.1rem;
-      }
-      .client-logo-tile.client-logo-tile-lg {
-        min-width: 10.2rem;
-      }
-      .client-logo-tile.client-logo-tile-wells {
-        min-width: 26rem;
-      }
-      .client-logo-tile.client-logo-tile-wfa {
-        min-width: 29.6rem;
-      }
-      .client-logo-tile.client-logo-tile-sloan {
-        min-width: 12.9rem;
-      }
-      .client-logo-tile.client-logo-tile-penn {
-        min-width: 6.2rem;
-      }
-      .client-logo-tile.client-logo-tile-kroger {
-        min-width: 11.8rem;
-      }
-      .client-logo-tile.client-logo-tile-maritz {
-        min-width: 3.55rem;
-      }
-      .client-logo-wall {
-        width: min(45.2rem, calc(100% - 1rem));
-      }
-      .client-logo-track .client-logo-tile {
-        width: 9.6rem !important;
-        min-width: 9.6rem !important;
-        max-width: 9.6rem !important;
-        flex: 0 0 9.6rem !important;
-      }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card-grid { margin-top: 2.4rem; }
+      .client-logo-track .client-logo-tile { width: 9.6rem !important; min-width: 9.6rem !important; max-width: 9.6rem !important; flex: 0 0 9.6rem !important; }
     }
     @media (max-width: 800px) {
-      html,
-      body {
-        overflow-x: clip;
-      }
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-actions {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.45rem;
-      }
-      .nav-actions > nav {
-        display: flex;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        white-space: nowrap;
-        padding-bottom: 0.2rem;
-        justify-content: center;
-      }
-      .nav-actions > nav a {
-        margin-left: 0;
-        margin-right: 0.7rem;
-        padding-bottom: 0.1rem;
-        flex: 0 0 auto;
-        font-size: 0.82rem;
-      }
-      .nav-actions > nav a:last-child {
-        margin-right: 0;
-      }
-      .theme-toggle {
-        display: none;
-      }
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        justify-items: center;
-      }
-      .shell {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-      }
-      .hero,
-      section[id],
-      .insights,
-      .trust-strip,
-      .contact-layout {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-      }
-      #case-studies .card-grid {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 0 1rem 0.8rem;
-        scroll-padding-left: 1rem;
-        scroll-padding-right: 1rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      #case-studies .card-grid::-webkit-scrollbar {
-        display: none;
-      }
-      #case-studies .card.case-study {
-        box-sizing: border-box;
-        flex: 0 0 calc(100% - 2.4rem);
-        max-width: calc(100% - 2.4rem);
-        scroll-snap-align: center;
-        margin: 0;
-        padding-left: calc(1rem + 0.0625in);
-      }
-      #case-studies .card.case-study .section-lead {
-        margin-bottom: 0.7rem !important;
-      }
-      #case-studies .card.case-study .case-body p {
-        word-break: break-word;
-        overflow-wrap: anywhere;
-      }
-      #case-studies .card.case-study h3,
-      #case-studies .card.case-study .section-lead,
-      #case-studies .card.case-study .case-body p {
-        overflow-wrap: anywhere;
-      }
-      .card,
-      .insights,
-      .trust-strip,
-      .offerings-scroll {
-        background: transparent;
-        border-color: transparent;
-        box-shadow: none;
-        backdrop-filter: none;
-      }
-      .card.case-study,
-      .client-impact-card,
-      .insight-item,
-      section#case-studies .card,
-      section#case-studies .card.case-study {
-        background: transparent;
-        border-color: transparent;
-        box-shadow: none;
-      }
-      #contact .offerings-scroll {
-        background: var(--surface-glass);
-        border-color: var(--surface-border);
-        box-shadow: 0 8px 20px rgba(15,23,42,0.08);
-        backdrop-filter: blur(1.5px);
-      }
-      .services-grid {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        justify-items: center;
-      }
-      .service-hover-note::after {
-        min-width: 0;
-        top: calc(100% + 0.45rem);
-        bottom: auto;
-        left: 0;
-        right: auto;
-      }
-      .client-impact-card {
-        width: min(calc(100% - 0.25in), 330px);
-        max-width: 330px;
-        margin: 1.2rem auto;
-        padding: 0.8rem 0.75rem;
-      }
-      .impact-stats {
-        flex-wrap: wrap;
-        gap: 0.7rem;
-      }
-      .impact-stats > div {
-        min-width: 0;
-      }
-      .impact-number {
-        font-size: clamp(0.95rem, 4.8vw, 1.12rem);
-      }
-      .impact-label {
-        font-size: 0.86rem;
-      }
-      .sector-pills {
-        justify-content: center;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.2rem;
-        gap: 0.2rem;
-      }
-      .sector-pills .sector-pill {
-        font-size: 0.65rem;
-        padding: 0.28rem 0.5rem;
-        min-width: 0;
-        white-space: nowrap;
-      }
-      .insights-list-col {
-        padding-top: 0;
-      }
-      .contact-layout {
-        grid-template-columns: minmax(0, 1fr);
-        justify-items: center;
-      }
-      .offerings-scroll {
-        max-height: 18rem;
-      }
-      .card,
-      .offerings-scroll,
-      .insights-grid > div,
-      .client-impact-card,
-      .client-logo-wall {
-        width: 100%;
-      }
-      .card {
-        padding: 1.1rem 1rem;
-      }
-    .insights-art {
-      width: calc(100% - 0.35rem);
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .ai-spotlight {
-      margin-top: 1.2rem;
-      padding: 1.2rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(15,23,42,0.14);
-      background: rgba(255,255,255,0.94);
-      box-shadow: 0 20px 40px rgba(15,23,42,0.12);
-    }
-    .ai-spotlight-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #475569;
-      margin-bottom: 0.35rem;
-    }
-    .ai-spotlight h4 {
-      font-size: 1.25rem;
-      margin: 0;
-      margin-bottom: 0.45rem;
-      color: #0b1220;
-      line-height: 1.35;
-    }
-    .ai-spotlight p {
-      margin: 0;
-      margin-bottom: 0.75rem;
-      color: #1f2937;
-      font-weight: 500;
-      line-height: 1.4;
-    }
-    .ai-spotlight-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-      .client-impact-card,
-      .insights,
-      .offerings-scroll,
-      .trust-strip,
-      .card,
-      .client-logo-wall {
-        border-radius: 0.95rem;
-      }
-      .client-impact-card {
-        background: #17305c;
-        color: #f9fafb;
-        border: 1px solid rgba(255,255,255,0.25);
-        box-shadow: 0 12px 24px rgba(15,23,42,0.3);
-        backdrop-filter: blur(1.5px);
-      }
-      .card.case-study {
-        background: transparent !important;
-        border-color: transparent !important;
-        box-shadow: none !important;
-        backdrop-filter: none !important;
-      }
-      .client-logo-tile {
-        min-width: 6.6rem;
-        min-height: 2.35rem;
-        padding: 0.28rem 0.34rem;
-      }
-      .client-logo-tile.client-logo-tile-pwc {
-        min-width: 20rem;
-      }
-      .client-logo-tile.client-logo-tile-ge {
-        min-width: 7.6rem;
-      }
-      .client-logo-tile.client-logo-tile-ge-capital {
-        min-width: 10.9rem;
-      }
-      .client-logo-tile.client-logo-tile-lg {
-        min-width: 9.2rem;
-      }
-      .client-logo-tile.client-logo-tile-wells {
-        min-width: 23.4rem;
-      }
-      .client-logo-tile.client-logo-tile-wfa {
-        min-width: 26.4rem;
-      }
-      .client-logo-tile.client-logo-tile-sloan {
-        min-width: 11.6rem;
-      }
-      .client-logo-tile.client-logo-tile-penn {
-        min-width: 5.6rem;
-      }
-      .client-logo-tile.client-logo-tile-kroger {
-        min-width: 10.6rem;
-      }
-      .client-logo-tile.client-logo-tile-maritz {
-        min-width: 3.15rem;
-      }
-      .client-logo-wall {
-        width: 100%;
-        margin-top: 2.2rem;
-      }
-      .client-logo-track .client-logo-tile {
-        width: 8.6rem !important;
-        min-width: 8.6rem !important;
-        max-width: 8.6rem !important;
-        flex: 0 0 8.6rem !important;
-      }
-      .client-logo-track .client-logo-tile.client-logo-tile-maritz .client-logo-img {
-        max-height: 0.6rem !important;
-      }
-      .trust-strip {
-        max-width: calc(100vw - 2rem);
-      }
-      .hover-indicator {
-        display: block;
-      }
-      .hero-video-card {
-        display: none;
-      }
-      #insights.insights {
-        background: rgba(255,255,255,0.34);
-        border-color: rgba(255,255,255,0.72);
-        backdrop-filter: blur(2.6px);
-      }
-      .client-logo-track .client-logo-tile.logo-ltv .client-logo-img {
-        max-height: 2.3rem !important;
-      }
-      #insights .insight-tag {
-        color: #00356a;
-      }
-      #insights .insight-item h4 {
-        color: #0b1220;
-        font-weight: 700;
-      }
-      #insights .insight-item p {
-        color: #0b1220;
-        font-weight: 600;
-      }
-      #insights .insight-hover-target {
-        isolation: isolate;
-        overflow: visible;
-      }
-      #insights .insight-note {
-        background-color: #0e2a55;
-        color: #ffffff;
-        border: 1px solid rgba(255,255,255,0.26);
-      }
+      html, body { overflow-x: clip; }
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .nav-actions { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; }
+      .nav-actions > nav { display: flex; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; padding-bottom: 0.2rem; justify-content: center; }
+      .nav-actions > nav a { margin-left: 0; margin-right: 0.7rem; padding-bottom: 0.1rem; flex: 0 0 auto; font-size: 0.82rem; }
+      .nav-actions > nav a:last-child { margin-right: 0; }
+      .theme-toggle { display: none; }
+      .hero { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+      .shell { padding-left: 1.25rem; padding-right: 1.25rem; }
+      header { top: 2.6rem; }
+      #case-studies .card-grid { display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; padding: 0 1rem 0.8rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      #case-studies .card-grid::-webkit-scrollbar { display: none; }
+      #case-studies .card.case-study { box-sizing: border-box; flex: 0 0 calc(100% - 2.4rem); max-width: calc(100% - 2.4rem); scroll-snap-align: center; margin: 0; }
+      .card, .insights, .trust-strip, .offerings-scroll { background: transparent; border-color: transparent; box-shadow: none; backdrop-filter: none; }
+      .card.case-study, .client-impact-card, .insight-item, section#case-studies .card { background: transparent; border-color: transparent; box-shadow: none; }
+      #contact .offerings-scroll { background: var(--surface-glass); border-color: var(--surface-border); box-shadow: 0 8px 20px rgba(15,23,42,0.08); backdrop-filter: blur(1.5px); }
+      .services-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); justify-items: center; }
+      .client-impact-card { width: min(calc(100% - 0.25in), 330px); max-width: 330px; margin: 1.2rem auto; padding: 0.8rem 0.75rem; background: #17305c; color: #f9fafb; border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 12px 24px rgba(15,23,42,0.3); backdrop-filter: blur(1.5px); }
+      .impact-stats { flex-wrap: wrap; gap: 0.7rem; }
+      .sector-pills { justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.2rem; gap: 0.2rem; }
+      .sector-pills .sector-pill { font-size: 0.65rem; padding: 0.28rem 0.5rem; min-width: 0; white-space: nowrap; }
+      .insights-list-col { padding-top: 0; }
+      .contact-layout { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+      .client-logo-wall { width: 100%; margin-top: 2.2rem; }
+      .client-logo-track .client-logo-tile { width: 8.6rem !important; min-width: 8.6rem !important; max-width: 8.6rem !important; flex: 0 0 8.6rem !important; }
+      .trust-strip { max-width: calc(100vw - 2rem); }
+      .hero-video-card { display: none; }
+      #insights.insights { background: rgba(255,255,255,0.34); border-color: rgba(255,255,255,0.72); backdrop-filter: blur(2.6px); }
+      #insights .insight-tag { color: #00356a; }
+      #insights .insight-item h4 { color: #0b1220; font-weight: 700; }
+      #insights .insight-item p { color: #0b1220; font-weight: 600; }
+      #insights .insight-note { background-color: #0e2a55; color: #ffffff; border: 1px solid rgba(255,255,255,0.26); }
+      .banner-item { padding: 0 1.5rem; }
+      .banner-badge { font-size: 0.55rem; padding: 0.15rem 0.5rem; }
+      .banner-headline { font-size: 0.78rem; }
+      .banner-sub { font-size: 0.74rem; }
     }
     @media (hover: none), (pointer: coarse) {
-      .service-hover-note,
-      .insight-hover-target {
-        cursor: pointer;
-      }
-      .service-hover-note::after {
-        max-width: min(20rem, calc(100vw - 3rem));
-      }
-      .card.case-study .hover-indicator {
-        color: #1d4ed8;
-      }
+      .service-hover-note, .insight-hover-target { cursor: pointer; }
+      .service-hover-note::after { max-width: min(20rem, calc(100vw - 3rem)); }
+      .card.case-study .hover-indicator { color: #1d4ed8; }
     }
-    @media (min-width: 801px) {
-      .hero-video-card {
-        display: none;
-      }
-    }
+    @media (min-width: 801px) { .hero-video-card { display: none; } }
     @media (prefers-reduced-motion: reduce) {
-      .reveal-on-scroll {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .trust-track {
-        animation: none;
-      }
+      .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+      .trust-track { animation: none; }
+      .banner-scroll { animation: none; }
     }
   </style>
 </head>
 <body>
+
+<!-- SCROLLING PARTNERSHIP BANNER -->
+<div id="partnership-banner" role="banner" aria-label="Partnership announcement">
+  <div class="banner-edge banner-edge-left" aria-hidden="true"></div>
+  <div class="banner-track">
+    <div class="banner-scroll">
+      <div class="banner-item">
+        <span class="banner-badge">🤝 New Partnership</span>
+        <span class="banner-headline">WyattJoel Advisory Partners &amp; <span>Windy Hill Partners</span> announce a strategic alliance</span>
+        <span class="banner-sep">✦</span>
+        <span class="banner-sub">Launching <strong>Enterprise Portfolio Optimization</strong> — AI-driven solutions for large-scale financial services &amp; adjacent industries</span>
+      </div>
+      <div class="banner-item">
+        <span class="banner-badge">🚀 Now Available</span>
+        <span class="banner-headline"><span>Enterprise Portfolio Optimization</span> — Maximize performance across large, complex portfolios</span>
+        <span class="banner-sep">✦</span>
+        <span class="banner-sub">Serving financial services and adjacent industries &nbsp;·&nbsp; <strong>Contact us to learn more</strong></span>
+      </div>
+      <!-- Duplicated for seamless loop -->
+      <div class="banner-item">
+        <span class="banner-badge">🤝 New Partnership</span>
+        <span class="banner-headline">WyattJoel Advisory Partners &amp; <span>Windy Hill Partners</span> announce a strategic alliance</span>
+        <span class="banner-sep">✦</span>
+        <span class="banner-sub">Launching <strong>Enterprise Portfolio Optimization</strong> — AI-driven solutions for large-scale financial services &amp; adjacent industries</span>
+      </div>
+      <div class="banner-item">
+        <span class="banner-badge">🚀 Now Available</span>
+        <span class="banner-headline"><span>Enterprise Portfolio Optimization</span> — Maximize performance across large, complex portfolios</span>
+        <span class="banner-sep">✦</span>
+        <span class="banner-sub">Serving financial services and adjacent industries &nbsp;·&nbsp; <strong>Contact us to learn more</strong></span>
+      </div>
+    </div>
+  </div>
+  <div class="banner-edge banner-edge-right" aria-hidden="true"></div>
+  <button class="banner-close" aria-label="Dismiss banner" onclick="this.closest('#partnership-banner').style.display='none'">×</button>
+</div>
+<!-- END BANNER -->
+
 <header>
   <div class="nav-inner">
     <div class="brand">
@@ -1656,10 +573,7 @@
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
       <h1><span id="transform-word" class="transform-word">Transforming</span> <span>complexity</span> into sustainable advantage.</h1>
-      <p>
-        We partner with senior leaders to redesign operating models, unlock digital value,
-        and deliver measurable impact across growth, cost, and risk.
-      </p>
+      <p>We partner with senior leaders to redesign operating models, unlock digital value, and deliver measurable impact across growth, cost, and risk.</p>
       <div class="btn-row">
         <a href="#contact" class="btn btn-primary">Schedule a conversation →</a>
         <a href="#insights" class="btn btn-outline">Browse recent insights</a>
@@ -1712,56 +626,14 @@
   <section id="services" style="margin-top:3.25rem;">
     <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none; margin-bottom:1rem;">What We Do</div>
     <div class="section-title" style="color:#111827; font-weight:700; margin-bottom:1rem;">End‑to‑end support from strategy to sustained delivery.</div>
-    <p class="section-lead" style="margin-bottom:2rem;">
-      We combine deep industry expertise, rigorous analytics, and hands‑on change leadership
-      to move organizations from intent to outcome.
-    </p>
+    <p class="section-lead" style="margin-bottom:2rem;">We combine deep industry expertise, rigorous analytics, and hands‑on change leadership to move organizations from intent to outcome.</p>
     <div class="card-grid services-grid">
-      <article class="card">
-        <span>01 · Enterprise strategy</span>
-        <h3>Growth, portfolio, and investment strategy</h3>
-        <p>
-          <span class="service-hover-note" tabindex="0" data-note="Align leadership on direction and build executable roadmaps anchored in tangible value.">Clarify where to play and how to win.</span>
-        </p>
-      </article>
-      <article class="card">
-        <span>02 · Transformation</span>
-        <h3>Operating model & transformation offices</h3>
-        <p>
-          <span class="service-hover-note" tabindex="0" style="color:#111827;" data-note="Transformation offices help sustain impact and unblock progress.">Redesign structures, roles, and ways of working while establishing transformation
-          offices that track, unblock, and sustain impact.</span>
-        </p>
-      </article>
-      <article class="card">
-        <span>03 · Digital & AI</span>
-        <h3>Digital journeys, automation, and analytics</h3>
-        <p>
-          <span class="service-hover-note" tabindex="0" data-note="Digital transformation enables better decisions and improved performance.">Modernize customer and employee journeys, embed automation, and leverage data and AI
-          to inform mission‑critical decisions.</span>
-        </p>
-      </article>
-      <article class="card">
-        <span>04 · Risk & resilience</span>
-        <h3>Regulatory, operational, and cyber resilience</h3>
-        <p>
-          <span class="service-hover-note" tabindex="0" data-note="Resilience is built through strong frameworks and stakeholder alignment.">Strengthen risk frameworks, streamline controls, and align stakeholders around a
-          pragmatic path to compliance and resilience.</span>
-        </p>
-      </article>
-      <article class="card">
-        <span>05 · AI-driven acceleration</span>
-        <h3>Accelerating product & process development</h3>
-        <p>
-          <span class="service-hover-note" tabindex="0" data-note="AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</span>
-        </p>
-      </article>
-      <article class="card">
-        <span>06 · M&A excellence</span>
-        <h3>Executing behemoth financial services deals</h3>
-        <p>
-          <span class="service-hover-note" tabindex="0" data-note="Our proven M&amp;A approach streamlines due diligence, accelerates transitions, and ensures core operational continuity, empowering institutions to execute and integrate behemoth deals with confidence and speed.">Develop and apply robust M&amp;A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</span>
-        </p>
-      </article>
+      <article class="card"><span>01 · Enterprise strategy</span><h3>Growth, portfolio, and investment strategy</h3><p><span class="service-hover-note" tabindex="0" data-note="Align leadership on direction and build executable roadmaps anchored in tangible value.">Clarify where to play and how to win.</span></p></article>
+      <article class="card"><span>02 · Transformation</span><h3>Operating model &amp; transformation offices</h3><p><span class="service-hover-note" tabindex="0" style="color:#111827;" data-note="Transformation offices help sustain impact and unblock progress.">Redesign structures, roles, and ways of working while establishing transformation offices that track, unblock, and sustain impact.</span></p></article>
+      <article class="card"><span>03 · Digital &amp; AI</span><h3>Digital journeys, automation, and analytics</h3><p><span class="service-hover-note" tabindex="0" data-note="Digital transformation enables better decisions and improved performance.">Modernize customer and employee journeys, embed automation, and leverage data and AI to inform mission‑critical decisions.</span></p></article>
+      <article class="card"><span>04 · Risk &amp; resilience</span><h3>Regulatory, operational, and cyber resilience</h3><p><span class="service-hover-note" tabindex="0" data-note="Resilience is built through strong frameworks and stakeholder alignment.">Strengthen risk frameworks, streamline controls, and align stakeholders around a pragmatic path to compliance and resilience.</span></p></article>
+      <article class="card"><span>05 · AI-driven acceleration</span><h3>Accelerating product &amp; process development</h3><p><span class="service-hover-note" tabindex="0" data-note="AI-powered benchmarking and process redesign enable organizations to dramatically accelerate innovation cycles, cut time-to-market, and achieve breakthrough results in both product and process development.">Leverage AI and benchmarking to reduce product and process development lifecycles from 9–24 months to under 3 months through enlightened process and technology.</span></p></article>
+      <article class="card"><span>06 · M&amp;A excellence</span><h3>Executing behemoth financial services deals</h3><p><span class="service-hover-note" tabindex="0" data-note="Our proven M&amp;A approach streamlines due diligence, accelerates transitions, and ensures core operational continuity, empowering institutions to execute and integrate behemoth deals with confidence and speed.">Develop and apply robust M&amp;A methodologies to improve due diligence, transition, and core functionality—enabling seamless execution of large-scale financial services deals.</span></p></article>
     </div>
   </section>
 
@@ -1769,11 +641,8 @@
     <div class="insights-grid">
       <div>
         <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Insights</div>
-        <div class="section-title" style="color:#111827; font-weight:700;">Perspectives on what’s next.</div>
-        <p class="section-lead">
-          Short, practicable viewpoints on the trends reshaping industries—from generative AI
-          to evolving regulatory expectation
-        </p>
+        <div class="section-title" style="color:#111827; font-weight:700;">Perspectives on what's next.</div>
+        <p class="section-lead">Short, practicable viewpoints on the trends reshaping industries—from generative AI to evolving regulatory expectation</p>
         <div class="ai-spotlight" id="ai-spotlight">
           <div class="ai-spotlight-label">AI Spotlight</div>
           <h4 id="ai-spotlight-title">Moving from AI pilots to industrialized impact in 12 months</h4>
@@ -1794,22 +663,23 @@
             <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
             <div class="insight-note">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
           </div>
-          <div class="insight-item insight-hover-target" data-hover-note="Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.">
+          <div class="insight-item insight-hover-target" data-hover-note="Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.">
             <div class="insight-tag">BRIEF · FINANCIAL SERVICES</div>
             <h4>Rebuilding trust through transparent risk and control frameworks</h4>
             <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
-            <div class="insight-note">Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.</div>
+            <div class="insight-note">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
           </div>
-          <div class="insight-item insight-hover-target" data-hover-note="Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.">
+          <div class="insight-item insight-hover-target" data-hover-note="Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.">
             <div class="insight-tag">POINT OF VIEW · AI</div>
             <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
             <p>Design principles for scaling AI responsibly across critical workflows.</p>
-            <div class="insight-note">Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.</div>
+            <div class="insight-note">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <section class="trust-strip" aria-label="trust strip">
     <h3 class="trust-title">Trusted Methods and Certifications</h3>
     <div class="trust-viewport">
@@ -1839,256 +709,132 @@
   <section id="industries" style="margin-top:3.5rem;">
     <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Industries</div>
     <div class="section-title" style="color:#111827; font-weight:700;">We work where the stakes are high.</div>
-    <p class="section-lead">
-      Our teams bring specialized experience in highly regulated, complex environments where
-      execution risk is material.
-    </p>
+    <p class="section-lead">Our teams bring specialized experience in highly regulated, complex environments where execution risk is material.</p>
     <div class="card-grid">
-      <article class="card">
-        <span style="color:#004c97;">Financial services</span>
-        <h3>Banking, payments, and capital markets</h3>
-        <p>
-          From core banking modernization to third‑party risk and AML/KYC remediation,
-          we help institutions navigate change at scale.
-        </p>
-      </article>
-      <article class="card">
-        <span style="color:#004c97;">Healthcare</span>
-        <h3>Payers, providers, and services</h3>
-        <p>
-          Improve access, experience, and economics by rethinking care models,
-          digital front doors, and analytics foundations.
-        </p>
-      </article>
-      <article class="card">
-        <span style="color:#004c97;">Public & social sector</span>
-        <h3>Government, education, and nonprofits</h3>
-        <p>
-          Support agencies and institutions in delivering better outcomes for citizens,
-          students, and communities.
-        </p>
-      </article>
+      <article class="card"><span style="color:#004c97;">Financial services</span><h3>Banking, payments, and capital markets</h3><p>From core banking modernization to third‑party risk and AML/KYC remediation, we help institutions navigate change at scale.</p></article>
+      <article class="card"><span style="color:#004c97;">Healthcare</span><h3>Payers, providers, and services</h3><p>Improve access, experience, and economics by rethinking care models, digital front doors, and analytics foundations.</p></article>
+      <article class="card"><span style="color:#004c97;">Public &amp; social sector</span><h3>Government, education, and nonprofits</h3><p>Support agencies and institutions in delivering better outcomes for citizens, students, and communities.</p></article>
     </div>
   </section>
 
-      <section id="case-studies" style="margin-top:3.5rem;" data-reveal-bound="1" class="reveal-on-scroll is-visible">
+  <section id="case-studies" style="margin-top:3.5rem;" data-reveal-bound="1" class="reveal-on-scroll is-visible">
     <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Case Studies</div>
     <div class="section-title" style="color:#111827; font-weight:700;">Real-world impact in action.</div>
-    <p class="section-lead">
-      Explore how we’ve partnered with organizations to deliver measurable results across industries.
-    </p>
+    <p class="section-lead">Explore how we've partnered with organizations to deliver measurable results across industries.</p>
     <div class="card-grid">
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Healthcare Case Study</span>
         <h3>Optimizing Patient &amp; Physician Satisfaction in a Large Hospital System</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A large hospital system redesigned care workflows and governance to boost satisfaction, throughput, and capital efficiency.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A large hospital system redesigned care workflows and governance to boost satisfaction, throughput, and capital efficiency.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Patient and physician satisfaction were under pressure while diagnostic productivity lagged and clinicians spent excessive time on administrative work.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Established a strategy-linked transformation roadmap, identified process bottlenecks, launched performance dashboards, instituted governance cadences, and aligned leaders from the C-suite through frontline clinical teams.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> 33% increase in MRI/CT throughput | $4.5M annual equipment savings | 30% improvement in patient satisfaction | 23% lift in physician satisfaction.
-          </p>
+          <p><strong>Issue:</strong> Patient and physician satisfaction were under pressure while diagnostic productivity lagged and clinicians spent excessive time on administrative work.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Established a strategy-linked transformation roadmap, identified process bottlenecks, launched performance dashboards, instituted governance cadences, and aligned leaders from the C-suite through frontline clinical teams.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> 33% increase in MRI/CT throughput | $4.5M annual equipment savings | 30% improvement in patient satisfaction | 23% lift in physician satisfaction.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Software Development Case Study</span>
         <h3>Transforming Product Development from Internally Driven to Customer Focused</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A software organization shifted from internally driven delivery to a customer-centered Agile/Lean model for better quality, predictability, and market response.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A software organization shifted from internally driven delivery to a customer-centered Agile/Lean model for better quality, predictability, and market response.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Product decisions leaned on internal assumptions, producing misaligned features, high defect counts, and unpredictable releases.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Implemented customer-segmented prioritization, adopted Agile and Lean delivery rituals, integrated concurrent engineering, improved transparency, and strengthened testing governance.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> Shorter cycle times | Higher on-time release performance | Lower development costs | Better quality and user acceptance.
-          </p>
+          <p><strong>Issue:</strong> Product decisions leaned on internal assumptions, producing misaligned features, high defect counts, and unpredictable releases.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Implemented customer-segmented prioritization, adopted Agile and Lean delivery rituals, integrated concurrent engineering, improved transparency, and strengthened testing governance.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> Shorter cycle times | Higher on-time release performance | Lower development costs | Better quality and user acceptance.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>IT System Development Case Study</span>
         <h3>Business-Driven IT Architecture &amp; System Design</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          An enterprise reoriented IT architecture around business priorities to reduce errors, simplify implementations, and improve experiences.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">An enterprise reoriented IT architecture around business priorities to reduce errors, simplify implementations, and improve experiences.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Architecture was driven by package constraints, requirements translated inconsistently, and controls were bolted on.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Convened business-led design sessions, scored requirements, cascaded business needs into architecture decisions, and shifted governance so business leaders owned the lifecycle.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> Eliminated Severity 1/2 incidents, reduced error rates, improved performance, and delivered responsive systems.
-          </p>
+          <p><strong>Issue:</strong> Architecture was driven by package constraints, requirements translated inconsistently, and controls were bolted on.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Convened business-led design sessions, scored requirements, cascaded business needs into architecture decisions, and shifted governance so business leaders owned the lifecycle.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> Eliminated Severity 1/2 incidents, reduced error rates, improved performance, and delivered responsive systems.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Petro-Chemical Product Development Case Study</span>
         <h3>Accelerating Product Development &amp; Market Success</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A petro-chemical leader applied concurrent engineering and DOE to halve time-to-market and accelerate profitability.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A petro-chemical leader applied concurrent engineering and DOE to halve time-to-market and accelerate profitability.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Product lifecycles stretched 14–21 months, market gaps were hidden, silos blocked integration, and experiments missed key interactions.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Applied concurrent engineering, DOE, and QFD, governed experiments, and ran outcome-focused segmentation pods.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> Design time cut by over 50%, market share grew, pipeline adoption improved, and revenue/opportunity value increased.
-          </p>
+          <p><strong>Issue:</strong> Product lifecycles stretched 14–21 months, market gaps were hidden, silos blocked integration, and experiments missed key interactions.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Applied concurrent engineering, DOE, and QFD, governed experiments, and ran outcome-focused segmentation pods.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> Design time cut by over 50%, market share grew, pipeline adoption improved, and revenue/opportunity value increased.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Lean Six Sigma &amp; Continuous Improvement</span>
         <h3>Enterprise-Wide Lean Six Sigma Deployment &amp; Excellence</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          Enterprises aligned strategy, governance, and Lean Six Sigma practices to capture sustained, company-wide performance gains.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">Enterprises aligned strategy, governance, and Lean Six Sigma practices to capture sustained, company-wide performance gains.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Leaders struggled to deploy sustainable programs, misapplied methodologies, and lacked benefit clarity.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Ran Hoshin Kanri strategy sessions, matched methods to context, built PMOs, deployed experienced belts, and standardized financial benefit accounting.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> Billions in documented improvement, CAT stock $55→$95, stronger leadership at GE, Microsoft, JPMorgan, and measurable cadence improvements.
-          </p>
+          <p><strong>Issue:</strong> Leaders struggled to deploy sustainable programs, misapplied methodologies, and lacked benefit clarity.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Ran Hoshin Kanri strategy sessions, matched methods to context, built PMOs, deployed experienced belts, and standardized financial benefit accounting.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> Billions in documented improvement, CAT stock $55→$95, stronger leadership at GE, Microsoft, JPMorgan, and measurable cadence improvements.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Retail Bank Optimization</span>
         <h3>Transforming Retail Bank Franchise Performance</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A national bank standardized experience, needs-based selling, and market analytics to unlock growth and improve profitability.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A national bank standardized experience, needs-based selling, and market analytics to unlock growth and improve profitability.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Retail centers delivered inconsistent experiences, loyalty eroded, and needs-based selling capability lagged.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Rolled out the “Selling the Bank of America Way” playbook, engineered consistent experiences across 5,700 branches, deployed needs-based tools, and aligned regional goals to demand models.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> Gross profit grew from under $15B to $22B, selling routines standardized, satisfaction improved, defections dropped, sales rose 23%, and cross-sales moved from 2.1 to 3.6.
-          </p>
+          <p><strong>Issue:</strong> Retail centers delivered inconsistent experiences, loyalty eroded, and needs-based selling capability lagged.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Rolled out the "Selling the Bank of America Way" playbook, engineered consistent experiences across 5,700 branches, deployed needs-based tools, and aligned regional goals to demand models.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> Gross profit grew from under $15B to $22B, selling routines standardized, satisfaction improved, defections dropped, sales rose 23%, and cross-sales moved from 2.1 to 3.6.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Credit Card Direct Mail Campaign Optimization</span>
         <h3>Transforming Direct Mail Efficiency &amp; Customer Capture</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A credit card issuer modernized campaigns with data-driven, relationship-aware offers to cut costs and boost capture.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A credit card issuer modernized campaigns with data-driven, relationship-aware offers to cut costs and boost capture.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Direct-mail campaigns were costly, broadly targeted, and poorly tuned to customer attributes.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Shifted to relationship-aware offers, attribute-based segmentation, and coordinated six channels with a prospect database and offer repository.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> $953M NPV in marketing savings over five years, ROE up 7%, customer delight up 7%, direct-mail costs down 8%, acquisition cost down 11%, and attrition at the channel’s lowest.
-          </p>
+          <p><strong>Issue:</strong> Direct-mail campaigns were costly, broadly targeted, and poorly tuned to customer attributes.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Shifted to relationship-aware offers, attribute-based segmentation, and coordinated six channels with a prospect database and offer repository.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> $953M NPV in marketing savings over five years, ROE up 7%, customer delight up 7%, direct-mail costs down 8%, acquisition cost down 11%, and attrition at the channel's lowest.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
-        <span>Financial Services M&A Optimization</span>
+        <span>Financial Services M&amp;A Optimization</span>
         <h3>Optimizing Behemoth Financial Services Environments M&amp;A</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A complex merger integration delivered on-time, low-risk Day One/go-live while protecting customers and performance.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A complex merger integration delivered on-time, low-risk Day One/go-live while protecting customers and performance.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Large-scale merger integrations threatened customer systems and BAU performance, creating operational risk.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Ran parallel current-state analysis, built risk frameworks, prioritized gaps, chartered projects, and deployed structured change management with transparent finance cadences.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> Day One and go-live delivered with minimal critical errors, key risks mitigated, customer satisfaction improved, PR momentum created, and execution finished on time and on budget.
-          </p>
+          <p><strong>Issue:</strong> Large-scale merger integrations threatened customer systems and BAU performance, creating operational risk.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Ran parallel current-state analysis, built risk frameworks, prioritized gaps, chartered projects, and deployed structured change management with transparent finance cadences.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> Day One and go-live delivered with minimal critical errors, key risks mitigated, customer satisfaction improved, PR momentum created, and execution finished on time and on budget.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
       <article class="card case-study" tabindex="0" data-reveal-bound="1">
         <span>Manufacturing Supply Chain Optimization</span>
         <h3>Stabilizing Global Supply Chains for Resilience &amp; Cost</h3>
-        <p class="section-lead" style="margin-bottom:0.9rem;">
-          A global manufacturer rebuilt planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience.
-        </p>
+        <p class="section-lead" style="margin-bottom:0.9rem;">A global manufacturer rebuilt planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience.</p>
         <div class="case-body">
-          <p>
-            <strong>Issue:</strong> Volatile demand and fragmented suppliers caused stockouts, excess inventory, and missed service levels with limited visibility across tiers.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Action:</strong> Implemented S&amp;OP discipline, built a multi-tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;">
-            <strong>Impact:</strong> 18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead-time improvement | Tier-2/3 visibility established.
-          </p>
+          <p><strong>Issue:</strong> Volatile demand and fragmented suppliers caused stockouts, excess inventory, and missed service levels with limited visibility across tiers.</p>
+          <p style="margin-top:0.5rem;"><strong>Action:</strong> Implemented S&amp;OP discipline, built a multi-tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:#004c97; font-weight:600;"><strong>Impact:</strong> 18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead-time improvement | Tier-2/3 visibility established.</p>
         </div>
         <div class="hover-indicator">Hover to read more</div>
       </article>
     </div>
   </section>
-<section id="contact" style="margin-top:3.5rem;">
+
+  <section id="contact" style="margin-top:3.5rem;">
     <div class="section-label" style="font-size:1.8rem; color:#004c97; letter-spacing:0.02em; text-transform:none;">Contact</div>
     <div class="section-title" style="font-weight:700;">Start a conversation.</div>
-    <p class="section-lead">
-      Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
-      on where we might help.
-    </p>
-    <p class="section-lead" style="margin-top:-0.2rem; margin-bottom:1.2rem; color:#004c97; font-weight:700;">
-      Phone: 314-359-1367<br />
-      Email: steve@wyattjoel.com
-    </p>
+    <p class="section-lead">Share a bit about your priorities, and we'll follow up with a focused, no‑obligation discussion on where we might help.</p>
+    <p class="section-lead" style="margin-top:-0.2rem; margin-bottom:1.2rem; color:#004c97; font-weight:700;">Phone: 314-359-1367<br />Email: steve@wyattjoel.com</p>
     <div class="contact-layout">
       <form method="POST" action="/inquiry" style="max-width:480px; border:1px solid #d1d5db; border-radius:1rem; padding:1.1rem 1rem; background:#ffffff; box-shadow:0 8px 20px rgba(15,23,42,0.06);">
-        <div style="margin-bottom:0.9rem;">
-          <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-          <input id="name" name="name" type="text" required autocomplete="name"
-                 style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-        </div>
-        <div style="margin-bottom:0.9rem;">
-          <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-          <input id="email" name="email" type="email" required autocomplete="email"
-                 style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-        </div>
-        <div style="margin-bottom:0.9rem;">
-          <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-          <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
-            <option>Enterprise transformation</option>
-            <option>Digital & AI</option>
-            <option>Risk, compliance, and controls</option>
-            <option>Cost and productivity</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div style="margin-bottom:1rem;">
-          <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-          <textarea id="message" name="message" rows="4"
-                    style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
-        </div>
+        <div style="margin-bottom:0.9rem;"><label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label><input id="name" name="name" type="text" required autocomplete="name" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" /></div>
+        <div style="margin-bottom:0.9rem;"><label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label><input id="email" name="email" type="email" required autocomplete="email" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" /></div>
+        <div style="margin-bottom:0.9rem;"><label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label><select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"><option>Enterprise transformation</option><option>Digital &amp; AI</option><option>Risk, compliance, and controls</option><option>Cost and productivity</option><option>Enterprise Portfolio Optimization</option><option>Other</option></select></div>
+        <div style="margin-bottom:1rem;"><label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label><textarea id="message" name="message" rows="4" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea></div>
         <button type="submit" class="btn btn-primary">Submit inquiry →</button>
       </form>
       <aside class="offerings-scroll" aria-label="our offerings">
@@ -2102,7 +848,7 @@
               <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
               <li>LSS and Lean gating and governance to support client CI initiatives.</li>
               <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
-              <li>M&amp;A integration advisory for Customer &amp; Legal Day 1 readiness through snyergies value capture.</li>
+              <li>M&amp;A integration advisory for Customer &amp; Legal Day 1 readiness through synergies value capture.</li>
               <li>AI-enabled product and process design optimization that cuts development timelines by up to 50% while improving quality and launch confidence.</li>
               <li>Portfolio project optimization at functional and enterprise levels to improve prioritization, resource focus, and value realization.</li>
               <li>Process and product design for speed, quality, and customer fit.</li>
@@ -2116,7 +862,7 @@
               <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
               <li>LSS and Lean gating and governance to support client CI initiatives.</li>
               <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
-              <li>M&amp;A integration advisory for Customer &amp; Legal Day 1 readiness through snyergies value capture.</li>
+              <li>M&amp;A integration advisory for Customer &amp; Legal Day 1 readiness through synergies value capture.</li>
               <li>AI-enabled product and process design optimization that cuts development timelines by up to 50% while improving quality and launch confidence.</li>
               <li>Portfolio project optimization at functional and enterprise levels to improve prioritization, resource focus, and value realization.</li>
               <li>Process and product design for speed, quality, and customer fit.</li>
@@ -2129,6 +875,7 @@
       </aside>
     </div>
   </section>
+
   <section class="client-logo-wall" aria-label="representative client experience">
     <h3 class="client-logo-title">CLIENT EXPERIENCE</h3>
     <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
@@ -2173,21 +920,15 @@
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
     const isMobile = window.matchMedia('(max-width: 800px)').matches;
-    if (isMobile) {
-      document.body.classList.remove('theme-dark');
-      return;
-    }
-
+    if (isMobile) { document.body.classList.remove('theme-dark'); return; }
     const storageKey = 'wj-accent-theme';
     const setTheme = (mode) => {
       document.body.classList.toggle('theme-dark', mode === 'dark');
       toggle.textContent = mode === 'dark' ? 'Light Accent' : 'Dark Accent';
       toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
     };
-
     const saved = localStorage.getItem(storageKey);
     setTheme(saved === 'dark' ? 'dark' : 'light');
-
     toggle.addEventListener('click', () => {
       const next = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
       setTheme(next);
@@ -2198,17 +939,9 @@
   (function(){
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
-
     const selector = '.hero > div, .client-impact-card, section[id], .trust-strip, .client-logo-wall, .card, .insight-item, .offerings-scroll';
-    const markAllVisible = () => {
-      document.querySelectorAll(selector).forEach((el) => el.classList.add('is-visible'));
-    };
-
-    if (!('IntersectionObserver' in window)) {
-      markAllVisible();
-      return;
-    }
-
+    const markAllVisible = () => { document.querySelectorAll(selector).forEach((el) => el.classList.add('is-visible')); };
+    if (!('IntersectionObserver' in window)) { markAllVisible(); return; }
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -2216,7 +949,6 @@
         obs.unobserve(entry.target);
       });
     }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
-
     const register = () => {
       const targets = document.querySelectorAll(selector);
       if (!targets.length) return;
@@ -2227,7 +959,6 @@
         observer.observe(el);
       });
     };
-
     register();
     document.addEventListener('insights:updated', register);
   })();
@@ -2236,7 +967,6 @@
     const impactCard = document.querySelector('.client-impact-card');
     const stats = document.querySelectorAll('.impact-number[data-target]');
     if (!impactCard || !stats.length) return;
-
     const animateCount = (el) => {
       const target = Number(el.dataset.target || 0);
       const decimals = Number(el.dataset.decimals || 0);
@@ -2244,62 +974,34 @@
       const suffix = el.dataset.suffix || '';
       const duration = 1600;
       const start = performance.now();
-
       const tick = (now) => {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         const value = target * eased;
-        const formatted = value.toLocaleString(undefined, {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals
-        });
+        const formatted = value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
         el.textContent = `${prefix}${formatted}${suffix}`;
-        if (progress < 1) {
-          requestAnimationFrame(tick);
-        }
+        if (progress < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
     };
-
     const run = () => {
       if (impactCard.dataset.counted === '1') return;
       impactCard.dataset.counted = '1';
       stats.forEach((el) => animateCount(el));
     };
-
-    if (!('IntersectionObserver' in window)) {
-      run();
-      return;
-    }
-
+    if (!('IntersectionObserver' in window)) { run(); return; }
     const counterObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        run();
-        obs.disconnect();
-      });
+      entries.forEach((entry) => { if (!entry.isIntersecting) return; run(); obs.disconnect(); });
     }, { threshold: 0.35 });
-
     counterObserver.observe(impactCard);
   })();
 
   (function(){
     const wordEl = document.getElementById('transform-word');
     if (!wordEl) return;
-
-    const fontCycle = [
-      '"Trebuchet MS", "Segoe UI", sans-serif',
-      'Georgia, "Times New Roman", serif',
-      '"Courier New", Courier, monospace',
-      '"Palatino Linotype", "Book Antiqua", Palatino, serif',
-      '"Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif'
-    ];
+    const fontCycle = ['"Trebuchet MS", "Segoe UI", sans-serif', 'Georgia, "Times New Roman", serif', '"Courier New", Courier, monospace', '"Palatino Linotype", "Book Antiqua", Palatino, serif', '"Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif'];
     const colorCycle = ['#004c97', '#0b5fb8', '#2563eb', '#0369a1', '#1d4ed8'];
-
     let fontIndex = 0;
-    const morphIntervalMs = 30000;
-    const fadeMs = 1800;
-
     const morphWord = () => {
       wordEl.style.opacity = '0.45';
       setTimeout(() => {
@@ -2307,30 +1009,20 @@
         wordEl.style.color = colorCycle[fontIndex];
         wordEl.style.opacity = '1';
         fontIndex = (fontIndex + 1) % fontCycle.length;
-      }, fadeMs);
+      }, 1800);
     };
-
     morphWord();
-    setInterval(() => {
-      morphWord();
-    }, morphIntervalMs);
+    setInterval(morphWord, 30000);
   })();
 
   (function(){
     const pills = document.querySelectorAll('#sector-pills .sector-pill');
     const description = document.getElementById('sector-description');
     if (!pills.length || !description) return;
-
     const defaultText = description.textContent;
-
     pills.forEach(pill => {
-      const update = () => {
-        description.textContent = pill.getAttribute('data-sector-desc') || defaultText;
-      };
-      const reset = () => {
-        description.textContent = defaultText;
-      };
-
+      const update = () => { description.textContent = pill.getAttribute('data-sector-desc') || defaultText; };
+      const reset = () => { description.textContent = defaultText; };
       pill.addEventListener('mouseenter', update);
       pill.addEventListener('focus', update);
       pill.addEventListener('mouseleave', reset);
@@ -2341,265 +1033,76 @@
   (function(){
     const supportsTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     if (!supportsTouch) return;
-
     const closers = [];
-
     const attachTapToggle = (elements, className) => {
       elements.forEach((el) => {
         if (el.dataset.mobileBound === '1') return;
         el.dataset.mobileBound = '1';
-        if (!el.hasAttribute('tabindex')) {
-          el.setAttribute('tabindex', '0');
-        }
+        if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
         el.setAttribute('role', 'button');
         el.setAttribute('aria-expanded', 'false');
-
         const toggle = (event) => {
-          event.preventDefault();
-          event.stopPropagation();
+          event.preventDefault(); event.stopPropagation();
           const isOpen = el.classList.contains(className);
           closers.forEach((close) => close());
-          if (!isOpen) {
-            el.classList.add(className);
-            el.setAttribute('aria-expanded', 'true');
-          }
+          if (!isOpen) { el.classList.add(className); el.setAttribute('aria-expanded', 'true'); }
         };
-
         el.addEventListener('click', toggle);
-        el.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            toggle(event);
-          }
-        });
-
-        closers.push(() => {
-          el.classList.remove(className);
-          el.setAttribute('aria-expanded', 'false');
-        });
+        el.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') toggle(event); });
+        closers.push(() => { el.classList.remove(className); el.setAttribute('aria-expanded', 'false'); });
       });
     };
-
     const initTouchInteractions = () => {
       attachTapToggle(document.querySelectorAll('.service-hover-note'), 'is-open');
       attachTapToggle(document.querySelectorAll('.insight-hover-target'), 'is-open');
-
       const caseStudies = document.querySelectorAll('.card.case-study');
       caseStudies.forEach((card) => {
         if (card.dataset.mobileBound === '1') return;
         card.dataset.mobileBound = '1';
         card.setAttribute('aria-expanded', 'false');
-
-        const closeCard = () => {
-          card.classList.remove('is-open');
-          card.setAttribute('aria-expanded', 'false');
-        };
-
+        const closeCard = () => { card.classList.remove('is-open'); card.setAttribute('aria-expanded', 'false'); };
         const toggleCard = (event) => {
-          event.preventDefault();
-          event.stopPropagation();
+          event.preventDefault(); event.stopPropagation();
           const isOpen = card.classList.contains('is-open');
           closers.forEach((close) => close());
-          if (!isOpen) {
-            card.classList.add('is-open');
-            card.setAttribute('aria-expanded', 'true');
-          }
+          if (!isOpen) { card.classList.add('is-open'); card.setAttribute('aria-expanded', 'true'); }
         };
-
         card.addEventListener('click', toggleCard);
-        card.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            toggleCard(event);
-          }
-        });
-
+        card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') toggleCard(event); });
         closers.push(closeCard);
       });
     };
-
     initTouchInteractions();
     document.addEventListener('insights:updated', initTouchInteractions);
-
-    document.addEventListener('click', () => {
-      closers.forEach((close) => close());
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closers.forEach((close) => close());
-      }
-    });
+    document.addEventListener('click', () => { closers.forEach((close) => close()); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closers.forEach((close) => close()); });
   })();
 
   (function(){
     const logoTrack = document.getElementById('client-logo-track');
     if (!logoTrack) return;
-
-    if (logoTrack.dataset.loopReady !== '1') {
-      logoTrack.innerHTML += logoTrack.innerHTML;
-      logoTrack.dataset.loopReady = '1';
-    }
-
-    const tileLabel = (tile) => {
-      const label = tile.querySelector('.client-logo-label');
-      return label ? (label.textContent || '').trim() : '';
-    };
-    const normalizeCriticalAdjacency = () => {
-      const tiles = Array.from(logoTrack.querySelectorAll('.client-logo-tile'));
-      tiles.forEach((tile) => {
-        if (!/TD Bank/i.test(tileLabel(tile))) return;
-        let probe = tile.nextElementSibling;
-        while (probe) {
-          const probeLabel = tileLabel(probe);
-          if (/^Citi\b/i.test(probeLabel)) break;
-          const nextProbe = probe.nextElementSibling;
-          probe.remove();
-          probe = nextProbe;
-        }
-      });
-    };
-
+    if (logoTrack.dataset.loopReady !== '1') { logoTrack.innerHTML += logoTrack.innerHTML; logoTrack.dataset.loopReady = '1'; }
     logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
       const img = tile.querySelector('.client-logo-img');
       const src = img ? (img.getAttribute('src') || '').trim() : '';
-      if (!img || !src) {
-        tile.remove();
-        return;
-      }
+      if (!img || !src) { tile.remove(); return; }
       tile.classList.remove('no-image');
       const label = tile.querySelector('.client-logo-label');
       if (label) label.style.setProperty('display', 'none', 'important');
       const wrap = tile.querySelector('.client-logo-img-wrap');
       if (wrap) wrap.style.setProperty('display', 'flex', 'important');
     });
-    normalizeCriticalAdjacency();
-    const localHostnames = new Set(['localhost', '127.0.0.1', '::1', '']);
-    const attemptLocalLogos = () => {
-      if (!localHostnames.has(window.location.hostname)) return;
-      logoTrack.querySelectorAll('.client-logo-img[data-local-src]').forEach((img) => {
-        const localSrc = img.dataset.localSrc;
-        if (!localSrc) return;
-        const remoteSrc = img.dataset.remoteSrc || img.getAttribute('src');
-        const verifier = new Image();
-        verifier.onload = () => {
-          img.src = localSrc;
-        };
-        verifier.onerror = () => {
-          if (remoteSrc) {
-            img.src = remoteSrc;
-          }
-        };
-        verifier.src = localSrc;
-      });
-    };
-    attemptLocalLogos();
     const logoImages = logoTrack.querySelectorAll('.client-logo-img');
-    if (!logoImages.length) {
-      logoTrack.classList.add('is-ready');
-      return;
-    }
-    const preloadSrcs = new Set();
+    if (!logoImages.length) { logoTrack.classList.add('is-ready'); return; }
     let started = false;
-
-    const startAnimation = () => {
-      if (started) return;
-      started = true;
-      logoTrack.classList.add('is-ready');
-    };
-
-    const removeTilesForSrc = (targetSrc) => {
-      if (!targetSrc) return;
-      logoTrack.querySelectorAll('.client-logo-img').forEach((candidate) => {
-        const candidateSrc = (candidate.getAttribute('src') || '').trim();
-        if (candidateSrc !== targetSrc) return;
-        const candidateTile = candidate.closest('.client-logo-tile');
-        if (!candidateTile) return;
-        candidateTile.classList.add('no-image');
-        candidateTile.remove();
-      });
-    };
-
+    const startAnimation = () => { if (started) return; started = true; logoTrack.classList.add('is-ready'); };
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
-      const originalSrc = img.getAttribute('src') || '';
-      const fallbackSrc = (img.dataset.localSrc || '').trim();
-      let retriedOriginal = false;
-      let retriedFallback = false;
-
-      img.loading = 'eager';
-      img.decoding = 'async';
-      if (originalSrc) preloadSrcs.add(originalSrc);
-      if (fallbackSrc) preloadSrcs.add(fallbackSrc);
-
-      const markFallback = () => {
-        if (!tile.isConnected) return;
-        if (originalSrc) {
-          removeTilesForSrc(originalSrc);
-          return;
-        }
-        tile.classList.add('no-image');
-        tile.remove();
-      };
-      const clearFallback = () => {
-        tile.classList.remove('no-image');
-      };
-      const handleImageError = () => {
-        if (!retriedOriginal && originalSrc) {
-          retriedOriginal = true;
-          img.src = originalSrc;
-          return;
-        }
-        if (!retriedFallback && fallbackSrc) {
-          retriedFallback = true;
-          img.src = fallbackSrc;
-          return;
-        }
-        window.clearTimeout(failSafeTimer);
-        markFallback();
-      };
-      const validateLoadedImage = () => {
-        if (!img.complete) return;
-        if (!img.naturalWidth || !img.naturalHeight) {
-          handleImageError();
-          return;
-        }
-        if (img.naturalWidth <= 16 && img.naturalHeight <= 16) {
-          handleImageError();
-          return;
-        }
-        window.clearTimeout(failSafeTimer);
-        clearFallback();
-      };
-      const failSafeTimer = window.setTimeout(() => {
-        if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
-          markFallback();
-        }
-      }, 6500);
-
-      img.addEventListener('error', handleImageError);
-      img.addEventListener('load', validateLoadedImage);
-      validateLoadedImage();
+      img.loading = 'eager'; img.decoding = 'async';
+      img.addEventListener('error', () => { tile.remove(); });
+      img.addEventListener('load', () => { if (!img.naturalWidth) tile.remove(); });
     });
-
-    const preloadTasks = Array.from(preloadSrcs).map(
-      (src) =>
-        new Promise((resolve) => {
-          const probe = new Image();
-          let done = false;
-          const finish = () => {
-            if (done) return;
-            done = true;
-            window.clearTimeout(preloadTimer);
-            resolve();
-          };
-          const preloadTimer = window.setTimeout(finish, 4500);
-          probe.referrerPolicy = 'no-referrer';
-          probe.onload = finish;
-          probe.onerror = finish;
-          probe.src = src;
-        })
-    );
-
-    Promise.all(preloadTasks).then(startAnimation);
     window.setTimeout(startAnimation, 2500);
   })();
 
@@ -2618,46 +1121,21 @@
       spotlightTitle.textContent = entry.title || 'Fresh perspective on transformation';
       spotlightSummary.textContent = entry.summary || '';
       spotlightCategory.textContent = `${type} · ${category}`;
-      if (spotlightCta) {
-        spotlightCta.href = entry.url || '#insights';
-      }
+      if (spotlightCta) spotlightCta.href = entry.url || '#insights';
     };
-
     fetch('insights.json', { cache: 'no-store' })
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load insights');
-        return r.json();
-      })
+      .then(r => { if (!r.ok) throw new Error('Failed to load insights'); return r.json(); })
       .then(items => {
         if (!Array.isArray(items) || items.length === 0) return;
         const frag = document.createDocumentFragment();
         items.forEach((item, idx) => {
           const wrap = document.createElement('div');
-          wrap.className = 'insight-item';
-          if (idx === 0) {
-            wrap.classList.add('insight-hover-target');
-            wrap.setAttribute('data-hover-note', 'Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.');
-          } else if (idx === 1) {
-            wrap.classList.add('insight-hover-target');
-            wrap.setAttribute('data-hover-note', 'Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.');
-          } else if (idx === 2) {
-            wrap.classList.add('insight-hover-target');
-            wrap.setAttribute('data-hover-note', 'Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.');
-          }
-          const tag = document.createElement('div');
-          tag.className = 'insight-tag';
-          tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
-          const h4 = document.createElement('h4');
-          h4.textContent = item.title || '';
-          const p = document.createElement('p');
-          p.textContent = item.summary || '';
-          const note = document.createElement('div');
-          note.className = 'insight-note';
-          note.textContent = wrap.getAttribute('data-hover-note') || '';
-          wrap.appendChild(tag);
-          wrap.appendChild(h4);
-          wrap.appendChild(p);
-          wrap.appendChild(note);
+          wrap.className = 'insight-item insight-hover-target';
+          const tag = document.createElement('div'); tag.className = 'insight-tag'; tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
+          const h4 = document.createElement('h4'); h4.textContent = item.title || '';
+          const p = document.createElement('p'); p.textContent = item.summary || '';
+          const note = document.createElement('div'); note.className = 'insight-note'; note.textContent = item.hoverDesc || 'Read more for actionable insights.';
+          wrap.appendChild(tag); wrap.appendChild(h4); wrap.appendChild(p); wrap.appendChild(note);
           frag.appendChild(wrap);
         });
         listEl.appendChild(frag);
@@ -2666,16 +1144,14 @@
         applySpotlight(aiEntry || items[0]);
         document.dispatchEvent(new Event('insights:updated'));
       })
-      .catch(() => {
-        // Keep fallback visible on error
-      });
+      .catch(() => {});
   })();
 </script>
 
 <footer>
   <div class="footer-inner">
     <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
-    <div>Strategy · Transformation · Digital & AI · Risk</div>
+    <div>Strategy · Transformation · Digital &amp; AI · Risk</div>
   </div>
 </footer>
 </body>
